@@ -357,6 +357,25 @@ if test "$enable_hpx" = "yes"; then
    dnl libtool chooses static/shared output itself.  The component pkg-config
    dnl file's raw compiler -shared flag would override that choice.
    HPX_LIBS=`echo " $HPX_LIBS " | sed 's/ -shared / /g'`
+   AC_MSG_CHECKING([whether HPX and Boost headers match the installed libraries])
+   hpx_saved_CXXFLAGS=$CXXFLAGS
+   hpx_saved_CPPFLAGS=$CPPFLAGS
+   hpx_saved_LIBS=$LIBS
+   CXXFLAGS="$HPX_CFLAGS $CXXFLAGS"
+   LIBS="$HPX_LIBS $LIBS"
+   AC_LANG_PUSH([C++])
+   dnl Read both symbols from main so optimization cannot discard the check.
+   AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <hpx/config/version.hpp>]],
+      [[return hpx::HPX_CHECK_VERSION[0] + hpx::HPX_CHECK_BOOST_VERSION[0];]])],
+      [hpx_header_library_match=yes], [hpx_header_library_match=no])
+   AC_LANG_POP([C++])
+   CXXFLAGS=$hpx_saved_CXXFLAGS
+   CPPFLAGS=$hpx_saved_CPPFLAGS
+   LIBS=$hpx_saved_LIBS
+   AC_MSG_RESULT([$hpx_header_library_match])
+   if test "$hpx_header_library_match" != "yes"; then
+      AC_MSG_ERROR([HPX/Boost header and library link check failed; use matching HPX and Boost headers/libraries and check PKG_CONFIG_PATH (see config.log)])
+   fi
    AC_PATH_PROG([HPXRUN], [hpxrun.py])
    if test -z "$HPXRUN"; then
       AC_MSG_ERROR([hpxrun.py not found; add the HPX bin directory to PATH or set HPXRUN])

@@ -21219,6 +21219,53 @@ printf "%s\n" "yes" >&6; }
 
 fi
          HPX_LIBS=`echo " $HPX_LIBS " | sed 's/ -shared / /g'`
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking whether HPX and Boost headers match the installed libraries" >&5
+printf %s "checking whether HPX and Boost headers match the installed libraries... " >&6; }
+   hpx_saved_CXXFLAGS=$CXXFLAGS
+   hpx_saved_CPPFLAGS=$CPPFLAGS
+   hpx_saved_LIBS=$LIBS
+   CXXFLAGS="$HPX_CFLAGS $CXXFLAGS"
+   LIBS="$HPX_LIBS $LIBS"
+   ac_ext=cpp
+ac_cpp='$CXXCPP $CPPFLAGS'
+ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CXX -o conftest$ac_exeext $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+
+      cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+/* end confdefs.h.  */
+#include <hpx/config/version.hpp>
+int
+main (void)
+{
+return hpx::HPX_CHECK_VERSION[0] + hpx::HPX_CHECK_BOOST_VERSION[0];
+  ;
+  return 0;
+}
+_ACEOF
+if ac_fn_cxx_try_link "$LINENO"
+then :
+  hpx_header_library_match=yes
+else case e in #(
+  e) hpx_header_library_match=no ;;
+esac
+fi
+rm -f core conftest.err conftest.$ac_objext conftest.beam \
+    conftest$ac_exeext conftest.$ac_ext
+   ac_ext=c
+ac_cpp='$CPP $CPPFLAGS'
+ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS >&5'
+ac_compiler_gnu=$ac_cv_c_compiler_gnu
+
+   CXXFLAGS=$hpx_saved_CXXFLAGS
+   CPPFLAGS=$hpx_saved_CPPFLAGS
+   LIBS=$hpx_saved_LIBS
+   { printf "%s\n" "$as_me:${as_lineno-$LINENO}: result: $hpx_header_library_match" >&5
+printf "%s\n" "$hpx_header_library_match" >&6; }
+   if test "$hpx_header_library_match" != "yes"; then
+      as_fn_error $? "HPX/Boost header and library link check failed; use matching HPX and Boost headers/libraries and check PKG_CONFIG_PATH (see config.log)" "$LINENO" 5
+   fi
    # Extract the first word of "hpxrun.py", so it can be a program name with args.
 set dummy hpxrun.py; ac_word=$2
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
