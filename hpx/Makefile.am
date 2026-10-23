@@ -8,7 +8,7 @@ EXTRA_DIST = testsched.c hpx-run.sh README.md VALIDATION.md .clang-format
 if HPX
 lib_LTLIBRARIES = libfftw3@PREC_SUFFIX@_hpx.la
 include_HEADERS = fftw3-hpx.h
-noinst_PROGRAMS = hpx-bench hpx-comm-check
+noinst_PROGRAMS = hpx-bench hpx-comm-check hpx-message-check
 
 AM_CXXFLAGS = $(HPX_CFLAGS)
 
@@ -32,9 +32,15 @@ hpx_bench_CXXFLAGS = $(HPX_APP_CFLAGS)
 hpx_bench_SOURCES = hpx-bench.c hpx-bench-main.cpp $(top_srcdir)/tests/fftw-bench.c $(top_srcdir)/tests/hook.c
 hpx_bench_LDADD = libfftw3@PREC_SUFFIX@_hpx.la $(LIBFFTWTHREADS) $(top_builddir)/libfftw3@PREC_SUFFIX@.la $(top_builddir)/libbench2/libbench2.a $(HPX_APP_LIBS) $(THREADLIBS)
 
-hpx_comm_check_CXXFLAGS = $(HPX_APP_CFLAGS)
+hpx_comm_check_CXXFLAGS = $(HPX_APP_CFLAGS) -UNDEBUG
 hpx_comm_check_SOURCES = hpx-comm-check.cpp
 hpx_comm_check_LDADD = libfftw3@PREC_SUFFIX@_hpx.la $(LIBFFTWTHREADS) $(top_builddir)/libfftw3@PREC_SUFFIX@.la $(HPX_APP_LIBS) $(THREADLIBS)
+
+# This ordinary-main test includes hpx-comm.cpp directly. Linking the HPX
+# FFTW library here would duplicate its bridge symbols.
+hpx_message_check_CXXFLAGS = $(HPX_CFLAGS) -UNDEBUG
+hpx_message_check_SOURCES = hpx-message-check.cpp hpx-message-check.hpp
+hpx_message_check_LDADD = $(HPX_LIBS) $(THREADLIBS)
 
 CHECK = $(top_srcdir)/tests/check.pl
 NUMCHECK = 10
@@ -42,7 +48,8 @@ CHECKSIZE = 10000
 CHECKOPTS = --verbose --random --maxsize=$(CHECKSIZE) -c=$(NUMCHECK) $(CHECK_PL_OPTS)
 HPX_RUN = $(SHELL) $(srcdir)/hpx-run.sh "$(HPXRUN)"
 
-check-local: hpx-bench$(EXEEXT) hpx-comm-check$(EXEEXT)
+check-local: hpx-bench$(EXEEXT) hpx-comm-check$(EXEEXT) hpx-message-check$(EXEEXT)
+	./hpx-message-check$(EXEEXT)
 	$(HPX_RUN) 3 2 "$(abs_builddir)/hpx-comm-check$(EXEEXT)"
 	perl -w $(CHECK) $(CHECKOPTS) --mpi '$(HPX_RUN) 1 1 "$(abs_builddir)/hpx-bench$(EXEEXT)"'
 	@echo "HPX FFTW transforms passed $(NUMCHECK) tests, 1 locality, 1 thread"

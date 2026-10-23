@@ -78,6 +78,31 @@ MPI parcelport with TCP disabled. It needs an MPI-enabled HPX installation
 and an allocated compute job; the local TCP test results do not establish
 multi-server correctness. Cluster validation is reported separately.
 
+For the measured QueenBee 1024³ case with four localities and 64 workers each,
+use this startup profile with the allocated MPI launcher:
+
+```sh
+--hpx:localities=4 --hpx:threads=64 \
+--hpx:ini=hpx.parcel.mpi.enable=1 \
+--hpx:ini=hpx.parcel.mpi.priority=1000 \
+'--hpx:ini=hpx.parcel.tcp.enable!=0' \
+--hpx:ini=hpx.parcel.bootstrap=mpi \
+--hpx:ini=hpx.parcel.mpi.background_threads=1 \
+--hpx:ini=hpx.max_background_threads=1 \
+--hpx:ini=hpx.parcel.mpi.multithreaded=1 \
+--hpx:ini=hpx.max_idle_backoff_time=1000
+```
+
+These options must be applied when starting HPX, before `fftw_hpx_init()`.
+The library does not override the application's background-worker settings.
+The forced `!=0` TCP entry also works when that parcelport is compiled out.
+Keep MPI multithreading enabled. The tested Open MPI transport environment was
+`OMPI_MCA_pml=ucx`, `OMPI_MCA_btl=self,sm`, and `UCX_TLS=rc,sm,self`, with
+one unbound process per node and `numactl --interleave=all`. Use the
+[executed job and evidence](../benchmarks/queenbee/optimization/README.md)
+for the complete machine-specific launch. This profile was measured for that
+workload; other workloads may prefer different progress settings.
+
 ## Application contract
 
 Include `fftw3-hpx.h`. Run `hpx_main` on every locality, with the HPX setting
@@ -108,11 +133,21 @@ it does not create an HPX communicator. Splits gather colors and keys, order
 members by key then parent rank, and cache the resulting groups until cleanup.
 Each collective uses the group's next explicit generation. Point-to-point
 messages combine the original tag with a per-peer send/receive sequence and
-use `hpx::serialization::serialize_buffer<char>`. A remote send references
+use `hpx::serialization::serialize_buffer` with a receive allocator. A remote send references
 caller storage until its destination action completes; a self-send owns a
 copy so the caller can immediately reuse its source. The channel returns the
 buffer through shared ownership, avoiding a deep copy of the received block.
 Collective operations retain their owned byte-vector payloads.
+
+The receive allocator caches at most one idle block per precision, reusing it
+only for an exact byte-count match. It retains the larger block when multiple
+sizes return. A block becomes reusable only after its last message owner
+releases it; allocation never waits for a live message. This avoids repeatedly
+allocating the large pairwise-transpose payload without changing the FFTW
+schedule. The retained memory is at most the largest returned message per
+precision (1 GiB per locality in the matched 1024³ run), in addition to live
+messages. Cleanup frees idle storage and disables that pool epoch; late owners
+and old serialized epochs cannot refill a new initialization's pool.
 
 Pairwise exchange starts its send before awaiting its receive, waits for
 send completion, and then copies the incoming payload into FFTW's destination.
@@ -120,6 +155,12 @@ This ordering also supports overlapping source and destination buffers. The
 final receive copy remains; this is not direct reception into the FFTW array.
 The communication check covers source reuse after send, empty messages,
 self-sends, and exact/partial buffer overlap across repeated initialization.
+`make -C hpx check` also runs the standalone `hpx-message-check` first. It uses
+real HPX serialization archives to check last-owner recycling, exact-size reuse,
+retention of the largest idle block, and cleanup with live or delayed owners.
+The check targets force assertions on and reject a later `-DNDEBUG` instead of
+silently dropping assertions; if setting `CXXFLAGS` explicitly, put `-UNDEBUG`
+last when building these checks.
 
 The threaded-loop callback starts all but the final job with `hpx::async` on a
 large-stack executor, runs the final job inline, and waits with `hpx::wait_all`.

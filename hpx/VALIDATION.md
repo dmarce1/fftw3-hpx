@@ -1,5 +1,9 @@
 # fftw3-hpx local validation, 2026-10-22
 
+This historical report covers the initial port. The later pooled-receive
+implementation has [updated local validation](../benchmarks/queenbee/optimization/integration_validation/README.md)
+and [matched QueenBee results](../benchmarks/queenbee/optimization/README.md).
+
 This report covers the local HPX port of FFTW 3.3.11. The implementation
 under test is commit `6c4be8476dea600bab1fdaa8c5aa64f3fa32575f`; subsequent
 README/report changes do not alter the tested implementation. Local builds

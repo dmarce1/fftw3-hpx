@@ -94,7 +94,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@HPX_TRUE@noinst_PROGRAMS = hpx-bench$(EXEEXT) hpx-comm-check$(EXEEXT)
+@HPX_TRUE@noinst_PROGRAMS = hpx-bench$(EXEEXT) hpx-comm-check$(EXEEXT) \
+@HPX_TRUE@	hpx-message-check$(EXEEXT)
 subdir = hpx
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/acx_mpi.m4 \
@@ -218,6 +219,17 @@ hpx_comm_check_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
 	$(hpx_comm_check_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
+am__hpx_message_check_SOURCES_DIST = hpx-message-check.cpp \
+	hpx-message-check.hpp
+@HPX_TRUE@am_hpx_message_check_OBJECTS =  \
+@HPX_TRUE@	hpx_message_check-hpx-message-check.$(OBJEXT)
+hpx_message_check_OBJECTS = $(am_hpx_message_check_OBJECTS)
+@HPX_TRUE@hpx_message_check_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+@HPX_TRUE@	$(am__DEPENDENCIES_1)
+hpx_message_check_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CXX \
+	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CXXLD) \
+	$(hpx_message_check_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
+	$(LDFLAGS) -o $@
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -245,6 +257,7 @@ am__depfiles_remade = ./$(DEPDIR)/any-true.Plo ./$(DEPDIR)/api.Plo \
 	./$(DEPDIR)/hpx_bench-hpx-bench-main.Po \
 	./$(DEPDIR)/hpx_bench-hpx-bench.Po \
 	./$(DEPDIR)/hpx_comm_check-hpx-comm-check.Po \
+	./$(DEPDIR)/hpx_message_check-hpx-message-check.Po \
 	./$(DEPDIR)/rdft-problem.Plo \
 	./$(DEPDIR)/rdft-rank-geq2-transposed.Plo \
 	./$(DEPDIR)/rdft-rank-geq2.Plo \
@@ -296,10 +309,11 @@ am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 =
 SOURCES = $(libfftw3@PREC_SUFFIX@_hpx_la_SOURCES) $(hpx_bench_SOURCES) \
-	$(hpx_comm_check_SOURCES)
+	$(hpx_comm_check_SOURCES) $(hpx_message_check_SOURCES)
 DIST_SOURCES = $(am__libfftw3@PREC_SUFFIX@_hpx_la_SOURCES_DIST) \
 	$(am__hpx_bench_SOURCES_DIST) \
-	$(am__hpx_comm_check_SOURCES_DIST)
+	$(am__hpx_comm_check_SOURCES_DIST) \
+	$(am__hpx_message_check_SOURCES_DIST)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -519,9 +533,15 @@ EXTRA_DIST = testsched.c hpx-run.sh README.md VALIDATION.md .clang-format
 @HPX_TRUE@hpx_bench_CXXFLAGS = $(HPX_APP_CFLAGS)
 @HPX_TRUE@hpx_bench_SOURCES = hpx-bench.c hpx-bench-main.cpp $(top_srcdir)/tests/fftw-bench.c $(top_srcdir)/tests/hook.c
 @HPX_TRUE@hpx_bench_LDADD = libfftw3@PREC_SUFFIX@_hpx.la $(LIBFFTWTHREADS) $(top_builddir)/libfftw3@PREC_SUFFIX@.la $(top_builddir)/libbench2/libbench2.a $(HPX_APP_LIBS) $(THREADLIBS)
-@HPX_TRUE@hpx_comm_check_CXXFLAGS = $(HPX_APP_CFLAGS)
+@HPX_TRUE@hpx_comm_check_CXXFLAGS = $(HPX_APP_CFLAGS) -UNDEBUG
 @HPX_TRUE@hpx_comm_check_SOURCES = hpx-comm-check.cpp
 @HPX_TRUE@hpx_comm_check_LDADD = libfftw3@PREC_SUFFIX@_hpx.la $(LIBFFTWTHREADS) $(top_builddir)/libfftw3@PREC_SUFFIX@.la $(HPX_APP_LIBS) $(THREADLIBS)
+
+# This ordinary-main test includes hpx-comm.cpp directly. Linking the HPX
+# FFTW library here would duplicate its bridge symbols.
+@HPX_TRUE@hpx_message_check_CXXFLAGS = $(HPX_CFLAGS) -UNDEBUG
+@HPX_TRUE@hpx_message_check_SOURCES = hpx-message-check.cpp hpx-message-check.hpp
+@HPX_TRUE@hpx_message_check_LDADD = $(HPX_LIBS) $(THREADLIBS)
 @HPX_TRUE@CHECK = $(top_srcdir)/tests/check.pl
 @HPX_TRUE@NUMCHECK = 10
 @HPX_TRUE@CHECKSIZE = 10000
@@ -609,6 +629,10 @@ hpx-comm-check$(EXEEXT): $(hpx_comm_check_OBJECTS) $(hpx_comm_check_DEPENDENCIES
 	@rm -f hpx-comm-check$(EXEEXT)
 	$(AM_V_CXXLD)$(hpx_comm_check_LINK) $(hpx_comm_check_OBJECTS) $(hpx_comm_check_LDADD) $(LIBS)
 
+hpx-message-check$(EXEEXT): $(hpx_message_check_OBJECTS) $(hpx_message_check_DEPENDENCIES) $(EXTRA_hpx_message_check_DEPENDENCIES)
+	@rm -f hpx-message-check$(EXEEXT)
+	$(AM_V_CXXLD)$(hpx_message_check_LINK) $(hpx_message_check_OBJECTS) $(hpx_message_check_LDADD) $(LIBS)
+
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
 
@@ -634,6 +658,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hpx_bench-hpx-bench-main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hpx_bench-hpx-bench.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hpx_comm_check-hpx-comm-check.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/hpx_message_check-hpx-message-check.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rdft-problem.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rdft-rank-geq2-transposed.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/rdft-rank-geq2.Plo@am__quote@ # am--include-marker
@@ -770,6 +795,20 @@ hpx_comm_check-hpx-comm-check.obj: hpx-comm-check.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hpx-comm-check.cpp' object='hpx_comm_check-hpx-comm-check.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(hpx_comm_check_CXXFLAGS) $(CXXFLAGS) -c -o hpx_comm_check-hpx-comm-check.obj `if test -f 'hpx-comm-check.cpp'; then $(CYGPATH_W) 'hpx-comm-check.cpp'; else $(CYGPATH_W) '$(srcdir)/hpx-comm-check.cpp'; fi`
+
+hpx_message_check-hpx-message-check.o: hpx-message-check.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(hpx_message_check_CXXFLAGS) $(CXXFLAGS) -MT hpx_message_check-hpx-message-check.o -MD -MP -MF $(DEPDIR)/hpx_message_check-hpx-message-check.Tpo -c -o hpx_message_check-hpx-message-check.o `test -f 'hpx-message-check.cpp' || echo '$(srcdir)/'`hpx-message-check.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/hpx_message_check-hpx-message-check.Tpo $(DEPDIR)/hpx_message_check-hpx-message-check.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hpx-message-check.cpp' object='hpx_message_check-hpx-message-check.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(hpx_message_check_CXXFLAGS) $(CXXFLAGS) -c -o hpx_message_check-hpx-message-check.o `test -f 'hpx-message-check.cpp' || echo '$(srcdir)/'`hpx-message-check.cpp
+
+hpx_message_check-hpx-message-check.obj: hpx-message-check.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(hpx_message_check_CXXFLAGS) $(CXXFLAGS) -MT hpx_message_check-hpx-message-check.obj -MD -MP -MF $(DEPDIR)/hpx_message_check-hpx-message-check.Tpo -c -o hpx_message_check-hpx-message-check.obj `if test -f 'hpx-message-check.cpp'; then $(CYGPATH_W) 'hpx-message-check.cpp'; else $(CYGPATH_W) '$(srcdir)/hpx-message-check.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/hpx_message_check-hpx-message-check.Tpo $(DEPDIR)/hpx_message_check-hpx-message-check.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='hpx-message-check.cpp' object='hpx_message_check-hpx-message-check.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(hpx_message_check_CXXFLAGS) $(CXXFLAGS) -c -o hpx_message_check-hpx-message-check.obj `if test -f 'hpx-message-check.cpp'; then $(CYGPATH_W) 'hpx-message-check.cpp'; else $(CYGPATH_W) '$(srcdir)/hpx-message-check.cpp'; fi`
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -947,6 +986,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/hpx_bench-hpx-bench-main.Po
 	-rm -f ./$(DEPDIR)/hpx_bench-hpx-bench.Po
 	-rm -f ./$(DEPDIR)/hpx_comm_check-hpx-comm-check.Po
+	-rm -f ./$(DEPDIR)/hpx_message_check-hpx-message-check.Po
 	-rm -f ./$(DEPDIR)/rdft-problem.Plo
 	-rm -f ./$(DEPDIR)/rdft-rank-geq2-transposed.Plo
 	-rm -f ./$(DEPDIR)/rdft-rank-geq2.Plo
@@ -1029,6 +1069,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/hpx_bench-hpx-bench-main.Po
 	-rm -f ./$(DEPDIR)/hpx_bench-hpx-bench.Po
 	-rm -f ./$(DEPDIR)/hpx_comm_check-hpx-comm-check.Po
+	-rm -f ./$(DEPDIR)/hpx_message_check-hpx-message-check.Po
 	-rm -f ./$(DEPDIR)/rdft-problem.Plo
 	-rm -f ./$(DEPDIR)/rdft-rank-geq2-transposed.Plo
 	-rm -f ./$(DEPDIR)/rdft-rank-geq2.Plo
@@ -1087,7 +1128,8 @@ uninstall-am: uninstall-includeHEADERS uninstall-libLTLIBRARIES
 .PRECIOUS: Makefile
 
 
-@HPX_TRUE@check-local: hpx-bench$(EXEEXT) hpx-comm-check$(EXEEXT)
+@HPX_TRUE@check-local: hpx-bench$(EXEEXT) hpx-comm-check$(EXEEXT) hpx-message-check$(EXEEXT)
+@HPX_TRUE@	./hpx-message-check$(EXEEXT)
 @HPX_TRUE@	$(HPX_RUN) 3 2 "$(abs_builddir)/hpx-comm-check$(EXEEXT)"
 @HPX_TRUE@	perl -w $(CHECK) $(CHECKOPTS) --mpi '$(HPX_RUN) 1 1 "$(abs_builddir)/hpx-bench$(EXEEXT)"'
 @HPX_TRUE@	@echo "HPX FFTW transforms passed $(NUMCHECK) tests, 1 locality, 1 thread"

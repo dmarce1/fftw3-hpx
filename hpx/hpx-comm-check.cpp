@@ -32,6 +32,10 @@
 #include "config.h"
 #include "hpx-comm.h"
 
+#ifdef NDEBUG
+#error The HPX communication check requires assertions enabled; compile with -UNDEBUG last
+#endif
+
 namespace
 {
 void stage(int const rank, int const cycle, char const * const description)

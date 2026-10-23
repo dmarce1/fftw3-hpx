@@ -25,6 +25,7 @@
 #include <functional>
 #include <limits>
 #include <memory>
+#include <mutex>
 #include <numeric>
 #include <stddef.h>
 #include <string>
@@ -51,10 +52,205 @@
 #include "config.h"
 #include "hpx-comm.h"
 
+#if defined(FFTW_SINGLE)
+namespace fftwf_hpx_pool_transport
+#elif defined(FFTW_LDOUBLE)
+namespace fftwl_hpx_pool_transport
+#else
+namespace fftw_hpx_pool_transport
+#endif
+{
+// Experimental receive allocation cache. Each precision owns a separate pool
+// and retains at most one idle block, no larger than its largest returned block.
+// Blocks still owned by a Message are never available for reuse.
+struct ReceivePool
+{
+    size_t const epoch;
+
+    explicit ReceivePool(size_t const value) : epoch(value)
+    {
+    }
+
+    ~ReceivePool()
+    {
+        delete[] cached;
+    }
+
+    char * allocate(size_t const bytes)
+    {
+        if (bytes != 0)
+        {
+            std::lock_guard<std::mutex> const lock(mutex);
+            if (active && cached != nullptr && cachedBytes == bytes)
+            {
+                char * const result = cached;
+                cached = nullptr;
+                cachedBytes = 0;
+                return result;
+            }
+        }
+        // A miss never waits for an outstanding Message to release a block.
+        return new char[bytes];
+    }
+
+    void deallocate(char * data, size_t const bytes) noexcept
+    {
+        if (bytes != 0)
+        {
+            std::lock_guard<std::mutex> const lock(mutex);
+            if (active && (cached == nullptr || bytes > cachedBytes))
+            {
+                std::swap(data, cached);
+                cachedBytes = bytes;
+            }
+        }
+        // Potentially expensive heap release never holds the pool mutex.
+        delete[] data;
+    }
+
+    void disable() noexcept
+    {
+        char * discarded = nullptr;
+        {
+            std::lock_guard<std::mutex> const lock(mutex);
+            active = false;
+            std::swap(discarded, cached);
+            cachedBytes = 0;
+        }
+        delete[] discarded;
+    }
+
+private:
+    std::mutex mutex;
+    char * cached = nullptr;
+    size_t cachedBytes = 0;
+    bool active = true;
+};
+
+struct ReceivePoolRegistry
+{
+    std::mutex mutex;
+    std::shared_ptr<ReceivePool> current;
+};
+
+ReceivePoolRegistry & receivePoolRegistry()
+{
+    static ReceivePoolRegistry registry;
+    return registry;
+}
+
+std::shared_ptr<ReceivePool> currentReceivePool()
+{
+    auto & registry = receivePoolRegistry();
+    std::lock_guard<std::mutex> const lock(registry.mutex);
+    return registry.current;
+}
+
+std::shared_ptr<ReceivePool> receivePoolForEpoch(size_t const epoch)
+{
+    auto pool = currentReceivePool();
+    return pool && pool->epoch == epoch ? pool : nullptr;
+}
+
+void startReceivePool(size_t const epoch)
+{
+    auto pool = std::make_shared<ReceivePool>(epoch);
+    auto & registry = receivePoolRegistry();
+    std::lock_guard<std::mutex> const lock(registry.mutex);
+    assert(!registry.current);
+    registry.current = std::move(pool);
+}
+
+void stopReceivePool()
+{
+    std::shared_ptr<ReceivePool> previous;
+    {
+        auto & registry = receivePoolRegistry();
+        std::lock_guard<std::mutex> const lock(registry.mutex);
+        previous = std::move(registry.current);
+    }
+    if (previous)
+    {
+        // Outstanding allocators retain this disabled epoch. Their late
+        // deallocations go to the heap instead of refilling any cache.
+        previous->disable();
+    }
+}
+
+class ReceiveAllocator
+{
+public:
+    using value_type = char;
+
+    ReceiveAllocator() : pool(currentReceivePool()), epoch(pool ? pool->epoch : 0)
+    {
+    }
+
+    char * allocate(size_t const bytes)
+    {
+        return pool ? pool->allocate(bytes) : new char[bytes];
+    }
+
+    void deallocate(char * const data, size_t const bytes) noexcept
+    {
+        if (pool)
+        {
+            pool->deallocate(data, bytes);
+        }
+        else
+        {
+            delete[] data;
+        }
+    }
+
+    bool operator==(ReceiveAllocator const & other) const noexcept
+    {
+        return pool == other.pool;
+    }
+
+    bool operator!=(ReceiveAllocator const & other) const noexcept
+    {
+        return !(*this == other);
+    }
+
+private:
+    friend class hpx::serialization::access;
+
+    template <typename Archive>
+    void save(Archive & archive, unsigned int const) const
+    {
+        // Never send a pointer or an allocator's process-local shared state.
+        archive << epoch;
+    }
+
+    template <typename Archive>
+    void load(Archive & archive, unsigned int const)
+    {
+        archive >> epoch;
+        // A delayed old-epoch parcel must not repopulate a newer pool.
+        pool = receivePoolForEpoch(epoch);
+    }
+
+    HPX_SERIALIZATION_SPLIT_MEMBER()
+
+    std::shared_ptr<ReceivePool> pool;
+    size_t epoch;
+};
+
+} // namespace: unique transport types for each precision
+
 namespace
 {
+#if defined(FFTW_SINGLE)
+namespace pool_transport = fftwf_hpx_pool_transport;
+#elif defined(FFTW_LDOUBLE)
+namespace pool_transport = fftwl_hpx_pool_transport;
+#else
+namespace pool_transport = fftw_hpx_pool_transport;
+#endif
 using Bytes = std::vector<char>;
-using Message = hpx::serialization::serialize_buffer<char>;
+using Message =
+    hpx::serialization::serialize_buffer<char, pool_transport::ReceiveAllocator>;
 namespace collectives = hpx::collectives;
 
 #if defined(FFTW_SINGLE)
@@ -262,6 +458,7 @@ try
         assert(worldEpoch < std::numeric_limits<size_t>::max());
         std::string const basename = std::string(precisionPrefix) + "/world/e" +
             std::to_string(++worldEpoch);
+        pool_transport::startReceivePool(worldEpoch);
         world = std::make_unique<fftw_hpx_comm_s>();
         world->group = std::make_shared<Group>(basename, rank, std::move(members));
     }
@@ -274,6 +471,7 @@ catch (...)
 extern "C" void FFTW_HPX_COMM_FN(comm_cleanup)(void)
 try
 {
+    pool_transport::stopReceivePool();
     splitGroups.clear();
     world.reset();
 }
