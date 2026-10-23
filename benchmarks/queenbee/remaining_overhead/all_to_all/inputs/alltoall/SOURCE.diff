@@ -1,0 +1,363 @@
+diff --git a/hpx/hpx-comm-check.cpp b/hpx/hpx-comm-check.cpp
+index 9dffeaf..c9cd197 100644
+--- a/hpx/hpx-comm-check.cpp
++++ b/hpx/hpx-comm-check.cpp
+@@ -331,6 +331,67 @@ void checkVariableExchange(fftw_hpx_comm const world, int const rank,
+                                 empty.data(), empty.data(), 1, world);
+ }
+ 
++void checkTransposeExchange(fftw_hpx_comm const world, int const rank,
++                            int const size)
++{
++    for (int const active : {0, 1, size - 1, size})
++    {
++        for (int iteration = 0; iteration < 3; ++iteration)
++        {
++            for (bool const overlap : {false, true})
++            {
++                auto const count = [iteration](int const source,
++                                               int const destination) {
++                    return (2 * source + destination + iteration) % 5;
++                };
++                auto const value = [iteration](int const source,
++                                               int const destination,
++                                               int const index) {
++                    return 100000 * iteration + 1000 * source +
++                        10 * destination + index;
++                };
++                std::vector<ptrdiff_t> sendCounts(active, 0);
++                std::vector<ptrdiff_t> sendOffsets(active, 0);
++                std::vector<ptrdiff_t> receiveCounts(active, 0);
++                std::vector<ptrdiff_t> receiveOffsets(active, 0);
++                std::vector<int> source(9 * static_cast<size_t>(active) + 32, -7);
++                std::vector<int> destination(source.size(), -9);
++                for (int peer = 0; peer < active; ++peer)
++                {
++                    sendOffsets[peer] = 2 + 7 * (active - 1 - peer);
++                    receiveOffsets[peer] = 3 + 9 * peer;
++                    if (rank < active)
++                    {
++                        sendCounts[peer] = count(rank, peer);
++                        receiveCounts[peer] = count(peer, rank);
++                    }
++                    for (int index = 0; index < sendCounts[peer]; ++index)
++                    {
++                        source[sendOffsets[peer] + index] = value(rank, peer, index);
++                    }
++                }
++                std::vector<int> & target = overlap ? source : destination;
++                std::vector<int> expected = target;
++                for (int peer = 0; peer < active; ++peer)
++                {
++                    for (int index = 0; index < receiveCounts[peer]; ++index)
++                    {
++                        expected[receiveOffsets[peer] + index] = value(peer, rank, index);
++                    }
++                }
++                FFTW_HPX_COMM_FN(transpose_alltoallv)(
++                    active == 0 ? nullptr : source.data(), sendCounts.data(),
++                    sendOffsets.data(), active == 0 ? nullptr : target.data(),
++                    receiveCounts.data(), receiveOffsets.data(), sizeof(int),
++                    active, world);
++                // Compare untouched gaps too: an in-place receive must not
++                // overwrite a later outgoing block before it has been packed.
++                assert(target == expected);
++            }
++        }
++    }
++}
++
+ struct Job
+ {
+     std::atomic<int> calls{0};
+@@ -407,6 +468,8 @@ void checkCommunication()
+         checkRendezvousMatching(world, rank, size, cycle);
+         stage(rank, cycle, "variable all-to-all byte counts");
+         checkVariableExchange(world, rank, size);
++        stage(rank, cycle, "wide transpose all-to-all, overlap and inactive ranks");
++        checkTransposeExchange(world, rank, size);
+         stage(rank, cycle, "thread callback and nested large stacks");
+         checkThreadCallback();
+         assert(FFTW_HPX_COMM_FN(allreduce_int)(1, FFTW_HPX_LAND, world) == 1);
+diff --git a/hpx/hpx-comm.cpp b/hpx/hpx-comm.cpp
+index 7e10fa2..aa51d39 100644
+--- a/hpx/hpx-comm.cpp
++++ b/hpx/hpx-comm.cpp
+@@ -17,9 +17,11 @@
+  */
+ 
+ #include <algorithm>
++#include <atomic>
+ #include <cassert>
+ #include <cstdint>
+ #include <cstdio>
++#include <cstdlib>
+ #include <cstring>
+ #include <exception>
+ #include <functional>
+@@ -568,6 +570,9 @@ namespace
+ std::unique_ptr<fftw_hpx_comm_s> world;
+ std::unordered_map<std::string, std::shared_ptr<Group>> splitGroups;
+ size_t worldEpoch = 0;
++bool useCollectiveTranspose = false;
++bool reportTransposeExchange = false;
++std::atomic<size_t> collectiveTransposeCount{0};
+ 
+ Group & groupOf(fftw_hpx_comm const comm)
+ {
+@@ -680,6 +685,55 @@ std::vector<Bytes> exchangeAll(Group & group, std::vector<Bytes> blocks)
+         collectives::this_site_arg(group.rank), group.nextGeneration());
+ }
+ 
++void initializeTransposeExchange(Group & group)
++{
++    char const * const setting = std::getenv("FFTW_HPX_TRANSPOSE_EXCHANGE");
++    int const mode = setting == nullptr || std::strcmp(setting, "pairwise") == 0
++        ? 0 : std::strcmp(setting, "all_to_all") == 0 ? 1 : -1;
++    // Invalid settings still enter the same collective on every locality.
++    // Otherwise one rank could abort while another waits for mode validation.
++    auto const modes = gatherAll(group, mode);
++    if (std::any_of(modes.begin(), modes.end(),
++                   [mode](int const value) { return value < 0 || value != mode; }))
++    {
++        throw std::invalid_argument(
++            "FFTW_HPX_TRANSPOSE_EXCHANGE must be pairwise or all_to_all "
++            "and agree on every locality");
++    }
++    useCollectiveTranspose = mode == 1;
++    reportTransposeExchange = setting != nullptr;
++    collectiveTransposeCount.store(0, std::memory_order_relaxed);
++}
++
++struct TransposeRange
++{
++    size_t offset;
++    size_t bytes;
++};
++
++TransposeRange transposeRange(ptrdiff_t const count, ptrdiff_t const offset,
++                              size_t const elementSize)
++{
++    if (count < 0 || offset < 0 || elementSize == 0)
++    {
++        throw std::invalid_argument("invalid all-to-all transpose range");
++    }
++    size_t const size = static_cast<size_t>(count);
++    size_t const displacement = static_cast<size_t>(offset);
++    size_t const limit = std::numeric_limits<size_t>::max();
++    if (size > limit / elementSize || displacement > limit / elementSize)
++    {
++        throw std::overflow_error("all-to-all transpose byte range overflow");
++    }
++    size_t const bytes = size * elementSize;
++    size_t const byteOffset = displacement * elementSize;
++    if (byteOffset > limit - bytes)
++    {
++        throw std::overflow_error("all-to-all transpose end offset overflow");
++    }
++    return {byteOffset, bytes};
++}
++
+ void runJobs(void * (*work)(char *), char * const jobData,
+              size_t const elementSize, int const jobCount)
+ {
+@@ -716,6 +770,7 @@ try
+         transport::pool_transport::startReceivePool(worldEpoch);
+         world = std::make_unique<fftw_hpx_comm_s>();
+         world->group = std::make_shared<Group>(basename, rank, std::move(members));
++        initializeTransposeExchange(groupOf(world.get()));
+     }
+ }
+ catch (...)
+@@ -728,8 +783,17 @@ try
+ {
+     transport::ensureNoReceives();
+     transport::pool_transport::stopReceivePool();
++    if (world && reportTransposeExchange)
++    {
++        std::fprintf(stderr,
++                     "FFTW_HPX_TRANSPOSE rank=%d mode=%s exchange_calls=%zu\n",
++                     groupOf(world.get()).rank,
++                     useCollectiveTranspose ? "all_to_all" : "pairwise",
++                     collectiveTransposeCount.load(std::memory_order_relaxed));
++    }
+     splitGroups.clear();
+     world.reset();
++    reportTransposeExchange = false;
+ }
+ catch (...)
+ {
+@@ -1005,6 +1069,84 @@ catch (...)
+     terminateBridge();
+ }
+ 
++extern "C" int FFTW_HPX_COMM_FN(transpose_exchange_mode)(void)
++{
++    assert(world);
++    return useCollectiveTranspose ? 1 : 0;
++}
++
++extern "C" void FFTW_HPX_COMM_FN(transpose_alltoallv)(
++    void const * const sendData, ptrdiff_t const * const sendCounts,
++    ptrdiff_t const * const sendOffsets, void * const receiveData,
++    ptrdiff_t const * const receiveCounts,
++    ptrdiff_t const * const receiveOffsets, size_t const elementSize,
++    int const activePeers, fftw_hpx_comm const comm)
++try
++{
++    Group & group = groupOf(comm);
++    if (activePeers < 0 || activePeers > group.size ||
++        (activePeers != 0 && (sendCounts == nullptr || sendOffsets == nullptr ||
++                             receiveCounts == nullptr || receiveOffsets == nullptr)))
++    {
++        throw std::invalid_argument("invalid all-to-all transpose block list");
++    }
++    std::vector<Bytes> blocks(static_cast<size_t>(group.size));
++    std::vector<TransposeRange> receiveRanges(static_cast<size_t>(group.size),
++                                              TransposeRange{0, 0});
++    for (int peer = 0; peer < activePeers; ++peer)
++    {
++        auto const sendRange =
++            transposeRange(sendCounts[peer], sendOffsets[peer], elementSize);
++        auto const receiveRange = transposeRange(
++            receiveCounts[peer], receiveOffsets[peer], elementSize);
++        if (group.rank >= activePeers &&
++            (sendRange.bytes != 0 || receiveRange.bytes != 0))
++        {
++            throw std::invalid_argument("inactive transpose rank has data");
++        }
++        if ((sendRange.bytes != 0 && sendData == nullptr) ||
++            (receiveRange.bytes != 0 && receiveData == nullptr))
++        {
++            throw std::invalid_argument("null all-to-all transpose buffer");
++        }
++        receiveRanges[peer] = receiveRange;
++        if (sendRange.bytes != 0)
++        {
++            blocks[peer] = copyBytes(offsetBytes(sendData, sendRange.offset),
++                                     sendRange.bytes);
++        }
++    }
++    // Every source block, including the self block, is owned before any
++    // destination is modified. This preserves overlapping and in-place arrays.
++    // Peers beyond activePeers contribute empty blocks but still participate.
++    blocks = exchangeAll(group, std::move(blocks));
++    if (blocks.size() != static_cast<size_t>(group.size))
++    {
++        throw std::length_error("all-to-all transpose block count mismatch");
++    }
++    for (int peer = 0; peer < group.size; ++peer)
++    {
++        if (blocks[peer].size() != receiveRanges[peer].bytes)
++        {
++            throw std::length_error("all-to-all transpose byte count mismatch");
++        }
++    }
++    for (int peer = 0; peer < activePeers; ++peer)
++    {
++        auto const range = receiveRanges[peer];
++        if (range.bytes != 0)
++        {
++            receiveBytes(offsetBytes(receiveData, range.offset), range.bytes,
++                         blocks[peer]);
++        }
++    }
++    collectiveTransposeCount.fetch_add(1, std::memory_order_relaxed);
++}
++catch (...)
++{
++    terminateBridge();
++}
++
+ extern "C" void FFTW_HPX_COMM_FN(send)(void const * const data,
+                                        size_t const count,
+                                        size_t const elementSize,
+diff --git a/hpx/hpx-comm.h b/hpx/hpx-comm.h
+index 6b353e7..baf7f47 100644
+--- a/hpx/hpx-comm.h
++++ b/hpx/hpx-comm.h
+@@ -60,6 +60,12 @@ extern "C"
+                                     fftw_hpx_comm);
+     void FFTW_HPX_COMM_FN(alltoallv)(void const *, int const *, int const *, size_t, void *,
+                                      int const *, int const *, size_t, fftw_hpx_comm);
++    /* Experimental exchange for the existing pairwise transpose's local plan.
++       All communicator ranks participate, including ranks with no blocks. */
++    int FFTW_HPX_COMM_FN(transpose_exchange_mode)(void);
++    void FFTW_HPX_COMM_FN(transpose_alltoallv)(
++        void const *, ptrdiff_t const *, ptrdiff_t const *, void *,
++        ptrdiff_t const *, ptrdiff_t const *, size_t, int, fftw_hpx_comm);
+     void FFTW_HPX_COMM_FN(send)(void const *, size_t, size_t, int, int, fftw_hpx_comm);
+     void FFTW_HPX_COMM_FN(recv)(void *, size_t, size_t, int, int, fftw_hpx_comm);
+     void FFTW_HPX_COMM_FN(sendrecv)(void const *, size_t, size_t, int, int, void *, size_t, size_t,
+diff --git a/hpx/transpose-pairwise.c b/hpx/transpose-pairwise.c
+index 3bdcd55..7947d50 100644
+--- a/hpx/transpose-pairwise.c
++++ b/hpx/transpose-pairwise.c
+@@ -45,13 +45,21 @@ typedef struct {
+      INT *recv_block_sizes, *recv_block_offsets;
+      fftw_hpx_comm comm;
+      int preserve_input;
++     int collective_exchange;
+ } P;
+ 
+ static void transpose_chunks(int *sched, int n_pes, int my_pe,
+ 			     INT *sbs, INT *sbo, INT *rbs, INT *rbo,
+ 			     fftw_hpx_comm comm,
+-			     R *I, R *O)
++			     R *I, R *O, int collective_exchange)
+ {
++     if (collective_exchange) {
++          /* Pack all outgoing blocks before overwriting any part of I == O.
++             Even a rank with sched == 0 participates in this collective. */
++          XM(transpose_alltoallv)(I, sbs, sbo, O, rbs, rbo, sizeof(R),
++                                 n_pes, comm);
++          return;
++     }
+      if (sched) {
+ 	  int i;
+ 
+@@ -115,14 +123,14 @@ static void apply(const plan *ego_, R *I, R *O)
+ 	  transpose_chunks(ego->sched, ego->n_pes, ego->my_pe,
+ 			   ego->send_block_sizes, ego->send_block_offsets,
+ 			   ego->recv_block_sizes, ego->recv_block_offsets,
+-			   ego->comm, O, I);
++			   ego->comm, O, I, ego->collective_exchange);
+      }
+      else if (ego->preserve_input) {
+ 	  /* transpose chunks globally */
+ 	  transpose_chunks(ego->sched, ego->n_pes, ego->my_pe,
+ 			   ego->send_block_sizes, ego->send_block_offsets,
+ 			   ego->recv_block_sizes, ego->recv_block_offsets,
+-			   ego->comm, I, O);
++			   ego->comm, I, O, ego->collective_exchange);
+ 
+ 	  I = O;
+      }
+@@ -131,7 +139,7 @@ static void apply(const plan *ego_, R *I, R *O)
+ 	  transpose_chunks(ego->sched, ego->n_pes, ego->my_pe,
+ 			   ego->send_block_sizes, ego->send_block_offsets,
+ 			   ego->recv_block_sizes, ego->recv_block_offsets,
+-			   ego->comm, I, I);
++			   ego->comm, I, I, ego->collective_exchange);
+      }
+ 
+      /* transpose locally, again, to get ordinary row-major;
+@@ -187,8 +195,9 @@ static void destroy(plan *ego_)
+ static void print(const plan *ego_, printer *p)
+ {
+      const P *ego = (const P *) ego_;
+-     p->print(p, "(hpx-transpose-pairwise%s%(%p%)%(%p%)%(%p%)%(%p%))",
++     p->print(p, "(hpx-transpose-pairwise%s%s%(%p%)%(%p%)%(%p%)%(%p%))",
+ 	      ego->preserve_input==2 ?"/p":"",
++              ego->collective_exchange ? "/all_to_all" : "",
+ 	      ego->cld1, ego->cld2, ego->cld2rest, ego->cld3);
+ }
+ 
+@@ -409,6 +418,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
+      pln->rest_Ooff = rest_Ooff;
+      pln->cld3 = cld3;
+      pln->preserve_input = ego->preserve_input ? 2 : NO_DESTROY_INPUTP(plnr);
++     pln->collective_exchange = XM(transpose_exchange_mode)();
+ 
+      XM(comm_dup)(p->comm, &pln->comm);
+ 

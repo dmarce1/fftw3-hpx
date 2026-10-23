@@ -9,6 +9,8 @@
 *.err -whitespace linguist-generated=true
 *.svg -whitespace linguist-generated=true
 # Frozen source/configuration snapshots retain upstream and generated whitespace.
+all_to_all/inputs/alltoall/SOURCE.diff -whitespace linguist-generated=true
+all_to_all/inputs/alltoall/source/** -whitespace linguist-generated=true
 integration/archive_snapshot.py -whitespace
 integration/validated_inputs/** -whitespace linguist-generated=true
 lean_hpx/1125886/lean-config_strings.hpp -whitespace linguist-generated=true

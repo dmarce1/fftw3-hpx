@@ -348,6 +348,40 @@ HPX/MPI overhead is unresolved. This extension brought QueenBee access to
 **6 of the original 12 authorized login attempts**; its raw status file has
 one legacy-named, byte-identical copy, as documented in the linked package.
 
+## HPX all-to-all transpose: job 1126247
+
+The [all-to-all comparison](all_to_all/README.md) changed the global exchange
+within the existing in-place transpose plan, retaining the same local FFT
+and transpose subplans. Both HPX modes used one executable, a 10 ms idle
+backoff cap, four physical nodes, one locality per node, and 64 workers.
+The MPI control and the 1024³ double-complex FFTW_ESTIMATE workload were
+unchanged. HPX itself was unchanged; MPI/UCX carried the data and TCP remained
+compiled out and disabled.
+
+| Case, in executed order | Median seconds |
+| --- | ---: |
+| FFTW-MPI, start | 3.352854357 |
+| HPX pairwise | 3.498045230 |
+| HPX all-to-all | 12.786193686 |
+| HPX all-to-all repeated | 12.804769315 |
+| HPX pairwise repeated | 3.499442670 |
+| FFTW-MPI, end | 3.371002973 |
+
+All-to-all took **3.65–3.66× the pairwise time** and **3.79–3.82× the MPI
+time**. Repeated medians changed by 0.145% for all-to-all, 0.040% for
+pairwise, and 0.541% for MPI. The substantial slowdown is reproduced within
+this allocation, so pairwise remains the default. The collective packs owned
+blocks, coordinates exchange at one locality, and copies received blocks into
+FFTW storage. These are source-confirmed differences; this run does not
+separately measure their individual timing contributions.
+
+All 42 primary samples, 18 primary numerical checks, 12 preliminary numerical
+checks, eight rank-level communication passes, normalized local plans, and
+source/binary checks passed. Slurm confirms completion with exit `0:0`.
+The linked report retains the accounting and limits of its memory readings.
+This comparison used **7 of the original 12 authorized login attempts** in
+total; completion checks and transfers reused the existing connection.
+
 ## Validation and provenance
 
 The selected bridge SHA256 is

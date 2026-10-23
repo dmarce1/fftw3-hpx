@@ -1,0 +1,1 @@
+timeout --kill-after=10s 180s env FFTW_HPX_TRANSPOSE_EXCHANGE=all_to_all sh hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 4 2 /home/dmarce1/workspace/fftw3-hpx/build/double/hpx/hpx-bench -o estimate -o nthreads=2 --verify ifc2x2x2 --verify ibc2x2x2 --verify ofc2x2x2 

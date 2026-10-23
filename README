@@ -2,8 +2,8 @@ fftw3-hpx (2026-10-23)
 =====================
 
 The hpx/ directory ports FFTW 3.3.11's distributed-memory library to HPX
-localities, collectives and channels, retaining the original algorithms and
-planner hooks. FFTW's existing thread callback runs worker jobs on HPX
+localities, collectives and channels. The default path retains the original
+algorithms and planner hooks. FFTW's existing thread callback runs worker jobs on HPX
 large-stack threads. Configure with --enable-hpx --enable-threads and the HPX
 pkg-config path; double, single and long-double precision are supported.
 See hpx/README.md for the SPMD application contract and build/test commands,
@@ -22,6 +22,12 @@ with backoff disabled, versus MPI controls of 3.325 and 3.360 seconds.
 Disabling backoff did not materially improve HPX time; its 3.8-4.9 percent
 gap to those MPI controls remains unresolved. A slower repeated HPX control
 limits conclusions from this fixed-order run. The documented cap stays 10 ms.
+The subsequent all-to-all transpose experiment measured 12.786 and 12.805
+seconds, versus 3.498 and 3.499 seconds for HPX pairwise and 3.353 and 3.371
+seconds for FFTW-MPI. HPX all_to_all was 3.65-3.66 times slower than pairwise
+and 3.79-3.82 times slower than MPI. Pairwise remains the default; the optional
+collective exchange and its exact evidence are documented in
+benchmarks/queenbee/remaining_overhead/all_to_all/README.md.
 See benchmarks/queenbee/remaining_overhead/README.md for the unchanged
 1024-cubed QueenBee comparison, all timing cohorts, remaining overhead,
 correctness checks and exact build/runtime settings. Earlier pooled-receive

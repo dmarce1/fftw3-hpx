@@ -1,0 +1,8 @@
+{
+  "Python_3_6_syntax": "PASS",
+  "positive_fixture": "PASS",
+  "byte_identical_recompute": "PASS",
+  "reject_archive_extraction_tamper": "PASS",
+  "reject_existing_destination": "PASS",
+  "fixture_scope": "Temporary synthetic fixtures only; no QueenBee result claimed"
+}

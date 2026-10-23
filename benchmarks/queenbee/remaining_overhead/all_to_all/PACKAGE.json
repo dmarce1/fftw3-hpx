@@ -1,0 +1,30 @@
+{
+  "license": "GPL-2.0-or-later",
+  "job_id": "1126247",
+  "input_bundle_sha256": "f25e23599da7c550ec05c2a62b66273d637361bcd6a6197bd0a492347141213a",
+  "published_content": "Raw text evidence, exact frozen inputs, local validation and remote artifact hashes; no binary archives or full FFTW source duplicate",
+  "remote_status": {
+    "status": "PASS",
+    "exit_status": "0",
+    "job_id": "1126247",
+    "stage": "complete",
+    "started_utc": "2026-10-23T15:14:30Z",
+    "finished_utc": "2026-10-23T15:33:20Z"
+  },
+  "scheduler_parent": {
+    "JobID": "1126247",
+    "JobName": "fftw_alltoall",
+    "State": "COMPLETED",
+    "ExitCode": "0:0",
+    "Start": "2026-10-23T15:14:29",
+    "End": "2026-10-23T15:33:20",
+    "Elapsed": "00:18:51",
+    "NodeList": "qbd[099-100,439-440]",
+    "MaxRSS": "",
+    "MaxVMSize": "",
+    "AllocCPUS": "256",
+    "NNodes": "4"
+  },
+  "accounting_has_MaxRSS": true,
+  "local_validation_note": "Historical failures and later successful runs are retained as recorded; no aggregate local pass status is inferred"
+}

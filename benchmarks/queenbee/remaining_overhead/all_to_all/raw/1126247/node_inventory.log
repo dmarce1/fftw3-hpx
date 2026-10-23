@@ -1,0 +1,349 @@
+srun: lua: Submitted job 1126247
+0: qbd099
+0: Linux qbd099 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+0: Architecture:        x86_64
+0: CPU op-mode(s):      32-bit, 64-bit
+0: Byte Order:          Little Endian
+0: CPU(s):              64
+0: On-line CPU(s) list: 0-63
+0: Thread(s) per core:  1
+0: Core(s) per socket:  32
+0: Socket(s):           2
+0: NUMA node(s):        4
+0: Vendor ID:           GenuineIntel
+0: CPU family:          6
+0: Model:               106
+0: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+0: Stepping:            6
+0: CPU MHz:             3302.638
+0: CPU max MHz:         3400.0000
+0: CPU min MHz:         800.0000
+0: BogoMIPS:            5200.00
+0: L1d cache:           48K
+0: L1i cache:           32K
+0: L2 cache:            1280K
+0: L3 cache:            49152K
+0: NUMA node0 CPU(s):   0-15
+0: NUMA node1 CPU(s):   16-31
+0: NUMA node2 CPU(s):   32-47
+0: NUMA node3 CPU(s):   48-63
+0: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+0: policy: default
+0: preferred node: current
+0: physcpubind: 0 
+0: cpubind: 0 
+0: nodebind: 0 
+0: membind: 0 1 2 3 
+0: preferred: 
+0: MemTotal:       263030148 kB
+0: MemFree:        254854040 kB
+0: MemAvailable:   258530456 kB
+0: Buffers:          591816 kB
+0: Cached:          4095368 kB
+0: SwapCached:           12 kB
+0: Active:          2870232 kB
+0: Inactive:        2019632 kB
+0: Active(anon):       2640 kB
+0: Inactive(anon):   201996 kB
+0: Active(file):    2867592 kB
+0: Inactive(file):  1817636 kB
+0: Unevictable:           0 kB
+0: Mlocked:               0 kB
+0: SwapTotal:       8651772 kB
+0: SwapFree:        8645884 kB
+0: Dirty:               528 kB
+0: Writeback:             0 kB
+0: AnonPages:        185296 kB
+0: Mapped:           142756 kB
+0: Shmem:              1952 kB
+0: KReclaimable:     631272 kB
+0: Slab:            1913380 kB
+0: SReclaimable:     631272 kB
+0: SUnreclaim:      1282108 kB
+0: KernelStack:       21424 kB
+0: PageTables:        10544 kB
+0: NFS_Unstable:          0 kB
+0: Bounce:                0 kB
+0: WritebackTmp:          0 kB
+0: CommitLimit:    140166844 kB
+0: Committed_AS:    1147376 kB
+0: VmallocTotal:   13743895347199 kB
+0: VmallocUsed:      359804 kB
+0: VmallocChunk:          0 kB
+0: Percpu:            86528 kB
+0: HardwareCorrupted:     0 kB
+0: AnonHugePages:     57344 kB
+0: ShmemHugePages:        0 kB
+0: ShmemPmdMapped:        0 kB
+0: FileHugePages:         0 kB
+0: FilePmdMapped:         0 kB
+0: HugePages_Total:       0
+0: HugePages_Free:        0
+0: HugePages_Rsvd:        0
+0: HugePages_Surp:        0
+0: Hugepagesize:       2048 kB
+0: Hugetlb:               0 kB
+0: DirectMap4k:     3917796 kB
+0: DirectMap2M:    208381952 kB
+0: DirectMap1G:    57671680 kB
+2: qbd439
+3: qbd440
+1: qbd100
+2: Linux qbd439 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+3: Linux qbd440 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+1: Linux qbd100 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+2: Architecture:        x86_64
+2: CPU op-mode(s):      32-bit, 64-bit
+2: Byte Order:          Little Endian
+2: CPU(s):              64
+2: On-line CPU(s) list: 0-63
+2: Thread(s) per core:  1
+2: Core(s) per socket:  32
+2: Socket(s):           2
+2: NUMA node(s):        4
+2: Vendor ID:           GenuineIntel
+2: CPU family:          6
+2: Model:               106
+2: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+2: Stepping:            6
+2: CPU MHz:             3313.805
+2: CPU max MHz:         3400.0000
+2: CPU min MHz:         800.0000
+2: BogoMIPS:            5200.00
+2: L1d cache:           48K
+2: L1i cache:           32K
+2: L2 cache:            1280K
+2: L3 cache:            49152K
+2: NUMA node0 CPU(s):   0-15
+2: NUMA node1 CPU(s):   16-31
+2: NUMA node2 CPU(s):   32-47
+2: NUMA node3 CPU(s):   48-63
+3: Architecture:        x86_64
+3: CPU op-mode(s):      32-bit, 64-bit
+3: Byte Order:          Little Endian
+3: CPU(s):              64
+3: On-line CPU(s) list: 0-63
+3: Thread(s) per core:  1
+3: Core(s) per socket:  32
+3: Socket(s):           2
+3: NUMA node(s):        4
+3: Vendor ID:           GenuineIntel
+3: CPU family:          6
+3: Model:               106
+3: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+3: Stepping:            6
+3: CPU MHz:             3328.115
+3: CPU max MHz:         3400.0000
+3: CPU min MHz:         800.0000
+3: BogoMIPS:            5200.00
+3: L1d cache:           48K
+3: L1i cache:           32K
+3: L2 cache:            1280K
+3: L3 cache:            49152K
+3: NUMA node0 CPU(s):   0-15
+3: NUMA node1 CPU(s):   16-31
+3: NUMA node2 CPU(s):   32-47
+3: NUMA node3 CPU(s):   48-63
+2: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+3: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+1: Architecture:        x86_64
+1: CPU op-mode(s):      32-bit, 64-bit
+1: Byte Order:          Little Endian
+1: CPU(s):              64
+1: On-line CPU(s) list: 0-63
+1: Thread(s) per core:  1
+1: Core(s) per socket:  32
+1: Socket(s):           2
+1: NUMA node(s):        4
+1: Vendor ID:           GenuineIntel
+1: CPU family:          6
+1: Model:               106
+1: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+1: Stepping:            6
+1: CPU MHz:             3314.545
+1: CPU max MHz:         3400.0000
+1: CPU min MHz:         800.0000
+1: BogoMIPS:            5200.00
+1: L1d cache:           48K
+1: L1i cache:           32K
+1: L2 cache:            1280K
+1: L3 cache:            49152K
+1: NUMA node0 CPU(s):   0-15
+1: NUMA node1 CPU(s):   16-31
+1: NUMA node2 CPU(s):   32-47
+1: NUMA node3 CPU(s):   48-63
+1: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+3: policy: default
+3: preferred node: current
+3: physcpubind: 0 
+3: cpubind: 0 
+3: nodebind: 0 
+3: membind: 0 1 2 3 
+3: preferred: 
+2: policy: default
+2: preferred node: current
+2: physcpubind: 0 
+2: cpubind: 0 
+2: nodebind: 0 
+2: membind: 0 1 2 3 
+2: preferred: 
+1: policy: default
+1: preferred node: current
+1: physcpubind: 0 
+1: cpubind: 0 
+1: nodebind: 0 
+1: membind: 0 1 2 3 
+1: preferred: 
+3: MemTotal:       263030136 kB
+3: MemFree:        253067588 kB
+3: MemAvailable:   257082712 kB
+3: Buffers:          403420 kB
+3: Cached:          4495716 kB
+3: SwapCached:         2984 kB
+3: Active:          2907248 kB
+3: Inactive:        2109404 kB
+3: Active(anon):       3188 kB
+3: Inactive(anon):   115808 kB
+3: Active(file):    2904060 kB
+3: Inactive(file):  1993596 kB
+3: Unevictable:           0 kB
+3: Mlocked:               0 kB
+3: SwapTotal:       8651772 kB
+3: SwapFree:        8592992 kB
+3: Dirty:               112 kB
+3: Writeback:            76 kB
+3: AnonPages:        116660 kB
+3: Mapped:           143032 kB
+3: Shmem:              1480 kB
+3: KReclaimable:    1510064 kB
+3: Slab:            3563708 kB
+3: SReclaimable:    1510064 kB
+3: SUnreclaim:      2053644 kB
+3: KernelStack:       20208 kB
+3: PageTables:         8808 kB
+3: NFS_Unstable:          0 kB
+3: Bounce:                0 kB
+3: WritebackTmp:          0 kB
+3: CommitLimit:    140166840 kB
+3: Committed_AS:    1058584 kB
+3: VmallocTotal:   13743895347199 kB
+3: VmallocUsed:      371584 kB
+3: VmallocChunk:          0 kB
+3: Percpu:            90368 kB
+3: HardwareCorrupted:     0 kB
+3: AnonHugePages:     12288 kB
+3: ShmemHugePages:        0 kB
+3: ShmemPmdMapped:        0 kB
+3: FileHugePages:         0 kB
+3: FilePmdMapped:         0 kB
+3: HugePages_Total:       0
+3: HugePages_Free:        0
+3: HugePages_Rsvd:        0
+3: HugePages_Surp:        0
+3: Hugepagesize:       2048 kB
+3: Hugetlb:               0 kB
+3: DirectMap4k:     3768292 kB
+3: DirectMap2M:    237891584 kB
+3: DirectMap1G:    28311552 kB
+2: MemTotal:       263030136 kB
+2: MemFree:        258358340 kB
+2: MemAvailable:   258794048 kB
+2: Buffers:          238680 kB
+2: Cached:          1632072 kB
+2: SwapCached:         4256 kB
+2: Active:          1149052 kB
+2: Inactive:         839352 kB
+2: Active(anon):       7368 kB
+2: Inactive(anon):   111268 kB
+2: Active(file):    1141684 kB
+2: Inactive(file):   728084 kB
+2: Unevictable:           0 kB
+2: Mlocked:               0 kB
+2: SwapTotal:       8651772 kB
+2: SwapFree:        8575856 kB
+2: Dirty:               304 kB
+2: Writeback:             0 kB
+2: AnonPages:        109184 kB
+2: Mapped:           119344 kB
+2: Shmem:               984 kB
+2: KReclaimable:     346024 kB
+2: Slab:            1338944 kB
+2: SReclaimable:     346024 kB
+2: SUnreclaim:       992920 kB
+2: KernelStack:       19664 kB
+2: PageTables:         9596 kB
+2: NFS_Unstable:          0 kB
+2: Bounce:                0 kB
+2: WritebackTmp:          0 kB
+2: CommitLimit:    140166840 kB
+2: Committed_AS:    1170976 kB
+2: VmallocTotal:   13743895347199 kB
+2: VmallocUsed:      353512 kB
+2: VmallocChunk:          0 kB
+2: Percpu:            81664 kB
+2: HardwareCorrupted:     0 kB
+2: AnonHugePages:     16384 kB
+2: ShmemHugePages:        0 kB
+2: ShmemPmdMapped:        0 kB
+2: FileHugePages:         0 kB
+2: FilePmdMapped:         0 kB
+2: HugePages_Total:       0
+2: HugePages_Free:        0
+2: HugePages_Rsvd:        0
+2: HugePages_Surp:        0
+2: Hugepagesize:       2048 kB
+2: Hugetlb:               0 kB
+2: DirectMap4k:     2715620 kB
+2: DirectMap2M:    233701376 kB
+2: DirectMap1G:    33554432 kB
+1: MemTotal:       263030120 kB
+1: MemFree:        259149080 kB
+1: MemAvailable:   259325940 kB
+1: Buffers:           48344 kB
+1: Cached:          1323856 kB
+1: SwapCached:         6748 kB
+1: Active:           667272 kB
+1: Inactive:         798928 kB
+1: Active(anon):      19964 kB
+1: Inactive(anon):    74792 kB
+1: Active(file):     647308 kB
+1: Inactive(file):   724136 kB
+1: Unevictable:           0 kB
+1: Mlocked:               0 kB
+1: SwapTotal:      17040380 kB
+1: SwapFree:       16942352 kB
+1: Dirty:               168 kB
+1: Writeback:             0 kB
+1: AnonPages:         89132 kB
+1: Mapped:            74000 kB
+1: Shmem:               748 kB
+1: KReclaimable:     259700 kB
+1: Slab:            1063452 kB
+1: SReclaimable:     259700 kB
+1: SUnreclaim:       803752 kB
+1: KernelStack:       19824 kB
+1: PageTables:         9956 kB
+1: NFS_Unstable:          0 kB
+1: Bounce:                0 kB
+1: WritebackTmp:          0 kB
+1: CommitLimit:    148555440 kB
+1: Committed_AS:    1160916 kB
+1: VmallocTotal:   13743895347199 kB
+1: VmallocUsed:      355748 kB
+1: VmallocChunk:          0 kB
+1: Percpu:            82432 kB
+1: HardwareCorrupted:     0 kB
+1: AnonHugePages:     18432 kB
+1: ShmemHugePages:        0 kB
+1: ShmemPmdMapped:        0 kB
+1: FileHugePages:         0 kB
+1: FilePmdMapped:         0 kB
+1: HugePages_Total:       0
+1: HugePages_Free:        0
+1: HugePages_Rsvd:        0
+1: HugePages_Surp:        0
+1: Hugepagesize:       2048 kB
+1: Hugetlb:               0 kB
+1: DirectMap4k:     3780580 kB
+1: DirectMap2M:    226344960 kB
+1: DirectMap1G:    39845888 kB

@@ -1,0 +1,5 @@
+{
+  "bundle": "/home/dmarce1/workspace/fftw3-hpx/build/qb_alltoall/bundle",
+  "archive": "/home/dmarce1/workspace/fftw3-hpx/build/qb_alltoall/alltoall_bundle.tar.gz",
+  "sha256": "c8bfbb694c2b5e175898128f5e1b414784d04373d49eeb3d6da6285f1c6f5e62"
+}

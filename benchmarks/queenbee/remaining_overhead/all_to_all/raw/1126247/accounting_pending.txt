@@ -1,0 +1,1 @@
+Accounting must be captured once after completion by the login-session owner, including MaxRSS for steps. This job never polls Slurm.

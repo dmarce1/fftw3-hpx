@@ -1,0 +1,6 @@
+build/double/.libs/libfftw3.a: OK
+build/double/threads/.libs/libfftw3_threads.a: OK
+build/single/.libs/libfftw3f.a: OK
+build/single/threads/.libs/libfftw3f_threads.a: OK
+build/long_double/.libs/libfftw3l.a: OK
+build/long_double/threads/.libs/libfftw3l_threads.a: OK

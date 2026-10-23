@@ -1,0 +1,6 @@
+d525f3d308c8038e00e2524de0c70e81bcce627eb62fbc5e581b7c30b8510d3c  build/double/.libs/libfftw3.a
+5b7b6878750c5f4d552ed3ceb486884dbcb671b2a2fec569de106688562c53c3  build/double/threads/.libs/libfftw3_threads.a
+e45b5fed84832aac70173d06c5f0fc40bcd3b682677cddf5d488262cbca6f942  build/single/.libs/libfftw3f.a
+5583188e2c054700a3e3598384c8a036ef964bc2528eddf6259fbf8a6910e651  build/single/threads/.libs/libfftw3f_threads.a
+06b3b2183da8f89984806ca91a7c497cc75a1a2fff028ffbb6db7b2b2c420285  build/long_double/.libs/libfftw3l.a
+e317c7dc8db5ac1a7975f26ea25c2e2f5d9575d19e0c29d7e18826ce8b92b880  build/long_double/threads/.libs/libfftw3l_threads.a

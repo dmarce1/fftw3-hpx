@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "communication_passes": 8,
+  "correctness_gates": {
+    "small_32_pairwise": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "2",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "3",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "1",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        }
+      ]
+    },
+    "small_32_all_to_all": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "1",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "2",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "3",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        }
+      ]
+    },
+    "small_64_pairwise": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "3",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "1",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "2",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        }
+      ]
+    },
+    "small_64_all_to_all": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "2",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "3",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "1",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        }
+      ]
+    }
+  }
+}

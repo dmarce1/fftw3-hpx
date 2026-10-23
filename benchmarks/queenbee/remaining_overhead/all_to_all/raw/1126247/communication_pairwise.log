@@ -1,0 +1,30 @@
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: wide transpose all-to-all, overlap and inactive ranks
+communication check, cycle 0: thread callback and nested large stacks
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=24
+communication check, cycle 0: cleanup
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=3 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=24
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: rendezvous mixed standalone, overlap and directional empty messages
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=3 mode=pairwise exchange_calls=24
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: wide transpose all-to-all, overlap and inactive ranks
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+communication check PASS
+communication check PASS
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=24
+communication check PASS

@@ -1,0 +1,635 @@
+{
+  "status": "PASS",
+  "license": "GPL-2.0-or-later",
+  "run_order": [
+    "mpi_start",
+    "hpx_pairwise",
+    "hpx_all_to_all",
+    "hpx_all_to_allrepeat",
+    "hpx_pairwiserepeat",
+    "mpi_end"
+  ],
+  "cases": {
+    "mpi_start": {
+      "configuration": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "result": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "3.2541884900000002",
+        "median_seconds": "3.352854357",
+        "mean_seconds": "3.3365976785714291",
+        "max_seconds": "3.3819174310000002",
+        "status": "PASS"
+      },
+      "checks": [
+        {
+          "backend": "mpi",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.3248988013960868e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.3986960342891404e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.196128222638237e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "samples_seconds": [
+        3.381917431,
+        3.333136488,
+        3.369146509,
+        3.3000518,
+        3.364888675,
+        3.352854357,
+        3.25418849
+      ],
+      "mode_reports": [],
+      "raw_log_sha256": "c7a30816b1a597bb10b9a75b015a5f9cc90ad97a7877250af167939824cd9448",
+      "min_seconds": 3.25418849,
+      "median_seconds": 3.352854357,
+      "mean_seconds": 3.3365976785714286,
+      "max_seconds": 3.381917431,
+      "plans_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "hpx_pairwise": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "3.4769649089999999",
+        "median_seconds": "3.4980452299999998",
+        "mean_seconds": "3.5242517378571425",
+        "max_seconds": "3.6527715870000002",
+        "status": "PASS"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "samples_seconds": [
+        3.488316099,
+        3.549898992,
+        3.476964909,
+        3.478299622,
+        3.525465726,
+        3.49804523,
+        3.652771587
+      ],
+      "mode_reports": [
+        {
+          "rank": "1",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "0",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "3",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "2",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        }
+      ],
+      "raw_log_sha256": "99633335a5cfb38d74ef29415439f51f21256b73f811971a8a4600eaa1fbd570",
+      "min_seconds": 3.476964909,
+      "median_seconds": 3.49804523,
+      "mean_seconds": 3.524251737857143,
+      "max_seconds": 3.652771587,
+      "plans_sha256": {
+        "forward": "33f149977680ac50969e862f07084b9042793444c85be137b729cdc9d61ea719",
+        "backward": "0da2b46dcdc4403a83a95baddb0209b88ebf3e5816c2ff88ab382a4f1d576e41"
+      }
+    },
+    "hpx_all_to_all": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "12.684345155999999",
+        "median_seconds": "12.786193686000001",
+        "mean_seconds": "12.779982570142858",
+        "max_seconds": "12.839264436000001",
+        "status": "PASS"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "samples_seconds": [
+        12.684345156,
+        12.763041163,
+        12.786193686,
+        12.839264436,
+        12.833096937,
+        12.7608186,
+        12.793118013
+      ],
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        },
+        {
+          "rank": "1",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        },
+        {
+          "rank": "3",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        },
+        {
+          "rank": "2",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        }
+      ],
+      "raw_log_sha256": "a2fb0ff2b237e49c4147f416500c51837ad613ca9dacdd4a0d8f05a6f579774f",
+      "min_seconds": 12.684345156,
+      "median_seconds": 12.786193686,
+      "mean_seconds": 12.779982570142858,
+      "max_seconds": 12.839264436,
+      "plans_sha256": {
+        "forward": "5190341254d03fa0a26a8e314969cf499b8ee613cacbf6f857dcc5fbf30609d0",
+        "backward": "327c345ccfbfa4c7672b5fdfcb757a1d61251cef6fe66eccb426fc877b837c5d"
+      }
+    },
+    "hpx_all_to_allrepeat": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "12.667090484999999",
+        "median_seconds": "12.804769315",
+        "mean_seconds": "12.934153971428572",
+        "max_seconds": "13.695748264000001",
+        "status": "PASS"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "samples_seconds": [
+        12.898263057,
+        12.795575304,
+        13.695748264,
+        12.791733801,
+        12.885897574,
+        12.667090485,
+        12.804769315
+      ],
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        },
+        {
+          "rank": "2",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        },
+        {
+          "rank": "1",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        },
+        {
+          "rank": "3",
+          "mode": "all_to_all",
+          "exchange_calls": "40"
+        }
+      ],
+      "raw_log_sha256": "8ca35c821ce16d14c820a3d7d28e05f810e3a95bebae57ae61bc7e72222d80e9",
+      "min_seconds": 12.667090485,
+      "median_seconds": 12.804769315,
+      "mean_seconds": 12.934153971428572,
+      "max_seconds": 13.695748264,
+      "plans_sha256": {
+        "forward": "5190341254d03fa0a26a8e314969cf499b8ee613cacbf6f857dcc5fbf30609d0",
+        "backward": "327c345ccfbfa4c7672b5fdfcb757a1d61251cef6fe66eccb426fc877b837c5d"
+      }
+    },
+    "hpx_pairwiserepeat": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "3.3544607229999999",
+        "median_seconds": "3.4994426700000001",
+        "mean_seconds": "3.4824609498571428",
+        "max_seconds": "3.5320245379999999",
+        "status": "PASS"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "samples_seconds": [
+        3.520565545,
+        3.49944267,
+        3.532024538,
+        3.492835782,
+        3.501189256,
+        3.354460723,
+        3.476708135
+      ],
+      "mode_reports": [
+        {
+          "rank": "1",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "3",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "0",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "2",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        }
+      ],
+      "raw_log_sha256": "32144ddd091ea2f0d84645550eb4f2fb2fa0d825d55cf7f748a35038cec80674",
+      "min_seconds": 3.354460723,
+      "median_seconds": 3.49944267,
+      "mean_seconds": 3.482460949857143,
+      "max_seconds": 3.532024538,
+      "plans_sha256": {
+        "forward": "33f149977680ac50969e862f07084b9042793444c85be137b729cdc9d61ea719",
+        "backward": "0da2b46dcdc4403a83a95baddb0209b88ebf3e5816c2ff88ab382a4f1d576e41"
+      }
+    },
+    "mpi_end": {
+      "configuration": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "result": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "3.293650779",
+        "median_seconds": "3.371002973",
+        "mean_seconds": "3.3624747238571429",
+        "max_seconds": "3.3934043900000002",
+        "status": "PASS"
+      },
+      "checks": [
+        {
+          "backend": "mpi",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.3248988013960868e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.3986960342891404e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.196128222638237e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "samples_seconds": [
+        3.293650779,
+        3.37349564,
+        3.371321661,
+        3.371002973,
+        3.39340439,
+        3.36547403,
+        3.368973594
+      ],
+      "mode_reports": [],
+      "raw_log_sha256": "962d4855fb6454fcd057cbdb1a021be56e33accfc532006574df0e07e6a21a49",
+      "min_seconds": 3.293650779,
+      "median_seconds": 3.371002973,
+      "mean_seconds": 3.362474723857143,
+      "max_seconds": 3.39340439,
+      "plans_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    }
+  },
+  "median_seconds": {
+    "mpi_start": 3.352854357,
+    "hpx_pairwise": 3.49804523,
+    "hpx_all_to_all": 12.786193686,
+    "hpx_all_to_allrepeat": 12.804769315,
+    "hpx_pairwiserepeat": 3.49944267,
+    "mpi_end": 3.371002973
+  },
+  "median_ratios": {
+    "hpx_all_to_all_over_hpx_pairwise": 3.6552396682417974,
+    "hpx_all_to_all_over_hpx_pairwiserepeat": 3.653780013489977,
+    "hpx_all_to_all_over_mpi_start": 3.8135249326608314,
+    "hpx_all_to_all_over_mpi_end": 3.7929938918508337,
+    "hpx_all_to_allrepeat_over_hpx_pairwise": 3.6605499566396404,
+    "hpx_all_to_allrepeat_over_hpx_pairwiserepeat": 3.659088181318884,
+    "hpx_all_to_allrepeat_over_mpi_start": 3.819065175994461,
+    "hpx_all_to_allrepeat_over_mpi_end": 3.7985043079343495,
+    "alltoall_repeat_over_initial": 1.0014527880193413,
+    "pairwise_repeat_over_initial": 1.0003994916898202,
+    "mpi_end_over_start": 1.0054128852814945
+  },
+  "timed_samples": 42,
+  "numerical_checks": 18,
+  "communication_passes": 8,
+  "preliminary_correctness_checks": 12,
+  "correctness_gates": {
+    "small_32_pairwise": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "2",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "3",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "1",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        }
+      ]
+    },
+    "small_32_all_to_all": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "1",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "2",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "3",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        }
+      ]
+    },
+    "small_64_pairwise": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "3",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "1",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        },
+        {
+          "rank": "2",
+          "mode": "pairwise",
+          "exchange_calls": "0"
+        }
+      ]
+    },
+    "small_64_all_to_all": {
+      "status": "PASS",
+      "numerical_checks": 3,
+      "mode_reports": [
+        {
+          "rank": "0",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "2",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "3",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        },
+        {
+          "rank": "1",
+          "mode": "all_to_all",
+          "exchange_calls": "16"
+        }
+      ]
+    }
+  },
+  "normalized_local_plans_equal": true,
+  "plan_normalization": "Remove literal /all_to_all exchange suffix and normalize hpx- to mpi- only",
+  "changed_parameter": "FFTW_HPX_TRANSPOSE_EXCHANGE changes global exchange using one HPX executable",
+  "interpretation": "Single fixed-order allocation; repeated cases and MPI bookends expose temporal drift but do not isolate all system variation."
+}

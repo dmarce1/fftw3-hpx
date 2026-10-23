@@ -340,10 +340,17 @@ The local serial/threaded FFTW archive hashes are unchanged. The upstream
 commands are retained under `build/qb_alltoall/local`; the frozen source and
 QueenBee job inputs are under `build/qb_alltoall/bundle`.
 
-QueenBee job 1126247 was submitted for the unchanged 1024³ benchmark using
-four exclusive nodes, one process per node, 64 workers, the MPI parcelport,
-and no TCP. Submission and local correctness do not establish cluster
-performance; no timing benefit is claimed while that comparison is pending.
+QueenBee job 1126247 completed with exit `0:0` for the unchanged 1024³
+benchmark on four exclusive nodes, one process per node, 64 workers, the
+MPI parcelport, and no TCP. All 42 timed samples, 18 primary numerical checks,
+12 preliminary numerical checks, eight rank-level communication passes,
+normalized local plans, and source/binary preservation checks passed.
+The all-to-all medians were 12.786 and 12.805 seconds, compared with 3.498
+and 3.499 seconds for pairwise and 3.353 and 3.371 seconds for FFTW-MPI.
+The default remains pairwise. The
+[completed comparison](../benchmarks/queenbee/remaining_overhead/all_to_all/README.md)
+preserves the exact frozen inputs, raw logs, commands, accounting, local
+validation snapshot, and reproducible timing summary.
 
 ## License
 

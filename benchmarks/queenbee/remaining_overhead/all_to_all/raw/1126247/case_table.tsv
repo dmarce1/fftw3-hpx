@@ -1,0 +1,7 @@
+case	role	executable	workers	exchange	backoff_cap_ms
+mpi_start	primary	/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi	64	MPI_pairwise	n/a
+hpx_pairwise	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1126247/bin/hpx_candidate	64	pairwise	10
+hpx_all_to_all	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1126247/bin/hpx_candidate	64	all_to_all	10
+hpx_all_to_allrepeat	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1126247/bin/hpx_candidate	64	all_to_all	10
+hpx_pairwiserepeat	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1126247/bin/hpx_candidate	64	pairwise	10
+mpi_end	primary	/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi	64	MPI_pairwise	n/a

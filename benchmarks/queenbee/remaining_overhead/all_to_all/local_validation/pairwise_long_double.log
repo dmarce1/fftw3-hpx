@@ -1,0 +1,128 @@
+make: Entering directory '/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx'
+make  NUMCHECK=2 check-local
+make[1]: Entering directory '/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx'
+./hpx-message-check
+CHECK posted_destination_exact_pointer_contents_guards_and_single_claim PASS
+CHECK missing_target_fallback_owns_storage_beyond_source_archive_and_original_message PASS
+CHECK size_mismatch_throws_before_write_or_claim PASS
+CHECK precision_group_epoch_source_tag_sequence_isolation PASS
+CHECK actual_hpx_zero_copy_archive_exports_exact_posted_chunk_destination PASS
+CHECK empty_payload_self_copy_and_overlap_boundaries PASS
+CHECK hybrid_early_fallback_no_redirection_shared_ownership_then_exact_pool_hit PASS
+CHECK direct_target_preserves_pool_storage_and_fallback_copy_contents PASS
+CHECK hybrid_cleanup_live_fallback_late_release_and_old_epoch_wire_isolation PASS
+CHECK hybrid_pool_exact_size_largest_retention_and_replacement PASS
+CHECK readiness_roundtrip_required_target_failure_exact_destination_and_empty PASS
+HPX_MESSAGE_CHECK rendezvous PASS
+/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-comm-check"
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: wide transpose all-to-all, overlap and inactive ranks
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=24
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: wide transpose all-to-all, overlap and inactive ranks
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=24
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=24
+communication check PASS
+communication check PASS
+communication check PASS
+perl -w ../../../tests/check.pl --verbose --random --maxsize=10000 -c=2  --mpi '/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench"'
+Executing "/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench" --verbose=1   --verify 'okd]8o00x6o11x12o00' --verify 'ikd]8o00x6o11x12o00' --verify 'ofrd]10x4x2x11v6' --verify 'ifrd]10x4x2x11v6' --verify 'obcd]10x4x2x11v6' --verify 'ibcd]10x4x2x11v6' --verify 'ofcd]10x4x2x11v6' --verify 'ifcd]10x4x2x11v6' --verify 'obr12x6x4' --verify 'ibr12x6x4' --verify 'ofr12x6x4' --verify 'ifr12x6x4' --verify 'obc12x6x4' --verify 'ibc12x6x4' --verify 'ofc12x6x4' --verify 'ifc12x6x4'"
+okd]8o00x6o11x12o00 2.30594e-19 2.22318e-18 2.6952e-19
+ikd]8o00x6o11x12o00 2.26179e-19 2.21619e-18 2.21684e-19
+ofrd]10x4x2x11v6 2.03783e-19 2.72895e-19 3.23014e-19
+ifrd]10x4x2x11v6 1.75466e-19 2.72895e-19 3.67294e-19
+obcd]10x4x2x11v6 1.91843e-19 2.72895e-19 3.01792e-19
+ibcd]10x4x2x11v6 1.87407e-19 3.41119e-19 3.09279e-19
+ofcd]10x4x2x11v6 1.77597e-19 2.72895e-19 3.15627e-19
+ifcd]10x4x2x11v6 2.1377e-19 3.41119e-19 3.22784e-19
+obr12x6x4 1.72325e-19 3.06659e-19 1.98899e-19
+ibr12x6x4 1.80763e-19 4.08878e-19 1.94626e-19
+ofr12x6x4 1.64791e-19 2.04439e-19 2.4565e-19
+ifr12x6x4 1.30169e-19 2.04439e-19 2.5017e-19
+obc12x6x4 1.44861e-19 2.04439e-19 2.20757e-19
+ibc12x6x4 1.57897e-19 2.04439e-19 2.39023e-19
+ofc12x6x4 1.70954e-19 2.04439e-19 2.52717e-19
+ifc12x6x4 1.76887e-19 2.04439e-19 2.19124e-19
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=0
+HPX FFTW transforms passed 2 tests, 1 locality, 1 thread
+perl -w ../../../tests/check.pl --verbose --random --maxsize=10000 -c=2  --mpi '/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench"'
+Executing "/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench" --verbose=1   --verify 'ok[5o10x9hx7o10' --verify 'ik[5o10x9hx7o10' --verify 'ofr]3x11x13x11' --verify 'ifr]3x11x13x11' --verify 'obc]3x11x13x11' --verify 'ibc]3x11x13x11' --verify 'ofc]3x11x13x11' --verify 'ifc]3x11x13x11'"
+ok[5o10x9hx7o10 2.13573e-19 1.89735e-18 2.06291e-19
+ik[5o10x9hx7o10 2.08224e-19 1.89735e-18 1.85929e-19
+ofr]3x11x13x11 2.12296e-19 4.04041e-19 3.68617e-19
+ifr]3x11x13x11 2.17299e-19 4.04041e-19 3.14809e-19
+obc]3x11x13x11 1.90402e-19 4.04041e-19 3.63074e-19
+ibc]3x11x13x11 1.97877e-19 4.04041e-19 3.53914e-19
+ofc]3x11x13x11 1.99971e-19 4.04041e-19 3.831e-19
+ifc]3x11x13x11 2.05709e-19 4.04041e-19 3.5345e-19
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=0
+HPX FFTW transforms passed 2 tests, 2 localities, 1 thread each
+perl -w ../../../tests/check.pl --verbose --random --maxsize=10000 -c=2  --mpi '/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench"'
+Executing "/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench" --verbose=1   --verify 'ok10o00x4e10x13e10v3' --verify 'ik10o00x4e10x13e10v3' --verify 'obr[11x7x4x3v1' --verify 'ibr[11x7x4x3v1' --verify 'obc[11x7x4x3v1' --verify 'ibc[11x7x4x3v1' --verify 'ofc[11x7x4x3v1' --verify 'ifc[11x7x4x3v1'"
+ok10o00x4e10x13e10v3 2.28594e-19 1.98989e-18 1.9144e-19
+ik10o00x4e10x13e10v3 1.951e-19 1.78451e-18 1.83921e-19
+obr[11x7x4x3v1 2.01314e-19 4.56546e-19 2.52297e-19
+ibr[11x7x4x3v1 2.01621e-19 4.56546e-19 2.37163e-19
+obc[11x7x4x3v1 1.90746e-19 3.42409e-19 2.7213e-19
+ibc[11x7x4x3v1 1.80297e-19 3.42409e-19 2.65598e-19
+ofc[11x7x4x3v1 2.25166e-19 3.42409e-19 3.04733e-19
+ifc[11x7x4x3v1 1.8658e-19 3.42409e-19 2.8383e-19
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=0
+HPX FFTW transforms passed 2 tests, 3 localities, 1 thread each
+perl -w ../../../tests/check.pl --verbose --random --maxsize=10000 -c=2  --mpi '/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench"'
+Executing "/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench" --verbose=1   --verify 'obr10x4x5x12v2' --verify 'ibr10x4x5x12v2' --verify 'ofr10x4x5x12v2' --verify 'ifr10x4x5x12v2' --verify 'obc10x4x5x12v2' --verify 'ibc10x4x5x12v2' --verify 'ofc10x4x5x12v2' --verify 'ifc10x4x5x12v2'"
+obr10x4x5x12v2 1.74518e-19 4.24919e-19 1.94406e-19
+ibr10x4x5x12v2 1.77784e-19 4.24919e-19 2.26792e-19
+ofr10x4x5x12v2 1.88221e-19 3.18689e-19 3.04171e-19
+ifr10x4x5x12v2 1.99703e-19 2.12459e-19 3.18871e-19
+obc10x4x5x12v2 2.2966e-19 4.24919e-19 3.19318e-19
+ibc10x4x5x12v2 1.70888e-19 4.24919e-19 3.2751e-19
+ofc10x4x5x12v2 2.20504e-19 4.24919e-19 3.36595e-19
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=0
+ifc10x4x5x12v2 2.13365e-19 3.18689e-19 3.61542e-19
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=3 mode=pairwise exchange_calls=0
+HPX FFTW transforms passed 2 tests, 4 localities, 1 thread each
+perl -w ../../../tests/check.pl --verbose --random --maxsize=10000 -c=2  --mpi --nthreads=2 '/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench"'
+Executing "/bin/bash ../../../hpx/hpx-run.sh "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx-bench" -o nthreads=2 --verbose=1   --verify 'ok]3hx11e00x5e00v3' --verify 'ik]3hx11e00x5e00v3' --verify 'obr[8x11x13v2' --verify 'ibr[8x11x13v2' --verify 'obc[8x11x13v2' --verify 'ibc[8x11x13v2' --verify 'ofc[8x11x13v2' --verify 'ifc[8x11x13v2' --verify 'okd11e10x12hx11e00' --verify 'ikd11e10x12hx11e00' --verify 'obcd378' --verify 'ibcd378' --verify 'ofcd378' --verify 'ifcd378'"
+ok]3hx11e00x5e00v3 1.27634e-19 2.31296e-18 1.3946e-19
+ik]3hx11e00x5e00v3 1.72065e-19 2.31296e-18 1.88285e-19
+obr[8x11x13v2 2.14228e-19 3.07729e-19 2.89111e-19
+ibr[8x11x13v2 2.01206e-19 3.07729e-19 2.52541e-19
+obc[8x11x13v2 1.84618e-19 3.84661e-19 3.20699e-19
+ibc[8x11x13v2 1.79618e-19 3.07729e-19 3.15435e-19
+ofc[8x11x13v2 2.34331e-19 3.84661e-19 3.69996e-19
+ifc[8x11x13v2 1.86815e-19 3.07729e-19 3.10534e-19
+okd11e10x12hx11e00 1.71989e-19 8.89046e-18 1.82574e-19
+ikd11e10x12hx11e00 2.35296e-19 1.38778e-17 1.93302e-19
+obcd378 2.22631e-19 3.56898e-19 3.70873e-19
+ibcd378 1.79863e-19 3.56898e-19 4.40179e-19
+ofcd378 2.19255e-19 3.56898e-19 4.4948e-19
+ifcd378 2.22655e-19 3.56898e-19 4.33939e-19
+FFTW_HPX_TRANSPOSE rank=0 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=2 mode=pairwise exchange_calls=0
+FFTW_HPX_TRANSPOSE rank=1 mode=pairwise exchange_calls=0
+HPX FFTW threaded transforms passed 2 tests, 3 localities, 2 threads each
+make[1]: Leaving directory '/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx'
+make: Leaving directory '/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx'

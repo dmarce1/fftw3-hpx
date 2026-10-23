@@ -1,0 +1,24 @@
+{
+  "license": "GPL-2.0-or-later",
+  "source_head": "e4ac08e6f370eb3c0b24fafdb88da6eb046410ad",
+  "candidate_source": "Explicit frozen working-tree inputs; source changes not yet committed",
+  "hpx_source_commit": "c9b81b401fbe6ba4a0306feff71d18ef01c71b34",
+  "hpx_changes": false,
+  "tcp_enabled": false,
+  "mpi_implementation": "Open MPI 5.0.11",
+  "workload": "1024^3 double-complex in-place FFTW_ESTIMATE, 4 nodes, 1 rank/node, 64 FFT workers/rank, 2 warmups, 7 samples",
+  "runtime_selector": "FFTW_HPX_TRANSPOSE_EXCHANGE",
+  "modes": [
+    "pairwise",
+    "all_to_all"
+  ],
+  "idle_backoff_cap_ms": 10,
+  "source_hashes": {
+    "hpx/hpx-comm.cpp": "49dee7ed77057684ab4111a2e3632b8ef74bff371759b00567233e96ba1df964",
+    "hpx/hpx-comm.h": "75c1bd5b5bad0c6502989b0ff87932d864fc98f1a2d495a50740f2cf240e5933",
+    "hpx/transpose-pairwise.c": "c8ad2f01427df6d18b110474c243bbda1ecad6c4028628d2db7ecb611d54a4e0",
+    "hpx/hpx-comm-check.cpp": "52927a7150bce0b141dfb9c51a0a887df596bb4b93dfe5ed0cc0c42665bbdc33",
+    "benchmarks/matched_3d.cpp": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+    "benchmarks/summarize.py": "34f88f9549a7862a388bdc29f0717c437903be04b0c7200213b17277b1f010e8"
+  }
+}

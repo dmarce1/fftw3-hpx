@@ -1,0 +1,4 @@
+FFTW_HPX_TRANSPOSE rank=0 mode=all_to_all exchange_calls=1172
+FFTW_HPX_TRANSPOSE rank=1 mode=all_to_all exchange_calls=1172
+FFTW_HPX_TRANSPOSE rank=3 mode=all_to_all exchange_calls=1172
+FFTW_HPX_TRANSPOSE rank=2 mode=all_to_all exchange_calls=1172

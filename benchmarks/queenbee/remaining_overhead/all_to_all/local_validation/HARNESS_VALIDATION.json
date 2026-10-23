@@ -1,0 +1,9 @@
+{
+  "valid_42_sample_fixture": "PASS",
+  "reject_missing_collective_dispatch": "PASS",
+  "reject_different_local_plan": "PASS",
+  "reject_wrong_worker_count": "PASS",
+  "reject_missing_exchange_plan_marker": "PASS",
+  "Python_3_6_syntax": "PASS",
+  "shell_syntax": "PASS"
+}
