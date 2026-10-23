@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +19,14 @@
  *
  */
 
-/* "MPI" DFTs where all of the data is on one processor...just
+/* "HPX" DFTs where all of the data is on one processor...just
    call through to serial API. */
 
-#include "mpi-dft.h"
+#include "hpx-dft.h"
 #include "dft/dft.h"
 
 typedef struct {
-     plan_mpi_dft super;
+     plan_hpx_dft super;
      plan *cld;
      INT roff, ioff;
 } P;
@@ -54,10 +55,10 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-dft-serial %(%p%))", ego->cld);
+     p->print(p, "(hpx-dft-serial %(%p%))", ego->cld);
 }
 
-int XM(dft_serial_applicable)(const problem_mpi_dft *p)
+int XM(dft_serial_applicable)(const problem_hpx_dft *p)
 {
      return (1
 	     && p->flags == 0 /* TRANSPOSED/SCRAMBLED_IN/OUT not supported */
@@ -67,7 +68,7 @@ int XM(dft_serial_applicable)(const problem_mpi_dft *p)
 
 static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
 {
-     const problem_mpi_dft *p = (const problem_mpi_dft *) p_;
+     const problem_hpx_dft *p = (const problem_hpx_dft *) p_;
      P *pln;
      plan *cld;
      int my_pe;
@@ -85,7 +86,7 @@ static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
      X(extract_reim)(p->sign, p->I, &ri, &ii);
      X(extract_reim)(p->sign, p->O, &ro, &io);
 
-     MPI_Comm_rank(p->comm, &my_pe);
+     XM(comm_rank)(p->comm, &my_pe);
      if (my_pe == 0 && p->vn > 0) {
 	  int i, rnk = p->sz->rnk;
 	  tensor *sz = X(mktensor)(p->sz->rnk);
@@ -110,7 +111,7 @@ static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
      }
      if (XM(any_true)(!cld, p->comm)) return (plan *) 0;
 
-     pln = MKPLAN_MPI_DFT(P, &padt, apply);
+     pln = MKPLAN_HPX_DFT(P, &padt, apply);
      pln->cld = cld;
      pln->roff = ro - p->O;
      pln->ioff = io - p->O;
@@ -120,7 +121,7 @@ static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
 
 static solver *mksolver(void)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_DFT, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_DFT, mkplan, 0 };
      return MKSOLVER(solver, &sadt);
 }
 

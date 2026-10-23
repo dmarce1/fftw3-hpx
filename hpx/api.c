@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,68 +20,67 @@
  */
 
 #include "api/api.h"
-#include "fftw3-mpi.h"
-#include "ifftw-mpi.h"
-#include "mpi-transpose.h"
-#include "mpi-dft.h"
-#include "mpi-rdft.h"
-#include "mpi-rdft2.h"
+#include "fftw3-hpx.h"
+#include "ifftw-hpx.h"
+#include "hpx-transpose.h"
+#include "hpx-dft.h"
+#include "hpx-rdft.h"
+#include "hpx-rdft2.h"
 
-/* Convert API flags to internal MPI flags. */
-#define MPI_FLAGS(f) ((f) >> 27)
+/* Convert API flags to internal HPX flags. */
+#define HPX_FLAGS(f) ((f) >> 27)
 
 /*************************************************************************/
 
-static int mpi_inited = 0;
+static int hpx_inited = 0;
 
-static MPI_Comm problem_comm(const problem *p) {
+static fftw_hpx_comm problem_comm(const problem *p) {
      switch (p->adt->problem_kind) {
-	 case PROBLEM_MPI_DFT:
-	      return ((const problem_mpi_dft *) p)->comm;
-	 case PROBLEM_MPI_RDFT:
-	      return ((const problem_mpi_rdft *) p)->comm;
-	 case PROBLEM_MPI_RDFT2:
-	      return ((const problem_mpi_rdft2 *) p)->comm;
-	 case PROBLEM_MPI_TRANSPOSE:
-	      return ((const problem_mpi_transpose *) p)->comm;
+	 case PROBLEM_HPX_DFT:
+	      return ((const problem_hpx_dft *) p)->comm;
+	 case PROBLEM_HPX_RDFT:
+	      return ((const problem_hpx_rdft *) p)->comm;
+	 case PROBLEM_HPX_RDFT2:
+	      return ((const problem_hpx_rdft2 *) p)->comm;
+	 case PROBLEM_HPX_TRANSPOSE:
+	      return ((const problem_hpx_transpose *) p)->comm;
 	 default:
-	      return MPI_COMM_NULL;
+	      return FFTW_HPX_COMM_NULL;
      }
 }
 
 /* used to synchronize cost measurements (timing or estimation)
-   across all processes for an MPI problem, which is critical to
-   ensure that all processes decide to use the same MPI plans
+   across all processes for an HPX problem, which is critical to
+   ensure that all processes decide to use the same HPX plans
    (whereas serial plans need not be synchronized). */
 static double cost_hook(const problem *p, double t, cost_kind k)
 {
-     MPI_Comm comm = problem_comm(p);
+     fftw_hpx_comm comm = problem_comm(p);
      double tsum;
-     if (comm == MPI_COMM_NULL) return t;
-     MPI_Allreduce(&t, &tsum, 1, MPI_DOUBLE, 
-		   k == COST_SUM ? MPI_SUM : MPI_MAX, comm);
+     if (comm == FFTW_HPX_COMM_NULL) return t;
+     tsum = XM(allreduce_double)(t, k == COST_SUM ? FFTW_HPX_SUM : FFTW_HPX_MAX, comm);
      return tsum;
 }
 
 /* Used to reject wisdom that is not in sync across all processes
-   for an MPI problem, which is critical to ensure that all processes
-   decide to use the same MPI plans.  (Even though costs are synchronized,
+   for an HPX problem, which is critical to ensure that all processes
+   decide to use the same HPX plans.  (Even though costs are synchronized,
    above, out-of-sync wisdom may result from plans being produced
    by communicators that do not span all processes, either from a
    user-specified communicator or e.g. from transpose-recurse. */
 static int wisdom_ok_hook(const problem *p, flags_t flags)
 {
-     MPI_Comm comm = problem_comm(p);
+     fftw_hpx_comm comm = problem_comm(p);
      int eq_me, eq_all;
-     /* unpack flags bitfield, since MPI communications may involve
-	byte-order changes and MPI cannot do this for bit fields */
+     /* unpack flags bitfield, since HPX communications may involve
+	byte-order changes and HPX cannot do this for bit fields */
 #if SIZEOF_UNSIGNED_INT >= 4 /* must be big enough to hold 20-bit fields */
      unsigned int f[5];
 #else
      unsigned long f[5]; /* at least 32 bits as per C standard */
 #endif
 
-     if (comm == MPI_COMM_NULL) return 1; /* non-MPI wisdom is always ok */
+     if (comm == FFTW_HPX_COMM_NULL) return 1; /* non-HPX wisdom is always ok */
 
      if (XM(any_true)(0, comm)) return 0; /* some process had nowisdom_hook */
 
@@ -90,20 +90,20 @@ static int wisdom_ok_hook(const problem *p, flags_t flags)
 	TO DO: possibly we can relax strict equality, but it is
 	critical to ensure that any flags which affect what plan is
 	created (and whether the solver is applicable) are the same,
-	e.g. DESTROY_INPUT, NO_UGLY, etcetera.  (If the MPI algorithm
+	e.g. DESTROY_INPUT, NO_UGLY, etcetera.  (If the HPX algorithm
 	differs between processes, deadlocks/crashes generally result.) */
      f[0] = flags.l;
      f[1] = flags.hash_info;
      f[2] = flags.timelimit_impatience;
      f[3] = flags.u;
      f[4] = flags.slvndx;
-     MPI_Bcast(f, 5, 
-	       SIZEOF_UNSIGNED_INT >= 4 ? MPI_UNSIGNED : MPI_UNSIGNED_LONG,
+     XM(bcast)(f, 5,
+	       SIZEOF_UNSIGNED_INT >= 4 ? sizeof(unsigned int) : sizeof(unsigned long),
 	       0, comm);
      eq_me = f[0] == flags.l && f[1] == flags.hash_info
 	  && f[2] == flags.timelimit_impatience
 	  && f[3] == flags.u && f[4] == flags.slvndx;
-     MPI_Allreduce(&eq_me, &eq_all, 1, MPI_INT, MPI_LAND, comm);
+     eq_all = XM(allreduce_int)(eq_me, FFTW_HPX_LAND, comm);
      return eq_all;
 }
 
@@ -113,17 +113,17 @@ static int wisdom_ok_hook(const problem *p, flags_t flags)
    and some processes didn't have wisdom (and called nowisdom_hook). */
 static void nowisdom_hook(const problem *p)
 {
-     MPI_Comm comm = problem_comm(p);
-     if (comm == MPI_COMM_NULL) return; /* nothing to do for non-MPI p */
+     fftw_hpx_comm comm = problem_comm(p);
+     if (comm == FFTW_HPX_COMM_NULL) return; /* nothing to do for non-HPX p */
      XM(any_true)(1, comm); /* signal nowisdom to any wisdom_ok_hook */
 }
 
-/* needed to synchronize planner bogosity flag, in case non-MPI problems
+/* needed to synchronize planner bogosity flag, in case non-HPX problems
    on a subset of processes encountered bogus wisdom */
 static wisdom_state_t bogosity_hook(wisdom_state_t state, const problem *p)
 {
-     MPI_Comm comm = problem_comm(p);
-     if (comm != MPI_COMM_NULL /* an MPI problem */
+     fftw_hpx_comm comm = problem_comm(p);
+     if (comm != FFTW_HPX_COMM_NULL /* an HPX problem */
 	 && XM(any_true)(state == WISDOM_IS_BOGUS, comm)) /* bogus somewhere */
 	  return WISDOM_IS_BOGUS;
      return state;
@@ -131,21 +131,27 @@ static wisdom_state_t bogosity_hook(wisdom_state_t state, const problem *p)
 
 void XM(init)(void)
 {
-     if (!mpi_inited) {
-	  planner *plnr = X(the_planner)();
+     if (!hpx_inited) {
+	  planner *plnr;
+          if (!X(init_threads)()) XM(abort)(FFTW_HPX_COMM_NULL, 1);
+          X(threads_set_callback)(XM(parallel_loop), 0);
+          XM(comm_init)();
+          plnr = X(the_planner)();
 	  plnr->cost_hook = cost_hook;
 	  plnr->wisdom_ok_hook = wisdom_ok_hook;
 	  plnr->nowisdom_hook = nowisdom_hook;
 	  plnr->bogosity_hook = bogosity_hook;
           XM(conf_standard)(plnr);
-	  mpi_inited = 1;	  
+	  hpx_inited = 1;
      }
 }
 
 void XM(cleanup)(void)
 {
-     X(cleanup)();
-     mpi_inited = 0;
+     X(cleanup_threads)();
+     X(threads_set_callback)(0, 0);
+     XM(comm_cleanup)();
+     hpx_inited = 0;
 }
 
 /*************************************************************************/
@@ -246,7 +252,7 @@ static INT prod(int rnk, const ptrdiff_t *local_n)
 }
 
 ptrdiff_t XM(local_size_guru)(int rnk, const XM(ddim) *dims0,
-			      ptrdiff_t howmany, MPI_Comm comm,
+			      ptrdiff_t howmany, fftw_hpx_comm comm,
 			      ptrdiff_t *local_n_in,
 			      ptrdiff_t *local_start_in,
 			      ptrdiff_t *local_n_out, 
@@ -260,8 +266,8 @@ ptrdiff_t XM(local_size_guru)(int rnk, const XM(ddim) *dims0,
      if (rnk == 0)
 	  return howmany;
 
-     MPI_Comm_rank(comm, &my_pe);
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_rank)(comm, &my_pe);
+     XM(comm_size)(comm, &n_pes);
      sz = default_sz(rnk, dims0, n_pes, 0);
 
      /* Now, we must figure out how much local space the user should
@@ -304,7 +310,7 @@ ptrdiff_t XM(local_size_guru)(int rnk, const XM(ddim) *dims0,
                                       my_pe) + howmany - 1) / howmany);
      }
      else if (rnk == 1) {
-	  if (howmany >= n_pes && !MPI_FLAGS(flags)) { /* dft-rank1-bigvec */
+	  if (howmany >= n_pes && !HPX_FLAGS(flags)) { /* dft-rank1-bigvec */
 	       ptrdiff_t n[2], start[2];
 	       dtensor *sz2 = XM(mkdtensor)(2);
 	       sz2->dims[0] = sz->dims[0];
@@ -325,13 +331,13 @@ ptrdiff_t XM(local_size_guru)(int rnk, const XM(ddim) *dims0,
 	       if ((r = XM(choose_radix)(sz->dims[0], n_pes, flags, sign,
 					 rblock, mblock))) {
 		    m = sz->dims[0].n / r;
-		    if (flags & FFTW_MPI_SCRAMBLED_IN)
+		    if (flags & FFTW_HPX_SCRAMBLED_IN)
 			 sz->dims[0].b[IB] = rblock[IB] * m;
 		    else { /* !SCRAMBLED_IN */
 			 sz->dims[0].b[IB] = r * mblock[IB];
 			 N = X(imax)(N, rblock[IB] * m);
 		    }
-		    if (flags & FFTW_MPI_SCRAMBLED_OUT)
+		    if (flags & FFTW_HPX_SCRAMBLED_OUT)
 			 sz->dims[0].b[OB] = r * mblock[OB];
 		    else { /* !SCRAMBLED_OUT */
 			 N = X(imax)(N, r * mblock[OB]);
@@ -354,7 +360,7 @@ ptrdiff_t XM(local_size_guru)(int rnk, const XM(ddim) *dims0,
 ptrdiff_t XM(local_size_many_transposed)(int rnk, const ptrdiff_t *n,
 					 ptrdiff_t howmany,
 					 ptrdiff_t xblock, ptrdiff_t yblock,
-					 MPI_Comm comm,
+					 fftw_hpx_comm comm,
 					 ptrdiff_t *local_nx,
 					 ptrdiff_t *local_x_start,
 					 ptrdiff_t *local_ny,
@@ -408,14 +414,14 @@ ptrdiff_t XM(local_size_many_transposed)(int rnk, const ptrdiff_t *n,
 ptrdiff_t XM(local_size_many)(int rnk, const ptrdiff_t *n,
 			      ptrdiff_t howmany, 
 			      ptrdiff_t xblock,
-			      MPI_Comm comm,
+			      fftw_hpx_comm comm,
 			      ptrdiff_t *local_nx,
 			      ptrdiff_t *local_x_start)
 {
      ptrdiff_t local_ny, local_y_start;
      return XM(local_size_many_transposed)(rnk, n, howmany,
 					   xblock, rnk > 1 
-					   ? n[1] : FFTW_MPI_DEFAULT_BLOCK,
+					   ? n[1] : FFTW_HPX_DEFAULT_BLOCK,
 					   comm,
 					   local_nx, local_x_start,
 					   &local_ny, &local_y_start);
@@ -423,44 +429,44 @@ ptrdiff_t XM(local_size_many)(int rnk, const ptrdiff_t *n,
 
 
 ptrdiff_t XM(local_size_transposed)(int rnk, const ptrdiff_t *n,
-				    MPI_Comm comm,
+				    fftw_hpx_comm comm,
 				    ptrdiff_t *local_nx,
 				    ptrdiff_t *local_x_start,
 				    ptrdiff_t *local_ny,
 				    ptrdiff_t *local_y_start)
 {
      return XM(local_size_many_transposed)(rnk, n, 1,
-					   FFTW_MPI_DEFAULT_BLOCK,
-					   FFTW_MPI_DEFAULT_BLOCK,
+					   FFTW_HPX_DEFAULT_BLOCK,
+					   FFTW_HPX_DEFAULT_BLOCK,
 					   comm,
 					   local_nx, local_x_start,
 					   local_ny, local_y_start);
 }
 
 ptrdiff_t XM(local_size)(int rnk, const ptrdiff_t *n,
-			 MPI_Comm comm,
+			 fftw_hpx_comm comm,
 			 ptrdiff_t *local_nx,
 			 ptrdiff_t *local_x_start)
 {
-     return XM(local_size_many)(rnk, n, 1, FFTW_MPI_DEFAULT_BLOCK, comm,
+     return XM(local_size_many)(rnk, n, 1, FFTW_HPX_DEFAULT_BLOCK, comm,
 				local_nx, local_x_start);
 }
 
 ptrdiff_t XM(local_size_many_1d)(ptrdiff_t nx, ptrdiff_t howmany, 
-				 MPI_Comm comm, int sign, unsigned flags,
+				 fftw_hpx_comm comm, int sign, unsigned flags,
 				 ptrdiff_t *local_nx, ptrdiff_t *local_x_start,
 				 ptrdiff_t *local_ny, ptrdiff_t *local_y_start)
 {
      XM(ddim) d;
      d.n = nx;
-     d.ib = d.ob = FFTW_MPI_DEFAULT_BLOCK;
+     d.ib = d.ob = FFTW_HPX_DEFAULT_BLOCK;
      return XM(local_size_guru)(1, &d, howmany, comm,
 				local_nx, local_x_start,
 				local_ny, local_y_start, sign, flags);
 }
 
 ptrdiff_t XM(local_size_1d)(ptrdiff_t nx,
-			    MPI_Comm comm, int sign, unsigned flags,
+			    fftw_hpx_comm comm, int sign, unsigned flags,
 			    ptrdiff_t *local_nx, ptrdiff_t *local_x_start,
 			    ptrdiff_t *local_ny, ptrdiff_t *local_y_start)
 {
@@ -470,7 +476,7 @@ ptrdiff_t XM(local_size_1d)(ptrdiff_t nx,
 }
 
 ptrdiff_t XM(local_size_2d_transposed)(ptrdiff_t nx, ptrdiff_t ny,
-				       MPI_Comm comm,
+				       fftw_hpx_comm comm,
 				       ptrdiff_t *local_nx,
 				       ptrdiff_t *local_x_start,
 				       ptrdiff_t *local_ny, 
@@ -483,7 +489,7 @@ ptrdiff_t XM(local_size_2d_transposed)(ptrdiff_t nx, ptrdiff_t ny,
 				      local_ny, local_y_start);
 }
 
-ptrdiff_t XM(local_size_2d)(ptrdiff_t nx, ptrdiff_t ny, MPI_Comm comm,
+ptrdiff_t XM(local_size_2d)(ptrdiff_t nx, ptrdiff_t ny, fftw_hpx_comm comm,
 			       ptrdiff_t *local_nx, ptrdiff_t *local_x_start)
 {
      ptrdiff_t n[2];
@@ -493,7 +499,7 @@ ptrdiff_t XM(local_size_2d)(ptrdiff_t nx, ptrdiff_t ny, MPI_Comm comm,
 
 ptrdiff_t XM(local_size_3d_transposed)(ptrdiff_t nx, ptrdiff_t ny,
 				       ptrdiff_t nz,
-				       MPI_Comm comm,
+				       fftw_hpx_comm comm,
 				       ptrdiff_t *local_nx,
 				       ptrdiff_t *local_x_start,
 				       ptrdiff_t *local_ny, 
@@ -507,7 +513,7 @@ ptrdiff_t XM(local_size_3d_transposed)(ptrdiff_t nx, ptrdiff_t ny,
 }
 
 ptrdiff_t XM(local_size_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
-			    MPI_Comm comm,
+			    fftw_hpx_comm comm,
 			    ptrdiff_t *local_nx, ptrdiff_t *local_x_start)
 {
      ptrdiff_t n[3];
@@ -522,7 +528,7 @@ X(plan) XM(plan_many_transpose)(ptrdiff_t nx, ptrdiff_t ny,
 				ptrdiff_t howmany,
 				ptrdiff_t xblock, ptrdiff_t yblock,
 				R *in, R *out, 
-				MPI_Comm comm, unsigned flags)
+				fftw_hpx_comm comm, unsigned flags)
 {
      int n_pes;
      XM(init)();
@@ -530,7 +536,7 @@ X(plan) XM(plan_many_transpose)(ptrdiff_t nx, ptrdiff_t ny,
      if (howmany < 0 || xblock < 0 || yblock < 0 ||
 	 nx <= 0 || ny <= 0) return 0;
 
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_size)(comm, &n_pes);
      if (!xblock) xblock = XM(default_block)(nx, n_pes);
      if (!yblock) yblock = XM(default_block)(ny, n_pes);
      if (n_pes < XM(num_blocks)(nx, xblock)
@@ -541,16 +547,16 @@ X(plan) XM(plan_many_transpose)(ptrdiff_t nx, ptrdiff_t ny,
 	  X(mkapiplan)(FFTW_FORWARD, flags,
 		       XM(mkproblem_transpose)(nx, ny, howmany,
 					       in, out, xblock, yblock,
-					       comm, MPI_FLAGS(flags)));
+					       comm, HPX_FLAGS(flags)));
 }
 
 X(plan) XM(plan_transpose)(ptrdiff_t nx, ptrdiff_t ny, R *in, R *out, 
-			   MPI_Comm comm, unsigned flags)
+			   fftw_hpx_comm comm, unsigned flags)
 			      
 {
      return XM(plan_many_transpose)(nx, ny, 1,
-				    FFTW_MPI_DEFAULT_BLOCK,
-				    FFTW_MPI_DEFAULT_BLOCK,
+				    FFTW_HPX_DEFAULT_BLOCK,
+				    FFTW_HPX_DEFAULT_BLOCK,
 				    in, out, comm, flags);
 }
 
@@ -560,7 +566,7 @@ X(plan) XM(plan_transpose)(ptrdiff_t nx, ptrdiff_t ny, R *in, R *out,
 X(plan) XM(plan_guru_dft)(int rnk, const XM(ddim) *dims0,
 			  ptrdiff_t howmany,
 			  C *in, C *out,
-			  MPI_Comm comm, int sign, unsigned flags)
+			  fftw_hpx_comm comm, int sign, unsigned flags)
 {
      int n_pes, i;
      dtensor *sz;
@@ -572,7 +578,7 @@ X(plan) XM(plan_guru_dft)(int rnk, const XM(ddim) *dims0,
 	  if (dims0[i].n < 1 || dims0[i].ib < 0 || dims0[i].ob < 0)
 	       return 0;
 
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_size)(comm, &n_pes);
      sz = default_sz(rnk, dims0, n_pes, 0);
 
      if (XM(num_blocks_total)(sz, IB) > n_pes
@@ -586,14 +592,14 @@ X(plan) XM(plan_guru_dft)(int rnk, const XM(ddim) *dims0,
                        XM(mkproblem_dft_d)(sz, howmany,
 					   (R *) in, (R *) out,
 					   comm, sign, 
-					   MPI_FLAGS(flags)));
+					   HPX_FLAGS(flags)));
 }
 
 X(plan) XM(plan_many_dft)(int rnk, const ptrdiff_t *n,
 			  ptrdiff_t howmany,
 			  ptrdiff_t iblock, ptrdiff_t oblock,
 			  C *in, C *out,
-			  MPI_Comm comm, int sign, unsigned flags)
+			  fftw_hpx_comm comm, int sign, unsigned flags)
 {
      XM(ddim) *dims = simple_dims(rnk, n);
      X(plan) pln;
@@ -603,8 +609,8 @@ X(plan) XM(plan_many_dft)(int rnk, const ptrdiff_t *n,
 	  dims[0].ob = oblock;
      }
      else if (rnk > 1) {
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_IN)].ib = iblock;
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_OUT)].ob = oblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_IN)].ib = iblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_OUT)].ob = oblock;
      }
 
      pln = XM(plan_guru_dft)(rnk,dims,howmany, in,out, comm, sign, flags);
@@ -613,22 +619,22 @@ X(plan) XM(plan_many_dft)(int rnk, const ptrdiff_t *n,
 }
 
 X(plan) XM(plan_dft)(int rnk, const ptrdiff_t *n, C *in, C *out,
-		     MPI_Comm comm, int sign, unsigned flags)
+		     fftw_hpx_comm comm, int sign, unsigned flags)
 {
      return XM(plan_many_dft)(rnk, n, 1,
-			      FFTW_MPI_DEFAULT_BLOCK,
-			      FFTW_MPI_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
 			      in, out, comm, sign, flags);
 }
 
 X(plan) XM(plan_dft_1d)(ptrdiff_t nx, C *in, C *out,
-			MPI_Comm comm, int sign, unsigned flags)
+			fftw_hpx_comm comm, int sign, unsigned flags)
 {
      return XM(plan_dft)(1, &nx, in, out, comm, sign, flags);
 }
 
 X(plan) XM(plan_dft_2d)(ptrdiff_t nx, ptrdiff_t ny, C *in, C *out,
-			MPI_Comm comm, int sign, unsigned flags)
+			fftw_hpx_comm comm, int sign, unsigned flags)
 {
      ptrdiff_t n[2];
      n[0] = nx; n[1] = ny;
@@ -637,7 +643,7 @@ X(plan) XM(plan_dft_2d)(ptrdiff_t nx, ptrdiff_t ny, C *in, C *out,
 
 X(plan) XM(plan_dft_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
 			C *in, C *out,
-			MPI_Comm comm, int sign, unsigned flags)
+			fftw_hpx_comm comm, int sign, unsigned flags)
 {
      ptrdiff_t n[3];
      n[0] = nx; n[1] = ny; n[2] = nz;
@@ -650,7 +656,7 @@ X(plan) XM(plan_dft_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
 X(plan) XM(plan_guru_r2r)(int rnk, const XM(ddim) *dims0,
 			  ptrdiff_t howmany,
 			  R *in, R *out,
-			  MPI_Comm comm, const X(r2r_kind) *kind,
+			  fftw_hpx_comm comm, const X(r2r_kind) *kind,
 			  unsigned flags)
 {
      int n_pes, i;
@@ -667,7 +673,7 @@ X(plan) XM(plan_guru_r2r)(int rnk, const XM(ddim) *dims0,
 
      k = X(map_r2r_kind)(rnk, kind);
 
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_size)(comm, &n_pes);
      sz = default_sz(rnk, dims0, n_pes, 0);
 
      if (XM(num_blocks_total)(sz, IB) > n_pes
@@ -679,7 +685,7 @@ X(plan) XM(plan_guru_r2r)(int rnk, const XM(ddim) *dims0,
      pln = X(mkapiplan)(0, flags,
 			XM(mkproblem_rdft_d)(sz, howmany,
 					     in, out,
-					     comm, k, MPI_FLAGS(flags)));
+					     comm, k, HPX_FLAGS(flags)));
      X(ifree0)(k);
      return pln;
 }
@@ -688,7 +694,7 @@ X(plan) XM(plan_many_r2r)(int rnk, const ptrdiff_t *n,
 			  ptrdiff_t howmany,
 			  ptrdiff_t iblock, ptrdiff_t oblock,
 			  R *in, R *out,
-			  MPI_Comm comm, const X(r2r_kind) *kind,
+			  fftw_hpx_comm comm, const X(r2r_kind) *kind,
 			  unsigned flags)
 {
      XM(ddim) *dims = simple_dims(rnk, n);
@@ -699,8 +705,8 @@ X(plan) XM(plan_many_r2r)(int rnk, const ptrdiff_t *n,
 	  dims[0].ob = oblock;
      }
      else if (rnk > 1) {
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_IN)].ib = iblock;
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_OUT)].ob = oblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_IN)].ib = iblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_OUT)].ob = oblock;
      }
 
      pln = XM(plan_guru_r2r)(rnk,dims,howmany, in,out, comm, kind, flags);
@@ -709,18 +715,18 @@ X(plan) XM(plan_many_r2r)(int rnk, const ptrdiff_t *n,
 }
 
 X(plan) XM(plan_r2r)(int rnk, const ptrdiff_t *n, R *in, R *out,
-		     MPI_Comm comm, 
+		     fftw_hpx_comm comm,
 		     const X(r2r_kind) *kind,
 		     unsigned flags)
 {
      return XM(plan_many_r2r)(rnk, n, 1,
-			      FFTW_MPI_DEFAULT_BLOCK,
-			      FFTW_MPI_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
 			      in, out, comm, kind, flags);
 }
 
 X(plan) XM(plan_r2r_2d)(ptrdiff_t nx, ptrdiff_t ny, R *in, R *out,
-			MPI_Comm comm,
+			fftw_hpx_comm comm,
 			X(r2r_kind) kindx, X(r2r_kind) kindy,
 			unsigned flags)
 {
@@ -733,7 +739,7 @@ X(plan) XM(plan_r2r_2d)(ptrdiff_t nx, ptrdiff_t ny, R *in, R *out,
 
 X(plan) XM(plan_r2r_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
 			R *in, R *out,
-			MPI_Comm comm, 
+			fftw_hpx_comm comm,
 			X(r2r_kind) kindx, X(r2r_kind) kindy,
 			X(r2r_kind) kindz,
 			unsigned flags)
@@ -751,7 +757,7 @@ X(plan) XM(plan_r2r_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
 static X(plan) plan_guru_rdft2(int rnk, const XM(ddim) *dims0,
 			       ptrdiff_t howmany,
 			       R *r, C *c,
-			       MPI_Comm comm, rdft_kind kind, unsigned flags)
+			       fftw_hpx_comm comm, rdft_kind kind, unsigned flags)
 {
      int n_pes, i;
      dtensor *sz;
@@ -764,7 +770,7 @@ static X(plan) plan_guru_rdft2(int rnk, const XM(ddim) *dims0,
 	  if (dims0[i].n < 1 || dims0[i].ib < 0 || dims0[i].ob < 0)
 	       return 0;
 
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_size)(comm, &n_pes);
      sz = default_sz(rnk, dims0, n_pes, 1);
 
      sz->dims[rnk-1].n = dims0[rnk-1].n / 2 + 1;
@@ -779,19 +785,19 @@ static X(plan) plan_guru_rdft2(int rnk, const XM(ddim) *dims0,
 	  return X(mkapiplan)(0, flags,
 			      XM(mkproblem_rdft2_d)(sz, howmany,
 						    r, cr, comm, R2HC, 
-						    MPI_FLAGS(flags)));
+						    HPX_FLAGS(flags)));
      else
 	  return X(mkapiplan)(0, flags,
 			      XM(mkproblem_rdft2_d)(sz, howmany,
 						    cr, r, comm, HC2R, 
-						    MPI_FLAGS(flags)));
+						    HPX_FLAGS(flags)));
 }
 
 X(plan) XM(plan_many_dft_r2c)(int rnk, const ptrdiff_t *n,
 			  ptrdiff_t howmany,
 			  ptrdiff_t iblock, ptrdiff_t oblock,
 			  R *in, C *out,
-			  MPI_Comm comm, unsigned flags)
+			  fftw_hpx_comm comm, unsigned flags)
 {
      XM(ddim) *dims = simple_dims(rnk, n);
      X(plan) pln;
@@ -801,8 +807,8 @@ X(plan) XM(plan_many_dft_r2c)(int rnk, const ptrdiff_t *n,
 	  dims[0].ob = oblock;
      }
      else if (rnk > 1) {
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_IN)].ib = iblock;
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_OUT)].ob = oblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_IN)].ib = iblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_OUT)].ob = oblock;
      }
 
      pln = plan_guru_rdft2(rnk,dims,howmany, in,out, comm, R2HC, flags);
@@ -814,7 +820,7 @@ X(plan) XM(plan_many_dft_c2r)(int rnk, const ptrdiff_t *n,
 			  ptrdiff_t howmany,
 			  ptrdiff_t iblock, ptrdiff_t oblock,
 			  C *in, R *out,
-			  MPI_Comm comm, unsigned flags)
+			  fftw_hpx_comm comm, unsigned flags)
 {
      XM(ddim) *dims = simple_dims(rnk, n);
      X(plan) pln;
@@ -824,8 +830,8 @@ X(plan) XM(plan_many_dft_c2r)(int rnk, const ptrdiff_t *n,
 	  dims[0].ob = oblock;
      }
      else if (rnk > 1) {
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_IN)].ib = iblock;
-	  dims[0 != (flags & FFTW_MPI_TRANSPOSED_OUT)].ob = oblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_IN)].ib = iblock;
+	  dims[0 != (flags & FFTW_HPX_TRANSPOSED_OUT)].ob = oblock;
      }
 
      pln = plan_guru_rdft2(rnk,dims,howmany, out,in, comm, HC2R, flags);
@@ -834,16 +840,16 @@ X(plan) XM(plan_many_dft_c2r)(int rnk, const ptrdiff_t *n,
 }
 
 X(plan) XM(plan_dft_r2c)(int rnk, const ptrdiff_t *n, R *in, C *out,
-		     MPI_Comm comm, unsigned flags)
+		     fftw_hpx_comm comm, unsigned flags)
 {
      return XM(plan_many_dft_r2c)(rnk, n, 1,
-			      FFTW_MPI_DEFAULT_BLOCK,
-			      FFTW_MPI_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
 			      in, out, comm, flags);
 }
 
 X(plan) XM(plan_dft_r2c_2d)(ptrdiff_t nx, ptrdiff_t ny, R *in, C *out,
-			MPI_Comm comm, unsigned flags)
+			fftw_hpx_comm comm, unsigned flags)
 {
      ptrdiff_t n[2];
      n[0] = nx; n[1] = ny;
@@ -851,7 +857,7 @@ X(plan) XM(plan_dft_r2c_2d)(ptrdiff_t nx, ptrdiff_t ny, R *in, C *out,
 }
 
 X(plan) XM(plan_dft_r2c_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
-			R *in, C *out, MPI_Comm comm, unsigned flags)
+			R *in, C *out, fftw_hpx_comm comm, unsigned flags)
 {
      ptrdiff_t n[3];
      n[0] = nx; n[1] = ny; n[2] = nz;
@@ -859,16 +865,16 @@ X(plan) XM(plan_dft_r2c_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
 }
 
 X(plan) XM(plan_dft_c2r)(int rnk, const ptrdiff_t *n, C *in, R *out,
-		     MPI_Comm comm, unsigned flags)
+		     fftw_hpx_comm comm, unsigned flags)
 {
      return XM(plan_many_dft_c2r)(rnk, n, 1,
-			      FFTW_MPI_DEFAULT_BLOCK,
-			      FFTW_MPI_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
+			      FFTW_HPX_DEFAULT_BLOCK,
 			      in, out, comm, flags);
 }
 
 X(plan) XM(plan_dft_c2r_2d)(ptrdiff_t nx, ptrdiff_t ny, C *in, R *out,
-			MPI_Comm comm, unsigned flags)
+			fftw_hpx_comm comm, unsigned flags)
 {
      ptrdiff_t n[2];
      n[0] = nx; n[1] = ny;
@@ -876,7 +882,7 @@ X(plan) XM(plan_dft_c2r_2d)(ptrdiff_t nx, ptrdiff_t ny, C *in, R *out,
 }
 
 X(plan) XM(plan_dft_c2r_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
-			C *in, R *out, MPI_Comm comm, unsigned flags)
+			C *in, R *out, fftw_hpx_comm comm, unsigned flags)
 {
      ptrdiff_t n[3];
      n[0] = nx; n[1] = ny; n[2] = nz;
@@ -887,21 +893,21 @@ X(plan) XM(plan_dft_c2r_3d)(ptrdiff_t nx, ptrdiff_t ny, ptrdiff_t nz,
 /* New-array execute functions */
 
 void XM(execute_dft)(const X(plan) p, C *in, C *out) {
-     /* internally, MPI plans are just rdft plans */
+     /* internally, HPX plans are just rdft plans */
      X(execute_r2r)(p, (R*) in, (R*) out);
 }
 
 void XM(execute_dft_r2c)(const X(plan) p, R *in, C *out) {
-     /* internally, MPI plans are just rdft plans */
+     /* internally, HPX plans are just rdft plans */
      X(execute_r2r)(p, in, (R*) out);
 }
 
 void XM(execute_dft_c2r)(const X(plan) p, C *in, R *out) {
-     /* internally, MPI plans are just rdft plans */
+     /* internally, HPX plans are just rdft plans */
      X(execute_r2r)(p, (R*) in, out);
 }
 
 void XM(execute_r2r)(const X(plan) p, R *in, R *out) {
-     /* internally, MPI plans are just rdft plans */
+     /* internally, HPX plans are just rdft plans */
      X(execute_r2r)(p, in, out);
 }

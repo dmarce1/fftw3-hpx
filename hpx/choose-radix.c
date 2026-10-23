@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,9 +19,9 @@
  *
  */
 
-#include "ifftw-mpi.h"
+#include "ifftw-hpx.h"
 
-/* Return the radix r for a 1d MPI transform of a distributed dimension d,
+/* Return the radix r for a 1d HPX transform of a distributed dimension d,
    with the given flags and transform size.   That is, decomposes d.n
    as r * m, Cooley-Tukey style.  Also computes the block sizes rblock
    and mblock.  Returns 0 if such a decomposition is not feasible.

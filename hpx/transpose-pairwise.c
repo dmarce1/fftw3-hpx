@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +26,7 @@
    processes (i.e. to the total array size divided by the number of
    processes squared). */
 
-#include "mpi-transpose.h"
+#include "hpx-transpose.h"
 #include <string.h>
 
 typedef struct {
@@ -34,7 +35,7 @@ typedef struct {
 } S;
 
 typedef struct {
-     plan_mpi_transpose super;
+     plan_hpx_transpose super;
 
      plan *cld1, *cld2, *cld2rest, *cld3;
      INT rest_Ioff, rest_Ooff;
@@ -42,18 +43,18 @@ typedef struct {
      int n_pes, my_pe, *sched;
      INT *send_block_sizes, *send_block_offsets;
      INT *recv_block_sizes, *recv_block_offsets;
-     MPI_Comm comm;
+     fftw_hpx_comm comm;
      int preserve_input;
 } P;
 
 static void transpose_chunks(int *sched, int n_pes, int my_pe,
 			     INT *sbs, INT *sbo, INT *rbs, INT *rbo,
-			     MPI_Comm comm,
+			     fftw_hpx_comm comm,
 			     R *I, R *O)
 {
      if (sched) {
 	  int i;
-	  MPI_Status status;
+
 
 	  /* TODO: explore non-synchronous send/recv? */
 
@@ -69,12 +70,12 @@ static void transpose_chunks(int *sched, int n_pes, int my_pe,
 		    }
 		    else {
 			 memcpy(buf, O + sbo[pe], sbs[pe] * sizeof(R));
-			 MPI_Sendrecv(buf, (int) (sbs[pe]), FFTW_MPI_TYPE,
+			 XM(sendrecv)(buf, (int) (sbs[pe]), sizeof(R),
 				      pe, (my_pe * n_pes + pe) & 0x7fff,
 				      O + rbo[pe], (int) (rbs[pe]),
-				      FFTW_MPI_TYPE,
+				      sizeof(R),
 				      pe, (pe * n_pes + my_pe) & 0x7fff,
-				      comm, &status);
+				      comm);
 		    }
 	       }
 
@@ -86,13 +87,13 @@ static void transpose_chunks(int *sched, int n_pes, int my_pe,
 		    if (my_pe == pe)
 			 memcpy(O + rbo[pe], I + sbo[pe], sbs[pe] * sizeof(R));
 		    else
-			 MPI_Sendrecv(I + sbo[pe], (int) (sbs[pe]),
-				      FFTW_MPI_TYPE,
+			 XM(sendrecv)(I + sbo[pe], (int) (sbs[pe]),
+				      sizeof(R),
 				      pe, (my_pe * n_pes + pe) & 0x7fff,
 				      O + rbo[pe], (int) (rbs[pe]),
-				      FFTW_MPI_TYPE,
+				      sizeof(R),
 				      pe, (pe * n_pes + my_pe) & 0x7fff,
-				      comm, &status);
+				      comm);
 	       }
 	  }
      }
@@ -152,10 +153,10 @@ static void apply(const plan *ego_, R *I, R *O)
 static int applicable(const S *ego, const problem *p_,
 		      const planner *plnr)
 {
-     const problem_mpi_transpose *p = (const problem_mpi_transpose *) p_;
+     const problem_hpx_transpose *p = (const problem_hpx_transpose *) p_;
      /* Note: this is *not* UGLY for out-of-place, destroy-input plans;
 	the planner often prefers transpose-pairwise to transpose-alltoall,
-	at least with LAM MPI on my machine. */
+	at least with LAM HPX on my machine. */
      return (1
 	     && (!ego->preserve_input || (!NO_DESTROY_INPUTP(plnr)
 					  && p->I != p->O))
@@ -176,7 +177,7 @@ static void destroy(plan *ego_)
      P *ego = (P *) ego_;
      X(ifree0)(ego->sched);
      X(ifree0)(ego->send_block_sizes);
-     MPI_Comm_free(&ego->comm);
+     XM(comm_free)(&ego->comm);
      X(plan_destroy_internal)(ego->cld3);
      X(plan_destroy_internal)(ego->cld2rest);
      X(plan_destroy_internal)(ego->cld2);
@@ -186,7 +187,7 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-transpose-pairwise%s%(%p%)%(%p%)%(%p%)%(%p%))", 
+     p->print(p, "(hpx-transpose-pairwise%s%(%p%)%(%p%)%(%p%)%(%p%))",
 	      ego->preserve_input==2 ?"/p":"",
 	      ego->cld1, ego->cld2, ego->cld2rest, ego->cld3);
 }
@@ -266,9 +267,9 @@ static void sort1_comm_sched(int *sched, int npes, int sortpe, int ascending)
      X(ifree)(sortsched);
 }
 
-/* make the plans to do the post-MPI transpositions (shared with
+/* make the plans to do the post-HPX transpositions (shared with
    transpose-alltoall) */
-int XM(mkplans_posttranspose)(const problem_mpi_transpose *p, planner *plnr,
+int XM(mkplans_posttranspose)(const problem_hpx_transpose *p, planner *plnr,
 			      R *I, R *O, int my_pe,
 			      plan **cld2, plan **cld2rest, plan **cld3,
 			      INT *rest_Ioff, INT *rest_Ooff)
@@ -357,7 +358,7 @@ nada:
 static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 {
      const S *ego = (const S *) ego_;
-     const problem_mpi_transpose *p;
+     const problem_hpx_transpose *p;
      P *pln;
      plan *cld1 = 0, *cld2 = 0, *cld2rest = 0, *cld3 = 0;
      INT b, bt, vn, rest_Ioff, rest_Ooff;
@@ -373,12 +374,12 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (!applicable(ego, p_, plnr))
           return (plan *) 0;
 
-     p = (const problem_mpi_transpose *) p_;
+     p = (const problem_hpx_transpose *) p_;
      vn = p->vn;
      I = p->I; O = p->O;
 
-     MPI_Comm_rank(p->comm, &my_pe);
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_rank)(p->comm, &my_pe);
+     XM(comm_size)(p->comm, &n_pes);
 
      b = XM(block)(p->nx, p->block, my_pe);
      
@@ -399,7 +400,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 						 &rest_Ioff, &rest_Ooff),
 		      p->comm)) goto nada;
 
-     pln = MKPLAN_MPI_TRANSPOSE(P, &padt, apply);
+     pln = MKPLAN_HPX_TRANSPOSE(P, &padt, apply);
 
      pln->cld1 = cld1;
      pln->cld2 = cld2;
@@ -409,7 +410,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      pln->cld3 = cld3;
      pln->preserve_input = ego->preserve_input ? 2 : NO_DESTROY_INPUTP(plnr);
 
-     MPI_Comm_dup(p->comm, &pln->comm);
+     XM(comm_dup)(p->comm, &pln->comm);
 
      n_pes = (int) X(imax)(XM(num_blocks)(p->nx, p->block),
 			   XM(num_blocks)(p->ny, p->tblock));
@@ -459,7 +460,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (cld2) X(ops_add2)(&cld2->ops, &pln->super.super.ops);
      if (cld2rest) X(ops_add2)(&cld2rest->ops, &pln->super.super.ops);
      if (cld3) X(ops_add2)(&cld3->ops, &pln->super.super.ops);
-     /* FIXME: should MPI operations be counted in "other" somehow? */
+     /* FIXME: should HPX operations be counted in "other" somehow? */
 
      return &(pln->super.super);
 
@@ -473,7 +474,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 
 static solver *mksolver(int preserve_input)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_TRANSPOSE, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_TRANSPOSE, mkplan, 0 };
      S *slv = MKSOLVER(S, &sadt);
      slv->preserve_input = preserve_input;
      return &(slv->super);

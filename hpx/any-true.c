@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +19,7 @@
  *
  */
 
-#include "ifftw-mpi.h"
+#include "ifftw-hpx.h"
 
 /* During planning, if any process fails to create a plan then
    all of the processes must fail.  This synchronization is implemented
@@ -30,10 +31,10 @@
         if (any_true(failure, comm)) goto nada;
 */
 
-int XM(any_true)(int condition, MPI_Comm comm)
+int XM(any_true)(int condition, fftw_hpx_comm comm)
 {
      int result;
-     MPI_Allreduce(&condition, &result, 1, MPI_INT, MPI_LOR, comm);
+     result = XM(allreduce_int)(condition, FFTW_HPX_LOR, comm);
      return result;
 }
 
@@ -41,19 +42,19 @@ int XM(any_true)(int condition, MPI_Comm comm)
 
 #if defined(FFTW_DEBUG)
 /* for debugging, we include an assertion to make sure that
-   MPI problems all produce equal hashes, as checked by this routine: */
+   HPX problems all produce equal hashes, as checked by this routine: */
 
-int XM(md5_equal)(md5 m, MPI_Comm comm)
+int XM(md5_equal)(md5 m, fftw_hpx_comm comm)
 {
      unsigned long s0[4];
      int i, eq_me, eq_all;
 
      X(md5end)(&m);
      for (i = 0; i < 4; ++i) s0[i] = m.s[i];
-     MPI_Bcast(s0, 4, MPI_UNSIGNED_LONG, 0, comm);
+     XM(bcast)(s0, 4, sizeof(unsigned long), 0, comm);
      for (i = 0; i < 4 && s0[i] == m.s[i]; ++i) ;
      eq_me = i == 4;
-     MPI_Allreduce(&eq_me, &eq_all, 1, MPI_INT, MPI_LAND, comm);
+     eq_all = XM(allreduce_int)(eq_me, FFTW_HPX_LAND, comm);
      return eq_all;
 }
 #endif

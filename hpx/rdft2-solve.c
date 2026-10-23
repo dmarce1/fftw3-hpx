@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,12 +19,12 @@
  *
  */
 
-#include "mpi-rdft2.h"
+#include "hpx-rdft2.h"
 
-/* use the apply() operation for MPI_RDFT2 problems */
+/* use the apply() operation for HPX_RDFT2 problems */
 void XM(rdft2_solve)(const plan *ego_, const problem *p_)
 {
-     const plan_mpi_rdft2 *ego = (const plan_mpi_rdft2 *) ego_;
-     const problem_mpi_rdft2 *p = (const problem_mpi_rdft2 *) p_;
+     const plan_hpx_rdft2 *ego = (const plan_hpx_rdft2 *) ego_;
+     const problem_hpx_rdft2 *p = (const problem_hpx_rdft2 *) p_;
      ego->apply(ego_, UNTAINT(p->I), UNTAINT(p->O));
 }

@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,8 +24,8 @@
    instead transpose the DFT dimension with the vector dimension to 
    make the DFT local. */
 
-#include "mpi-dft.h"
-#include "mpi-transpose.h"
+#include "hpx-dft.h"
+#include "hpx-transpose.h"
 #include "dft/dft.h"
 
 typedef struct {
@@ -34,7 +35,7 @@ typedef struct {
 } S;
 
 typedef struct {
-     plan_mpi_dft super;
+     plan_hpx_dft super;
 
      plan *cldt_before, *cld, *cldt_after;
      INT roff, ioff;
@@ -67,9 +68,9 @@ static void apply(const plan *ego_, R *I, R *O)
 static int applicable(const S *ego, const problem *p_,
 		      const planner *plnr)
 {
-     const problem_mpi_dft *p = (const problem_mpi_dft *) p_;
+     const problem_hpx_dft *p = (const problem_hpx_dft *) p_;
      int n_pes;
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_size)(p->comm, &n_pes);
      return (1
 	     && p->sz->rnk == 1
 	     && !(p->flags & ~RANK1_BIGVEC_ONLY)
@@ -107,7 +108,7 @@ static void print(const plan *ego_, printer *p)
      const P *ego = (const P *) ego_;
      const char descrip[][16] = { "contig", "discontig", "square-after",
 				  "square-middle", "square-before" };
-     p->print(p, "(mpi-dft-rank1-bigvec/%s%s %(%p%) %(%p%) %(%p%))",
+     p->print(p, "(hpx-dft-rank1-bigvec/%s%s %(%p%) %(%p%) %(%p%))",
 	      descrip[ego->rearrange], ego->preserve_input==2 ?"/p":"",
 	      ego->cldt_before, ego->cld, ego->cldt_after);
 }
@@ -115,7 +116,7 @@ static void print(const plan *ego_, printer *p)
 static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 {
      const S *ego = (const S *) ego_;
-     const problem_mpi_dft *p;
+     const problem_hpx_dft *p;
      P *pln;
      plan *cld = 0, *cldt_before = 0, *cldt_after = 0;
      R *ri, *ii, *ro, *io, *I, *O;
@@ -130,10 +131,10 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (!applicable(ego, p_, plnr))
           return (plan *) 0;
 
-     p = (const problem_mpi_dft *) p_;
+     p = (const problem_hpx_dft *) p_;
 
-     MPI_Comm_rank(p->comm, &my_pe);
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_rank)(p->comm, &my_pe);
+     XM(comm_size)(p->comm, &n_pes);
      
      nx = p->sz->dims[0].n;
      if (!(ny = XM(rearrange_ny)(ego->rearrange, p->sz->dims[0],p->vn,n_pes)))
@@ -170,7 +171,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 				   p->comm, 0));
      if (XM(any_true)(!cldt_after, p->comm)) goto nada;	  
 
-     pln = MKPLAN_MPI_DFT(P, &padt, apply);
+     pln = MKPLAN_HPX_DFT(P, &padt, apply);
 
      pln->cldt_before = cldt_before;
      pln->cld = cld;
@@ -194,7 +195,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 
 static solver *mksolver(rearrangement rearrange, int preserve_input)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_DFT, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_DFT, mkplan, 0 };
      S *slv = MKSOLVER(S, &sadt);
      slv->rearrange = rearrange;
      slv->preserve_input = preserve_input;

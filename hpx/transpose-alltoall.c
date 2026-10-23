@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,10 +19,10 @@
  *
  */
 
-/* plans for distributed out-of-place transpose using MPI_Alltoall,
+/* plans for distributed out-of-place transpose using HPX_Alltoall,
    and which destroy the input array (unless TRANSPOSED_IN is used) */
 
-#include "mpi-transpose.h"
+#include "hpx-transpose.h"
 #include <string.h>
 
 typedef struct {
@@ -33,11 +34,11 @@ typedef struct {
 } S;
 
 typedef struct {
-     plan_mpi_transpose super;
+     plan_hpx_transpose super;
 
      plan *cld1, *cld2, *cld2rest, *cld3;
 
-     MPI_Comm comm;
+     fftw_hpx_comm comm;
      int *send_block_sizes, *send_block_offsets;
      int *recv_block_sizes, *recv_block_offsets;
 
@@ -58,27 +59,27 @@ static void apply(const plan *ego_, R *I, R *O)
 	  
 	  /* transpose chunks globally */
 	  if (ego->equal_blocks)
-	       MPI_Alltoall(O, ego->send_block_sizes[0], FFTW_MPI_TYPE,
-			    I, ego->recv_block_sizes[0], FFTW_MPI_TYPE,
+	       XM(alltoall)(O, ego->send_block_sizes[0], sizeof(R),
+			    I, ego->recv_block_sizes[0], sizeof(R),
 			    ego->comm);
 	  else
-	       MPI_Alltoallv(O, ego->send_block_sizes, ego->send_block_offsets,
-			     FFTW_MPI_TYPE,
+	       XM(alltoallv)(O, ego->send_block_sizes, ego->send_block_offsets,
+			     sizeof(R),
 			     I, ego->recv_block_sizes, ego->recv_block_offsets,
-			     FFTW_MPI_TYPE,
+			     sizeof(R),
 			     ego->comm);
      }
      else { /* TRANSPOSED_IN, no need to destroy input */
 	  /* transpose chunks globally */
 	  if (ego->equal_blocks)
-	       MPI_Alltoall(I, ego->send_block_sizes[0], FFTW_MPI_TYPE,
-			    O, ego->recv_block_sizes[0], FFTW_MPI_TYPE,
+	       XM(alltoall)(I, ego->send_block_sizes[0], sizeof(R),
+			    O, ego->recv_block_sizes[0], sizeof(R),
 			    ego->comm);
 	  else
-	       MPI_Alltoallv(I, ego->send_block_sizes, ego->send_block_offsets,
-			     FFTW_MPI_TYPE,
+	       XM(alltoallv)(I, ego->send_block_sizes, ego->send_block_offsets,
+			     sizeof(R),
 			     O, ego->recv_block_sizes, ego->recv_block_offsets,
-			     FFTW_MPI_TYPE,
+			     sizeof(R),
 			     ego->comm);
 	  I = O; /* final transpose (if any) is in-place */
      }
@@ -102,7 +103,7 @@ static void apply(const plan *ego_, R *I, R *O)
 static int applicable(const S *ego, const problem *p_,
 		      const planner *plnr)
 {
-     const problem_mpi_transpose *p = (const problem_mpi_transpose *) p_;
+     const problem_hpx_transpose *p = (const problem_hpx_transpose *) p_;
      return (1
 	     && p->I != p->O
 	     && (!NO_DESTROY_INPUTP(plnr) || 
@@ -125,7 +126,7 @@ static void destroy(plan *ego_)
 {
      P *ego = (P *) ego_;
      X(ifree0)(ego->send_block_sizes);
-     MPI_Comm_free(&ego->comm);
+     XM(comm_free)(&ego->comm);
      X(plan_destroy_internal)(ego->cld3);
      X(plan_destroy_internal)(ego->cld2rest);
      X(plan_destroy_internal)(ego->cld2);
@@ -135,7 +136,7 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-transpose-alltoall%s%(%p%)%(%p%)%(%p%)%(%p%))",
+     p->print(p, "(hpx-transpose-alltoall%s%(%p%)%(%p%)%(%p%)%(%p%))",
 	      ego->equal_blocks ? "/e" : "",
 	      ego->cld1, ego->cld2, ego->cld2rest, ego->cld3);
 }
@@ -143,7 +144,7 @@ static void print(const plan *ego_, printer *p)
 static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 {
      const S *ego = (const S *) ego_;
-     const problem_mpi_transpose *p;
+     const problem_hpx_transpose *p;
      P *pln;
      plan *cld1 = 0, *cld2 = 0, *cld2rest = 0, *cld3 = 0;
      INT b, bt, vn, rest_Ioff, rest_Ooff;
@@ -158,11 +159,11 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (!applicable(ego, p_, plnr))
           return (plan *) 0;
 
-     p = (const problem_mpi_transpose *) p_;
+     p = (const problem_hpx_transpose *) p_;
      vn = p->vn;
 
-     MPI_Comm_rank(p->comm, &my_pe);
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_rank)(p->comm, &my_pe);
+     XM(comm_size)(p->comm, &n_pes);
 
      b = XM(block)(p->nx, p->block, my_pe);
 
@@ -194,7 +195,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 						 &rest_Ioff, &rest_Ooff),
 		      p->comm)) goto nada;
 
-     pln = MKPLAN_MPI_TRANSPOSE(P, &padt, apply);
+     pln = MKPLAN_HPX_TRANSPOSE(P, &padt, apply);
 
      pln->cld1 = cld1;
      pln->cld2 = cld2;
@@ -203,7 +204,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      pln->rest_Ooff = rest_Ooff;
      pln->cld3 = cld3;
 
-     MPI_Comm_dup(p->comm, &pln->comm);
+     XM(comm_dup)(p->comm, &pln->comm);
 
      /* Compute sizes/offsets of blocks to send for all-to-all command. */
      sbs = (int *) MALLOC(4 * n_pes * sizeof(int), PLANS);
@@ -219,7 +220,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 	  if (db != p->block || dbt != p->tblock)
 	       equal_blocks = 0;
 
-	  /* MPI requires type "int" here; apparently it
+	  /* HPX requires type "int" here; apparently it
 	     has no 64-bit API?  Grrr. */
 	  sbs[pe] = (int) (b * dbt * vn);
 	  sbo[pe] = (int) (pe * (b * p->tblock) * vn);
@@ -237,7 +238,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (cld2) X(ops_add2)(&cld2->ops, &pln->super.super.ops);
      if (cld2rest) X(ops_add2)(&cld2rest->ops, &pln->super.super.ops);
      if (cld3) X(ops_add2)(&cld3->ops, &pln->super.super.ops);
-     /* FIXME: should MPI operations be counted in "other" somehow? */
+     /* FIXME: should HPX operations be counted in "other" somehow? */
 
      return &(pln->super.super);
 
@@ -251,7 +252,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 
 static solver *mksolver(int copy_transposed_in)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_TRANSPOSE, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_TRANSPOSE, mkplan, 0 };
      S *slv = MKSOLVER(S, &sadt);
      slv->copy_transposed_in = copy_transposed_in;
      return &(slv->super);

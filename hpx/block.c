@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,17 +19,17 @@
  *
  */
 
-#include "ifftw-mpi.h"
+#include "ifftw-hpx.h"
 
 INT XM(num_blocks)(INT n, INT block)
 {
      return (n + block - 1) / block;
 }
 
-int XM(num_blocks_ok)(INT n, INT block, MPI_Comm comm)
+int XM(num_blocks_ok)(INT n, INT block, fftw_hpx_comm comm)
 {
      int n_pes;
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_size)(comm, &n_pes);
      return n_pes >= XM(num_blocks)(n, block);
 }
 

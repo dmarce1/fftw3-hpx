@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,63 +19,63 @@
  *
  */
 
-#include "mpi-dft.h"
+#include "hpx-dft.h"
 
 static void destroy(problem *ego_)
 {
-     problem_mpi_dft *ego = (problem_mpi_dft *) ego_;
+     problem_hpx_dft *ego = (problem_hpx_dft *) ego_;
      XM(dtensor_destroy)(ego->sz);
-     MPI_Comm_free(&ego->comm);
+     XM(comm_free)(&ego->comm);
      X(ifree)(ego_);
 }
 
 static void hash(const problem *p_, md5 *m)
 {
-     const problem_mpi_dft *p = (const problem_mpi_dft *) p_;
+     const problem_hpx_dft *p = (const problem_hpx_dft *) p_;
      int i;
-     X(md5puts)(m, "mpi-dft");
+     X(md5puts)(m, "hpx-dft");
      X(md5int)(m, p->I == p->O);
      /* don't include alignment -- may differ between processes
 	X(md5int)(m, X(ialignment_of)(p->I));
 	X(md5int)(m, X(ialignment_of)(p->O));
-	... note that applicability of MPI plans does not depend
+	... note that applicability of HPX plans does not depend
 	    on alignment (although optimality may, in principle). */
      XM(dtensor_md5)(m, p->sz);
      X(md5INT)(m, p->vn);
      X(md5int)(m, p->sign);
      X(md5int)(m, p->flags);
-     MPI_Comm_size(p->comm, &i); X(md5int)(m, i);
+     XM(comm_size)(p->comm, &i); X(md5int)(m, i);
      A(XM(md5_equal)(*m, p->comm));
 }
 
 static void print(const problem *ego_, printer *p)
 {
-     const problem_mpi_dft *ego = (const problem_mpi_dft *) ego_;
+     const problem_hpx_dft *ego = (const problem_hpx_dft *) ego_;
      int i;
-     p->print(p, "(mpi-dft %d %d %d ", 
+     p->print(p, "(hpx-dft %d %d %d ",
 	      ego->I == ego->O,
 	      X(ialignment_of)(ego->I),
 	      X(ialignment_of)(ego->O));
      XM(dtensor_print)(ego->sz, p);
      p->print(p, " %D %d %d", ego->vn, ego->sign, ego->flags);
-     MPI_Comm_size(ego->comm, &i); p->print(p, " %d)", i);
+     XM(comm_size)(ego->comm, &i); p->print(p, " %d)", i);
 }
 
 static void zero(const problem *ego_)
 {
-     const problem_mpi_dft *ego = (const problem_mpi_dft *) ego_;
+     const problem_hpx_dft *ego = (const problem_hpx_dft *) ego_;
      R *I = ego->I;
      INT i, N;
      int my_pe;
 
-     MPI_Comm_rank(ego->comm, &my_pe);
+     XM(comm_rank)(ego->comm, &my_pe);
      N = 2 * ego->vn * XM(total_block)(ego->sz, IB, my_pe);
      for (i = 0; i < N; ++i) I[i] = K(0.0);
 }
 
 static const problem_adt padt =
 {
-     PROBLEM_MPI_DFT,
+     PROBLEM_HPX_DFT,
      hash,
      zero,
      print,
@@ -83,16 +84,16 @@ static const problem_adt padt =
 
 problem *XM(mkproblem_dft)(const dtensor *sz, INT vn,
 			   R *I, R *O,
-			   MPI_Comm comm,
+			   fftw_hpx_comm comm,
 			   int sign,
 			   unsigned flags)
 {
-     problem_mpi_dft *ego =
-          (problem_mpi_dft *)X(mkproblem)(sizeof(problem_mpi_dft), &padt);
+     problem_hpx_dft *ego =
+          (problem_hpx_dft *)X(mkproblem)(sizeof(problem_hpx_dft), &padt);
      int n_pes;
 
      A(XM(dtensor_validp)(sz) && FINITE_RNK(sz->rnk));
-     MPI_Comm_size(comm, &n_pes);
+     XM(comm_size)(comm, &n_pes);
      A(n_pes >= XM(num_blocks_total)(sz, IB)
        && n_pes >= XM(num_blocks_total)(sz, OB));
      A(vn >= 0);
@@ -119,14 +120,14 @@ problem *XM(mkproblem_dft)(const dtensor *sz, INT vn,
      }
      ego->flags = flags;
 
-     MPI_Comm_dup(comm, &ego->comm);
+     XM(comm_dup)(comm, &ego->comm);
 
      return &(ego->super);
 }
 
 problem *XM(mkproblem_dft_d)(dtensor *sz, INT vn,
 			     R *I, R *O,
-			     MPI_Comm comm,
+			     fftw_hpx_comm comm,
 			     int sign,
 			     unsigned flags)
 {

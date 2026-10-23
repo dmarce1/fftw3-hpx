@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,7 +35,7 @@
    latency-dominated.)
 */
 
-#include "mpi-transpose.h"
+#include "hpx-transpose.h"
 #include <string.h>
 
 typedef struct {
@@ -45,7 +46,7 @@ typedef struct {
 } S;
 
 typedef struct {
-     plan_mpi_transpose super;
+     plan_hpx_transpose super;
 
      plan *cld1, *cldtr, *cldtm;
      int preserve_input;
@@ -124,9 +125,9 @@ static int enough_space(INT nx, INT ny, INT block, INT tblock,
 static int applicable(const S *ego, const problem *p_,
 		      const planner *plnr, int *r)
 {
-     const problem_mpi_transpose *p = (const problem_mpi_transpose *) p_;
+     const problem_hpx_transpose *p = (const problem_hpx_transpose *) p_;
      int n_pes;
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_size)(p->comm, &n_pes);
      return (1
 	     && p->tblock * n_pes == p->ny
 	     && (!ego->preserve_input || (!NO_DESTROY_INPUTP(plnr)
@@ -160,7 +161,7 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-transpose-recurse/%s/%d%s%(%p%)%(%p%)%(%p%))",
+     p->print(p, "(hpx-transpose-recurse/%s/%d%s%(%p%)%(%p%)%(%p%))",
 	      ego->nam, ego->r, ego->preserve_input==2 ?"/p":"",
 	      ego->cld1, ego->cldtr, ego->cldtm);
 }
@@ -168,13 +169,13 @@ static void print(const plan *ego_, printer *p)
 static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 {
      const S *ego = (const S *) ego_;
-     const problem_mpi_transpose *p;
+     const problem_hpx_transpose *p;
      P *pln;
      plan *cld1 = 0, *cldtr = 0, *cldtm = 0;
      R *I, *O;
      int me, np, r, m;
      INT b;
-     MPI_Comm comm2;
+     fftw_hpx_comm comm2;
      static const plan_adt padt = {
           XM(transpose_solve), awake, print, destroy
      };
@@ -184,10 +185,10 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (!applicable(ego, p_, plnr, &r))
           return (plan *) 0;
 
-     p = (const problem_mpi_transpose *) p_;
+     p = (const problem_hpx_transpose *) p_;
 
-     MPI_Comm_size(p->comm, &np);
-     MPI_Comm_rank(p->comm, &me);
+     XM(comm_size)(p->comm, &np);
+     XM(comm_rank)(p->comm, &me);
      m = np / r;
      A(r * m == np);
 
@@ -237,27 +238,27 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (ego->preserve_input || NO_DESTROY_INPUTP(plnr)) I = O;
 
      b = XM(block)(p->nx, r * p->block, me / r);
-     MPI_Comm_split(p->comm, me / r, me, &comm2);
+     XM(comm_split)(p->comm, me / r, me, &comm2);
      if (b)
 	  cldtr = X(mkplan_d)(plnr, XM(mkproblem_transpose)
 			      (b, p->ny, p->vn,
 			       O, I, p->block, m * p->tblock, comm2, 
 			       p->I != p->O
 			       ? TRANSPOSED_IN : (p->flags & TRANSPOSED_IN)));
-     MPI_Comm_free(&comm2);
+     XM(comm_free)(&comm2);
      if (XM(any_true)(b && !cldtr, p->comm)) goto nada;
      
      b = XM(block)(p->ny, m * p->tblock, me % r);
-     MPI_Comm_split(p->comm, me % r, me, &comm2);
+     XM(comm_split)(p->comm, me % r, me, &comm2);
      if (b)
 	  cldtm = X(mkplan_d)(plnr, XM(mkproblem_transpose)
 			      (p->nx, b, p->vn,
 			       I, O, r * p->block, p->tblock, comm2, 
 			       TRANSPOSED_IN | (p->flags & TRANSPOSED_OUT)));
-     MPI_Comm_free(&comm2);
+     XM(comm_free)(&comm2);
      if (XM(any_true)(b && !cldtm, p->comm)) goto nada;
 
-     pln = MKPLAN_MPI_TRANSPOSE(P, &padt, apply);
+     pln = MKPLAN_HPX_TRANSPOSE(P, &padt, apply);
 
      pln->cld1 = cld1;
      pln->cldtr = cldtr;
@@ -282,7 +283,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 static solver *mksolver(int preserve_input,
 			int (*radix)(int np), const char *nam)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_TRANSPOSE, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_TRANSPOSE, mkplan, 0 };
      S *slv = MKSOLVER(S, &sadt);
      slv->preserve_input = preserve_input;
      slv->radix = radix;

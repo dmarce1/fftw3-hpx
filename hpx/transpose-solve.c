@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,12 +19,12 @@
  *
  */
 
-#include "mpi-transpose.h"
+#include "hpx-transpose.h"
 
-/* use the apply() operation for MPI_TRANSPOSE problems */
+/* use the apply() operation for HPX_TRANSPOSE problems */
 void XM(transpose_solve)(const plan *ego_, const problem *p_)
 {
-     const plan_mpi_transpose *ego = (const plan_mpi_transpose *) ego_;
-     const problem_mpi_transpose *p = (const problem_mpi_transpose *) p_;
+     const plan_hpx_transpose *ego = (const plan_hpx_transpose *) ego_;
+     const problem_hpx_transpose *p = (const problem_hpx_transpose *) p_;
      ego->apply(ego_, UNTAINT(p->I), UNTAINT(p->O));
 }

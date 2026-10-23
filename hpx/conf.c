@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,10 +20,10 @@
  */
 
 
-#include "mpi-transpose.h"
-#include "mpi-dft.h"
-#include "mpi-rdft.h"
-#include "mpi-rdft2.h"
+#include "hpx-transpose.h"
+#include "hpx-dft.h"
+#include "hpx-rdft.h"
+#include "hpx-rdft2.h"
 
 static const solvtab s =
 {

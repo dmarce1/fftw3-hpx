@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,12 +19,12 @@
  *
  */
 
-#include "mpi-dft.h"
+#include "hpx-dft.h"
 
-/* use the apply() operation for MPI_DFT problems */
+/* use the apply() operation for HPX_DFT problems */
 void XM(dft_solve)(const plan *ego_, const problem *p_)
 {
-     const plan_mpi_dft *ego = (const plan_mpi_dft *) ego_;
-     const problem_mpi_dft *p = (const problem_mpi_dft *) p_;
+     const plan_hpx_dft *ego = (const plan_hpx_dft *) ego_;
+     const problem_hpx_dft *p = (const problem_hpx_dft *) p_;
      ego->apply(ego_, UNTAINT(p->I), UNTAINT(p->O));
 }

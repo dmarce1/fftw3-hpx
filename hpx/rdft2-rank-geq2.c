@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,8 +22,8 @@
 /* Complex RDFT2s of rank >= 2, for the case where we are distributed
    across the first dimension only, and the output is not transposed. */
 
-#include "mpi-dft.h"
-#include "mpi-rdft2.h"
+#include "hpx-dft.h"
+#include "hpx-rdft2.h"
 #include "rdft/rdft.h"
 
 typedef struct {
@@ -31,7 +32,7 @@ typedef struct {
 } S;
 
 typedef struct {
-     plan_mpi_rdft2 super;
+     plan_hpx_rdft2 super;
 
      plan *cld1, *cld2;
      INT vn;
@@ -77,7 +78,7 @@ static void apply_c2r(const plan *ego_, R *I, R *O)
 static int applicable(const S *ego, const problem *p_,
 		      const planner *plnr)
 {
-     const problem_mpi_rdft2 *p = (const problem_mpi_rdft2 *) p_;
+     const problem_hpx_rdft2 *p = (const problem_hpx_rdft2 *) p_;
      return (1
 	     && p->sz->rnk > 1
 	     && p->flags == 0 /* TRANSPOSED/SCRAMBLED_IN/OUT not supported */
@@ -108,14 +109,14 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-rdft2-rank-geq2%s%(%p%)%(%p%))", 
+     p->print(p, "(hpx-rdft2-rank-geq2%s%(%p%)%(%p%))",
 	      ego->preserve_input==2 ?"/p":"", ego->cld1, ego->cld2);
 }
 
 static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 {
      const S *ego = (const S *) ego_;
-     const problem_mpi_rdft2 *p;
+     const problem_hpx_rdft2 *p;
      P *pln;
      plan *cld1 = 0, *cld2 = 0;
      R *r0, *r1, *cr, *ci, *I, *O;
@@ -132,7 +133,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (!applicable(ego, p_, plnr))
           return (plan *) 0;
 
-     p = (const problem_mpi_rdft2 *) p_;
+     p = (const problem_hpx_rdft2 *) p_;
 
      I = p->I; O = p->O;
      if (p->kind == R2HC) {
@@ -149,8 +150,8 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
           ci = (cr = p->O) + 1;
      }
 
-     MPI_Comm_rank(p->comm, &my_pe);
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_rank)(p->comm, &my_pe);
+     XM(comm_size)(p->comm, &n_pes);
 
      sz = X(mktensor)(p->sz->rnk - 1); /* tensor of last rnk-1 dimensions */
      i = p->sz->rnk - 2; A(i >= 0);
@@ -183,7 +184,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 						  RANK1_BIGVEC_ONLY));
      if (XM(any_true)(!cld2, p->comm)) goto nada;
 
-     pln = MKPLAN_MPI_RDFT2(P, &padt, p->kind == R2HC ? apply_r2c : apply_c2r);
+     pln = MKPLAN_HPX_RDFT2(P, &padt, p->kind == R2HC ? apply_r2c : apply_c2r);
      pln->cld1 = cld1;
      pln->cld2 = cld2;
      pln->preserve_input = ego->preserve_input ? 2 : NO_DESTROY_INPUTP(plnr);
@@ -201,7 +202,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 
 static solver *mksolver(int preserve_input)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_RDFT2, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_RDFT2, mkplan, 0 };
      S *slv = MKSOLVER(S, &sadt);
      slv->preserve_input = preserve_input;
      return &(slv->super);

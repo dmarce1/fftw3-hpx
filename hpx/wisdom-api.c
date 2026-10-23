@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,20 +19,10 @@
  *
  */
 
-#include "fftw3-mpi.h"
-#include "ifftw-mpi.h"
+#include "fftw3-hpx.h"
+#include "ifftw-hpx.h"
 #include <string.h>
 
-#if SIZEOF_SIZE_T == SIZEOF_UNSIGNED_INT
-#  define FFTW_MPI_SIZE_T MPI_UNSIGNED
-#elif SIZEOF_SIZE_T == SIZEOF_UNSIGNED_LONG
-#  define FFTW_MPI_SIZE_T MPI_UNSIGNED_LONG
-#elif SIZEOF_SIZE_T == SIZEOF_UNSIGNED_LONG_LONG
-#  define FFTW_MPI_SIZE_T MPI_UNSIGNED_LONG_LONG
-#else
-#  error MPI type for size_t is unknown
-#  define FFTW_MPI_SIZE_T MPI_UNSIGNED_LONG
-#endif
 
 /* Import wisdom from all processes to process 0, as prelude to
    exporting a single wisdom file (this is convenient when we are
@@ -41,41 +32,41 @@
    linear), we employ a tree reduction algorithm.  This means that the
    wisdom is modified on processes other than root, which shouldn't
    matter in practice. */
-void XM(gather_wisdom)(MPI_Comm comm_)
+void XM(gather_wisdom)(fftw_hpx_comm comm_)
 {
-     MPI_Comm comm, comm2;
+     fftw_hpx_comm comm, comm2;
      int my_pe, n_pes;
      char *wis;
      size_t wislen;
-     MPI_Status status;
 
-     MPI_Comm_dup(comm_, &comm);
-     MPI_Comm_rank(comm, &my_pe);
-     MPI_Comm_size(comm, &n_pes);
+
+     XM(comm_dup)(comm_, &comm);
+     XM(comm_rank)(comm, &my_pe);
+     XM(comm_size)(comm, &n_pes);
 
      if (n_pes > 2) { /* recursively split into even/odd processes */
-	  MPI_Comm_split(comm, my_pe % 2, my_pe, &comm2);
+	  XM(comm_split)(comm, my_pe % 2, my_pe, &comm2);
 	  XM(gather_wisdom)(comm2);
-	  MPI_Comm_free(&comm2);
+	  XM(comm_free)(&comm2);
      }
      if (n_pes > 1 && my_pe < 2) { /* import process 1 -> 0 */
 	  if (my_pe == 1) {
 	       wis = X(export_wisdom_to_string)();
 	       wislen = strlen(wis) + 1;
-	       MPI_Send(&wislen, 1, FFTW_MPI_SIZE_T, 0, 111, comm);
-	       MPI_Send(wis, wislen, MPI_CHAR, 0, 222, comm);
+	       XM(send)(&wislen, 1, sizeof(size_t), 0, 111, comm);
+	       XM(send)(wis, wislen, sizeof(char), 0, 222, comm);
 	       free(wis);
 	  }
 	  else /* my_pe == 0 */ {
-	       MPI_Recv(&wislen, 1, FFTW_MPI_SIZE_T, 1, 111, comm, &status);
+	       XM(recv)(&wislen, 1, sizeof(size_t), 1, 111, comm);
 	       wis = (char *) MALLOC(wislen * sizeof(char), OTHER);
-	       MPI_Recv(wis, wislen, MPI_CHAR, 1, 222, comm, &status);
+	       XM(recv)(wis, wislen, sizeof(char), 1, 222, comm);
 	       if (!X(import_wisdom_from_string)(wis))
-		    MPI_Abort(comm, 1);
+		    XM(abort)(comm, 1);
 	       X(ifree)(wis);
 	  }
      }
-     MPI_Comm_free(&comm);
+     XM(comm_free)(&comm);
 }
 
 /* broadcast wisdom from process 0 to all other processes; this
@@ -83,30 +74,30 @@ void XM(gather_wisdom)(MPI_Comm comm_)
    about parallel I/O or process-specific wisdom, although of
    course it assumes that all the processes have identical
    performance characteristics (i.e. identical hardware). */
-void XM(broadcast_wisdom)(MPI_Comm comm_)
+void XM(broadcast_wisdom)(fftw_hpx_comm comm_)
 {
-     MPI_Comm comm;
+     fftw_hpx_comm comm;
      int my_pe;
      char *wis;
      size_t wislen;
 
-     MPI_Comm_dup(comm_, &comm);
-     MPI_Comm_rank(comm, &my_pe);
+     XM(comm_dup)(comm_, &comm);
+     XM(comm_rank)(comm, &my_pe);
 
      if (my_pe != 0) {
-	  MPI_Bcast(&wislen, 1, FFTW_MPI_SIZE_T, 0, comm);
+	  XM(bcast)(&wislen, 1, sizeof(size_t), 0, comm);
 	  wis = (char *) MALLOC(wislen * sizeof(char), OTHER);
-	  MPI_Bcast(wis, wislen, MPI_CHAR, 0, comm);
+	  XM(bcast)(wis, wislen, sizeof(char), 0, comm);
 	  if (!X(import_wisdom_from_string)(wis))
-	       MPI_Abort(comm, 1);
+	       XM(abort)(comm, 1);
 	  X(ifree)(wis);
      }
      else /* my_pe == 0 */ {
 	  wis = X(export_wisdom_to_string)();
 	  wislen = strlen(wis) + 1;
-	  MPI_Bcast(&wislen, 1, FFTW_MPI_SIZE_T, 0, comm);
-	  MPI_Bcast(wis, wislen, MPI_CHAR, 0, comm);
+	  XM(bcast)(&wislen, 1, sizeof(size_t), 0, comm);
+	  XM(bcast)(wis, wislen, sizeof(char), 0, comm);
 	  X(free)(wis);
      }
-     MPI_Comm_free(&comm);
+     XM(comm_free)(&comm);
 }

@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +19,7 @@
  *
  */
 
-#include "ifftw-mpi.h"
+#include "ifftw-hpx.h"
 
 /* problem.c: */
 typedef struct {
@@ -31,25 +32,25 @@ typedef struct {
      unsigned flags; /* TRANSPOSED_IN/OUT meaningful for rnk>1 only
 			SCRAMBLED_IN/OUT meaningful for 1d transforms only */
 
-     MPI_Comm comm;
-} problem_mpi_dft;
+     fftw_hpx_comm comm;
+} problem_hpx_dft;
 
 problem *XM(mkproblem_dft)(const dtensor *sz, INT vn,
-			      R *I, R *O, MPI_Comm comm,
+			      R *I, R *O, fftw_hpx_comm comm,
 			      int sign, unsigned flags);
 problem *XM(mkproblem_dft_d)(dtensor *sz, INT vn,
-			     R *I, R *O, MPI_Comm comm,
+			     R *I, R *O, fftw_hpx_comm comm,
 			     int sign, unsigned flags);
 
 /* solve.c: */
 void XM(dft_solve)(const plan *ego_, const problem *p_);
 
 /* plans have same operands as rdft plans, so just re-use */
-typedef plan_rdft plan_mpi_dft;
-#define MKPLAN_MPI_DFT(type, adt, apply) \
+typedef plan_rdft plan_hpx_dft;
+#define MKPLAN_HPX_DFT(type, adt, apply) \
   (type *)X(mkplan_rdft)(sizeof(type), adt, apply)
 
-int XM(dft_serial_applicable)(const problem_mpi_dft *p);
+int XM(dft_serial_applicable)(const problem_hpx_dft *p);
 
 /* various solvers */
 void XM(dft_rank_geq2_register)(planner *p);

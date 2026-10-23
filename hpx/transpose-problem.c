@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,41 +19,41 @@
  *
  */
 
-#include "mpi-transpose.h"
+#include "hpx-transpose.h"
 
 static void destroy(problem *ego_)
 {
-     problem_mpi_transpose *ego = (problem_mpi_transpose *) ego_;
-     MPI_Comm_free(&ego->comm);
+     problem_hpx_transpose *ego = (problem_hpx_transpose *) ego_;
+     XM(comm_free)(&ego->comm);
      X(ifree)(ego_);
 }
 
 static void hash(const problem *p_, md5 *m)
 {
-     const problem_mpi_transpose *p = (const problem_mpi_transpose *) p_;
+     const problem_hpx_transpose *p = (const problem_hpx_transpose *) p_;
      int i;
-     X(md5puts)(m, "mpi-transpose");
+     X(md5puts)(m, "hpx-transpose");
      X(md5int)(m, p->I == p->O);
      /* don't include alignment -- may differ between processes
 	X(md5int)(m, X(ialignment_of)(p->I));
 	X(md5int)(m, X(ialignment_of)(p->O));
-	... note that applicability of MPI plans does not depend
+	... note that applicability of HPX plans does not depend
 	    on alignment (although optimality may, in principle). */
      X(md5INT)(m, p->vn);
      X(md5INT)(m, p->nx);
      X(md5INT)(m, p->ny);
      X(md5INT)(m, p->block);
      X(md5INT)(m, p->tblock);
-     MPI_Comm_size(p->comm, &i); X(md5int)(m, i);
+     XM(comm_size)(p->comm, &i); X(md5int)(m, i);
      A(XM(md5_equal)(*m, p->comm));
 }
 
 static void print(const problem *ego_, printer *p)
 {
-     const problem_mpi_transpose *ego = (const problem_mpi_transpose *) ego_;
+     const problem_hpx_transpose *ego = (const problem_hpx_transpose *) ego_;
      int i;
-     MPI_Comm_size(ego->comm, &i);
-     p->print(p, "(mpi-transpose %d %d %d %D %D %D %D %D %d)", 
+     XM(comm_size)(ego->comm, &i);
+     p->print(p, "(hpx-transpose %d %d %d %D %D %D %D %D %d)",
 	      ego->I == ego->O,
 	      X(ialignment_of)(ego->I),
 	      X(ialignment_of)(ego->O),
@@ -64,12 +65,12 @@ static void print(const problem *ego_, printer *p)
 
 static void zero(const problem *ego_)
 {
-     const problem_mpi_transpose *ego = (const problem_mpi_transpose *) ego_;
+     const problem_hpx_transpose *ego = (const problem_hpx_transpose *) ego_;
      R *I = ego->I;
      INT i, N = ego->vn * ego->ny;
      int my_pe;
 
-     MPI_Comm_rank(ego->comm, &my_pe);
+     XM(comm_rank)(ego->comm, &my_pe);
      N *= XM(block)(ego->nx, ego->block, my_pe);
 
      for (i = 0; i < N; ++i) I[i] = K(0.0);
@@ -77,7 +78,7 @@ static void zero(const problem *ego_)
 
 static const problem_adt padt =
 {
-     PROBLEM_MPI_TRANSPOSE,
+     PROBLEM_HPX_TRANSPOSE,
      hash,
      zero,
      print,
@@ -87,11 +88,11 @@ static const problem_adt padt =
 problem *XM(mkproblem_transpose)(INT nx, INT ny, INT vn,
 				 R *I, R *O,
 				 INT block, INT tblock,
-				 MPI_Comm comm,
+				 fftw_hpx_comm comm,
 				 unsigned flags)
 {
-     problem_mpi_transpose *ego =
-          (problem_mpi_transpose *)X(mkproblem)(sizeof(problem_mpi_transpose), &padt);
+     problem_hpx_transpose *ego =
+          (problem_hpx_transpose *)X(mkproblem)(sizeof(problem_hpx_transpose), &padt);
 
      A(nx > 0 && ny > 0 && vn > 0);
      A(block > 0 && XM(num_blocks_ok)(nx, block, comm)
@@ -117,7 +118,7 @@ problem *XM(mkproblem_transpose)(INT nx, INT ny, INT vn,
 	  flags |= TRANSPOSED_OUT;
      ego->flags = flags;
 
-     MPI_Comm_dup(comm, &ego->comm);
+     XM(comm_dup)(comm, &ego->comm);
 
      return &(ego->super);
 }

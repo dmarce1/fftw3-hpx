@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,16 +19,16 @@
  *
  */
 
-/* FFTW-MPI internal header file */
-#ifndef __IFFTW_MPI_H__
-#define __IFFTW_MPI_H__
+/* FFTW-HPX internal header file */
+#ifndef __IFFTW_HPX_H__
+#define __IFFTW_HPX_H__
 
 #include "kernel/ifftw.h"
 #include "rdft/rdft.h"
 
-#include <mpi.h>
+#include "hpx-comm.h"
 
-/* mpi problem flags: problem-dependent meaning, but in general
+/* hpx problem flags: problem-dependent meaning, but in general
    SCRAMBLED means some reordering *within* the dimensions, while
    TRANSPOSED means some reordering *of* the dimensions */
 #define SCRAMBLED_IN (1 << 0)
@@ -39,18 +40,21 @@
 #define ONLY_SCRAMBLEDP(flags) (!((flags) & ~(SCRAMBLED_IN|SCRAMBLED_OUT)))
 #define ONLY_TRANSPOSEDP(flags) (!((flags) & ~(TRANSPOSED_IN|TRANSPOSED_OUT)))
 
-#if defined(FFTW_SINGLE)
-#  define FFTW_MPI_TYPE MPI_FLOAT
-#elif defined(FFTW_LDOUBLE)
-#  define FFTW_MPI_TYPE MPI_LONG_DOUBLE
-#elif defined(FFTW_QUAD)
-#  error MPI quad-precision type is unknown
-#else
-#  define FFTW_MPI_TYPE MPI_DOUBLE
-#endif
 
-/* all fftw-mpi identifiers start with fftw_mpi (or fftwf_mpi etc.) */
-#define XM(name) X(CONCAT(mpi_, name))
+/* all fftw-hpx identifiers start with fftw_hpx (or fftwf_hpx etc.) */
+#define XM(name) X(CONCAT(hpx_, name))
+
+/* Reuse the four distributed problem slots in the unchanged FFTW kernel.
+   In FFTW 3.3.11 these are named PROBLEM_MPI_DFT through
+   PROBLEM_MPI_TRANSPOSE; the numeric planner indices must stay identical. */
+enum {
+     PROBLEM_HPX_DFT = PROBLEM_RDFT2 + 1,
+     PROBLEM_HPX_RDFT,
+     PROBLEM_HPX_RDFT2,
+     PROBLEM_HPX_TRANSPOSE
+};
+typedef char fftw_hpx_problem_slots_match[
+     PROBLEM_HPX_TRANSPOSE + 1 == PROBLEM_LAST ? 1 : -1];
 
 /***********************************************************************/
 /* block distributions */
@@ -94,7 +98,7 @@ void XM(dtensor_print)(const dtensor *t, printer *p);
 
 /* for a single distributed dimension: */
 INT XM(num_blocks)(INT n, INT block);
-int XM(num_blocks_ok)(INT n, INT block, MPI_Comm comm);
+int XM(num_blocks_ok)(INT n, INT block, fftw_hpx_comm comm);
 INT XM(default_block)(INT n, int n_pes);
 INT XM(block)(INT n, INT block, int which_block);
 
@@ -114,8 +118,8 @@ INT XM(choose_radix)(ddim d, int n_pes, unsigned flags, int sign,
 
 /***********************************************************************/
 /* any_true.c */
-int XM(any_true)(int condition, MPI_Comm comm);
-int XM(md5_equal)(md5 m, MPI_Comm comm);
+int XM(any_true)(int condition, fftw_hpx_comm comm);
+int XM(md5_equal)(md5 m, fftw_hpx_comm comm);
 
 /* conf.c */
 void XM(conf_standard)(planner *p);
@@ -147,5 +151,5 @@ INT XM(rearrange_ny)(rearrangement rearrange, ddim dim0, INT vn, int n_pes);
 
 /***********************************************************************/
 
-#endif /* __IFFTW_MPI_H__ */
+#endif /* __IFFTW_HPX_H__ */
 

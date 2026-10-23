@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,8 +21,8 @@
 
 /* Complex DFTs of rank == 1 via six-step algorithm. */
 
-#include "mpi-dft.h"
-#include "mpi-transpose.h"
+#include "hpx-dft.h"
+#include "hpx-transpose.h"
 #include "dft/dft.h"
 
 typedef struct {
@@ -31,7 +32,7 @@ typedef struct {
 } S;
 
 typedef struct {
-     plan_mpi_dft super;
+     plan_hpx_dft super;
 
      triggen *t;
      plan *cldt, *cld_ddft, *cld_dft;
@@ -151,9 +152,9 @@ static int applicable(const S *ego, const problem *p_,
 		      const planner *plnr,
 		      INT *r, INT rblock[2], INT mblock[2])
 {
-     const problem_mpi_dft *p = (const problem_mpi_dft *) p_;
+     const problem_hpx_dft *p = (const problem_hpx_dft *) p_;
      int n_pes;
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_size)(p->comm, &n_pes);
      return (1
 	     && p->sz->rnk == 1
 
@@ -214,7 +215,7 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-dft-rank1/%D%s%s%(%p%)%(%p%)%(%p%))",
+     p->print(p, "(hpx-dft-rank1/%D%s%s%(%p%)%(%p%)%(%p%))",
 	      ego->r,
 	      ego->super.apply == apply_ddft_first ? "/first" : "/last",
 	      ego->preserve_input==2 ?"/p":"",
@@ -224,7 +225,7 @@ static void print(const plan *ego_, printer *p)
 static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 {
      const S *ego = (const S *) ego_;
-     const problem_mpi_dft *p;
+     const problem_hpx_dft *p;
      P *pln;
      plan *cld_dft = 0, *cld_ddft = 0, *cldt = 0;
      R *ri, *ii, *ro, *io, *I, *O;
@@ -240,10 +241,10 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      if (!applicable(ego, p_, plnr, &r, rblock, mblock))
           return (plan *) 0;
 
-     p = (const problem_mpi_dft *) p_;
+     p = (const problem_hpx_dft *) p_;
 
-     MPI_Comm_rank(p->comm, &my_pe);
-     MPI_Comm_size(p->comm, &n_pes);
+     XM(comm_rank)(p->comm, &my_pe);
+     XM(comm_size)(p->comm, &n_pes);
 
      m = p->sz->dims[0].n / r;
 
@@ -297,7 +298,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 	  if (XM(any_true)(!cldt, p->comm)) goto nada;	  
      }
 
-     pln = MKPLAN_MPI_DFT(P, &padt, ego->apply);
+     pln = MKPLAN_HPX_DFT(P, &padt, ego->apply);
 
      pln->cld_ddft = cld_ddft;
      pln->cld_dft = cld_dft;
@@ -334,7 +335,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
 
 static solver *mksolver(rdftapply apply, int preserve_input)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_DFT, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_DFT, mkplan, 0 };
      S *slv = MKSOLVER(S, &sadt);
      slv->apply = apply;
      slv->preserve_input = preserve_input;

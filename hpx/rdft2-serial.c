@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2003, 2007-14 Matteo Frigo
  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,14 +19,14 @@
  *
  */
 
-/* "MPI" DFTs where all of the data is on one processor...just
+/* "HPX" DFTs where all of the data is on one processor...just
    call through to serial API. */
 
-#include "mpi-rdft2.h"
+#include "hpx-rdft2.h"
 #include "rdft/rdft.h"
 
 typedef struct {
-     plan_mpi_rdft2 super;
+     plan_hpx_rdft2 super;
      plan *cld;
      INT vn;
 } P;
@@ -61,10 +62,10 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(mpi-rdft2-serial %(%p%))", ego->cld);
+     p->print(p, "(hpx-rdft2-serial %(%p%))", ego->cld);
 }
 
-int XM(rdft2_serial_applicable)(const problem_mpi_rdft2 *p)
+int XM(rdft2_serial_applicable)(const problem_hpx_rdft2 *p)
 {
      return (1
 	     && p->flags == 0 /* TRANSPOSED/SCRAMBLED_IN/OUT not supported */
@@ -74,7 +75,7 @@ int XM(rdft2_serial_applicable)(const problem_mpi_rdft2 *p)
 
 static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
 {
-     const problem_mpi_rdft2 *p = (const problem_mpi_rdft2 *) p_;
+     const problem_hpx_rdft2 *p = (const problem_hpx_rdft2 *) p_;
      P *pln;
      plan *cld;
      int my_pe;
@@ -98,7 +99,7 @@ static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
 	  ci = (cr = p->I) + 1;
      }
 
-     MPI_Comm_rank(p->comm, &my_pe);
+     XM(comm_rank)(p->comm, &my_pe);
      if (my_pe == 0 && p->vn > 0) {
 	  INT ivs = 1 + (p->kind == HC2R), ovs = 1 + (p->kind == R2HC);
 	  int i, rnk = p->sz->rnk;
@@ -125,7 +126,7 @@ static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
      }
      if (XM(any_true)(!cld, p->comm)) return (plan *) 0;
 
-     pln = MKPLAN_MPI_RDFT2(P, &padt, p->kind == R2HC ? apply_r2c : apply_c2r);
+     pln = MKPLAN_HPX_RDFT2(P, &padt, p->kind == R2HC ? apply_r2c : apply_c2r);
      pln->cld = cld;
      pln->vn = p->vn;
      X(ops_cpy)(&cld->ops, &pln->super.super.ops);
@@ -134,7 +135,7 @@ static plan *mkplan(const solver *ego, const problem *p_, planner *plnr)
 
 static solver *mksolver(void)
 {
-     static const solver_adt sadt = { PROBLEM_MPI_RDFT2, mkplan, 0 };
+     static const solver_adt sadt = { PROBLEM_HPX_RDFT2, mkplan, 0 };
      return MKSOLVER(solver, &sadt);
 }
 
