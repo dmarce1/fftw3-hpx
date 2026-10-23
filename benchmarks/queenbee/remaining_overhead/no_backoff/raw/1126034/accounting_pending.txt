@@ -1,0 +1,1 @@
+Accounting is to be captured once by the login-session owner after completion; no Slurm polling is performed by this job.

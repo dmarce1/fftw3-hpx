@@ -1,0 +1,7 @@
+status	PASS
+exit_status	0
+job_id	1125925
+stage	complete
+candidate	rendezvous
+started_utc	2026-10-23T08:40:38Z
+finished_utc	2026-10-23T08:55:15Z

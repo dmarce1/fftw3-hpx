@@ -1,0 +1,6 @@
+case	role	executable	workers	backoff_cap_ms	scheduler_mode	sendimm
+mpi_start	primary	/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi	64	n/a	n/a	n/a
+hpx_cap10	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean	64	10	default_3303	0
+hpx_no_backoff	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean	64	10	1255	0
+hpx_cap10repeat	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean	64	10	default_3303	0
+mpi_end	primary	/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi	64	n/a	n/a	n/a

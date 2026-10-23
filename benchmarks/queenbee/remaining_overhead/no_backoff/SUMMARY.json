@@ -1,0 +1,251 @@
+{
+  "status": "PASS",
+  "license": "GPL-2.0-or-later",
+  "configuration": {
+    "extent": "1024",
+    "ranks": "4",
+    "threads": "64",
+    "precision": "double",
+    "inplace": "1",
+    "layout": "normal",
+    "planner": "FFTW_ESTIMATE",
+    "warmups": "2",
+    "samples": "7"
+  },
+  "run_order": [
+    "mpi_start",
+    "hpx_cap10",
+    "hpx_no_backoff",
+    "hpx_cap10repeat",
+    "mpi_end"
+  ],
+  "cases": {
+    "mpi_start": {
+      "samples_seconds": [
+        3.283851554,
+        3.324841228,
+        3.324601818,
+        3.31868974,
+        3.329730626,
+        3.325346845,
+        3.286359425
+      ],
+      "median_seconds": 3.324601818,
+      "min_seconds": 3.283851554,
+      "mean_seconds": 3.3133458908571427,
+      "max_seconds": 3.329730626,
+      "checks": [
+        {
+          "backend": "mpi",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.3248988013960868e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.3986960342891404e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.196128222638237e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "plans_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      },
+      "raw_log_sha256": "26c53132ef96de8b2a0538331d6b63d2f2566b081cc4f56aa3e65fcdb0556014"
+    },
+    "hpx_cap10": {
+      "samples_seconds": [
+        3.478905412,
+        3.503515321,
+        3.553266374,
+        3.57639986,
+        3.488932252,
+        3.479644192,
+        3.45184376
+      ],
+      "median_seconds": 3.488932252,
+      "min_seconds": 3.45184376,
+      "mean_seconds": 3.5046438815714285,
+      "max_seconds": 3.57639986,
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "plans_sha256": {
+        "forward": "33f149977680ac50969e862f07084b9042793444c85be137b729cdc9d61ea719",
+        "backward": "0da2b46dcdc4403a83a95baddb0209b88ebf3e5816c2ff88ab382a4f1d576e41"
+      },
+      "raw_log_sha256": "428d711a660ba84b00d7fa7670fec9fed21b4ca41e374774c197863c47efb62d"
+    },
+    "hpx_no_backoff": {
+      "samples_seconds": [
+        3.533963202,
+        3.477228418,
+        3.442324764,
+        3.487117545,
+        3.467343805,
+        3.754646889,
+        3.509970332
+      ],
+      "median_seconds": 3.487117545,
+      "min_seconds": 3.442324764,
+      "mean_seconds": 3.524656422142857,
+      "max_seconds": 3.754646889,
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "plans_sha256": {
+        "forward": "33f149977680ac50969e862f07084b9042793444c85be137b729cdc9d61ea719",
+        "backward": "0da2b46dcdc4403a83a95baddb0209b88ebf3e5816c2ff88ab382a4f1d576e41"
+      },
+      "raw_log_sha256": "6745a141a515e0e1a8f8f7e6e4998f467e008ca5d44ca9ac904bce7bdc363699"
+    },
+    "hpx_cap10repeat": {
+      "samples_seconds": [
+        3.974542883,
+        4.030231765,
+        3.919143852,
+        4.48586748,
+        4.477425107,
+        3.925673756,
+        4.508316054
+      ],
+      "median_seconds": 4.030231765,
+      "min_seconds": 3.919143852,
+      "mean_seconds": 4.188742985285714,
+      "max_seconds": 4.508316054,
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "plans_sha256": {
+        "forward": "33f149977680ac50969e862f07084b9042793444c85be137b729cdc9d61ea719",
+        "backward": "0da2b46dcdc4403a83a95baddb0209b88ebf3e5816c2ff88ab382a4f1d576e41"
+      },
+      "raw_log_sha256": "022a1a2ba9892bc36516b5e9e399c1490606d748c9994b98dd1de6fd0be769af"
+    },
+    "mpi_end": {
+      "samples_seconds": [
+        3.359598584,
+        3.275847904,
+        3.286984091,
+        3.371435476,
+        3.358779985,
+        3.387462766,
+        3.367033008
+      ],
+      "median_seconds": 3.359598584,
+      "min_seconds": 3.275847904,
+      "mean_seconds": 3.343877402,
+      "max_seconds": 3.387462766,
+      "checks": [
+        {
+          "backend": "mpi",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.3248988013960868e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.3986960342891404e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.196128222638237e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "plans_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      },
+      "raw_log_sha256": "b5c81fffdb6b1ae45c23e0b0c6bf6896678935650cf58dfd23e7b599632203eb"
+    }
+  },
+  "median_seconds": {
+    "mpi_start": 3.324601818,
+    "hpx_cap10": 3.488932252,
+    "hpx_no_backoff": 3.487117545,
+    "hpx_cap10repeat": 4.030231765,
+    "mpi_end": 3.359598584
+  },
+  "median_ratios": {
+    "no_backoff_over_initial_10ms": 0.9994798675156389,
+    "no_backoff_over_repeated_10ms": 0.865239953514187,
+    "no_backoff_over_mpi_start": 1.0488827642817584,
+    "no_backoff_over_mpi_end": 1.037956606365804,
+    "cap10_repeat_over_initial": 1.1551476136258318,
+    "mpi_end_over_start": 1.010526603760643
+  },
+  "inherited_mpi_thread_level": {
+    "is_set": "",
+    "value": ""
+  },
+  "timed_samples": 35,
+  "numerical_checks": 15,
+  "communication_passes": 8,
+  "all_normalized_plans_equal": true,
+  "source_mode_default": 3303,
+  "source_mode_no_backoff": 1255,
+  "changed_parameter": "hpx.default_scheduler_mode clears only enable_idle_backoff",
+  "interpretation": "One fixed-order allocation with MPI bookends and repeated 10 ms control; CPU and temporal variation are not isolated."
+}

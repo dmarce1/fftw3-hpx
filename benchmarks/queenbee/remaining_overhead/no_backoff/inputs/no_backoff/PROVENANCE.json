@@ -1,0 +1,16 @@
+{
+  "license": "GPL-2.0-or-later",
+  "purpose": "same 1024^3 FFTW-MPI versus HPX 10 ms and disabled backoff",
+  "hpx_source_commit": "c9b81b401fbe6ba4a0306feff71d18ef01c71b34",
+  "bridge_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "hpx_default_scheduler_mode": 3303,
+  "hpx_no_backoff_scheduler_mode": 1255,
+  "idle_backoff_bit": 2048,
+  "prior_confirmation_job": "1125925",
+  "prior_profile_job": "1125966",
+  "prior_backoff_comparison_job": "1125974",
+  "expected_rank_count": 4,
+  "expected_threads_per_rank": 64,
+  "tcp_enabled": false
+}

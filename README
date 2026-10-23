@@ -13,10 +13,15 @@ storage after exchanging readiness notifications. FFTW retains ownership of
 its allocations. Profiling identified the removed final receive copy as about
 70 percent of the previously measured HPX/MPI timing gap. A lean HPX build
 also removes optional instrumentation while retaining the MPI parcelport.
-The final 1024-cubed QueenBee cohort measured HPX at 3.489 seconds versus MPI
+The 10 ms tuning cohort measured HPX at 3.489 seconds versus MPI
 controls of 3.279 and 3.312 seconds, with a 10 ms HPX idle-backoff cap. The
-remaining overhead is 5.4-6.4 percent; the report records run variation and
+remaining overhead in that cohort was 5.4-6.4 percent; the report records run variation and
 the increased runtime CPU activity observed with the shorter cap.
+A later comparison measured 3.489 seconds with the same cap and 3.487 seconds
+with backoff disabled, versus MPI controls of 3.325 and 3.360 seconds.
+Disabling backoff did not materially improve HPX time; its 3.8-4.9 percent
+gap to those MPI controls remains unresolved. A slower repeated HPX control
+limits conclusions from this fixed-order run. The documented cap stays 10 ms.
 See benchmarks/queenbee/remaining_overhead/README.md for the unchanged
 1024-cubed QueenBee comparison, all timing cohorts, remaining overhead,
 correctness checks and exact build/runtime settings. Earlier pooled-receive

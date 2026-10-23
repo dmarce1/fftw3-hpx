@@ -321,6 +321,33 @@ the wall-time gain is not a reduction in total CPU work. The allocation remains
 four exclusive 64-core nodes with 64 FFT workers each. This tuning leaves
 measurable communication/progress overhead and does not establish MPI parity.
 
+## Disabling idle backoff: job 1126034
+
+The [no-backoff comparison](no_backoff/README.md) reused the same MPI and lean
+HPX binaries, unchanged 1024³ benchmark, four physical nodes, one rank or
+locality per node, and 64 FFT workers per process. MPI/UCX `rc,sm,self` carried
+inter-node messages; TCP remained disabled. All 35 timed samples, 15 numerical
+checks, normalized plans, and eight communication checks passed. Slurm reports
+completion with exit `0:0`.
+
+| Case, in executed order | Median seconds |
+| --- | ---: |
+| MPI, start | 3.324601818 |
+| HPX, 10 ms cap | 3.488932252 |
+| HPX, backoff disabled | 3.487117545 |
+| HPX, 10 ms cap repeated | 4.030231765 |
+| MPI, end | 3.359598584 |
+
+Disabling backoff changed the HPX median by only **−0.052%** against the first
+10 ms control. The repeated 10 ms control was **15.515% slower** than the
+first, showing substantial variation within this one fixed-order allocation.
+The disabled-backoff median remained **3.80–4.89% slower** than the MPI
+bookends. There is no clear reproducible improvement from disabling backoff,
+so the documented runtime setting remains the 10 ms cap. The remaining
+HPX/MPI overhead is unresolved. This extension brought QueenBee access to
+**6 of the original 12 authorized login attempts**; its raw status file has
+one legacy-named, byte-identical copy, as documented in the linked package.
+
 ## Validation and provenance
 
 The selected bridge SHA256 is
@@ -351,9 +378,10 @@ package's own manifest. Verify it from this directory with `sha256sum -c SHA256S
 Two profile preparation jobs failed before timing because QueenBee's Python
 3.6 lacks newer APIs. Their exact failures and guarded reuse are retained in
 the profile package; neither contributes a performance result. Builds ran on
-allocated compute nodes. All remote activity in this phase reused the fifth
-persistent SSH connection: **5 of the original 12 login attempts** were used,
-with no budget reset or automatic reconnect. One [batched accounting query](accounting.txt)
+allocated compute nodes. All remote activity through job 1125974 reused the
+fifth persistent SSH connection: **5 of the original 12 login attempts** were
+used at that point, with no budget reset or automatic reconnect. One
+[batched accounting query](accounting.txt)
 confirmed seven completed jobs with exit code `0:0` and the two documented
 preparation failures. Its [capture timestamp](accounting_captured_utc.txt) is
 UTC; scheduler start/end fields are preserved as returned without timezone

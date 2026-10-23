@@ -111,7 +111,11 @@ for the complete machine-specific launch. This profile was measured for that
 workload; other workloads may prefer different progress settings. The 10 ms
 cap improved the final cohort's wall-time medians but used more process CPU
 in its diagnostic run; the report retains that tradeoff and both 1000 ms
-controls. The
+controls. A later [no-backoff comparison](../benchmarks/queenbee/remaining_overhead/no_backoff/README.md)
+measured only a 0.052% median improvement against its first 10 ms control,
+with a substantially slower repeated control. It does not establish a
+reproducible benefit from disabling backoff, so this profile retains the cap.
+The
 [compile-time audit](../benchmarks/queenbee/remaining_overhead/compile_audit.md)
 records the Release build, MPI parcelport options, and disabled debug facilities,
 including lock verification. Local workstation dependencies differ from that
