@@ -1,6 +1,6 @@
 # fftw3-hpx
 
-The 2026-10-22 HPX port retains FFTW 3.3.11's distributed algorithms,
+By default, the HPX port retains FFTW 3.3.11's distributed algorithms,
 block distributions, flags, planner hooks and verification code. Each HPX
 locality takes the place of one distributed process. The public header is
 `fftw3-hpx.h`; the libraries are `libfftw3_hpx`, `libfftw3f_hpx`, and
@@ -157,6 +157,27 @@ future completes; self-sends own a copy so callers can reuse their source.
 Collectives retain their owned byte-vector payloads. See
 [MPI_MAPPING.md](MPI_MAPPING.md) for the replaced MPI calls and their HPX
 counterparts.
+
+An experimental `FFTW_HPX_TRANSPOSE_EXCHANGE=all_to_all` environment setting
+replaces the global exchange inside a pairwise transpose plan with HPX's
+`collectives::all_to_all`. The default, or an explicit `pairwise` setting,
+retains the scheduled point-to-point exchange. Set the same value on every
+locality before initialization; the library checks agreement collectively.
+The setting preserves the in-place API, block distribution, and local FFT
+and transpose subplans. It does not force FFTW's separate out-of-place
+`transpose-alltoall` solver. Collective exchange plans print an
+`/all_to_all` suffix, and explicitly selected modes report per-rank collective
+exchange counts at cleanup.
+
+This experimental path packs every outgoing block before modifying the
+destination, including the self block. It therefore supports overlapping
+arrays and ranks with no data, but adds packing and unpacking copies.
+HPX 1.11's collective coordinates the exchange at one locality, increasing
+that locality's memory and communication load. For the four-node 1024³
+double-complex case, each locality packs 4 GiB and the coordinating locality
+handles a 16 GiB collective matrix, in addition to FFT and transport storage.
+The implementation uses HPX collectives independently of the parcelport;
+it makes no direct MPI calls and requires no changes to HPX.
 
 For a remote `sendrecv` with disjoint source and destination ranges, the bridge
 registers the exact FFTW destination and announces its readiness to the receive

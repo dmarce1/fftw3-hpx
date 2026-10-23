@@ -39,10 +39,18 @@ Names below use the double-precision `fftw_hpx_` prefix. The same bridge is comp
 | `MPI_Alltoallv` | `fftw_hpx_alltoallv` | Uses the same owned-vector exchange, with per-peer counts and displacements converted from element units to byte offsets. Empty blocks are supported. |
 | `MPI_Send` | `fftw_hpx_send` | Sends a `Message` through HPX channel `set` and waits for completion before returning. Remote source storage remains valid through that completion; self-sends retain an owned copy so the source can be reused after return. |
 | `MPI_Recv` | `fftw_hpx_recv` | Receives a `Message` through HPX channel `get<Message>` for the specified source and message sequence/tag. Message ownership keeps any owned receive storage alive while the bridge consumes it. |
-| `MPI_Sendrecv` | `fftw_hpx_sendrecv` | Combines outgoing and incoming channel operations, completes the required communication before returning, and preserves source lifetime and overlapping-buffer safety. This is the operation used by the pairwise transpose. |
+| `MPI_Sendrecv` | `fftw_hpx_sendrecv` | Combines outgoing and incoming channel operations, completes the required communication before returning, and preserves source lifetime and overlapping-buffer safety. This is the default operation used by the pairwise transpose. |
 | `MPI_Abort` | `fftw_hpx_abort` | Calls `hpx::terminate()` for fatal termination. It does not reproduce communicator-scoped MPI abort semantics or propagate the supplied MPI-style integer status. Exceptions at the C bridge boundary also terminate through HPX. |
 
 The replacements can be compared directly in [MPI pairwise transpose](../mpi/transpose-pairwise.c) and [HPX pairwise transpose](transpose-pairwise.c), [MPI all-to-all transpose](../mpi/transpose-alltoall.c) and [HPX all-to-all transpose](transpose-alltoall.c), [recursive transpose](transpose-recurse.c), [planner API](api.c), [consistency checks](any-true.c), and [wisdom exchange](wisdom-api.c). The original MPI files remain available for comparison.
+
+With the experimental `FFTW_HPX_TRANSPOSE_EXCHANGE=all_to_all` setting, the
+pairwise transpose replaces its entire sequence of `sendrecv` calls with
+`fftw_hpx_transpose_alltoallv`. This internal helper accepts wide element
+counts and displacements, packs every source block before writing any output,
+and calls HPX `all_to_all` on every communicator member, including inactive
+ranks. It preserves the local transpose subplans and in-place API while
+changing the global exchange algorithm. The default remains pairwise.
 
 Multi-member collectives use an explicit, increasing generation owned by the group. Point-to-point operations combine the original caller tag with a per-peer send/receive sequence, so repeated tags select distinct messages. The bridge uses separate names for its collective and channel communicators. See [Communication and threading](README.md#communication-and-threading) for the current `Message` representation, receive storage policy, final-copy behavior and any readiness protocol. That section is the implementation-specific description; the mapping above does not imply that every receive goes directly into an FFTW array.
 

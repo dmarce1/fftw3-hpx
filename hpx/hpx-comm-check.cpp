@@ -331,6 +331,67 @@ void checkVariableExchange(fftw_hpx_comm const world, int const rank,
                                 empty.data(), empty.data(), 1, world);
 }
 
+void checkTransposeExchange(fftw_hpx_comm const world, int const rank,
+                            int const size)
+{
+    for (int const active : {0, 1, size - 1, size})
+    {
+        for (int iteration = 0; iteration < 3; ++iteration)
+        {
+            for (bool const overlap : {false, true})
+            {
+                auto const count = [iteration](int const source,
+                                               int const destination) {
+                    return (2 * source + destination + iteration) % 5;
+                };
+                auto const value = [iteration](int const source,
+                                               int const destination,
+                                               int const index) {
+                    return 100000 * iteration + 1000 * source +
+                        10 * destination + index;
+                };
+                std::vector<ptrdiff_t> sendCounts(active, 0);
+                std::vector<ptrdiff_t> sendOffsets(active, 0);
+                std::vector<ptrdiff_t> receiveCounts(active, 0);
+                std::vector<ptrdiff_t> receiveOffsets(active, 0);
+                std::vector<int> source(9 * static_cast<size_t>(active) + 32, -7);
+                std::vector<int> destination(source.size(), -9);
+                for (int peer = 0; peer < active; ++peer)
+                {
+                    sendOffsets[peer] = 2 + 7 * (active - 1 - peer);
+                    receiveOffsets[peer] = 3 + 9 * peer;
+                    if (rank < active)
+                    {
+                        sendCounts[peer] = count(rank, peer);
+                        receiveCounts[peer] = count(peer, rank);
+                    }
+                    for (int index = 0; index < sendCounts[peer]; ++index)
+                    {
+                        source[sendOffsets[peer] + index] = value(rank, peer, index);
+                    }
+                }
+                std::vector<int> & target = overlap ? source : destination;
+                std::vector<int> expected = target;
+                for (int peer = 0; peer < active; ++peer)
+                {
+                    for (int index = 0; index < receiveCounts[peer]; ++index)
+                    {
+                        expected[receiveOffsets[peer] + index] = value(peer, rank, index);
+                    }
+                }
+                FFTW_HPX_COMM_FN(transpose_alltoallv)(
+                    active == 0 ? nullptr : source.data(), sendCounts.data(),
+                    sendOffsets.data(), active == 0 ? nullptr : target.data(),
+                    receiveCounts.data(), receiveOffsets.data(), sizeof(int),
+                    active, world);
+                // Compare untouched gaps too: an in-place receive must not
+                // overwrite a later outgoing block before it has been packed.
+                assert(target == expected);
+            }
+        }
+    }
+}
+
 struct Job
 {
     std::atomic<int> calls{0};
@@ -407,6 +468,8 @@ void checkCommunication()
         checkRendezvousMatching(world, rank, size, cycle);
         stage(rank, cycle, "variable all-to-all byte counts");
         checkVariableExchange(world, rank, size);
+        stage(rank, cycle, "wide transpose all-to-all, overlap and inactive ranks");
+        checkTransposeExchange(world, rank, size);
         stage(rank, cycle, "thread callback and nested large stacks");
         checkThreadCallback();
         assert(FFTW_HPX_COMM_FN(allreduce_int)(1, FFTW_HPX_LAND, world) == 1);

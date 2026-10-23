@@ -17,9 +17,11 @@
  */
 
 #include <algorithm>
+#include <atomic>
 #include <cassert>
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <exception>
 #include <functional>
@@ -568,6 +570,9 @@ namespace
 std::unique_ptr<fftw_hpx_comm_s> world;
 std::unordered_map<std::string, std::shared_ptr<Group>> splitGroups;
 size_t worldEpoch = 0;
+bool useCollectiveTranspose = false;
+bool reportTransposeExchange = false;
+std::atomic<size_t> collectiveTransposeCount{0};
 
 Group & groupOf(fftw_hpx_comm const comm)
 {
@@ -680,6 +685,55 @@ std::vector<Bytes> exchangeAll(Group & group, std::vector<Bytes> blocks)
         collectives::this_site_arg(group.rank), group.nextGeneration());
 }
 
+void initializeTransposeExchange(Group & group)
+{
+    char const * const setting = std::getenv("FFTW_HPX_TRANSPOSE_EXCHANGE");
+    int const mode = setting == nullptr || std::strcmp(setting, "pairwise") == 0
+        ? 0 : std::strcmp(setting, "all_to_all") == 0 ? 1 : -1;
+    // Invalid settings still enter the same collective on every locality.
+    // Otherwise one rank could abort while another waits for mode validation.
+    auto const modes = gatherAll(group, mode);
+    if (std::any_of(modes.begin(), modes.end(),
+                   [mode](int const value) { return value < 0 || value != mode; }))
+    {
+        throw std::invalid_argument(
+            "FFTW_HPX_TRANSPOSE_EXCHANGE must be pairwise or all_to_all "
+            "and agree on every locality");
+    }
+    useCollectiveTranspose = mode == 1;
+    reportTransposeExchange = setting != nullptr;
+    collectiveTransposeCount.store(0, std::memory_order_relaxed);
+}
+
+struct TransposeRange
+{
+    size_t offset;
+    size_t bytes;
+};
+
+TransposeRange transposeRange(ptrdiff_t const count, ptrdiff_t const offset,
+                              size_t const elementSize)
+{
+    if (count < 0 || offset < 0 || elementSize == 0)
+    {
+        throw std::invalid_argument("invalid all-to-all transpose range");
+    }
+    size_t const size = static_cast<size_t>(count);
+    size_t const displacement = static_cast<size_t>(offset);
+    size_t const limit = std::numeric_limits<size_t>::max();
+    if (size > limit / elementSize || displacement > limit / elementSize)
+    {
+        throw std::overflow_error("all-to-all transpose byte range overflow");
+    }
+    size_t const bytes = size * elementSize;
+    size_t const byteOffset = displacement * elementSize;
+    if (byteOffset > limit - bytes)
+    {
+        throw std::overflow_error("all-to-all transpose end offset overflow");
+    }
+    return {byteOffset, bytes};
+}
+
 void runJobs(void * (*work)(char *), char * const jobData,
              size_t const elementSize, int const jobCount)
 {
@@ -716,6 +770,7 @@ try
         transport::pool_transport::startReceivePool(worldEpoch);
         world = std::make_unique<fftw_hpx_comm_s>();
         world->group = std::make_shared<Group>(basename, rank, std::move(members));
+        initializeTransposeExchange(groupOf(world.get()));
     }
 }
 catch (...)
@@ -728,8 +783,17 @@ try
 {
     transport::ensureNoReceives();
     transport::pool_transport::stopReceivePool();
+    if (world && reportTransposeExchange)
+    {
+        std::fprintf(stderr,
+                     "FFTW_HPX_TRANSPOSE rank=%d mode=%s exchange_calls=%zu\n",
+                     groupOf(world.get()).rank,
+                     useCollectiveTranspose ? "all_to_all" : "pairwise",
+                     collectiveTransposeCount.load(std::memory_order_relaxed));
+    }
     splitGroups.clear();
     world.reset();
+    reportTransposeExchange = false;
 }
 catch (...)
 {
@@ -999,6 +1063,84 @@ try
                                  byteCount(receiveOffsets[peer], receiveSize)),
                      byteCount(receiveCounts[peer], receiveSize), blocks[peer]);
     }
+}
+catch (...)
+{
+    terminateBridge();
+}
+
+extern "C" int FFTW_HPX_COMM_FN(transpose_exchange_mode)(void)
+{
+    assert(world);
+    return useCollectiveTranspose ? 1 : 0;
+}
+
+extern "C" void FFTW_HPX_COMM_FN(transpose_alltoallv)(
+    void const * const sendData, ptrdiff_t const * const sendCounts,
+    ptrdiff_t const * const sendOffsets, void * const receiveData,
+    ptrdiff_t const * const receiveCounts,
+    ptrdiff_t const * const receiveOffsets, size_t const elementSize,
+    int const activePeers, fftw_hpx_comm const comm)
+try
+{
+    Group & group = groupOf(comm);
+    if (activePeers < 0 || activePeers > group.size ||
+        (activePeers != 0 && (sendCounts == nullptr || sendOffsets == nullptr ||
+                             receiveCounts == nullptr || receiveOffsets == nullptr)))
+    {
+        throw std::invalid_argument("invalid all-to-all transpose block list");
+    }
+    std::vector<Bytes> blocks(static_cast<size_t>(group.size));
+    std::vector<TransposeRange> receiveRanges(static_cast<size_t>(group.size),
+                                              TransposeRange{0, 0});
+    for (int peer = 0; peer < activePeers; ++peer)
+    {
+        auto const sendRange =
+            transposeRange(sendCounts[peer], sendOffsets[peer], elementSize);
+        auto const receiveRange = transposeRange(
+            receiveCounts[peer], receiveOffsets[peer], elementSize);
+        if (group.rank >= activePeers &&
+            (sendRange.bytes != 0 || receiveRange.bytes != 0))
+        {
+            throw std::invalid_argument("inactive transpose rank has data");
+        }
+        if ((sendRange.bytes != 0 && sendData == nullptr) ||
+            (receiveRange.bytes != 0 && receiveData == nullptr))
+        {
+            throw std::invalid_argument("null all-to-all transpose buffer");
+        }
+        receiveRanges[peer] = receiveRange;
+        if (sendRange.bytes != 0)
+        {
+            blocks[peer] = copyBytes(offsetBytes(sendData, sendRange.offset),
+                                     sendRange.bytes);
+        }
+    }
+    // Every source block, including the self block, is owned before any
+    // destination is modified. This preserves overlapping and in-place arrays.
+    // Peers beyond activePeers contribute empty blocks but still participate.
+    blocks = exchangeAll(group, std::move(blocks));
+    if (blocks.size() != static_cast<size_t>(group.size))
+    {
+        throw std::length_error("all-to-all transpose block count mismatch");
+    }
+    for (int peer = 0; peer < group.size; ++peer)
+    {
+        if (blocks[peer].size() != receiveRanges[peer].bytes)
+        {
+            throw std::length_error("all-to-all transpose byte count mismatch");
+        }
+    }
+    for (int peer = 0; peer < activePeers; ++peer)
+    {
+        auto const range = receiveRanges[peer];
+        if (range.bytes != 0)
+        {
+            receiveBytes(offsetBytes(receiveData, range.offset), range.bytes,
+                         blocks[peer]);
+        }
+    }
+    collectiveTransposeCount.fetch_add(1, std::memory_order_relaxed);
 }
 catch (...)
 {

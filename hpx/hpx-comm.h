@@ -60,6 +60,12 @@ extern "C"
                                     fftw_hpx_comm);
     void FFTW_HPX_COMM_FN(alltoallv)(void const *, int const *, int const *, size_t, void *,
                                      int const *, int const *, size_t, fftw_hpx_comm);
+    /* Experimental exchange for the existing pairwise transpose's local plan.
+       All communicator ranks participate, including ranks with no blocks. */
+    int FFTW_HPX_COMM_FN(transpose_exchange_mode)(void);
+    void FFTW_HPX_COMM_FN(transpose_alltoallv)(
+        void const *, ptrdiff_t const *, ptrdiff_t const *, void *,
+        ptrdiff_t const *, ptrdiff_t const *, size_t, int, fftw_hpx_comm);
     void FFTW_HPX_COMM_FN(send)(void const *, size_t, size_t, int, int, fftw_hpx_comm);
     void FFTW_HPX_COMM_FN(recv)(void *, size_t, size_t, int, int, fftw_hpx_comm);
     void FFTW_HPX_COMM_FN(sendrecv)(void const *, size_t, size_t, int, int, void *, size_t, size_t,

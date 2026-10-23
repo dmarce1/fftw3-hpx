@@ -45,13 +45,21 @@ typedef struct {
      INT *recv_block_sizes, *recv_block_offsets;
      fftw_hpx_comm comm;
      int preserve_input;
+     int collective_exchange;
 } P;
 
 static void transpose_chunks(int *sched, int n_pes, int my_pe,
 			     INT *sbs, INT *sbo, INT *rbs, INT *rbo,
 			     fftw_hpx_comm comm,
-			     R *I, R *O)
+			     R *I, R *O, int collective_exchange)
 {
+     if (collective_exchange) {
+          /* Pack all outgoing blocks before overwriting any part of I == O.
+             Even a rank with sched == 0 participates in this collective. */
+          XM(transpose_alltoallv)(I, sbs, sbo, O, rbs, rbo, sizeof(R),
+                                 n_pes, comm);
+          return;
+     }
      if (sched) {
 	  int i;
 
@@ -115,14 +123,14 @@ static void apply(const plan *ego_, R *I, R *O)
 	  transpose_chunks(ego->sched, ego->n_pes, ego->my_pe,
 			   ego->send_block_sizes, ego->send_block_offsets,
 			   ego->recv_block_sizes, ego->recv_block_offsets,
-			   ego->comm, O, I);
+			   ego->comm, O, I, ego->collective_exchange);
      }
      else if (ego->preserve_input) {
 	  /* transpose chunks globally */
 	  transpose_chunks(ego->sched, ego->n_pes, ego->my_pe,
 			   ego->send_block_sizes, ego->send_block_offsets,
 			   ego->recv_block_sizes, ego->recv_block_offsets,
-			   ego->comm, I, O);
+			   ego->comm, I, O, ego->collective_exchange);
 
 	  I = O;
      }
@@ -131,7 +139,7 @@ static void apply(const plan *ego_, R *I, R *O)
 	  transpose_chunks(ego->sched, ego->n_pes, ego->my_pe,
 			   ego->send_block_sizes, ego->send_block_offsets,
 			   ego->recv_block_sizes, ego->recv_block_offsets,
-			   ego->comm, I, I);
+			   ego->comm, I, I, ego->collective_exchange);
      }
 
      /* transpose locally, again, to get ordinary row-major;
@@ -187,8 +195,9 @@ static void destroy(plan *ego_)
 static void print(const plan *ego_, printer *p)
 {
      const P *ego = (const P *) ego_;
-     p->print(p, "(hpx-transpose-pairwise%s%(%p%)%(%p%)%(%p%)%(%p%))",
+     p->print(p, "(hpx-transpose-pairwise%s%s%(%p%)%(%p%)%(%p%)%(%p%))",
 	      ego->preserve_input==2 ?"/p":"",
+              ego->collective_exchange ? "/all_to_all" : "",
 	      ego->cld1, ego->cld2, ego->cld2rest, ego->cld3);
 }
 
@@ -409,6 +418,7 @@ static plan *mkplan(const solver *ego_, const problem *p_, planner *plnr)
      pln->rest_Ooff = rest_Ooff;
      pln->cld3 = cld3;
      pln->preserve_input = ego->preserve_input ? 2 : NO_DESTROY_INPUTP(plnr);
+     pln->collective_exchange = XM(transpose_exchange_mode)();
 
      XM(comm_dup)(p->comm, &pln->comm);
 

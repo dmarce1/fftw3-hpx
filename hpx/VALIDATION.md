@@ -310,11 +310,40 @@ MPI parcelport execution are outside these local results.
   and extra-argument settings, requires zero exits, and disables conflicting
   per-process CPU binding. Worker counts and benchmark arguments are preserved.
 
-The original FFTW algorithm, data distribution, scheduling decisions, flags,
-and planner hook logic remain intact. The copied Fortran wrapper/generator
+The default path retains the original FFTW algorithm, data distribution,
+scheduling decisions, flags, and planner hook logic. The copied Fortran wrapper/generator
 files are omitted as requested. README documentation and the Git ignore file
 are the additional repository documentation/build-workflow changes beyond
 `hpx/` and autotools glue.
+
+## Experimental all-to-all transpose, 2026-10-23
+
+The opt-in `FFTW_HPX_TRANSPOSE_EXCHANGE=all_to_all` path passed local
+double, single, and long-double validation. Each precision passed the full
+ten-geometry verification matrix at 1, 2, 3, and 4 localities with one worker,
+and 3 localities with two workers. Explicit `pairwise` mode passed the
+two-geometry matrix in each precision. Both modes also passed forward,
+backward, and out-of-place checks for 2×2×2 on four localities and 5×7×3 on
+three localities, using two workers each.
+
+The assertion-enabled communication check now exercises the wide-count
+transpose helper with overlapping buffers, differing displacements,
+untouched gap sentinels, empty blocks, zero active peers, inactive ranks, and
+repeated generations across two initialization/cleanup cycles. Existing
+message ownership, rendezvous, communicator, and nested-thread checks pass.
+These tests used same-server TCP only, with no more than eight workers per
+run and builds limited to two concurrent compiler processes.
+
+The local serial/threaded FFTW archive hashes are unchanged. The upstream
+`mpi`, `kernel`, `dft`, `rdft`, `reodft`, `simd-support`, `threads`, `api`, and
+`genfft` trees match the pristine release. HPX itself is unchanged. Logs and
+commands are retained under `build/qb_alltoall/local`; the frozen source and
+QueenBee job inputs are under `build/qb_alltoall/bundle`.
+
+QueenBee job 1126247 was submitted for the unchanged 1024³ benchmark using
+four exclusive nodes, one process per node, 64 workers, the MPI parcelport,
+and no TCP. Submission and local correctness do not establish cluster
+performance; no timing benefit is claimed while that comparison is pending.
 
 ## License
 
