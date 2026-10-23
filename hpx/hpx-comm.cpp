@@ -45,6 +45,7 @@
 #include <hpx/include/runtime.hpp>
 #include <hpx/include/threads.hpp>
 #include <hpx/runtime_local/run_as_hpx_thread.hpp>
+#include <hpx/serialization/serialize_buffer.hpp>
 #include <hpx/serialization/vector.hpp>
 
 #include "config.h"
@@ -53,6 +54,7 @@
 namespace
 {
 using Bytes = std::vector<char>;
+using Message = hpx::serialization::serialize_buffer<char>;
 namespace collectives = hpx::collectives;
 
 #if defined(FFTW_SINGLE)
@@ -107,11 +109,11 @@ struct Group
                 (basename + "/collective").c_str(),
                 collectives::num_sites_arg(size),
                 collectives::this_site_arg(rank));
-            channel = collectives::create_channel_communicator(
-                hpx::launch::sync, (basename + "/channel").c_str(),
-                collectives::num_sites_arg(size),
-                collectives::this_site_arg(rank));
         }
+        channel = collectives::create_channel_communicator(
+            hpx::launch::sync, (basename + "/channel").c_str(),
+            collectives::num_sites_arg(size),
+            collectives::this_site_arg(rank));
     }
 
     collectives::generation_arg nextGeneration()
@@ -157,7 +159,24 @@ Bytes copyBytes(void const * const data, size_t const bytes)
     return result;
 }
 
-void receiveBytes(void * const data, size_t const bytes, Bytes const & payload)
+Message messageBytes(Group const & group, int const destination,
+                     void const * const data, size_t const bytes)
+{
+    if (bytes == 0)
+    {
+        return Message();
+    }
+    assert(data != nullptr);
+    // channel_communicator::set completes after the destination action stores
+    // its payload. Remote serialization has then finished reading the source;
+    // a local action instead retains the object, so self-sends need ownership.
+    return Message(static_cast<char const *>(data), bytes,
+                   destination == group.rank ? Message::copy
+                                             : Message::reference);
+}
+
+template <typename Payload>
+void receiveBytes(void * const data, size_t const bytes, Payload const & payload)
 {
     assert(payload.size() == bytes);
     if (bytes != 0)
@@ -542,7 +561,7 @@ try
     Group & group = groupOf(comm);
     collectives::set(
         group.channel, collectives::that_site_arg(destination),
-        copyBytes(data, byteCount(count, elementSize)),
+        messageBytes(group, destination, data, byteCount(count, elementSize)),
         collectives::tag_arg(messageTag(group, destination, tag, true)))
         .get();
 }
@@ -560,7 +579,7 @@ try
     Group & group = groupOf(comm);
     receiveBytes(
         data, byteCount(count, elementSize),
-        collectives::get<Bytes>(
+        collectives::get<Message>(
             group.channel, collectives::that_site_arg(source),
             collectives::tag_arg(messageTag(group, source, tag, false)))
             .get());
@@ -580,15 +599,18 @@ try
     Group & group = groupOf(comm);
     auto sent = collectives::set(
         group.channel, collectives::that_site_arg(destination),
-        copyBytes(sendData, byteCount(sendCount, sendSize)),
+        messageBytes(group, destination, sendData,
+                     byteCount(sendCount, sendSize)),
         collectives::tag_arg(messageTag(group, destination, sendTag, true)));
-    receiveBytes(
-        receiveData, byteCount(receiveCount, receiveSize),
-        collectives::get<Bytes>(
-            group.channel, collectives::that_site_arg(source),
-            collectives::tag_arg(messageTag(group, source, receiveTag, false)))
-            .get());
+    auto const incoming = collectives::get<Message>(
+        group.channel, collectives::that_site_arg(source),
+        collectives::tag_arg(messageTag(group, source, receiveTag, false)))
+                              .get();
+    // The channel returns serialize_buffer with shared ownership, avoiding
+    // its by-value get<T> deep copy of vector payloads. Finish the referenced
+    // send before writing a receive buffer that may overlap the source.
     sent.get();
+    receiveBytes(receiveData, byteCount(receiveCount, receiveSize), incoming);
 }
 catch (...)
 {

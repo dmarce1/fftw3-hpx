@@ -108,10 +108,6 @@ void checkSplits(fftw_hpx_comm const world, int const rank, int const size)
 void checkMessages(fftw_hpx_comm const world, int const rank, int const size,
                    int const cycle)
 {
-    if (size == 1)
-    {
-        return;
-    }
     fftw_hpx_comm duplicate = FFTW_HPX_COMM_NULL;
     FFTW_HPX_COMM_FN(comm_dup)(world, &duplicate);
     int const destination = (rank + 1) % size;
@@ -134,6 +130,71 @@ void checkMessages(fftw_hpx_comm const world, int const rank, int const size,
                                    1, source, 71, comm);
     }
     FFTW_HPX_COMM_FN(comm_free)(&duplicate);
+}
+
+void checkMessageLifetime(fftw_hpx_comm const world, int const rank,
+                          int const size)
+{
+    size_t constexpr count = 32768;
+    std::vector<int> data(count);
+    std::vector<int> received(count, -1);
+    for (size_t index = 0; index < count; ++index)
+    {
+        data[index] = rank * 100003 + static_cast<int>(index);
+    }
+    FFTW_HPX_COMM_FN(send)(data.data(), count, sizeof(int), rank, 72, world);
+    for (int & value : data)
+    {
+        value = -2;
+    }
+    FFTW_HPX_COMM_FN(recv)(received.data(), count, sizeof(int), rank, 72,
+                           world);
+    for (size_t index = 0; index < count; ++index)
+    {
+        assert(received[index] == rank * 100003 + static_cast<int>(index));
+    }
+
+    int const destination = (rank + 1) % size;
+    int const source = (rank + size - 1) % size;
+    for (size_t index = 0; index < count; ++index)
+    {
+        data[index] = rank * 100003 + static_cast<int>(index);
+    }
+    // Every sender finishes and reuses its source before posting a receive.
+    // A completed send must leave an independent payload at the destination.
+    FFTW_HPX_COMM_FN(send)(data.data(), count, sizeof(int), destination, 73,
+                           world);
+    for (int & value : data)
+    {
+        value = -3;
+    }
+    FFTW_HPX_COMM_FN(recv)(received.data(), count, sizeof(int), source, 73,
+                           world);
+    for (size_t index = 0; index < count; ++index)
+    {
+        assert(received[index] == source * 100003 + static_cast<int>(index));
+    }
+
+    for (size_t const offset : {size_t(0), size_t(17)})
+    {
+        data.resize(count + offset);
+        for (size_t index = 0; index < data.size(); ++index)
+        {
+            data[index] = rank * 100003 + static_cast<int>(index);
+        }
+        FFTW_HPX_COMM_FN(sendrecv)(data.data(), count, sizeof(int), destination,
+                                   74, data.data() + offset, count, sizeof(int),
+                                   source, 74, world);
+        for (size_t index = 0; index < count; ++index)
+        {
+            assert(data[index + offset] ==
+                   source * 100003 + static_cast<int>(index));
+        }
+        for (size_t index = 0; index < offset; ++index)
+        {
+            assert(data[index] == rank * 100003 + static_cast<int>(index));
+        }
+    }
 }
 
 char payload(int const source, int const destination, int const iteration,
@@ -262,6 +323,8 @@ void checkCommunication()
         checkSplits(world, rank, size);
         stage(rank, cycle, "repeated channel tags and empty messages");
         checkMessages(world, rank, size, cycle);
+        stage(rank, cycle, "message ownership and overlapping buffers");
+        checkMessageLifetime(world, rank, size);
         stage(rank, cycle, "variable all-to-all byte counts");
         checkVariableExchange(world, rank, size);
         stage(rank, cycle, "thread callback and nested large stacks");

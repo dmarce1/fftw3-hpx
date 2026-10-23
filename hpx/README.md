@@ -106,9 +106,20 @@ world names and counters. The Fortran distributed interface is not ported.
 Communicator duplication creates a new handle sharing the existing group;
 it does not create an HPX communicator. Splits gather colors and keys, order
 members by key then parent rank, and cache the resulting groups until cleanup.
-Each collective uses the group's next explicit generation. Messages copy bytes
-into payloads and combine the original tag with a per-peer send/receive
-sequence. Pairwise exchange starts its send before awaiting its receive.
+Each collective uses the group's next explicit generation. Point-to-point
+messages combine the original tag with a per-peer send/receive sequence and
+use `hpx::serialization::serialize_buffer<char>`. A remote send references
+caller storage until its destination action completes; a self-send owns a
+copy so the caller can immediately reuse its source. The channel returns the
+buffer through shared ownership, avoiding a deep copy of the received block.
+Collective operations retain their owned byte-vector payloads.
+
+Pairwise exchange starts its send before awaiting its receive, waits for
+send completion, and then copies the incoming payload into FFTW's destination.
+This ordering also supports overlapping source and destination buffers. The
+final receive copy remains; this is not direct reception into the FFTW array.
+The communication check covers source reuse after send, empty messages,
+self-sends, and exact/partial buffer overlap across repeated initialization.
 
 The threaded-loop callback starts all but the final job with `hpx::async` on a
 large-stack executor, runs the final job inline, and waits with `hpx::wait_all`.
