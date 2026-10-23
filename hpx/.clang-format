@@ -1,0 +1,8 @@
+# Copyright (c) 2026 Dominic C. Marcello
+# SPDX-License-Identifier: GPL-2.0-or-later
+BasedOnStyle: LLVM
+IndentWidth: 4
+BreakBeforeBraces: Allman
+QualifierAlignment: Right
+PointerAlignment: Middle
+ReferenceAlignment: Middle

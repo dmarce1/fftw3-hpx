@@ -1,3 +1,45 @@
+fftw3-hpx (2026-10-22)
+=====================
+
+The hpx/ directory ports FFTW 3.3.11's distributed-memory library to HPX
+localities, collectives and channels, retaining the original algorithms and
+planner hooks. FFTW's existing thread callback runs worker jobs on HPX
+large-stack threads. Configure with --enable-hpx --enable-threads and the HPX
+pkg-config path; double, single and long-double precision are supported.
+See hpx/README.md for the SPMD application contract and build/test commands,
+and hpx/VALIDATION.md for source provenance, exact checks and local results.
+
+This repository starts from the official release tarball, including its
+already-generated codelets:
+  https://fftw.org/fftw-3.3.11.tar.gz
+SHA256:
+  5630c24cdeb33b131612f7eb4b1a9934234754f9f388ff8617458d0be6f239a1
+Do not use the upstream Git bootstrap instructions below for this port;
+its release sources build with autotools without OCaml or maintainer mode.
+
+TCP is permitted only between localities on the same server. Cross-server
+runs must use HPX's MPI parcelport with TCP disabled. The supplied local
+check targets launch processes on one server only.
+
+License: the new HPX implementation and added README documentation are
+Copyright (c) 2026 Dominic C. Marcello and licensed under the GNU General
+Public License, version 2 or (at your option) any later version. See COPYING
+for the license text. Existing upstream copyright and license notices are
+preserved, including the public header's original notice. This software is
+provided without warranty; see COPYING for details.
+
+When citing FFTW, use:
+  Matteo Frigo and Steven G. Johnson, "The Design and Implementation of
+  FFTW3," Proceedings of the IEEE, volume 93, number 2, pages 216-231,
+  February 2005. DOI: 10.1109/JPROC.2004.840301.
+  https://doi.org/10.1109/JPROC.2004.840301
+  https://www.fftw.org/fftw-paper-ieee.pdf
+This citation describes upstream FFTW; the HPX transport port is documented
+in this repository.
+
+Original FFTW release README
+============================
+
 FFTW is a free collection of fast C routines for computing the
 Discrete Fourier Transform in one or more dimensions.  It includes
 complex, real, symmetric, and parallel transforms, and can handle

@@ -3,7 +3,7 @@
 # fftw3-hpx.h includes the installed public header "fftw3.h".
 AM_CPPFLAGS = -I $(top_srcdir) -I $(top_srcdir)/api
 
-EXTRA_DIST = testsched.c hpx-run.sh README.md .clang-format
+EXTRA_DIST = testsched.c hpx-run.sh README.md VALIDATION.md .clang-format
 
 if HPX
 lib_LTLIBRARIES = libfftw3@PREC_SUFFIX@_hpx.la
