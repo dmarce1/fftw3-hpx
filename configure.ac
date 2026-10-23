@@ -310,6 +310,7 @@ AC_PROG_CC_STDC
 AC_PROG_INSTALL
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
+AC_PROG_CXX
 AC_LIBTOOL_WIN32_DLL
 AC_PROG_LIBTOOL
 LT_INIT
@@ -320,6 +321,7 @@ AC_CHECK_PROG(OCAMLBUILD, ocamlbuild, ocamlbuild)
 dnl -----------------------------------------------------------------------
 
 AC_ARG_ENABLE(mpi, [AS_HELP_STRING([--enable-mpi],[compile FFTW MPI library])], enable_mpi=$enableval, enable_mpi=no)
+AC_ARG_ENABLE(hpx, [AS_HELP_STRING([--enable-hpx],[compile FFTW HPX library (requires --enable-threads)])], enable_hpx=$enableval, enable_hpx=no)
 
 if test "$enable_mpi" = "yes"; then
    if test $PRECISION = q; then
@@ -342,8 +344,25 @@ if test "$enable_mpi" = "yes"; then
    fi
    C_MPI_FINT=C_INT`expr $ac_cv_sizeof_MPI_Fint \* 8`_T
    AC_SUBST(C_MPI_FINT)
+   AM_SUBST_NOTMAKE([C_MPI_FINT])
 fi
 AM_CONDITIONAL(MPI, test "$enable_mpi" = "yes")
+
+if test "$enable_hpx" = "yes"; then
+   if test $PRECISION = q; then
+      AC_MSG_ERROR([quad precision is not supported in HPX])
+   fi
+   PKG_CHECK_MODULES([HPX], [hpx_component])
+   PKG_CHECK_MODULES([HPX_APP], [hpx_application])
+   dnl libtool chooses static/shared output itself.  The component pkg-config
+   dnl file's raw compiler -shared flag would override that choice.
+   HPX_LIBS=`echo " $HPX_LIBS " | sed 's/ -shared / /g'`
+   AC_PATH_PROG([HPXRUN], [hpxrun.py])
+   if test -z "$HPXRUN"; then
+      AC_MSG_ERROR([hpxrun.py not found; add the HPX bin directory to PATH or set HPXRUN])
+   fi
+fi
+AM_CONDITIONAL([HPX], [test "$enable_hpx" = "yes"])
 
 dnl -----------------------------------------------------------------------
 
@@ -730,6 +749,10 @@ fi
 
 AC_ARG_ENABLE(threads, [AS_HELP_STRING([--enable-threads],[compile FFTW SMP threads library])], enable_threads=$enableval, enable_threads=no)
 
+if test "$enable_hpx" = "yes" -a "$enable_threads" != "yes"; then
+   AC_MSG_ERROR([--enable-hpx requires --enable-threads])
+fi
+
 if test "$enable_threads" = "yes"; then
    AC_DEFINE(HAVE_THREADS,1,[Define to enable SMP threads])
 fi
@@ -861,6 +884,7 @@ AC_CONFIG_FILES([
    api/Makefile
 
    mpi/Makefile
+   hpx/Makefile
 
    libbench2/Makefile
    tests/Makefile
