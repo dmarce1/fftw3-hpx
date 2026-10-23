@@ -1,5 +1,26 @@
+/*
+ * Copyright (c) 2003, 2007-14 Matteo Frigo
+ * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+ * Modified 2026 by Dominic C. Marcello: MPI communication replaced with HPX.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ */
+
 /**************************************************************************/
-/* NOTE to users: this is the FFTW-MPI self-test and benchmark program.
+/* NOTE to users: this is the FFTW-HPX self-test and benchmark program.
    It is probably NOT a good place to learn FFTW usage, since it has a
    lot of added complexity in order to exercise and test the full API,
    etcetera.  We suggest reading the manual. */
@@ -8,29 +29,9 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
-#include "fftw3-mpi.h"
+#include "fftw3-hpx.h"
 #include "tests/fftw-bench.h"
-
-#if defined(BENCHFFT_SINGLE)
-#  define BENCH_MPI_TYPE MPI_FLOAT
-#elif defined(BENCHFFT_LDOUBLE)
-#  define BENCH_MPI_TYPE MPI_LONG_DOUBLE
-#elif defined(BENCHFFT_QUAD)
-#  error MPI quad-precision type is unknown
-#else
-#  define BENCH_MPI_TYPE MPI_DOUBLE
-#endif
-
-#if SIZEOF_PTRDIFF_T == SIZEOF_INT
-#  define FFTW_MPI_PTRDIFF_T MPI_INT
-#elif SIZEOF_PTRDIFF_T == SIZEOF_LONG
-#  define FFTW_MPI_PTRDIFF_T MPI_LONG
-#elif SIZEOF_PTRDIFF_T == SIZEOF_LONG_LONG
-#  define FFTW_MPI_PTRDIFF_T MPI_LONG_LONG
-#else
-#  error MPI type for ptrdiff_t is unknown
-#  define FFTW_MPI_PTRDIFF_T MPI_LONG
-#endif
+#include "hpx-comm.h"
 
 static const char *mkversion(void) { return FFTW(version); }
 static const char *mkcc(void) { return FFTW(cc); }
@@ -38,7 +39,7 @@ static const char *mkcodelet_optim(void) { return FFTW(codelet_optim); }
 static const char *mknproc(void) {
      static char buf[32];
      int ncpus;
-     MPI_Comm_size(MPI_COMM_WORLD, &ncpus);
+     FFTW(hpx_comm_size)(FFTW(hpx_comm_world)(), &ncpus);
 #ifdef HAVE_SNPRINTF
      snprintf(buf, 32, "%d", ncpus);
 #else
@@ -48,7 +49,7 @@ static const char *mknproc(void) {
 }
 
 BEGIN_BENCH_DOC
-BENCH_DOC("name", "fftw3_mpi")
+BENCH_DOC("name", "fftw3_hpx")
 BENCH_DOCF("version", mkversion)
 BENCH_DOCF("cc", mkcc)
 BENCH_DOCF("codelet-optim", mkcodelet_optim)
@@ -66,8 +67,8 @@ static ptrdiff_t *all_local_ni=0, *all_local_starti=0; /* n_pes x rnk arrays */
 static ptrdiff_t *all_local_no=0, *all_local_starto=0; /* n_pes x rnk arrays */
 static ptrdiff_t *istrides = 0, *ostrides = 0;
 static ptrdiff_t *total_ni=0, *total_no=0;
-static int *isend_cnt = 0, *isend_off = 0; /* for MPI_Scatterv */
-static int *orecv_cnt = 0, *orecv_off = 0; /* for MPI_Gatherv */
+static int *isend_cnt = 0, *isend_off = 0; /* for FFTW(hpx_bench_scatterv) */
+static int *orecv_cnt = 0, *orecv_off = 0; /* for FFTW(hpx_bench_gatherv) */
 
 static bench_real *local_in = 0, *local_out = 0;
 static bench_real *all_local_in = 0, *all_local_out = 0;
@@ -101,23 +102,23 @@ static void setup_gather_scatter(void)
      int i, j;
      ptrdiff_t off;
 
-     MPI_Gather(local_ni, rnk, FFTW_MPI_PTRDIFF_T,
-		all_local_ni, rnk, FFTW_MPI_PTRDIFF_T,
-		0, MPI_COMM_WORLD);
-     MPI_Bcast(all_local_ni, rnk*n_pes, FFTW_MPI_PTRDIFF_T, 0, MPI_COMM_WORLD);
-     MPI_Gather(local_starti, rnk, FFTW_MPI_PTRDIFF_T,
-		all_local_starti, rnk, FFTW_MPI_PTRDIFF_T,
-		0, MPI_COMM_WORLD);
-     MPI_Bcast(all_local_starti, rnk*n_pes, FFTW_MPI_PTRDIFF_T, 0, MPI_COMM_WORLD);
+     FFTW(hpx_bench_gather)(local_ni, rnk, sizeof(ptrdiff_t),
+		all_local_ni, rnk, sizeof(ptrdiff_t),
+		0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bcast)(all_local_ni, rnk*n_pes, sizeof(ptrdiff_t), 0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bench_gather)(local_starti, rnk, sizeof(ptrdiff_t),
+		all_local_starti, rnk, sizeof(ptrdiff_t),
+		0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bcast)(all_local_starti, rnk*n_pes, sizeof(ptrdiff_t), 0, FFTW(hpx_comm_world)());
 
-     MPI_Gather(local_no, rnk, FFTW_MPI_PTRDIFF_T,
-		all_local_no, rnk, FFTW_MPI_PTRDIFF_T,
-		0, MPI_COMM_WORLD);
-     MPI_Bcast(all_local_no, rnk*n_pes, FFTW_MPI_PTRDIFF_T, 0, MPI_COMM_WORLD);
-     MPI_Gather(local_starto, rnk, FFTW_MPI_PTRDIFF_T,
-		all_local_starto, rnk, FFTW_MPI_PTRDIFF_T,
-		0, MPI_COMM_WORLD);
-     MPI_Bcast(all_local_starto, rnk*n_pes, FFTW_MPI_PTRDIFF_T, 0, MPI_COMM_WORLD);
+     FFTW(hpx_bench_gather)(local_no, rnk, sizeof(ptrdiff_t),
+		all_local_no, rnk, sizeof(ptrdiff_t),
+		0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bcast)(all_local_no, rnk*n_pes, sizeof(ptrdiff_t), 0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bench_gather)(local_starto, rnk, sizeof(ptrdiff_t),
+		all_local_starto, rnk, sizeof(ptrdiff_t),
+		0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bcast)(all_local_starto, rnk*n_pes, sizeof(ptrdiff_t), 0, FFTW(hpx_comm_world)());
 
      off = 0;
      for (i = 0; i < n_pes; ++i) {
@@ -228,9 +229,9 @@ static void do_scatter_in(bench_real *in)
 			in);
 	  ali += isend_cnt[i];
      }
-     MPI_Scatterv(all_local_in, isend_cnt, isend_off, BENCH_MPI_TYPE,
-		  local_in, isend_cnt[my_pe], BENCH_MPI_TYPE,
-		  0, MPI_COMM_WORLD);
+     FFTW(hpx_bench_scatterv)(all_local_in, isend_cnt, isend_off, sizeof(bench_real),
+		  local_in, isend_cnt[my_pe], sizeof(bench_real),
+		  0, FFTW(hpx_comm_world)());
 }
 
 static void do_gather_out(bench_real *out)
@@ -243,10 +244,10 @@ static void do_gather_out(bench_real *out)
 	  all_local_out = (bench_real*) bench_malloc(oNtot*sizeof(bench_real));
 	  all_local_out_alloc = 0;
      }
-     MPI_Gatherv(local_out, orecv_cnt[my_pe], BENCH_MPI_TYPE,
-		 all_local_out, orecv_cnt, orecv_off, BENCH_MPI_TYPE,
-		 0, MPI_COMM_WORLD);
-     MPI_Bcast(all_local_out, oNtot, BENCH_MPI_TYPE, 0, MPI_COMM_WORLD);
+     FFTW(hpx_bench_gatherv)(local_out, orecv_cnt[my_pe], sizeof(bench_real),
+		 all_local_out, orecv_cnt, orecv_off, sizeof(bench_real),
+		 0, FFTW(hpx_comm_world)());
+     FFTW(hpx_bcast)(all_local_out, oNtot, sizeof(bench_real), 0, FFTW(hpx_comm_world)());
      alo = all_local_out;
      for (i = 0; i < n_pes; ++i) {
 	  copy_block_out(alo,
@@ -396,12 +397,12 @@ static FFTW(plan) mkplan_complex(bench_problem *p, unsigned flags)
      }
      if (rnk > 1) {
 	  ptrdiff_t n, start, nT, startT;
-	  ntot = FFTW(mpi_local_size_many_transposed)
+	  ntot = FFTW(hpx_local_size_many_transposed)
 	       (p->sz->rnk, total_ni, vn,
-		FFTW_MPI_DEFAULT_BLOCK, FFTW_MPI_DEFAULT_BLOCK,
-		MPI_COMM_WORLD,
+		FFTW_HPX_DEFAULT_BLOCK, FFTW_HPX_DEFAULT_BLOCK,
+		FFTW(hpx_comm_world)(),
 		&n, &start, &nT, &startT);
-	  if  (flags & FFTW_MPI_TRANSPOSED_IN) {
+	  if  (flags & FFTW_HPX_TRANSPOSED_IN) {
 	       local_ni[1] = nT;
 	       local_starti[1] = startT;
 	  }
@@ -409,7 +410,7 @@ static FFTW(plan) mkplan_complex(bench_problem *p, unsigned flags)
 	       local_ni[0] = n;
 	       local_starti[0] = start;
 	  }
-	  if  (flags & FFTW_MPI_TRANSPOSED_OUT) {
+	  if  (flags & FFTW_HPX_TRANSPOSED_OUT) {
 	       local_no[1] = nT;
 	       local_starto[1] = startT;
 	  }
@@ -419,29 +420,29 @@ static FFTW(plan) mkplan_complex(bench_problem *p, unsigned flags)
 	  }
      }
      else if (rnk == 1) {
-	  ntot = FFTW(mpi_local_size_many_1d)
-	       (total_ni[0], vn, MPI_COMM_WORLD, p->sign, flags,
+	  ntot = FFTW(hpx_local_size_many_1d)
+	       (total_ni[0], vn, FFTW(hpx_comm_world)(), p->sign, flags,
 		local_ni, local_starti, local_no, local_starto);
      }
      alloc_local(ntot * 2, p->in == p->out);
 
-     pln = FFTW(mpi_plan_many_dft)(p->sz->rnk, total_ni, vn, 
-				   FFTW_MPI_DEFAULT_BLOCK,
-				   FFTW_MPI_DEFAULT_BLOCK,
+     pln = FFTW(hpx_plan_many_dft)(p->sz->rnk, total_ni, vn,
+				   FFTW_HPX_DEFAULT_BLOCK,
+				   FFTW_HPX_DEFAULT_BLOCK,
 				   (FFTW(complex) *) local_in, 
 				   (FFTW(complex) *) local_out,
-				   MPI_COMM_WORLD, p->sign, flags);
+				   FFTW(hpx_comm_world)(), p->sign, flags);
 
      vn *= 2;
 
      if (rnk > 1) {
 	  ptrdiff_t nrest = 1;
 	  for (i = 2; i < rnk; ++i) nrest *= p->sz->dims[i].n;
-	  if (flags & FFTW_MPI_TRANSPOSED_IN)
+	  if (flags & FFTW_HPX_TRANSPOSED_IN)
 	       plan_scramble_in = mkplan_transpose_local(
 		    p->sz->dims[0].n, local_ni[1], vn * nrest,
 		    local_in, local_in);
-	  if (flags & FFTW_MPI_TRANSPOSED_OUT)
+	  if (flags & FFTW_HPX_TRANSPOSED_OUT)
 	       plan_unscramble_out = mkplan_transpose_local(
 		    local_no[1], p->sz->dims[0].n, vn * nrest,
 		    local_out, local_out);
@@ -484,12 +485,12 @@ static FFTW(plan) mkplan_real(bench_problem *p, unsigned flags)
 	  = p->sz->dims[rnk-1].n / 2 + 1;
      {
 	  ptrdiff_t n, start, nT, startT;
-	  ntot = FFTW(mpi_local_size_many_transposed)
+	  ntot = FFTW(hpx_local_size_many_transposed)
 	       (p->sz->rnk, total_ni, vn,
-		FFTW_MPI_DEFAULT_BLOCK, FFTW_MPI_DEFAULT_BLOCK,
-		MPI_COMM_WORLD,
+		FFTW_HPX_DEFAULT_BLOCK, FFTW_HPX_DEFAULT_BLOCK,
+		FFTW(hpx_comm_world)(),
 		&n, &start, &nT, &startT);
-	  if  (flags & FFTW_MPI_TRANSPOSED_IN) {
+	  if  (flags & FFTW_HPX_TRANSPOSED_IN) {
 	       local_ni[1] = nT;
 	       local_starti[1] = startT;
 	  }
@@ -497,7 +498,7 @@ static FFTW(plan) mkplan_real(bench_problem *p, unsigned flags)
 	       local_ni[0] = n;
 	       local_starti[0] = start;
 	  }
-	  if  (flags & FFTW_MPI_TRANSPOSED_OUT) {
+	  if  (flags & FFTW_HPX_TRANSPOSED_OUT) {
 	       local_no[1] = nT;
 	       local_starto[1] = startT;
 	  }
@@ -510,19 +511,19 @@ static FFTW(plan) mkplan_real(bench_problem *p, unsigned flags)
 
      total_ni[rnk - 1] = p->sz->dims[rnk - 1].n;
      if (p->sign < 0)
-	  pln = FFTW(mpi_plan_many_dft_r2c)(p->sz->rnk, total_ni, vn, 
-					    FFTW_MPI_DEFAULT_BLOCK,
-					    FFTW_MPI_DEFAULT_BLOCK,
+	  pln = FFTW(hpx_plan_many_dft_r2c)(p->sz->rnk, total_ni, vn,
+					    FFTW_HPX_DEFAULT_BLOCK,
+					    FFTW_HPX_DEFAULT_BLOCK,
 					    local_in, 
 					    (FFTW(complex) *) local_out,
-					    MPI_COMM_WORLD, flags);
+					    FFTW(hpx_comm_world)(), flags);
      else
-	  pln = FFTW(mpi_plan_many_dft_c2r)(p->sz->rnk, total_ni, vn, 
-					    FFTW_MPI_DEFAULT_BLOCK,
-					    FFTW_MPI_DEFAULT_BLOCK,
+	  pln = FFTW(hpx_plan_many_dft_c2r)(p->sz->rnk, total_ni, vn,
+					    FFTW_HPX_DEFAULT_BLOCK,
+					    FFTW_HPX_DEFAULT_BLOCK,
 					    (FFTW(complex) *) local_in, 
 					    local_out,
-					    MPI_COMM_WORLD, flags);
+					    FFTW(hpx_comm_world)(), flags);
 
      total_ni[rnk - 1] = p->sz->dims[rnk - 1].n / 2 + 1;
      vn *= 2;
@@ -530,11 +531,11 @@ static FFTW(plan) mkplan_real(bench_problem *p, unsigned flags)
      {
 	  ptrdiff_t nrest = 1;
 	  for (i = 2; i < rnk; ++i) nrest *= total_ni[i];
-	  if (flags & FFTW_MPI_TRANSPOSED_IN)
+	  if (flags & FFTW_HPX_TRANSPOSED_IN)
 	       plan_scramble_in = mkplan_transpose_local(
 		    total_ni[0], local_ni[1], vn * nrest,
 		    local_in, local_in);
-	  if (flags & FFTW_MPI_TRANSPOSED_OUT)
+	  if (flags & FFTW_HPX_TRANSPOSED_OUT)
 	       plan_unscramble_out = mkplan_transpose_local(
 		    local_no[1], total_ni[0], vn * nrest,
 		    local_out, local_out);
@@ -580,7 +581,7 @@ static FFTW(plan) mkplan_transpose(bench_problem *p, unsigned flags)
 	  return 0;
 
      alloc_rnk(2);
-     ntot = vn * FFTW(mpi_local_size_2d_transposed)(nx, ny, MPI_COMM_WORLD,
+     ntot = vn * FFTW(hpx_local_size_2d_transposed)(nx, ny, FFTW(hpx_comm_world)(),
 						    &local_ni[0], 
 						    &local_starti[0],
 						    &local_no[0], 
@@ -593,16 +594,16 @@ static FFTW(plan) mkplan_transpose(bench_problem *p, unsigned flags)
      total_no[1] = nx; total_no[0] = ny;
      alloc_local(ntot, p->in == p->out);
 
-     pln = FFTW(mpi_plan_many_transpose)(nx, ny, vn,
-					 FFTW_MPI_DEFAULT_BLOCK,
-					 FFTW_MPI_DEFAULT_BLOCK,
+     pln = FFTW(hpx_plan_many_transpose)(nx, ny, vn,
+					 FFTW_HPX_DEFAULT_BLOCK,
+					 FFTW_HPX_DEFAULT_BLOCK,
 					 local_in, local_out,
-					 MPI_COMM_WORLD, flags);
+					 FFTW(hpx_comm_world)(), flags);
      
-     if (flags & FFTW_MPI_TRANSPOSED_IN)
+     if (flags & FFTW_HPX_TRANSPOSED_IN)
 	  plan_scramble_in = mkplan_transpose_local(local_ni[0], ny, vn,
 						    local_in, local_in);
-     if (flags & FFTW_MPI_TRANSPOSED_OUT)
+     if (flags & FFTW_HPX_TRANSPOSED_OUT)
 	  plan_unscramble_out = mkplan_transpose_local
 	       (nx, local_no[0], vn, local_out, local_out);
      
@@ -661,12 +662,12 @@ static FFTW(plan) mkplan_r2r(bench_problem *p, unsigned flags)
      }
      if (rnk > 1) {
 	  ptrdiff_t n, start, nT, startT;
-	  ntot = FFTW(mpi_local_size_many_transposed)
+	  ntot = FFTW(hpx_local_size_many_transposed)
 	       (p->sz->rnk, total_ni, vn,
-		FFTW_MPI_DEFAULT_BLOCK, FFTW_MPI_DEFAULT_BLOCK,
-		MPI_COMM_WORLD,
+		FFTW_HPX_DEFAULT_BLOCK, FFTW_HPX_DEFAULT_BLOCK,
+		FFTW(hpx_comm_world)(),
 		&n, &start, &nT, &startT);
-	  if  (flags & FFTW_MPI_TRANSPOSED_IN) {
+	  if  (flags & FFTW_HPX_TRANSPOSED_IN) {
 	       local_ni[1] = nT;
 	       local_starti[1] = startT;
 	  }
@@ -674,7 +675,7 @@ static FFTW(plan) mkplan_r2r(bench_problem *p, unsigned flags)
 	       local_ni[0] = n;
 	       local_starti[0] = start;
 	  }
-	  if  (flags & FFTW_MPI_TRANSPOSED_OUT) {
+	  if  (flags & FFTW_HPX_TRANSPOSED_OUT) {
 	       local_no[1] = nT;
 	       local_starto[1] = startT;
 	  }
@@ -684,8 +685,8 @@ static FFTW(plan) mkplan_r2r(bench_problem *p, unsigned flags)
 	  }
      }
      else if (rnk == 1) {
-	  ntot = FFTW(mpi_local_size_many_1d)
-	       (total_ni[0], vn, MPI_COMM_WORLD, p->sign, flags,
+	  ntot = FFTW(hpx_local_size_many_1d)
+	       (total_ni[0], vn, FFTW(hpx_comm_world)(), p->sign, flags,
 		local_ni, local_starti, local_no, local_starto);
      }
      alloc_local(ntot, p->in == p->out);
@@ -707,21 +708,21 @@ static FFTW(plan) mkplan_r2r(bench_problem *p, unsigned flags)
 	      default: BENCH_ASSERT(0);
 	  }
 
-     pln = FFTW(mpi_plan_many_r2r)(p->sz->rnk, total_ni, vn, 
-				   FFTW_MPI_DEFAULT_BLOCK,
-				   FFTW_MPI_DEFAULT_BLOCK,
+     pln = FFTW(hpx_plan_many_r2r)(p->sz->rnk, total_ni, vn,
+				   FFTW_HPX_DEFAULT_BLOCK,
+				   FFTW_HPX_DEFAULT_BLOCK,
 				   local_in, local_out,
-				   MPI_COMM_WORLD, k, flags);
+				   FFTW(hpx_comm_world)(), k, flags);
      bench_free(k);
 
      if (rnk > 1) {
 	  ptrdiff_t nrest = 1;
 	  for (i = 2; i < rnk; ++i) nrest *= p->sz->dims[i].n;
-	  if (flags & FFTW_MPI_TRANSPOSED_IN)
+	  if (flags & FFTW_HPX_TRANSPOSED_IN)
 	       plan_scramble_in = mkplan_transpose_local(
 		    p->sz->dims[0].n, local_ni[1], vn * nrest,
 		    local_in, local_in);
-	  if (flags & FFTW_MPI_TRANSPOSED_OUT)
+	  if (flags & FFTW_HPX_TRANSPOSED_OUT)
 	       plan_unscramble_out = mkplan_transpose_local(
 		    local_no[1], p->sz->dims[0].n, vn * nrest,
 		    local_out, local_out);
@@ -737,15 +738,15 @@ FFTW(plan) mkplan(bench_problem *p, unsigned flags)
      FFTW(destroy_plan)(plan_unscramble_out); plan_unscramble_out = 0;
      if (p->scrambled_in) {
 	  if (p->sz->rnk == 1 && p->sz->dims[0].n != 1) 
-	       flags |= FFTW_MPI_SCRAMBLED_IN;
+	       flags |= FFTW_HPX_SCRAMBLED_IN;
 	  else
-	       flags |= FFTW_MPI_TRANSPOSED_IN;
+	       flags |= FFTW_HPX_TRANSPOSED_IN;
      }
      if (p->scrambled_out) {
 	  if (p->sz->rnk == 1 && p->sz->dims[0].n != 1) 
-	       flags |= FFTW_MPI_SCRAMBLED_OUT;
+	       flags |= FFTW_HPX_SCRAMBLED_OUT;
 	  else
-	       flags |= FFTW_MPI_TRANSPOSED_OUT;
+	       flags |= FFTW_HPX_TRANSPOSED_OUT;
      }
      switch (p->kind) {
          case PROBLEM_COMPLEX: 
@@ -765,20 +766,17 @@ FFTW(plan) mkplan(bench_problem *p, unsigned flags)
 
 void main_init(int *argc, char ***argv)
 {
+     UNUSED(argc);
+     UNUSED(argv);
+     /* HPX already runs this entry point on a large-stack HPX thread.
+        hpx_init initializes FFTW threads, installs their callback, then
+        creates the world group before registering distributed solvers. */
+     FFTW(hpx_init)();
 #ifdef HAVE_SMP
-# if MPI_VERSION >= 2 /* for MPI_Init_thread */
-     int provided;
-     MPI_Init_thread(argc, argv, MPI_THREAD_FUNNELED, &provided);
-     threads_ok = provided >= MPI_THREAD_FUNNELED;
-# else
-     MPI_Init(argc, argv);
-     threads_ok = 0;
-# endif
-#else
-     MPI_Init(argc, argv);
+     threads_ok = 1;
 #endif
-     MPI_Comm_rank(MPI_COMM_WORLD, &my_pe);
-     MPI_Comm_size(MPI_COMM_WORLD, &n_pes);
+     FFTW(hpx_comm_rank)(FFTW(hpx_comm_world)(), &my_pe);
+     FFTW(hpx_comm_size)(FFTW(hpx_comm_world)(), &n_pes);
      if (my_pe != 0) verbose = -999;
      no_speed_allocation = 1; /* so we can benchmark transforms > memory */
      always_pad_real = 1; /* out-of-place real transforms are padded */
@@ -786,14 +784,6 @@ void main_init(int *argc, char ***argv)
      isend_off = (int *) bench_malloc(sizeof(int) * n_pes);
      orecv_cnt = (int *) bench_malloc(sizeof(int) * n_pes);
      orecv_off = (int *) bench_malloc(sizeof(int) * n_pes);
-
-     /* init_threads must be called before any other FFTW function,
-	including mpi_init, because it has to register the threads hooks
-	before the planner is initialized */
-#ifdef HAVE_SMP
-     if (threads_ok) { BENCH_ASSERT(FFTW(init_threads)()); }
-#endif
-     FFTW(mpi_init)();
 }
 
 void initial_cleanup(void)
@@ -812,18 +802,18 @@ void initial_cleanup(void)
 
 void final_cleanup(void)
 {
-     MPI_Finalize();
+     FFTW(hpx_cleanup)();
 }
 
 void bench_exit(int status)
 {
-     MPI_Abort(MPI_COMM_WORLD, status);
+     FFTW(hpx_abort)(FFTW(hpx_comm_world)(), status);
 }
 
 double bench_cost_postprocess(double cost)
 {
      double cost_max;
-     MPI_Allreduce(&cost, &cost_max, 1, MPI_DOUBLE, MPI_MAX, MPI_COMM_WORLD);
+     cost_max = FFTW(hpx_allreduce_double)(cost, FFTW_HPX_MAX, FFTW(hpx_comm_world)());
      return cost_max;
 }
 
@@ -832,13 +822,22 @@ int import_wisdom(FILE *f)
 {
      int success = 1, sall;
      if (my_pe == 0) success = FFTW(import_wisdom_from_file)(f);
-     FFTW(mpi_broadcast_wisdom)(MPI_COMM_WORLD);
-     MPI_Allreduce(&success, &sall, 1, MPI_INT, MPI_LAND, MPI_COMM_WORLD);
+     FFTW(hpx_broadcast_wisdom)(FFTW(hpx_comm_world)());
+     sall = FFTW(hpx_allreduce_int)(success, FFTW_HPX_LAND, FFTW(hpx_comm_world)());
      return sall;
 }
 
 void export_wisdom(FILE *f)
 {
-     FFTW(mpi_gather_wisdom)(MPI_COMM_WORLD);
+     FFTW(hpx_gather_wisdom)(FFTW(hpx_comm_world)());
      if (my_pe == 0) FFTW(export_wisdom_to_file)(f);
+}
+
+/* The stock benchmark's main is supplied by libbench2/main.c.  Keep its
+   bench_main body unchanged, with this C entry for the HPX launcher. */
+extern int bench_main(int argc, char *argv[]);
+
+int fftw_hpx_bench_main(int argc, char *argv[])
+{
+     return bench_main(argc, argv);
 }
