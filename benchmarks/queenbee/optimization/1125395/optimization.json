@@ -1,0 +1,16 @@
+{
+  "baseline_hpx_median_seconds": 13.781111171,
+  "candidate_hpx_median_seconds": 8.915881871,
+  "candidate_over_baseline_median_ratio": 0.6469639320348822,
+  "baseline_over_candidate_speedup": 1.5456812203652848,
+  "baseline_hpx_over_mpi_median_ratio": 4.14996653752474,
+  "candidate_hpx_over_mpi_median_ratio": 2.684878668930192,
+  "baseline_candidate_plans_equal": true,
+  "baseline_bg1_median_seconds": 10.294787237,
+  "candidate_bg1_median_seconds": 8.408285126,
+  "baseline_bg1_over_default_median_ratio": 0.7470215651887074,
+  "candidate_bg1_over_default_median_ratio": 0.9430682514254681,
+  "candidate_over_baseline_bg1_median_ratio": 0.816751714477419,
+  "baseline_bg1_over_mpi_median_ratio": 3.100114498342492,
+  "candidate_bg1_over_mpi_median_ratio": 2.5320238315975345
+}

@@ -1,0 +1,69 @@
+CONFIG backend=hpx extent=64 ranks=4 threads=2 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=4194304 max_local_allocation_bytes=1048576
+PLAN_SECONDS backend=hpx value=0.11888636399999999
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64")))
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64"))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-direct-64-x512 "n1_64")
+      (dft-direct-64-x512 "n1_64")) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64")))
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64"))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-direct-64-x512 "n1_64")
+      (dft-direct-64-x512 "n1_64")) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=8.3603466663598732e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=7.2564261507230937e-16 tolerance=1e-10
+SAMPLE backend=hpx index=0 max_rank_seconds=0.0042741430000000002
+SAMPLE backend=hpx index=1 max_rank_seconds=0.0038364060000000001
+SAMPLE backend=hpx index=2 max_rank_seconds=0.0044031850000000004
+SAMPLE backend=hpx index=3 max_rank_seconds=0.0041787509999999996
+SAMPLE backend=hpx index=4 max_rank_seconds=0.0039601480000000001
+SAMPLE backend=hpx index=5 max_rank_seconds=0.0031399760000000001
+SAMPLE backend=hpx index=6 max_rank_seconds=0.0034064910000000002
+CHECK backend=hpx stage=final_roundtrip relative_max_error=1.9794899360963732e-15 tolerance=1e-10
+RESULT backend=hpx extent=64 ranks=4 threads=2 samples=7 min_seconds=0.0031399760000000001 median_seconds=0.0039601480000000001 mean_seconds=0.0038855857142857143 max_seconds=0.0044031850000000004 status=PASS

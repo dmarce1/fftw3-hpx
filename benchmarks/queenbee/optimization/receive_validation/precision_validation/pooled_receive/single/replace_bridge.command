@@ -1,0 +1,1 @@
+ar r /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/libfftw3f_hpx.a /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-comm.o 

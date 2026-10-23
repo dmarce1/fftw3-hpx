@@ -1,0 +1,6 @@
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/prototype_units/pooled_receive_units.cpp:180:2: error: expected ‘}’ at end of input
+  180 | }
+      |  ^
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/prototype_units/pooled_receive_units.cpp:28:1: note: to match this ‘{’
+   28 | {
+      | ^

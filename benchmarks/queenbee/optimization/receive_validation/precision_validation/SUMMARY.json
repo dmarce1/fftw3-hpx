@@ -1,0 +1,462 @@
+{
+  "status": "PASS",
+  "finished_utc": "2026-10-23T05:19:54.194091+00:00",
+  "prototypes": 2,
+  "precisions": 3,
+  "standard_matrix_invocations": 30,
+  "communication_invocations": 12,
+  "maximum_concurrent_hpx_workers": 6,
+  "maximum_parallel_compilers": 2,
+  "transport": "TCP, localities on this host only; no remote access",
+  "standard_parameters": {
+    "NUMCHECK": 10,
+    "CHECKSIZE": 10000,
+    "random": true
+  },
+  "notes": [
+    "Correctness validation only; no performance conclusions.",
+    "Existing precision-specific benchmark objects, serial/thread/libbench2 archives reused without changes.",
+    "Random cases follow check-local and are independently generated; full realized commands are retained in logs.",
+    "Frozen prototype source files were not modified."
+  ],
+  "results": [
+    {
+      "prototype": "direct_receive",
+      "precision": "double",
+      "status": "PASS",
+      "statuses": {
+        "build": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:12:26Z"
+        },
+        "test": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:15:28Z"
+        }
+      },
+      "source_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "unchanged_archive_members": 31,
+      "changed_archive_members": [
+        "hpx-comm.o"
+      ],
+      "communication_pass_count": {
+        "comm_1x2": 1,
+        "comm_3x2": 3
+      },
+      "inputs_and_outputs_rechecked": true,
+      "assertions_enabled": true,
+      "tests": [
+        {
+          "name": "comm_1x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-comm-check"
+        },
+        {
+          "name": "comm_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-comm-check"
+        },
+        {
+          "name": "matrix_1x1",
+          "status": "PASS",
+          "elapsed_seconds": 1,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 1\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_2x1",
+          "status": "PASS",
+          "elapsed_seconds": 8,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 2\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x1",
+          "status": "PASS",
+          "elapsed_seconds": 9,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_4x1",
+          "status": "PASS",
+          "elapsed_seconds": 13,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 4\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 16,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 2\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double/hpx-bench\\\""
+        }
+      ],
+      "evidence_directory": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/double"
+    },
+    {
+      "prototype": "direct_receive",
+      "precision": "single",
+      "status": "PASS",
+      "statuses": {
+        "build": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:13:26Z"
+        },
+        "test": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:16:10Z"
+        }
+      },
+      "source_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "unchanged_archive_members": 31,
+      "changed_archive_members": [
+        "hpx-comm.o"
+      ],
+      "communication_pass_count": {
+        "comm_1x2": 1,
+        "comm_3x2": 3
+      },
+      "inputs_and_outputs_rechecked": true,
+      "assertions_enabled": true,
+      "tests": [
+        {
+          "name": "comm_1x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-comm-check"
+        },
+        {
+          "name": "comm_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-comm-check"
+        },
+        {
+          "name": "matrix_1x1",
+          "status": "PASS",
+          "elapsed_seconds": 1,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 1\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_2x1",
+          "status": "PASS",
+          "elapsed_seconds": 2,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 2\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x1",
+          "status": "PASS",
+          "elapsed_seconds": 7,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_4x1",
+          "status": "PASS",
+          "elapsed_seconds": 20,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 4\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 11,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 2\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single/hpx-bench\\\""
+        }
+      ],
+      "evidence_directory": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/single"
+    },
+    {
+      "prototype": "direct_receive",
+      "precision": "long_double",
+      "status": "PASS",
+      "statuses": {
+        "build": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:14:26Z"
+        },
+        "test": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:17:12Z"
+        }
+      },
+      "source_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "unchanged_archive_members": 31,
+      "changed_archive_members": [
+        "hpx-comm.o"
+      ],
+      "communication_pass_count": {
+        "comm_1x2": 1,
+        "comm_3x2": 3
+      },
+      "inputs_and_outputs_rechecked": true,
+      "assertions_enabled": true,
+      "tests": [
+        {
+          "name": "comm_1x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-comm-check"
+        },
+        {
+          "name": "comm_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-comm-check"
+        },
+        {
+          "name": "matrix_1x1",
+          "status": "PASS",
+          "elapsed_seconds": 2,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 1\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_2x1",
+          "status": "PASS",
+          "elapsed_seconds": 8,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 2\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x1",
+          "status": "PASS",
+          "elapsed_seconds": 18,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_4x1",
+          "status": "PASS",
+          "elapsed_seconds": 11,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 4\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 23,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 2\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double/hpx-bench\\\""
+        }
+      ],
+      "evidence_directory": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/direct_receive/long_double"
+    },
+    {
+      "prototype": "pooled_receive",
+      "precision": "double",
+      "status": "PASS",
+      "statuses": {
+        "build": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:12:26Z"
+        },
+        "test": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:17:40Z"
+        }
+      },
+      "source_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "unchanged_archive_members": 31,
+      "changed_archive_members": [
+        "hpx-comm.o"
+      ],
+      "communication_pass_count": {
+        "comm_1x2": 1,
+        "comm_3x2": 3
+      },
+      "inputs_and_outputs_rechecked": true,
+      "assertions_enabled": true,
+      "tests": [
+        {
+          "name": "comm_1x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-comm-check"
+        },
+        {
+          "name": "comm_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 1,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-comm-check"
+        },
+        {
+          "name": "matrix_1x1",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 1\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_2x1",
+          "status": "PASS",
+          "elapsed_seconds": 6,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 2\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x1",
+          "status": "PASS",
+          "elapsed_seconds": 6,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_4x1",
+          "status": "PASS",
+          "elapsed_seconds": 9,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 4\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 6,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 2\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-bench\\\""
+        }
+      ],
+      "evidence_directory": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double"
+    },
+    {
+      "prototype": "pooled_receive",
+      "precision": "single",
+      "status": "PASS",
+      "statuses": {
+        "build": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:13:26Z"
+        },
+        "test": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:18:35Z"
+        }
+      },
+      "source_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "unchanged_archive_members": 31,
+      "changed_archive_members": [
+        "hpx-comm.o"
+      ],
+      "communication_pass_count": {
+        "comm_1x2": 1,
+        "comm_3x2": 3
+      },
+      "inputs_and_outputs_rechecked": true,
+      "assertions_enabled": true,
+      "tests": [
+        {
+          "name": "comm_1x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-comm-check"
+        },
+        {
+          "name": "comm_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 1,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-comm-check"
+        },
+        {
+          "name": "matrix_1x1",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 1\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_2x1",
+          "status": "PASS",
+          "elapsed_seconds": 5,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 2\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x1",
+          "status": "PASS",
+          "elapsed_seconds": 11,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_4x1",
+          "status": "PASS",
+          "elapsed_seconds": 19,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 4\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 19,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 2\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single/hpx-bench\\\""
+        }
+      ],
+      "evidence_directory": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/single"
+    },
+    {
+      "prototype": "pooled_receive",
+      "precision": "long_double",
+      "status": "PASS",
+      "statuses": {
+        "build": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:14:27Z"
+        },
+        "test": {
+          "exit_status": "0",
+          "stage": "complete",
+          "finished_utc": "2026-10-23T05:19:27Z"
+        }
+      },
+      "source_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "unchanged_archive_members": 31,
+      "changed_archive_members": [
+        "hpx-comm.o"
+      ],
+      "communication_pass_count": {
+        "comm_1x2": 1,
+        "comm_3x2": 3
+      },
+      "inputs_and_outputs_rechecked": true,
+      "assertions_enabled": true,
+      "tests": [
+        {
+          "name": "comm_1x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-comm-check"
+        },
+        {
+          "name": "comm_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 0,
+          "command": "timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-comm-check"
+        },
+        {
+          "name": "matrix_1x1",
+          "status": "PASS",
+          "elapsed_seconds": 3,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 1\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_2x1",
+          "status": "PASS",
+          "elapsed_seconds": 7,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 2\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x1",
+          "status": "PASS",
+          "elapsed_seconds": 13,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_4x1",
+          "status": "PASS",
+          "elapsed_seconds": 12,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 4\\ 1\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-bench\\\""
+        },
+        {
+          "name": "matrix_3x2",
+          "status": "PASS",
+          "elapsed_seconds": 16,
+          "command": "timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 sh\\ \\\"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\\\"\\ \\\"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\\\"\\ 3\\ 2\\ \\\"/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double/hpx-bench\\\""
+        }
+      ],
+      "evidence_directory": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/long_double"
+    }
+  ]
+}

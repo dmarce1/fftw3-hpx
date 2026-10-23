@@ -1,0 +1,65 @@
+{
+  "description": "Byte-for-byte original evidence copies; published paths are relative to benchmarks/queenbee/optimization.",
+  "files": [
+    {
+      "source": "build/qb_optimize/direct_receive/README.md",
+      "published": "receive_prototypes/direct_receive/PREPARATION.md",
+      "sha256": "5d43d76ac6b1a4cfeb12d6262c1b9f2c27707ac42381127ce7d0c6f9f61226d9",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/direct_receive/base-hpx-comm.cpp",
+      "published": "receive_prototypes/direct_receive/base-hpx-comm.cpp",
+      "sha256": "4d605aeb52a995215296613d101a2ab0ee236fd8fbbfc479f66f766121b8d564",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/direct_receive/direct_receive.patch",
+      "published": "receive_prototypes/direct_receive/direct_receive.patch",
+      "sha256": "4f5331e4e157dce6546753e90c1aff7c18bffda48e8964311161142d1ab0a45b",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/direct_receive/hpx-comm.cpp",
+      "published": "receive_prototypes/direct_receive/hpx-comm.cpp",
+      "sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/direct_receive/provenance.json",
+      "published": "receive_prototypes/direct_receive/provenance.json",
+      "sha256": "ec9f945ecb0e7b38a9ce43b26e0ade47c08a4b04656d577c2148d8760e73ab96",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/pooled_receive/PROVENANCE.json",
+      "published": "receive_prototypes/pooled_receive/PROVENANCE.json",
+      "sha256": "b50ed4278f82013f7c012db170fa99f60311777fd2f3c3014a4a70c9e950da7d",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/pooled_receive/README.md",
+      "published": "receive_prototypes/pooled_receive/PREPARATION.md",
+      "sha256": "0bbbd9caa392a4d9363db4ef1c4c6687767708897410f731e6b14c48c2ac89eb",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/pooled_receive/base-hpx-comm.cpp",
+      "published": "receive_prototypes/pooled_receive/base-hpx-comm.cpp",
+      "sha256": "4d605aeb52a995215296613d101a2ab0ee236fd8fbbfc479f66f766121b8d564",
+      "source_was_symlink": false
+    },
+    {
+      "source": "build/qb_optimize/pooled_receive/hpx-comm.cpp",
+      "published": "receive_prototypes/pooled_receive/hpx-comm.cpp",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "source_was_symlink": true
+    },
+    {
+      "source": "build/qb_optimize/pooled_receive/pooled_receive.patch",
+      "published": "receive_prototypes/pooled_receive/pooled_receive.patch",
+      "sha256": "23a6b0fe71217fb2f04e6f6158888e44c63a7f3b080cf800561f236fc2e0fc3a",
+      "source_was_symlink": false
+    }
+  ]
+}

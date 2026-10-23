@@ -1,0 +1,2 @@
+cd /work/dmarce1/fftw3_hpx_optimize_20261022
+verify_candidate_source 

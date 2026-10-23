@@ -1,0 +1,5 @@
+/work/dmarce1/fftw3_hpx_optimize_20261022/prototypes/direct_receive/hpx-comm.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/prototypes/pooled_receive/hpx-comm.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/source/hpx/hpx-comm-check.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate/config.h: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate/hpx/.libs/libfftw3_hpx.a: OK

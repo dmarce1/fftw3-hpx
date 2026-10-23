@@ -1,0 +1,11 @@
+hpx/hpx-comm.cpp: OK
+hpx/hpx-comm.h: OK
+hpx/fftw3-hpx.h: OK
+hpx/hpx-comm-check.cpp: OK
+hpx/hpx-message-check.cpp: OK
+hpx/hpx-message-check.hpp: OK
+hpx/Makefile.am: OK
+hpx/Makefile.in: OK
+hpx/hpx-run.sh: OK
+configure.ac: OK
+build/hpx_env.sh: OK

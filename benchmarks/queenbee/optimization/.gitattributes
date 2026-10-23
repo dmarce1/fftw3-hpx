@@ -1,0 +1,9 @@
+# Copyright (c) 2026 Dominic C. Marcello
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Preserve exact experiment records, including FFTW's printed-plan whitespace.
+*.log -whitespace linguist-generated=true
+*.command -whitespace linguist-generated=true
+*.patch -whitespace linguist-generated=true
+*.txt -whitespace linguist-generated=true
+# Matplotlib emits insignificant whitespace in generated SVG path data.
+*.svg -whitespace linguist-generated=true

@@ -1,0 +1,12 @@
+precision=long_double
+g++ (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Copyright (C) 2025 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+CXXFLAGS = -g -O2
+HPXRUN = /home/dmarce1/local/hpx/Release/bin/hpxrun.py
+HPX_APP_CFLAGS = -I/home/dmarce1/workspace/fftw3-hpx/build/hpx_compat/boost_headers -fPIC -DHPX_APPLICATION_EXPORTS -std=c++20 -pthread -I/home/dmarce1/local/hpx/Release/include -I/usr/local/cuda/targets/x86_64-linux/include -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi
+HPX_APP_LIBS = -L/home/dmarce1/local/hpx/Release/lib -L/usr/local/cuda-12.8/targets/x86_64-linux/lib -L/home/dmarce1/workspace/fftw3-hpx/build/hpx_compat/lib -lhpx -lhpx_core -ldl -lrt -lcudart -lcublasLt -lcublas -ljemalloc -lhwloc -lmpi_cxx -lmpi -lhpx_wrap /home/dmarce1/local/hpx/Release/lib/libhpx_wrap.a -Wl,-wrap=main -lhpx_init /home/dmarce1/local/hpx/Release/lib/libhpx_init.a -pthread
+HPX_CFLAGS = -I/home/dmarce1/workspace/fftw3-hpx/build/hpx_compat/boost_headers -fPIC -DHPX_COMPONENT_EXPORTS -std=c++20 -pthread -I/home/dmarce1/local/hpx/Release/include -I/usr/local/cuda/targets/x86_64-linux/include -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi
+HPX_LIBS =  -L/home/dmarce1/local/hpx/Release/lib -L/usr/local/cuda-12.8/targets/x86_64-linux/lib -L/home/dmarce1/workspace/fftw3-hpx/build/hpx_compat/lib -lhpx -lhpx_core -ldl -lrt -lcudart -lcublasLt -lcublas -ljemalloc -lhwloc -lmpi_cxx -lmpi -pthread 

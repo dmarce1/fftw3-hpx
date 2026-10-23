@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "precision_configuration": "double",
+  "maximum_concurrent_compilers": 2,
+  "runtime": "ordinary main; HPX serialization archives; no HPX distributed runtime or network launch",
+  "scope": "deterministic serialization, direct destination selection, ownership and pool cleanup behavior; not an MPI transport or performance test",
+  "runs": {
+    "direct_receive": {
+      "status": "PASS",
+      "check_groups": 6,
+      "prototype_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "executable_sha256": "cf0bdfe122d5f946d416bbeb0044f1a5a148db83173cb550a5455b3e590b4a7f",
+      "logs": "build/qb_optimize/prototype_units/results/direct_receive",
+      "prototype_unchanged": true
+    },
+    "pooled_receive": {
+      "status": "PASS",
+      "check_groups": 4,
+      "prototype_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "executable_sha256": "de513161ee52725f83384413abe06017524ffee8aa155227ca6ab3b85d950880",
+      "logs": "build/qb_optimize/prototype_units/results/pooled_receive",
+      "prototype_unchanged": true
+    }
+  }
+}

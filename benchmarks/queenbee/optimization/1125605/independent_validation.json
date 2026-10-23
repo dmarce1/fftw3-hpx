@@ -1,0 +1,728 @@
+{
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "job_id": 1125605,
+  "final_status": {
+    "status": "PASS",
+    "exit_status": "0",
+    "job_id": "1125605",
+    "stage": "complete",
+    "baseline_commit": "cb205948f773e8e057b14ebbf6fa4df1c7cb994a",
+    "main_job_id": "1125395",
+    "tuning_job_id": "1125437",
+    "finished_utc": "2026-10-23T05:49:50Z"
+  },
+  "benchmark_count": 6,
+  "sample_count": 42,
+  "numerical_check_count": 18,
+  "plans_equal": true,
+  "runs": {
+    "mpi": {
+      "configuration": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "mpi",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.3248988013960868e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.3986960342891404e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.196128222638237e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "3.2844827529999998",
+        "median_seconds": "3.3054045080000001",
+        "mean_seconds": "3.3373370785714291",
+        "max_seconds": "3.3937297370000001",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        3.305404508,
+        3.305034443,
+        3.381418924,
+        3.393729737,
+        3.305381993,
+        3.385907192,
+        3.284482753
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 3.284482753,
+        "median_seconds": 3.305404508,
+        "mean_seconds": 3.3373370785714287,
+        "max_seconds": 3.393729737
+      },
+      "source_sha256": "29c4a55b654327b80685587979c9ec2421d1a7ae3dde8493f22e9d8fc8970f74",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "hpx_baseline": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "13.136235752999999",
+        "median_seconds": "13.488788121000001",
+        "mean_seconds": "13.516060561428571",
+        "max_seconds": "13.837404144000001",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        13.418551915,
+        13.837404144,
+        13.488788121,
+        13.772987715,
+        13.731937477,
+        13.136235753,
+        13.226518805
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 13.136235753,
+        "median_seconds": 13.488788121,
+        "mean_seconds": 13.51606056142857,
+        "max_seconds": 13.837404144
+      },
+      "source_sha256": "03ad518d083d940f735053d00d50d04c9e033775613f5d885caab7892311e0bc",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_baseline",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:threads=64",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "candidate_selected": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "5.3863409930000001",
+        "median_seconds": "5.6984810039999996",
+        "mean_seconds": "5.6126989481428575",
+        "max_seconds": "5.739940496",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        5.61177363,
+        5.739940496,
+        5.709092366,
+        5.386340993,
+        5.698481004,
+        5.425279759,
+        5.717984389
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 5.386340993,
+        "median_seconds": 5.698481004,
+        "mean_seconds": 5.6126989481428575,
+        "max_seconds": 5.739940496
+      },
+      "source_sha256": "4bf815006bec35201bc33eae2d27d2f3fbe3bfec11a760f359d469a2ccf03c23",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_candidate",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:threads=64",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "candidate_selected_backoff1": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "6.1044041079999998",
+        "median_seconds": "6.2942049239999998",
+        "mean_seconds": "6.258729787428571",
+        "max_seconds": "6.3744673379999996",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        6.339711628,
+        6.343036991,
+        6.186260127,
+        6.294204924,
+        6.104404108,
+        6.374467338,
+        6.169023396
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 6.104404108,
+        "median_seconds": 6.294204924,
+        "mean_seconds": 6.258729787428571,
+        "max_seconds": 6.374467338
+      },
+      "source_sha256": "414d85826037d6c3aa23f44b58be555e57d4194d23e43fff40c043879ae02711",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_candidate",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:threads=64",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--hpx:ini=hpx.max_idle_backoff_time=1",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "pooled_selected": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "4.3432233189999998",
+        "median_seconds": "4.3644907149999996",
+        "mean_seconds": "4.3767891644285717",
+        "max_seconds": "4.4837429540000002",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        4.35470911,
+        4.378993145,
+        4.344274583,
+        4.364490715,
+        4.483742954,
+        4.343223319,
+        4.368090325
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 4.343223319,
+        "median_seconds": 4.364490715,
+        "mean_seconds": 4.376789164428572,
+        "max_seconds": 4.483742954
+      },
+      "source_sha256": "72a2f741863555a8d47de936e8343f931aa1cad7ce4d16d9a996f7b8d970deaf",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/pooled_receive",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:threads=64",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--hpx:ini=hpx.max_idle_backoff_time=1",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "direct_selected": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "4.8672019190000002",
+        "median_seconds": "5.0040542959999996",
+        "mean_seconds": "5.0375346780000001",
+        "max_seconds": "5.2237509680000001",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        5.223750968,
+        5.004054296,
+        4.915053612,
+        4.999057902,
+        5.134314208,
+        4.867201919,
+        5.119309841
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 4.867201919,
+        "median_seconds": 5.004054296,
+        "mean_seconds": 5.037534678,
+        "max_seconds": 5.223750968
+      },
+      "source_sha256": "dfeef32bef86059f5d0a1cadc2663fc987fb16c9f31f7bf3849c31bf8a7fb851",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/direct_receive",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:threads=64",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--hpx:ini=hpx.max_idle_backoff_time=1",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    }
+  },
+  "communication_gates": {
+    "candidate": {
+      "rank_pass_records": 4,
+      "cycles": 2,
+      "checks_per_cycle": 7,
+      "assertions_forced": true,
+      "completed_before_benchmarks": true
+    },
+    "pooled_receive": {
+      "rank_pass_records": 4,
+      "cycles": 2,
+      "checks_per_cycle": 7,
+      "assertions_forced": true,
+      "completed_before_benchmarks": true
+    },
+    "direct_receive": {
+      "rank_pass_records": 4,
+      "cycles": 2,
+      "checks_per_cycle": 7,
+      "assertions_forced": true,
+      "completed_before_benchmarks": true
+    }
+  },
+  "prototype_archives": {
+    "direct_receive": {
+      "source_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "members": 32,
+      "changed_members": [
+        "hpx-comm.o"
+      ],
+      "unchanged_members": 31,
+      "downloaded_artifacts_verified": [
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/prototypes/direct_receive/hpx-comm.cpp",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/prototypes/direct_receive/source-hpx-comm.cpp",
+          "sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590"
+        },
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/prototypes/direct_receive/libfftw3_hpx.a",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/prototypes/direct_receive/libfftw3_hpx.a",
+          "sha256": "d82aec9319d7fecfcf79239dc2d79193c318097d6266532653e0f7a161c88186"
+        },
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/direct_receive",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/bin/direct_receive",
+          "sha256": "cf4a70ce470f37e86681d31b69ed42cae77d596e3b98646d4055cf3685278024"
+        },
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/direct_receive_comm_check",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/bin/direct_receive_comm_check",
+          "sha256": "1576c6ec1c9fbf01d273b7e87842118292d0f013316d497dd7a50685b345aaba"
+        }
+      ]
+    },
+    "pooled_receive": {
+      "source_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "members": 32,
+      "changed_members": [
+        "hpx-comm.o"
+      ],
+      "unchanged_members": 31,
+      "downloaded_artifacts_verified": [
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/prototypes/pooled_receive/hpx-comm.cpp",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/prototypes/pooled_receive/source-hpx-comm.cpp",
+          "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c"
+        },
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/prototypes/pooled_receive/libfftw3_hpx.a",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/prototypes/pooled_receive/libfftw3_hpx.a",
+          "sha256": "c3590f0ad36667620887cbe7a5aaecfeb0c4eb5759b692a5659cb2e27a913c06"
+        },
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/pooled_receive",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/bin/pooled_receive",
+          "sha256": "a4f2655cf4dc49b13b1b4a7a2d3575923f826dcbb785ee43df143a2f758d4a8d"
+        },
+        {
+          "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/pooled_receive_comm_check",
+          "local_file": "build/qb_optimize/receive_evidence/results/1125605/bin/pooled_receive_comm_check",
+          "sha256": "bc14e918c61a15d56a56296110fd05ac319a06a0811f3e00af082391e1b4745d"
+        }
+      ]
+    }
+  },
+  "original_binaries_rehashed": [
+    {
+      "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi",
+      "local_file": "build/qb_optimize/evidence/results/1125395/bin/mpi",
+      "sha256": "73d8ee96ada747e806af2c220c99a85f92152cda73385bf4797d55a5a462fcd0"
+    },
+    {
+      "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_baseline",
+      "local_file": "build/qb_optimize/evidence/results/1125395/bin/hpx_baseline",
+      "sha256": "4040333eadc309d649dd76c7ce834ae5b0d3a73fd9851298b2dc73fa06ea965b"
+    },
+    {
+      "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_candidate",
+      "local_file": "build/qb_optimize/evidence/results/1125395/bin/hpx_candidate",
+      "sha256": "4a303b4922bec02feaa4ba1c5fcca478ad59add997409a81cb59866548664a34"
+    }
+  ],
+  "candidate_check_rehashed": [
+    {
+      "recorded_path": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/candidate_comm_check",
+      "local_file": "build/qb_optimize/receive_evidence/results/1125605/bin/candidate_comm_check",
+      "sha256": "a00dca29329b899fc0e0426a00d2a39e1176a51ef824eaf0ca966fcfc3940141"
+    }
+  ],
+  "unchanged_remote_records": {
+    "baseline_inputs.sha256": {
+      "recorded_postrun_ok_count": 7
+    },
+    "binaries.sha256": {
+      "recorded_postrun_ok_count": 3
+    },
+    "candidate_source.sha256": {
+      "recorded_postrun_ok_count": 4963
+    },
+    "prototype_inputs.sha256": {
+      "recorded_postrun_ok_count": 5
+    },
+    "primary_candidate_archive.sha256": {
+      "recorded_postrun_ok_count": 2
+    }
+  },
+  "runtime_selection": {
+    "tuning_job_id": "1125437",
+    "selected_case": "candidate_bg1_global1",
+    "selection_rule": "completed successful case; later serialized-MPI case excluded after shutdown failure",
+    "tuning_median_seconds": 5.559548005,
+    "mpi_control_median_seconds": 3.33357632,
+    "argv": [
+      "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+      "--hpx:ini=hpx.max_background_threads=1",
+      "--hpx:ini=hpx.parcel.mpi.multithreaded=1"
+    ],
+    "scope": "chosen from a completed run in a subsequently failed allocation; remeasured here"
+  },
+  "validation_boundaries": [
+    "Six raw benchmark logs parsed independently of the original summarizer; saved comparison records cross-checked.",
+    "Downloaded prototype archives, bridge objects, executables and source snapshots were rehashed locally.",
+    "Each downloaded archive has 32 members; actual member hashes match recorded after hashes and differ from recorded before only in hpx-comm.o.",
+    "Original candidate archive is not downloaded; its before-member hashes and unchanged whole-archive digest are authenticated remote job records, not a fresh local hash.",
+    "The three original executables were rehashed from the downloaded primary evidence.",
+    "Complete original source and baseline-library preservation is supported by identical pre-run manifests and complete remote post-run OK records; those remote paths were not accessed."
+  ]
+}

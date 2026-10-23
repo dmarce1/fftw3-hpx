@@ -1,0 +1,43 @@
+START input_unchanged 2026-10-23T04:55:59Z
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/direct_receive/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+PASS input_unchanged 2026-10-23T04:55:59Z
+START comm_1x2 2026-10-23T04:55:59Z
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+PASS comm_1x2 2026-10-23T04:55:59Z
+START comm_3x2 2026-10-23T04:55:59Z
+the bootstrap parcelport (tcp) has failed to initialize on locality 4294967295:
+open: Operation not permitted: HPX(network_error),
+bailing out
+terminate called without an active exception
+the bootstrap parcelport (tcp) has failed to initialize on locality 0:
+open: Operation not permitted: HPX(network_error),
+bailing out
+terminate called without an active exception
+the bootstrap parcelport (tcp) has failed to initialize on locality 4294967295:
+open: Operation not permitted: HPX(network_error),
+bailing out
+terminate called without an active exception
+Process 2 failed with an unexpected error code of -6 (expected 0)
+Process 1 failed with an unexpected error code of -6 (expected 0)
+Process 0 failed with an unexpected error code of -6 (expected 0)

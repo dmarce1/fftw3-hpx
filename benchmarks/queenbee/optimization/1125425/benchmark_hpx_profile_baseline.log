@@ -1,0 +1,2829 @@
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.background_threads value=-1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.multithreaded value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.sendimm value=0
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.ack_handshake value=<unset>
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.enable value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_background_threads value=64
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_idle_loop_count value=200000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_busy_loop_count value=2000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_idle_backoff_time value=1000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.default_scheduler_mode value=
+CONFIG_DIAGNOSTIC rank=0 key=hpx.scheduler value=local-priority-fifo
+CONFIG_DIAGNOSTIC rank=0 key=hpx.numa_sensitive value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.os_threads value=64
+CONFIG_DIAGNOSTIC rank=0 key=hpx.affinity value=pu
+CONFIG_DIAGNOSTIC rank=0 key=hpx.bind value=none
+CONFIG_DIAGNOSTIC rank=0 key=hpx.pu_offset value=0
+CONFIG_DIAGNOSTIC rank=0 key=hpx.pu_step value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.stacks.large_size value=0x0200000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.stacks.use_guard_pages value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.background_threads value=-1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.multithreaded value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.sendimm value=0
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.ack_handshake value=<unset>
+CONFIG_DIAGNOSTIC rank=2 key=hpx.parcel.mpi.enable value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.max_background_threads value=64
+CONFIG_DIAGNOSTIC rank=2 key=hpx.max_idle_loop_count value=200000
+CONFIG_DIAGNOSTIC rank=2 key=hpx.max_busy_loop_count value=2000
+CONFIG_DIAGNOSTIC rank=2 key=hpx.max_idle_backoff_time value=1000
+CONFIG_DIAGNOSTIC rank=2 key=hpx.default_scheduler_mode value=
+CONFIG_DIAGNOSTIC rank=2 key=hpx.scheduler value=local-priority-fifo
+CONFIG_DIAGNOSTIC rank=2 key=hpx.numa_sensitive value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.os_threads value=64
+CONFIG_DIAGNOSTIC rank=2 key=hpx.affinity value=pu
+CONFIG_DIAGNOSTIC rank=2 key=hpx.bind value=none
+CONFIG_DIAGNOSTIC rank=2 key=hpx.pu_offset value=0
+CONFIG_DIAGNOSTIC rank=2 key=hpx.pu_step value=1
+CONFIG_DIAGNOSTIC rank=2 key=hpx.stacks.large_size value=0x0200000
+CONFIG_DIAGNOSTIC rank=2 key=hpx.stacks.use_guard_pages value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.background_threads value=-1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.multithreaded value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.sendimm value=0
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.ack_handshake value=<unset>
+CONFIG_DIAGNOSTIC rank=3 key=hpx.parcel.mpi.enable value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.max_background_threads value=64
+CONFIG_DIAGNOSTIC rank=3 key=hpx.max_idle_loop_count value=200000
+CONFIG_DIAGNOSTIC rank=3 key=hpx.max_busy_loop_count value=2000
+CONFIG_DIAGNOSTIC rank=3 key=hpx.max_idle_backoff_time value=1000
+CONFIG_DIAGNOSTIC rank=3 key=hpx.default_scheduler_mode value=
+CONFIG_DIAGNOSTIC rank=3 key=hpx.scheduler value=local-priority-fifo
+CONFIG_DIAGNOSTIC rank=3 key=hpx.numa_sensitive value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.os_threads value=64
+CONFIG_DIAGNOSTIC rank=3 key=hpx.affinity value=pu
+CONFIG_DIAGNOSTIC rank=3 key=hpx.bind value=none
+CONFIG_DIAGNOSTIC rank=3 key=hpx.pu_offset value=0
+CONFIG_DIAGNOSTIC rank=3 key=hpx.pu_step value=1
+CONFIG_DIAGNOSTIC rank=3 key=hpx.stacks.large_size value=0x0200000
+CONFIG_DIAGNOSTIC rank=3 key=hpx.stacks.use_guard_pages value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.background_threads value=-1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.multithreaded value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.sendimm value=0
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.ack_handshake value=<unset>
+CONFIG_DIAGNOSTIC rank=1 key=hpx.parcel.mpi.enable value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.max_background_threads value=64
+CONFIG_DIAGNOSTIC rank=1 key=hpx.max_idle_loop_count value=200000
+CONFIG_DIAGNOSTIC rank=1 key=hpx.max_busy_loop_count value=2000
+CONFIG_DIAGNOSTIC rank=1 key=hpx.max_idle_backoff_time value=1000
+CONFIG_DIAGNOSTIC rank=1 key=hpx.default_scheduler_mode value=
+CONFIG_DIAGNOSTIC rank=1 key=hpx.scheduler value=local-priority-fifo
+CONFIG_DIAGNOSTIC rank=1 key=hpx.numa_sensitive value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.os_threads value=64
+CONFIG_DIAGNOSTIC rank=1 key=hpx.affinity value=pu
+CONFIG_DIAGNOSTIC rank=1 key=hpx.bind value=none
+CONFIG_DIAGNOSTIC rank=1 key=hpx.pu_offset value=0
+CONFIG_DIAGNOSTIC rank=1 key=hpx.pu_step value=1
+CONFIG_DIAGNOSTIC rank=1 key=hpx.stacks.large_size value=0x0200000
+CONFIG_DIAGNOSTIC rank=1 key=hpx.stacks.use_guard_pages value=1
+CONFIG backend=hpx extent=1024 ranks=4 threads=64 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=17179869184 max_local_allocation_bytes=4294967296
+PLAN_SECONDS backend=hpx value=0.047279607000000001
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x64/1
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2"))))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-256x4-x524288)
+      (rdft-thr-vrank>=1-x64/1
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x64/1
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x256-x524288)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x64/1
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop)))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-256x4-x524288)
+      (rdft-thr-vrank>=1-x64/1
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-buffered-1024-x32/262144-6
+      (dft-thr-vrank>=1-x32/1
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128"))))
+      (dft-r2hc-1
+        (rdft-thr-vrank>=1-x32/1
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))))
+      (dft-nop)) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x256-x524288)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=7.616067116634044e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=1.4598394285766894e-15 tolerance=1e-10
+PROFILE rank=1 sample=0 metric=copy_bytes_inclusive calls=6 seconds=2.7954644270000002
+PROFILE rank=1 sample=0 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=0 metric=receive_bytes_inclusive calls=6 seconds=0.70772996200000005
+PROFILE rank=1 sample=0 metric=run_jobs_inclusive calls=3 seconds=0.69051665400000006
+PROFILE rank=1 sample=0 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=0 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=0 metric=sendrecv_inclusive calls=6 seconds=9.2083669439999998
+PROFILE_TOTAL rank=1 sample=0 seconds=13.369168411
+PROFILE rank=2 sample=0 metric=copy_bytes_inclusive calls=6 seconds=2.7824841400000002
+PROFILE rank=2 sample=0 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=0 metric=receive_bytes_inclusive calls=6 seconds=0.70654357500000009
+PROFILE rank=2 sample=0 metric=run_jobs_inclusive calls=3 seconds=0.82279051400000003
+PROFILE rank=2 sample=0 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=0 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=0 metric=sendrecv_inclusive calls=6 seconds=9.0897766270000009
+PROFILE_TOTAL rank=2 sample=0 seconds=13.402581755
+PROFILE rank=0 sample=0 metric=copy_bytes_inclusive calls=6 seconds=2.8044333340000001
+PROFILE rank=0 sample=0 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=0 metric=receive_bytes_inclusive calls=6 seconds=0.69297177200000004
+PROFILE rank=0 sample=0 metric=run_jobs_inclusive calls=3 seconds=0.83210860500000006
+PROFILE rank=0 sample=0 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=0 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=0 metric=sendrecv_inclusive calls=6 seconds=9.0630762590000007
+PROFILE_TOTAL rank=0 sample=0 seconds=13.420189002000001
+PROFILE rank=3 sample=0 metric=copy_bytes_inclusive calls=6 seconds=2.8879352970000003
+PROFILE rank=3 sample=0 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=0 metric=receive_bytes_inclusive calls=6 seconds=0.81878173700000001
+PROFILE rank=3 sample=0 metric=run_jobs_inclusive calls=3 seconds=0.87077883500000008
+PROFILE rank=3 sample=0 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=0 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=0 metric=sendrecv_inclusive calls=6 seconds=8.8404944840000006
+PROFILE_TOTAL rank=3 sample=0 seconds=13.660017142999999
+SAMPLE backend=hpx index=0 max_rank_seconds=13.660017142999999
+PROFILE rank=1 sample=1 metric=copy_bytes_inclusive calls=6 seconds=2.8080669240000002
+PROFILE rank=1 sample=1 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=1 metric=receive_bytes_inclusive calls=6 seconds=0.75157567800000002
+PROFILE rank=1 sample=1 metric=run_jobs_inclusive calls=3 seconds=1.007538592
+PROFILE rank=1 sample=1 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=1 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=1 metric=sendrecv_inclusive calls=6 seconds=9.0297045039999997
+PROFILE_TOTAL rank=1 sample=1 seconds=13.507503868000001
+PROFILE rank=0 sample=1 metric=copy_bytes_inclusive calls=6 seconds=2.832268043
+PROFILE rank=0 sample=1 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=1 metric=receive_bytes_inclusive calls=6 seconds=0.68552694400000003
+PROFILE rank=0 sample=1 metric=run_jobs_inclusive calls=3 seconds=0.79535313200000002
+PROFILE rank=0 sample=1 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=1 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=1 metric=sendrecv_inclusive calls=6 seconds=9.3080885159999998
+PROFILE_TOTAL rank=0 sample=1 seconds=13.561868646000001
+PROFILE rank=2 sample=1 metric=copy_bytes_inclusive calls=6 seconds=2.7691696510000003
+PROFILE rank=2 sample=1 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=1 metric=receive_bytes_inclusive calls=6 seconds=0.69178519599999999
+PROFILE rank=2 sample=1 metric=run_jobs_inclusive calls=3 seconds=0.86092055700000003
+PROFILE rank=2 sample=1 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=1 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=1 metric=sendrecv_inclusive calls=6 seconds=9.121951493000001
+PROFILE_TOTAL rank=2 sample=1 seconds=13.485051329999999
+PROFILE rank=3 sample=1 metric=copy_bytes_inclusive calls=6 seconds=2.8645838990000003
+PROFILE rank=3 sample=1 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=1 metric=receive_bytes_inclusive calls=6 seconds=0.80633169300000007
+PROFILE rank=3 sample=1 metric=run_jobs_inclusive calls=3 seconds=0.8969257100000001
+PROFILE rank=3 sample=1 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=1 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=1 metric=sendrecv_inclusive calls=6 seconds=9.0458796580000005
+PROFILE_TOTAL rank=3 sample=1 seconds=13.754895845
+SAMPLE backend=hpx index=1 max_rank_seconds=13.754895845
+PROFILE rank=3 sample=2 metric=copy_bytes_inclusive calls=6 seconds=2.7864153850000002
+PROFILE rank=3 sample=2 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=2 metric=receive_bytes_inclusive calls=6 seconds=0.73102466100000008
+PROFILE rank=3 sample=2 metric=run_jobs_inclusive calls=3 seconds=0.88216882000000008
+PROFILE rank=3 sample=2 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=2 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=2 metric=sendrecv_inclusive calls=6 seconds=8.8121122640000014
+PROFILE_TOTAL rank=3 sample=2 seconds=13.177636795
+PROFILE rank=1 sample=2 metric=copy_bytes_inclusive calls=6 seconds=2.8093290680000003
+PROFILE rank=1 sample=2 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=2 metric=receive_bytes_inclusive calls=6 seconds=0.70191101200000006
+PROFILE rank=1 sample=2 metric=run_jobs_inclusive calls=3 seconds=0.65130317500000001
+PROFILE rank=1 sample=2 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=2 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=2 metric=sendrecv_inclusive calls=6 seconds=9.0517641290000004
+PROFILE_TOTAL rank=1 sample=2 seconds=13.210237020999999
+PROFILE rank=2 sample=2 metric=copy_bytes_inclusive calls=6 seconds=2.797221328
+PROFILE rank=2 sample=2 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=2 metric=receive_bytes_inclusive calls=6 seconds=0.73240568500000003
+PROFILE rank=2 sample=2 metric=run_jobs_inclusive calls=3 seconds=0.89786962400000003
+PROFILE rank=2 sample=2 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=2 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=2 metric=sendrecv_inclusive calls=6 seconds=8.7917527619999998
+PROFILE_TOTAL rank=2 sample=2 seconds=13.227908168000001
+PROFILE rank=0 sample=2 metric=copy_bytes_inclusive calls=6 seconds=2.819951004
+PROFILE rank=0 sample=2 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=2 metric=receive_bytes_inclusive calls=6 seconds=0.67551613799999999
+PROFILE rank=0 sample=2 metric=run_jobs_inclusive calls=3 seconds=0.81065034300000005
+PROFILE rank=0 sample=2 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=2 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=2 metric=sendrecv_inclusive calls=6 seconds=8.944077472
+PROFILE_TOTAL rank=0 sample=2 seconds=13.298961287999999
+SAMPLE backend=hpx index=2 max_rank_seconds=13.298961287999999
+PROFILE rank=1 sample=3 metric=copy_bytes_inclusive calls=6 seconds=2.8390565940000001
+PROFILE rank=1 sample=3 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=3 metric=receive_bytes_inclusive calls=6 seconds=0.74042065500000009
+PROFILE rank=1 sample=3 metric=run_jobs_inclusive calls=3 seconds=0.65623970900000006
+PROFILE rank=1 sample=3 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=3 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=3 metric=sendrecv_inclusive calls=6 seconds=9.0493855659999998
+PROFILE_TOTAL rank=1 sample=3 seconds=13.309386440999999
+PROFILE rank=0 sample=3 metric=copy_bytes_inclusive calls=6 seconds=2.7628759570000003
+PROFILE rank=0 sample=3 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=3 metric=receive_bytes_inclusive calls=6 seconds=0.68688084100000002
+PROFILE rank=0 sample=3 metric=run_jobs_inclusive calls=3 seconds=0.80723164000000003
+PROFILE rank=0 sample=3 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=3 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=3 metric=sendrecv_inclusive calls=6 seconds=9.0286033789999998
+PROFILE_TOTAL rank=0 sample=3 seconds=13.395276923000001
+PROFILE rank=3 sample=3 metric=copy_bytes_inclusive calls=6 seconds=2.7887279080000003
+PROFILE rank=3 sample=3 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=3 metric=receive_bytes_inclusive calls=6 seconds=0.7789384800000001
+PROFILE rank=3 sample=3 metric=run_jobs_inclusive calls=3 seconds=0.89782650100000005
+PROFILE rank=3 sample=3 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=3 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=3 metric=sendrecv_inclusive calls=6 seconds=8.997666391000001
+PROFILE_TOTAL rank=3 sample=3 seconds=13.476717240999999
+SAMPLE backend=hpx index=3 max_rank_seconds=13.521587601
+PROFILE rank=2 sample=3 metric=copy_bytes_inclusive calls=6 seconds=2.8085862600000002
+PROFILE rank=2 sample=3 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=3 metric=receive_bytes_inclusive calls=6 seconds=0.68138862600000005
+PROFILE rank=2 sample=3 metric=run_jobs_inclusive calls=3 seconds=0.91512114300000003
+PROFILE rank=2 sample=3 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=3 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=3 metric=sendrecv_inclusive calls=6 seconds=9.1231035120000001
+PROFILE_TOTAL rank=2 sample=3 seconds=13.521587601
+PROFILE rank=1 sample=4 metric=copy_bytes_inclusive calls=6 seconds=2.8264507080000003
+PROFILE rank=1 sample=4 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=4 metric=receive_bytes_inclusive calls=6 seconds=0.71261537500000005
+PROFILE rank=1 sample=4 metric=run_jobs_inclusive calls=3 seconds=0.84377642100000005
+PROFILE rank=1 sample=4 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=4 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=4 metric=sendrecv_inclusive calls=6 seconds=8.9321296320000005
+PROFILE_TOTAL rank=1 sample=4 seconds=13.264426564000001
+PROFILE rank=0 sample=4 metric=copy_bytes_inclusive calls=6 seconds=2.7883592030000002
+PROFILE rank=0 sample=4 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=4 metric=receive_bytes_inclusive calls=6 seconds=0.69708089000000006
+PROFILE rank=0 sample=4 metric=run_jobs_inclusive calls=3 seconds=0.86275094900000004
+PROFILE rank=0 sample=4 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=4 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=4 metric=sendrecv_inclusive calls=6 seconds=8.9784921250000007
+PROFILE_TOTAL rank=0 sample=4 seconds=13.396045079
+PROFILE rank=3 sample=4 metric=copy_bytes_inclusive calls=6 seconds=2.874872673
+PROFILE rank=3 sample=4 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=4 metric=receive_bytes_inclusive calls=6 seconds=0.81920427600000001
+PROFILE rank=3 sample=4 metric=run_jobs_inclusive calls=3 seconds=0.80481826500000009
+PROFILE rank=3 sample=4 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=4 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=4 metric=sendrecv_inclusive calls=6 seconds=8.8058077590000003
+PROFILE_TOTAL rank=3 sample=4 seconds=13.463091024000001
+SAMPLE backend=hpx index=4 max_rank_seconds=13.54215102
+PROFILE rank=2 sample=4 metric=copy_bytes_inclusive calls=6 seconds=2.7960317590000003
+PROFILE rank=2 sample=4 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=4 metric=receive_bytes_inclusive calls=6 seconds=0.69680605100000004
+PROFILE rank=2 sample=4 metric=run_jobs_inclusive calls=3 seconds=0.89562833800000008
+PROFILE rank=2 sample=4 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=4 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=4 metric=sendrecv_inclusive calls=6 seconds=9.1709548670000007
+PROFILE_TOTAL rank=2 sample=4 seconds=13.54215102
+PROFILE rank=1 sample=5 metric=copy_bytes_inclusive calls=6 seconds=2.810942925
+PROFILE rank=1 sample=5 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=5 metric=receive_bytes_inclusive calls=6 seconds=0.74795094500000003
+PROFILE rank=1 sample=5 metric=run_jobs_inclusive calls=3 seconds=1.0146233010000001
+PROFILE rank=1 sample=5 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=5 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=5 metric=sendrecv_inclusive calls=6 seconds=8.8265684770000004
+PROFILE_TOTAL rank=1 sample=5 seconds=13.35579362
+PROFILE rank=0 sample=5 metric=copy_bytes_inclusive calls=6 seconds=2.7849573260000002
+PROFILE rank=0 sample=5 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=5 metric=receive_bytes_inclusive calls=6 seconds=0.69260473300000003
+PROFILE rank=0 sample=5 metric=run_jobs_inclusive calls=3 seconds=0.87787840700000008
+PROFILE rank=0 sample=5 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=5 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=5 metric=sendrecv_inclusive calls=6 seconds=8.985967822000001
+PROFILE_TOTAL rank=0 sample=5 seconds=13.429775748000001
+PROFILE rank=3 sample=5 metric=copy_bytes_inclusive calls=6 seconds=2.8032751060000001
+PROFILE rank=3 sample=5 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=5 metric=receive_bytes_inclusive calls=6 seconds=0.75200509300000007
+PROFILE rank=3 sample=5 metric=run_jobs_inclusive calls=3 seconds=0.88061365100000011
+PROFILE rank=3 sample=5 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=5 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=5 metric=sendrecv_inclusive calls=6 seconds=9.0503650489999998
+PROFILE_TOTAL rank=3 sample=5 seconds=13.491992305
+SAMPLE backend=hpx index=5 max_rank_seconds=13.546163556
+PROFILE rank=2 sample=5 metric=copy_bytes_inclusive calls=6 seconds=2.8130586530000001
+PROFILE rank=2 sample=5 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=5 metric=receive_bytes_inclusive calls=6 seconds=0.747578038
+PROFILE rank=2 sample=5 metric=run_jobs_inclusive calls=3 seconds=0.90905997700000007
+PROFILE rank=2 sample=5 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=5 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=5 metric=sendrecv_inclusive calls=6 seconds=9.1124905520000006
+PROFILE_TOTAL rank=2 sample=5 seconds=13.546163556
+PROFILE rank=1 sample=6 metric=copy_bytes_inclusive calls=6 seconds=2.8045984530000001
+PROFILE rank=1 sample=6 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=6 metric=receive_bytes_inclusive calls=6 seconds=0.751838495
+PROFILE rank=1 sample=6 metric=run_jobs_inclusive calls=3 seconds=0.68679848600000004
+PROFILE rank=1 sample=6 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=6 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=1 sample=6 metric=sendrecv_inclusive calls=6 seconds=9.2216354540000012
+PROFILE_TOTAL rank=1 sample=6 seconds=13.419379547
+PROFILE rank=2 sample=6 metric=copy_bytes_inclusive calls=6 seconds=2.806916754
+PROFILE rank=2 sample=6 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=6 metric=receive_bytes_inclusive calls=6 seconds=0.69931819800000006
+PROFILE rank=2 sample=6 metric=run_jobs_inclusive calls=3 seconds=0.8281684210000001
+PROFILE rank=2 sample=6 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=6 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=2 sample=6 metric=sendrecv_inclusive calls=6 seconds=9.0885574850000008
+PROFILE_TOTAL rank=2 sample=6 seconds=13.441070892999999
+PROFILE rank=3 sample=6 metric=copy_bytes_inclusive calls=6 seconds=2.8787313330000002
+PROFILE rank=3 sample=6 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=6 metric=receive_bytes_inclusive calls=6 seconds=0.78100398800000004
+PROFILE rank=3 sample=6 metric=run_jobs_inclusive calls=3 seconds=0.8395789560000001
+PROFILE rank=3 sample=6 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=6 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=3 sample=6 metric=sendrecv_inclusive calls=6 seconds=9.0115771130000013
+PROFILE_TOTAL rank=3 sample=6 seconds=13.487158426000001
+PROFILE rank=0 sample=6 metric=copy_bytes_inclusive calls=6 seconds=2.8286893850000001
+PROFILE rank=0 sample=6 metric=message_bytes_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=6 metric=receive_bytes_inclusive calls=6 seconds=0.69686284800000009
+PROFILE rank=0 sample=6 metric=run_jobs_inclusive calls=3 seconds=0.88152833000000008
+PROFILE rank=0 sample=6 metric=send_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=6 metric=recv_inclusive calls=0 seconds=0
+PROFILE rank=0 sample=6 metric=sendrecv_inclusive calls=6 seconds=9.1543932950000002
+PROFILE_TOTAL rank=0 sample=6 seconds=13.611232489000001
+SAMPLE backend=hpx index=6 max_rank_seconds=13.611232489000001
+CHECK backend=hpx stage=final_roundtrip relative_max_error=5.3466393575176564e-15 tolerance=1e-10
+RESULT backend=hpx extent=1024 ranks=4 threads=64 samples=7 min_seconds=13.298961287999999 median_seconds=13.546163556 mean_seconds=13.562144134571428 max_seconds=13.754895845 status=PASS

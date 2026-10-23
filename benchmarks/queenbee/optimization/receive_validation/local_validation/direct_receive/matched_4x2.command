@@ -1,0 +1,1 @@
+timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 4 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/matched_3d --hpx:ini=hpx.parcel.mpi.enable\!=0 --hpx:ini=hpx.parcel.tcp.enable\!=1 --hpx:ini=hpx.parcel.bootstrap\!=tcp --size=64 --threads=2 --warmups=2 --samples=7 

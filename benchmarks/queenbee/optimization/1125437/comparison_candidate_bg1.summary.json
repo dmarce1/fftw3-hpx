@@ -1,0 +1,137 @@
+{
+  "evidence_summary": {
+    "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+    "license": "GPL-2.0-or-later",
+    "omitted": "Repeated plan strings only; full plans remain in raw benchmark logs.",
+    "source": "build/qb_optimize/tuning_evidence/results/1125437/comparison_candidate_bg1.log",
+    "source_sha256": "9f3be1222566a190e4fc7be79a828fa92005a1df9980d1f256b673af2afed71b"
+  },
+  "hpx": {
+    "checks": [
+      {
+        "backend": "hpx",
+        "relative_max_error": "7.616067116634044e-16",
+        "stage": "forward_spectrum",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "hpx",
+        "relative_max_error": "1.4434208435274806e-15",
+        "stage": "initial_roundtrip",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "hpx",
+        "relative_max_error": "5.9257913899479424e-15",
+        "stage": "final_roundtrip",
+        "tolerance": "1e-10"
+      }
+    ],
+    "configuration": {
+      "backend": "hpx",
+      "extent": "1024",
+      "global_data_bytes": "17179869184",
+      "inplace": "1",
+      "layout": "normal",
+      "max_local_allocation_bytes": "4294967296",
+      "planner": "FFTW_ESTIMATE",
+      "precision": "double",
+      "ranks": "4",
+      "samples": "7",
+      "threads": "64",
+      "warmups": "2"
+    },
+    "plan_text_sha256": {
+      "backward": "0da2b46dcdc4403a83a95baddb0209b88ebf3e5816c2ff88ab382a4f1d576e41",
+      "forward": "33f149977680ac50969e862f07084b9042793444c85be137b729cdc9d61ea719"
+    },
+    "result": {
+      "backend": "hpx",
+      "extent": "1024",
+      "max_seconds": "9.1775982379999999",
+      "mean_seconds": "8.1768964211428568",
+      "median_seconds": "8.3881305059999995",
+      "min_seconds": "6.889648298",
+      "ranks": "4",
+      "samples": "7",
+      "status": "PASS",
+      "threads": "64"
+    },
+    "samples_seconds": [
+      7.708867157,
+      8.913146748,
+      6.889648298,
+      9.177598238,
+      8.388130506,
+      7.501977957,
+      8.658906044
+    ]
+  },
+  "hpx_over_mpi_median_ratio": 2.5162557268225374,
+  "hpx_relative_time_percent": 151.62557268225373,
+  "mpi": {
+    "checks": [
+      {
+        "backend": "mpi",
+        "relative_max_error": "7.3248988013960868e-16",
+        "stage": "forward_spectrum",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "mpi",
+        "relative_max_error": "1.3986960342891404e-15",
+        "stage": "initial_roundtrip",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "mpi",
+        "relative_max_error": "5.196128222638237e-15",
+        "stage": "final_roundtrip",
+        "tolerance": "1e-10"
+      }
+    ],
+    "configuration": {
+      "backend": "mpi",
+      "extent": "1024",
+      "global_data_bytes": "17179869184",
+      "inplace": "1",
+      "layout": "normal",
+      "max_local_allocation_bytes": "4294967296",
+      "planner": "FFTW_ESTIMATE",
+      "precision": "double",
+      "ranks": "4",
+      "samples": "7",
+      "threads": "64",
+      "warmups": "2"
+    },
+    "plan_text_sha256": {
+      "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+      "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+    },
+    "result": {
+      "backend": "mpi",
+      "extent": "1024",
+      "max_seconds": "3.3681077730000002",
+      "mean_seconds": "3.3343306397142851",
+      "median_seconds": "3.3335763200000001",
+      "min_seconds": "3.2750314770000002",
+      "ranks": "4",
+      "samples": "7",
+      "status": "PASS",
+      "threads": "64"
+    },
+    "samples_seconds": [
+      3.275031477,
+      3.302616339,
+      3.367615552,
+      3.366861225,
+      3.368107773,
+      3.326505792,
+      3.33357632
+    ]
+  },
+  "normalized_plans_equal": {
+    "backward": true,
+    "forward": true
+  }
+}

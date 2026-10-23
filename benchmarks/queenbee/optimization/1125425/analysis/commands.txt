@@ -1,0 +1,11 @@
+# Copyright (c) 2026 Dominic C. Marcello
+# Licensed under GNU GPL version 2 or any later version.
+# Working directory: /home/dmarce1/workspace/fftw3-hpx
+
+python3 build/qb_optimize/analyze_profiles.py build/qb_optimize/diagnostic_evidence/results/1125425 --json > build/qb_optimize/diagnostic_analysis/profiles.json
+python3 build/qb_optimize/analyze_profiles.py build/qb_optimize/diagnostic_evidence/results/1125425 > build/qb_optimize/diagnostic_analysis/profiles.txt
+
+# summary.json derives critical-rank means, medians, ranges, actual median
+# sample decompositions, and separate-run differences from profiles.json.
+# sendrecv_other = sendrecv - copy_bytes - message_bytes - receive_bytes.
+# No nested component is added to its inclusive parent.

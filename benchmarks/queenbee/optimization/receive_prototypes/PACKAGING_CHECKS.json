@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "prototype": "direct_receive",
+      "patch_reconstructs_frozen_source": true,
+      "patch_stdout": "patching file hpx/hpx-comm.cpp\n",
+      "sha256": {
+        "hpx-comm.cpp": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+        "base-hpx-comm.cpp": "4d605aeb52a995215296613d101a2ab0ee236fd8fbbfc479f66f766121b8d564",
+        "direct_receive.patch": "4f5331e4e157dce6546753e90c1aff7c18bffda48e8964311161142d1ab0a45b"
+      }
+    },
+    {
+      "prototype": "pooled_receive",
+      "patch_reconstructs_frozen_source": true,
+      "patch_stdout": "patching file hpx/hpx-comm.cpp\n",
+      "sha256": {
+        "hpx-comm.cpp": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+        "base-hpx-comm.cpp": "4d605aeb52a995215296613d101a2ab0ee236fd8fbbfc479f66f766121b8d564",
+        "pooled_receive.patch": "23a6b0fe71217fb2f04e6f6158888e44c63a7f3b080cf800561f236fc2e0fc3a"
+      }
+    }
+  ]
+}

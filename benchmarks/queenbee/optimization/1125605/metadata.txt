@@ -1,0 +1,32 @@
+Fri Oct 23 05:26:28 UTC 2026
+qbd028
+baseline_commit=cb205948f773e8e057b14ebbf6fa4df1c7cb994a
+baseline_source=/work/dmarce1/fftw3_hpx_benchmark_20261022/source
+baseline_build=/work/dmarce1/fftw3_hpx_benchmark_20261022/build
+candidate_source=/work/dmarce1/fftw3_hpx_optimize_20261022/source
+main_job_id=1125395
+primary_results=/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395
+mpi_executable=/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi
+candidate_executable=/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_candidate
+tuning_job=1125437
+prototypes=/work/dmarce1/fftw3_hpx_optimize_20261022/prototypes
+compilation=only prototype bridge objects and benchmark/check executables; original libraries preserved
+placement=one rank per node, 64 workers, no CPU binding, NUMA interleave all
+Currently Loaded Modulefiles:
+gcc/13.2.0
+mpiexec (Open MPI) 5.0.11
+
+Report bugs to https://www.open-mpi.org/community/help/
+
+g++ -I/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/include -pthread -L/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib -Wl,-rpath -Wl,/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib -Wl,--enable-new-dtags -lmpi
+PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin:/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
+LD_LIBRARY_PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
+APEX_DISABLE=1
+HWLOC_COMPONENTS=-cuda,-nvml,-opencl
+OMPI_MCA_accelerator=null
+OMPI_MCA_pml=ucx
+OMPI_MCA_btl=self,sm
+UCX_TLS=rc,sm,self
+SLURM_JOB_ID=1125605
+SLURM_JOB_NODELIST=qbd[028-029,053-054]
+SLURM_CPUS_PER_TASK=64

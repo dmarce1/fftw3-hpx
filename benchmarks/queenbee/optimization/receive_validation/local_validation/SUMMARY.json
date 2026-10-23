@@ -1,0 +1,69 @@
+{
+  "scope": "initial local double-precision correctness validation; not performance evidence",
+  "maximum_concurrent_workers": 8,
+  "remote_access": false,
+  "tracked_driver_modified": false,
+  "prototypes": {
+    "direct_receive": {
+      "source_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "comm_1x2": "PASS",
+      "comm_3x2": "PASS",
+      "matched_n64_4x2": "PASS",
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "8.3603466663598732e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "7.2564261507230937e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "1.9794899360963732e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "direct_or_pool_hit_count": "not instrumented"
+    },
+    "pooled_receive": {
+      "source_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "comm_1x2": "PASS",
+      "comm_3x2": "PASS",
+      "matched_n64_4x2": "PASS",
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "8.3603466663598732e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "7.2564261507230937e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "1.9794899360963732e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "direct_or_pool_hit_count": "not instrumented"
+    }
+  },
+  "plans_equal_between_prototypes": true
+}

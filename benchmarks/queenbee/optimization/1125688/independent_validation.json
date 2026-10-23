@@ -1,0 +1,575 @@
+{
+  "status": "PASS",
+  "job_id": "1125688",
+  "sample_count": 28,
+  "numerical_check_count": 12,
+  "raw_statistics_recomputed": true,
+  "all_normalized_plans_equal": true,
+  "all_hpx_runtime_flags_equal": true,
+  "runtime_argv": [
+    "--hpx:ignore-batch-env",
+    "--hpx:localities=4",
+    "--hpx:threads=64",
+    "--hpx:bind=none",
+    "--hpx:ini=hpx.parcel.mpi.enable=1",
+    "--hpx:ini=hpx.parcel.mpi.priority=1000",
+    "--hpx:ini=hpx.parcel.tcp.enable!=0",
+    "--hpx:ini=hpx.parcel.bootstrap=mpi",
+    "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+    "--hpx:ini=hpx.max_background_threads=1",
+    "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+    "--hpx:ini=hpx.max_idle_backoff_time=1000"
+  ],
+  "runs": {
+    "mpi": {
+      "configuration": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "mpi",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.3248988013960868e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.3986960342891404e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "mpi",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.196128222638237e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "mpi",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "3.2631420389999999",
+        "median_seconds": "3.3560028750000002",
+        "mean_seconds": "3.3376268202857142",
+        "max_seconds": "3.3838175179999999",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        3.359657254,
+        3.352696269,
+        3.356328794,
+        3.356002875,
+        3.263142039,
+        3.291742993,
+        3.383817518
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 3.263142039,
+        "median_seconds": 3.356002875,
+        "mean_seconds": 3.3376268202857142,
+        "max_seconds": 3.383817518
+      },
+      "source_sha256": "ba3ebd7b65d9fa3774355f202d8ccb76934d22ed72b511da9c6ff04dd61ac5ef",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "candidate": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "5.5003289019999997",
+        "median_seconds": "5.5760872560000001",
+        "mean_seconds": "5.6020617858571429",
+        "max_seconds": "5.7277791760000003",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        5.543394564,
+        5.590724743,
+        5.576087256,
+        5.500328902,
+        5.727779176,
+        5.706233685,
+        5.569884175
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 5.500328902,
+        "median_seconds": 5.576087256,
+        "mean_seconds": 5.602061785857143,
+        "max_seconds": 5.727779176
+      },
+      "source_sha256": "c3a4637f8f9dadaa80172b64fc683b5a436999829416dfdfe26cfb1aa96b0556",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/hpx_candidate",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:threads=64",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--hpx:ini=hpx.max_idle_backoff_time=1000",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "pooled_receive": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "4.0328475890000002",
+        "median_seconds": "4.2032160889999997",
+        "mean_seconds": "4.1648462458571425",
+        "max_seconds": "4.2306398889999999",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        4.204551034,
+        4.230639889,
+        4.21435962,
+        4.032847589,
+        4.203216089,
+        4.188195917,
+        4.080113583
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 4.032847589,
+        "median_seconds": 4.203216089,
+        "mean_seconds": 4.1648462458571425,
+        "max_seconds": 4.230639889
+      },
+      "source_sha256": "a9cee968a2ed034c724db43b2b9e526d60b97796b504f7970a8f7f3a67bbc460",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/pooled_receive",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:threads=64",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--hpx:ini=hpx.max_idle_backoff_time=1000",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    },
+    "direct_receive": {
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "17179869184",
+        "max_local_allocation_bytes": "4294967296"
+      },
+      "checks": [
+        {
+          "backend": "hpx",
+          "stage": "forward_spectrum",
+          "relative_max_error": "7.616067116634044e-16",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "initial_roundtrip",
+          "relative_max_error": "1.4434208435274806e-15",
+          "tolerance": "1e-10"
+        },
+        {
+          "backend": "hpx",
+          "stage": "final_roundtrip",
+          "relative_max_error": "5.9257913899479424e-15",
+          "tolerance": "1e-10"
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "ranks": "4",
+        "threads": "64",
+        "samples": "7",
+        "min_seconds": "4.4375402270000004",
+        "median_seconds": "4.5246893869999996",
+        "mean_seconds": "4.5929370255714295",
+        "max_seconds": "4.9191690770000003",
+        "status": "PASS"
+      },
+      "samples_seconds": [
+        4.524689387,
+        4.437540227,
+        4.49907652,
+        4.453768659,
+        4.581318437,
+        4.734996872,
+        4.919169077
+      ],
+      "recomputed_statistics": {
+        "min_seconds": 4.437540227,
+        "median_seconds": 4.524689387,
+        "mean_seconds": 4.592937025571429,
+        "max_seconds": 4.919169077
+      },
+      "source_sha256": "09aebe70178992f773f5170ed048e3a9f7a416e3a3ed3f898d6f2e43d1258801",
+      "argv": [
+        "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec",
+        "-n",
+        "4",
+        "--map-by",
+        "ppr:1:node",
+        "--bind-to",
+        "none",
+        "/usr/bin/numactl",
+        "--interleave=all",
+        "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/direct_receive",
+        "--hpx:ignore-batch-env",
+        "--hpx:localities=4",
+        "--hpx:threads=64",
+        "--hpx:bind=none",
+        "--hpx:ini=hpx.parcel.mpi.enable=1",
+        "--hpx:ini=hpx.parcel.mpi.priority=1000",
+        "--hpx:ini=hpx.parcel.tcp.enable!=0",
+        "--hpx:ini=hpx.parcel.bootstrap=mpi",
+        "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+        "--hpx:ini=hpx.max_background_threads=1",
+        "--hpx:ini=hpx.parcel.mpi.multithreaded=1",
+        "--hpx:ini=hpx.max_idle_backoff_time=1000",
+        "--size=1024",
+        "--threads=64",
+        "--warmups=2",
+        "--samples=7"
+      ],
+      "normalized_plan_sha256": {
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632",
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b"
+      }
+    }
+  },
+  "archive_sha256": "9e7ac02bac1ae45081e067bd73ef46f4a1dd618be79708dff6163f1d546f92b3",
+  "clean_completion": {
+    "status": "PASS",
+    "exit_status": "0",
+    "job_id": "1125688",
+    "stage": "complete",
+    "baseline_commit": "cb205948f773e8e057b14ebbf6fa4df1c7cb994a",
+    "primary_job_id": "1125395",
+    "receive_job_id": "1125605",
+    "started_utc": "2026-10-23T05:49:58Z",
+    "finished_utc": "2026-10-23T06:01:21Z"
+  },
+  "accounting": [
+    {
+      "JobID": "1125688",
+      "JobName": "fftw_hpx_final",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:11:23",
+      "AllocCPUS": "256",
+      "NodeList": "qbd[028-029,053-054]",
+      "MaxRSS": ""
+    },
+    {
+      "JobID": "1125688.batch",
+      "JobName": "batch",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:11:23",
+      "AllocCPUS": "64",
+      "NodeList": "qbd028",
+      "MaxRSS": "23999236K"
+    },
+    {
+      "JobID": "1125688.extern",
+      "JobName": "extern",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:11:23",
+      "AllocCPUS": "256",
+      "NodeList": "qbd[028-029,053-054]",
+      "MaxRSS": "256K"
+    },
+    {
+      "JobID": "1125688.0",
+      "JobName": "sh",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:00:00",
+      "AllocCPUS": "4",
+      "NodeList": "qbd[028-029,053-054]",
+      "MaxRSS": "1804K"
+    },
+    {
+      "JobID": "1125688.1",
+      "JobName": "prted",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:01:54",
+      "AllocCPUS": "256",
+      "NodeList": "qbd[029,053-054]",
+      "MaxRSS": "6846452K"
+    },
+    {
+      "JobID": "1125688.2",
+      "JobName": "prted",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:05:27",
+      "AllocCPUS": "256",
+      "NodeList": "qbd[029,053-054]",
+      "MaxRSS": "23946532K"
+    },
+    {
+      "JobID": "1125688.3",
+      "JobName": "prted",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:08:20",
+      "AllocCPUS": "256",
+      "NodeList": "qbd[029,053-054]",
+      "MaxRSS": "24000900K"
+    },
+    {
+      "JobID": "1125688.4",
+      "JobName": "prted",
+      "State": "COMPLETED",
+      "ExitCode": "0:0",
+      "Elapsed": "00:11:21",
+      "AllocCPUS": "256",
+      "NodeList": "qbd[029,053-054]",
+      "MaxRSS": "23988048K"
+    }
+  ],
+  "slurm_stderr_empty": true,
+  "all_execution_steps_pass": true,
+  "reused_artifacts_verified": {
+    "baseline_inputs.sha256": {
+      "same_as": "../1125605/baseline_inputs.sha256",
+      "sha256": "c55a1ec6d03567db00cc02133607fecf113c9e47ca3b8f36b5e495e0fe9bd8b7"
+    },
+    "binaries.sha256": {
+      "same_as": "../1125605/binaries.sha256",
+      "sha256": "0d4b28b113fa361711beea22a84d1bf7b3ed16fd2e756f9c0a21b51e1a5b74bd"
+    },
+    "candidate_source.sha256": {
+      "same_as": "../1125605/candidate_source.sha256",
+      "sha256": "ff8b76d120ed7b7f5e42d1e94ffcb0ccd7281f4a216fee39cc0f4bfa61840508"
+    },
+    "hpx-flags.sh": {
+      "same_as": "../1125605/primary_hpx-flags.sh",
+      "sha256": "64cd6c741ada7443094d1c90279bd31d340e3f5578605ee165c1b7eba1f016c2"
+    },
+    "primary_candidate.binary.sha256": {
+      "same_as": "../1125605/primary_candidate.binary.sha256",
+      "sha256": "522d6fd54490a1d70f7b4fada25de119a8e35597f5b15f3eb56c512b1555d1da"
+    },
+    "primary_candidate_archive.sha256": {
+      "same_as": "../1125605/primary_candidate_archive.sha256",
+      "sha256": "6b3b185578b7858f25d650470b6d34921e91b9dab8e60d8724f1eb230dc0e9a4"
+    },
+    "primary_mpi.binary.sha256": {
+      "same_as": "../1125605/primary_mpi.binary.sha256",
+      "sha256": "b9e2aef1c7438f3ad1f2705be0e03ac46e468ddd8b1e4a6a137e4201970f82bd"
+    },
+    "prototype_inputs.sha256": {
+      "same_as": "../1125605/prototype_inputs.sha256",
+      "sha256": "bd6e1f14299e4078298691ad740168a6b655868b00619989318b010c9aedf22a"
+    },
+    "receive_FINAL_STATUS": {
+      "same_as": "../1125605/FINAL_STATUS",
+      "sha256": "806ffbb0ae0df6dcc29e2fbb00971920b6a83e7651c9e8eadc0bd2c6e8a29e47"
+    },
+    "receive_job.sbatch": {
+      "same_as": "../1125605/job.sbatch",
+      "sha256": "e3e6684c60adcd2ec66208b7e249aa578adf064230b86d915334248b2ca86c19"
+    },
+    "primary_FINAL_STATUS": {
+      "same_as": "../1125395/FINAL_STATUS",
+      "sha256": "b2b80c6d1400b88a3f409d81a95ec98485e9bfdfd3d0debef90debd09d1067f0"
+    },
+    "direct_receive/archive_members.json": {
+      "same_as": "../1125605/prototypes/direct_receive/archive_members.json",
+      "sha256": "83ff4612cadb0462f30046d91d18b40cf74e55288ec68db0c1dac3b2f81ae4ba"
+    },
+    "direct_receive/artifacts.sha256": {
+      "same_as": "../1125605/prototypes/direct_receive/artifacts.sha256",
+      "sha256": "b1c339137eb97bd850319a2b6910fc91a85f3270f14e1e8ec871fce6a3377fb3"
+    },
+    "direct_receive/source-hpx-comm.cpp": {
+      "same_as": "../receive_prototypes/direct_receive/hpx-comm.cpp",
+      "sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590"
+    },
+    "pooled_receive/archive_members.json": {
+      "same_as": "../1125605/prototypes/pooled_receive/archive_members.json",
+      "sha256": "b76e0250ca734141e5f1c9591ebc990dab56d639d30a195e885f631271ff136f"
+    },
+    "pooled_receive/artifacts.sha256": {
+      "same_as": "../1125605/prototypes/pooled_receive/artifacts.sha256",
+      "sha256": "f57accf622e1e4f714946d397b8e111176151de06fb9403bac4b5c454d65c5e1"
+    },
+    "pooled_receive/source-hpx-comm.cpp": {
+      "same_as": "../receive_prototypes/pooled_receive/hpx-comm.cpp",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c"
+    }
+  },
+  "preservation_log_ok_counts": {
+    "inputs_unchanged.log": 5,
+    "binaries_unchanged.log": 4,
+    "baseline_unchanged.log": 7,
+    "candidate_archive_unchanged.log": 2,
+    "prototype_inputs_unchanged.log": 5,
+    "pool_artifacts_unchanged.log": 4,
+    "direct_artifacts_unchanged.log": 4,
+    "candidate_source_unchanged.log": 4963
+  },
+  "binary_records_match_prior_manifests": true,
+  "validation_boundary": "Final-job binary/source preservation uses complete recorded pre/post checks. No binaries were downloaded again in this text-only final bundle; prior binary/archive audit is retained in job1125605."
+}

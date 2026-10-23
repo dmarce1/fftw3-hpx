@@ -1,0 +1,73 @@
+{
+  "instrumented": false,
+  "runtime_selection": {
+    "tuning_job_id": "1125437",
+    "selected_case": "candidate_bg1_global1",
+    "selection_rule": "completed successful case; later serialized-MPI case excluded after shutdown failure",
+    "tuning_median_seconds": 5.559548005,
+    "mpi_control_median_seconds": 3.33357632,
+    "argv": [
+      "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+      "--hpx:ini=hpx.max_background_threads=1",
+      "--hpx:ini=hpx.parcel.mpi.multithreaded=1"
+    ],
+    "scope": "chosen from a completed run in a subsequently failed allocation; remeasured here"
+  },
+  "prototype_additional_argv": [
+    "--hpx:ini=hpx.max_idle_backoff_time=1"
+  ],
+  "prototype_comparison_control": "candidate_selected_backoff1",
+  "candidate_backoff1_over_selected_median_ratio": 1.104540827561211,
+  "runs": {
+    "hpx_baseline": {
+      "median_seconds": 13.488788121,
+      "hpx_over_mpi_median_ratio": 4.0808282581915085,
+      "normalized_plans_equal_to_mpi": {
+        "forward": true,
+        "backward": true
+      },
+      "median_over_candidate_selected_backoff1_control": 2.143048770078462,
+      "plans_equal_to_candidate_selected_backoff1_control": true
+    },
+    "candidate_selected": {
+      "median_seconds": 5.698481004,
+      "hpx_over_mpi_median_ratio": 1.7239889974761295,
+      "normalized_plans_equal_to_mpi": {
+        "forward": true,
+        "backward": true
+      },
+      "median_over_candidate_selected_backoff1_control": 0.9053535868003779,
+      "plans_equal_to_candidate_selected_backoff1_control": true
+    },
+    "candidate_selected_backoff1": {
+      "median_seconds": 6.294204924,
+      "hpx_over_mpi_median_ratio": 1.9042162339787065,
+      "normalized_plans_equal_to_mpi": {
+        "forward": true,
+        "backward": true
+      },
+      "median_over_candidate_selected_backoff1_control": 1.0,
+      "plans_equal_to_candidate_selected_backoff1_control": true
+    },
+    "pooled_selected": {
+      "median_seconds": 4.364490715,
+      "hpx_over_mpi_median_ratio": 1.320410468502937,
+      "normalized_plans_equal_to_mpi": {
+        "forward": true,
+        "backward": true
+      },
+      "median_over_candidate_selected_backoff1_control": 0.6934141432793299,
+      "plans_equal_to_candidate_selected_backoff1_control": true
+    },
+    "direct_selected": {
+      "median_seconds": 5.004054296,
+      "hpx_over_mpi_median_ratio": 1.5139007295139804,
+      "normalized_plans_equal_to_mpi": {
+        "forward": true,
+        "backward": true
+      },
+      "median_over_candidate_selected_backoff1_control": 0.7950256396831606,
+      "plans_equal_to_candidate_selected_backoff1_control": true
+    }
+  }
+}

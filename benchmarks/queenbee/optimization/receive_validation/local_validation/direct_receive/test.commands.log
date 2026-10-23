@@ -1,0 +1,81 @@
++ build/qb_optimize/validate_local_prototype.sh:54 /home/dmarce1/workspace/fftw3-hpx: export APEX_DISABLE=1
++ build/qb_optimize/validate_local_prototype.sh:54 /home/dmarce1/workspace/fftw3-hpx: APEX_DISABLE=1
++ build/qb_optimize/validate_local_prototype.sh:55 /home/dmarce1/workspace/fftw3-hpx: export HWLOC_COMPONENTS=-cuda,-nvml,-opencl
++ build/qb_optimize/validate_local_prototype.sh:55 /home/dmarce1/workspace/fftw3-hpx: HWLOC_COMPONENTS=-cuda,-nvml,-opencl
++ build/qb_optimize/validate_local_prototype.sh:56 /home/dmarce1/workspace/fftw3-hpx: cd /home/dmarce1/workspace/fftw3-hpx
++ build/qb_optimize/validate_local_prototype.sh:57 /home/dmarce1/workspace/fftw3-hpx: '[' test = build ']'
++ build/qb_optimize/validate_local_prototype.sh:94 /home/dmarce1/workspace/fftw3-hpx: grep -q '^exit_status=0$' /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/BUILD_STATUS
++ build/qb_optimize/validate_local_prototype.sh:95 /home/dmarce1/workspace/fftw3-hpx: run_log input_unchanged sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input.sha256
++ build/qb_optimize/validate_local_prototype.sh:45 /home/dmarce1/workspace/fftw3-hpx: local label=input_unchanged
++ build/qb_optimize/validate_local_prototype.sh:46 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_optimize/validate_local_prototype.sh:47 /home/dmarce1/workspace/fftw3-hpx: stage=input_unchanged
+++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s %s\n' input_unchanged 2026-10-23T04:56:11Z
++ build/qb_optimize/validate_local_prototype.sh:49 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input.sha256
++ build/qb_optimize/validate_local_prototype.sh:50 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input.sha256
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input_unchanged.log
+++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s %s\n' input_unchanged 2026-10-23T04:56:11Z
+++ build/qb_optimize/validate_local_prototype.sh:96 /home/dmarce1/workspace/fftw3-hpx: command -v hpxrun.py
++ build/qb_optimize/validate_local_prototype.sh:96 /home/dmarce1/workspace/fftw3-hpx: hpxrun=/home/dmarce1/local/hpx/Release/bin/hpxrun.py
++ build/qb_optimize/validate_local_prototype.sh:97 /home/dmarce1/workspace/fftw3-hpx: run_log comm_1x2 timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/hpx-comm-check
++ build/qb_optimize/validate_local_prototype.sh:45 /home/dmarce1/workspace/fftw3-hpx: local label=comm_1x2
++ build/qb_optimize/validate_local_prototype.sh:46 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_optimize/validate_local_prototype.sh:47 /home/dmarce1/workspace/fftw3-hpx: stage=comm_1x2
+++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s %s\n' comm_1x2 2026-10-23T04:56:11Z
++ build/qb_optimize/validate_local_prototype.sh:49 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/hpx-comm-check
++ build/qb_optimize/validate_local_prototype.sh:50 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/hpx-comm-check
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/comm_1x2.log
+++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s %s\n' comm_1x2 2026-10-23T04:56:11Z
+++ build/qb_optimize/validate_local_prototype.sh:98 /home/dmarce1/workspace/fftw3-hpx: grep -c '^communication check PASS$' /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/comm_1x2.log
++ build/qb_optimize/validate_local_prototype.sh:98 /home/dmarce1/workspace/fftw3-hpx: '[' 1 -eq 1 ']'
++ build/qb_optimize/validate_local_prototype.sh:99 /home/dmarce1/workspace/fftw3-hpx: run_log comm_3x2 timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/hpx-comm-check
++ build/qb_optimize/validate_local_prototype.sh:45 /home/dmarce1/workspace/fftw3-hpx: local label=comm_3x2
++ build/qb_optimize/validate_local_prototype.sh:46 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_optimize/validate_local_prototype.sh:47 /home/dmarce1/workspace/fftw3-hpx: stage=comm_3x2
+++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s %s\n' comm_3x2 2026-10-23T04:56:11Z
++ build/qb_optimize/validate_local_prototype.sh:49 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/hpx-comm-check
++ build/qb_optimize/validate_local_prototype.sh:50 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/hpx-comm-check
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/comm_3x2.log
+++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s %s\n' comm_3x2 2026-10-23T04:56:11Z
+++ build/qb_optimize/validate_local_prototype.sh:100 /home/dmarce1/workspace/fftw3-hpx: grep -c '^communication check PASS$' /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/comm_3x2.log
++ build/qb_optimize/validate_local_prototype.sh:100 /home/dmarce1/workspace/fftw3-hpx: '[' 3 -eq 3 ']'
++ build/qb_optimize/validate_local_prototype.sh:101 /home/dmarce1/workspace/fftw3-hpx: run_log matched_4x2 timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 4 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/matched_3d '--hpx:ini=hpx.parcel.mpi.enable!=0' '--hpx:ini=hpx.parcel.tcp.enable!=1' '--hpx:ini=hpx.parcel.bootstrap!=tcp' --size=64 --threads=2 --warmups=2 --samples=7
++ build/qb_optimize/validate_local_prototype.sh:45 /home/dmarce1/workspace/fftw3-hpx: local label=matched_4x2
++ build/qb_optimize/validate_local_prototype.sh:46 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_optimize/validate_local_prototype.sh:47 /home/dmarce1/workspace/fftw3-hpx: stage=matched_4x2
+++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s %s\n' matched_4x2 2026-10-23T04:56:11Z
++ build/qb_optimize/validate_local_prototype.sh:49 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 4 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/matched_3d '--hpx:ini=hpx.parcel.mpi.enable!=0' '--hpx:ini=hpx.parcel.tcp.enable!=1' '--hpx:ini=hpx.parcel.bootstrap!=tcp' --size=64 --threads=2 --warmups=2 --samples=7
++ build/qb_optimize/validate_local_prototype.sh:50 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 4 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/matched_3d '--hpx:ini=hpx.parcel.mpi.enable!=0' '--hpx:ini=hpx.parcel.tcp.enable!=1' '--hpx:ini=hpx.parcel.bootstrap!=tcp' --size=64 --threads=2 --warmups=2 --samples=7
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/matched_4x2.log
+++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s %s\n' matched_4x2 2026-10-23T04:56:12Z
++ build/qb_optimize/validate_local_prototype.sh:104 /home/dmarce1/workspace/fftw3-hpx: python3 - /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/matched_4x2.log
++ build/qb_optimize/validate_local_prototype.sh:104 /home/dmarce1/workspace/fftw3-hpx: tee /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/numerical_validation.json
++ build/qb_optimize/validate_local_prototype.sh:122 /home/dmarce1/workspace/fftw3-hpx: run_log inputs_still_unchanged sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input.sha256
++ build/qb_optimize/validate_local_prototype.sh:45 /home/dmarce1/workspace/fftw3-hpx: local label=inputs_still_unchanged
++ build/qb_optimize/validate_local_prototype.sh:46 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_optimize/validate_local_prototype.sh:47 /home/dmarce1/workspace/fftw3-hpx: stage=inputs_still_unchanged
+++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:48 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s %s\n' inputs_still_unchanged 2026-10-23T04:56:12Z
++ build/qb_optimize/validate_local_prototype.sh:49 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input.sha256
++ build/qb_optimize/validate_local_prototype.sh:50 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/input.sha256
++ build/qb_optimize/validate_local_prototype.sh:51 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/local_validation/direct_receive/inputs_still_unchanged.log
+++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_optimize/validate_local_prototype.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s %s\n' inputs_still_unchanged 2026-10-23T04:56:12Z
++ build/qb_optimize/validate_local_prototype.sh:124 /home/dmarce1/workspace/fftw3-hpx: stage=complete
++ build/qb_optimize/validate_local_prototype.sh:1 /home/dmarce1/workspace/fftw3-hpx: finish 0
++ build/qb_optimize/validate_local_prototype.sh:34 /home/dmarce1/workspace/fftw3-hpx: local result=0
++ build/qb_optimize/validate_local_prototype.sh:35 /home/dmarce1/workspace/fftw3-hpx: trap - EXIT
++ build/qb_optimize/validate_local_prototype.sh:36 /home/dmarce1/workspace/fftw3-hpx: set +e
++ build/qb_optimize/validate_local_prototype.sh:37 /home/dmarce1/workspace/fftw3-hpx: set +x

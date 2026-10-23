@@ -1,0 +1,2 @@
+cd /work/dmarce1/fftw3_hpx_optimize_20261022
+python3 /work/dmarce1/fftw3_hpx_benchmark_20261022/helpers/hpx_cmake_flags.py /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125425/hpx_metadata -DCMAKE_CXX_COMPILER=/usr/local/packages/compilers/gcc/13.2.0/bin/g++ -DMPI_CXX_COMPILER=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpicxx -DMPI_HOME=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install 

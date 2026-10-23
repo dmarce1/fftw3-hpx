@@ -1,0 +1,202 @@
+diff --git a/hpx/hpx-comm-check.cpp b/hpx/hpx-comm-check.cpp
+index 0bcf283..f039c9d 100644
+--- a/hpx/hpx-comm-check.cpp
++++ b/hpx/hpx-comm-check.cpp
+@@ -108,10 +108,6 @@ void checkSplits(fftw_hpx_comm const world, int const rank, int const size)
+ void checkMessages(fftw_hpx_comm const world, int const rank, int const size,
+                    int const cycle)
+ {
+-    if (size == 1)
+-    {
+-        return;
+-    }
+     fftw_hpx_comm duplicate = FFTW_HPX_COMM_NULL;
+     FFTW_HPX_COMM_FN(comm_dup)(world, &duplicate);
+     int const destination = (rank + 1) % size;
+@@ -136,6 +132,71 @@ void checkMessages(fftw_hpx_comm const world, int const rank, int const size,
+     FFTW_HPX_COMM_FN(comm_free)(&duplicate);
+ }
+ 
++void checkMessageLifetime(fftw_hpx_comm const world, int const rank,
++                          int const size)
++{
++    size_t constexpr count = 32768;
++    std::vector<int> data(count);
++    std::vector<int> received(count, -1);
++    for (size_t index = 0; index < count; ++index)
++    {
++        data[index] = rank * 100003 + static_cast<int>(index);
++    }
++    FFTW_HPX_COMM_FN(send)(data.data(), count, sizeof(int), rank, 72, world);
++    for (int & value : data)
++    {
++        value = -2;
++    }
++    FFTW_HPX_COMM_FN(recv)(received.data(), count, sizeof(int), rank, 72,
++                           world);
++    for (size_t index = 0; index < count; ++index)
++    {
++        assert(received[index] == rank * 100003 + static_cast<int>(index));
++    }
++
++    int const destination = (rank + 1) % size;
++    int const source = (rank + size - 1) % size;
++    for (size_t index = 0; index < count; ++index)
++    {
++        data[index] = rank * 100003 + static_cast<int>(index);
++    }
++    // Every sender finishes and reuses its source before posting a receive.
++    // A completed send must leave an independent payload at the destination.
++    FFTW_HPX_COMM_FN(send)(data.data(), count, sizeof(int), destination, 73,
++                           world);
++    for (int & value : data)
++    {
++        value = -3;
++    }
++    FFTW_HPX_COMM_FN(recv)(received.data(), count, sizeof(int), source, 73,
++                           world);
++    for (size_t index = 0; index < count; ++index)
++    {
++        assert(received[index] == source * 100003 + static_cast<int>(index));
++    }
++
++    for (size_t const offset : {size_t(0), size_t(17)})
++    {
++        data.resize(count + offset);
++        for (size_t index = 0; index < data.size(); ++index)
++        {
++            data[index] = rank * 100003 + static_cast<int>(index);
++        }
++        FFTW_HPX_COMM_FN(sendrecv)(data.data(), count, sizeof(int), destination,
++                                   74, data.data() + offset, count, sizeof(int),
++                                   source, 74, world);
++        for (size_t index = 0; index < count; ++index)
++        {
++            assert(data[index + offset] ==
++                   source * 100003 + static_cast<int>(index));
++        }
++        for (size_t index = 0; index < offset; ++index)
++        {
++            assert(data[index] == rank * 100003 + static_cast<int>(index));
++        }
++    }
++}
++
+ char payload(int const source, int const destination, int const iteration,
+              int const index)
+ {
+@@ -262,6 +323,8 @@ void checkCommunication()
+         checkSplits(world, rank, size);
+         stage(rank, cycle, "repeated channel tags and empty messages");
+         checkMessages(world, rank, size, cycle);
++        stage(rank, cycle, "message ownership and overlapping buffers");
++        checkMessageLifetime(world, rank, size);
+         stage(rank, cycle, "variable all-to-all byte counts");
+         checkVariableExchange(world, rank, size);
+         stage(rank, cycle, "thread callback and nested large stacks");
+diff --git a/hpx/hpx-comm.cpp b/hpx/hpx-comm.cpp
+index 1ead0be..4a5fae7 100644
+--- a/hpx/hpx-comm.cpp
++++ b/hpx/hpx-comm.cpp
+@@ -45,6 +45,7 @@
+ #include <hpx/include/runtime.hpp>
+ #include <hpx/include/threads.hpp>
+ #include <hpx/runtime_local/run_as_hpx_thread.hpp>
++#include <hpx/serialization/serialize_buffer.hpp>
+ #include <hpx/serialization/vector.hpp>
+ 
+ #include "config.h"
+@@ -53,6 +54,7 @@
+ namespace
+ {
+ using Bytes = std::vector<char>;
++using Message = hpx::serialization::serialize_buffer<char>;
+ namespace collectives = hpx::collectives;
+ 
+ #if defined(FFTW_SINGLE)
+@@ -107,11 +109,11 @@ struct Group
+                 (basename + "/collective").c_str(),
+                 collectives::num_sites_arg(size),
+                 collectives::this_site_arg(rank));
+-            channel = collectives::create_channel_communicator(
+-                hpx::launch::sync, (basename + "/channel").c_str(),
+-                collectives::num_sites_arg(size),
+-                collectives::this_site_arg(rank));
+         }
++        channel = collectives::create_channel_communicator(
++            hpx::launch::sync, (basename + "/channel").c_str(),
++            collectives::num_sites_arg(size),
++            collectives::this_site_arg(rank));
+     }
+ 
+     collectives::generation_arg nextGeneration()
+@@ -157,7 +159,24 @@ Bytes copyBytes(void const * const data, size_t const bytes)
+     return result;
+ }
+ 
+-void receiveBytes(void * const data, size_t const bytes, Bytes const & payload)
++Message messageBytes(Group const & group, int const destination,
++                     void const * const data, size_t const bytes)
++{
++    if (bytes == 0)
++    {
++        return Message();
++    }
++    assert(data != nullptr);
++    // channel_communicator::set completes after the destination action stores
++    // its payload. Remote serialization has then finished reading the source;
++    // a local action instead retains the object, so self-sends need ownership.
++    return Message(static_cast<char const *>(data), bytes,
++                   destination == group.rank ? Message::copy
++                                             : Message::reference);
++}
++
++template <typename Payload>
++void receiveBytes(void * const data, size_t const bytes, Payload const & payload)
+ {
+     assert(payload.size() == bytes);
+     if (bytes != 0)
+@@ -542,7 +561,7 @@ try
+     Group & group = groupOf(comm);
+     collectives::set(
+         group.channel, collectives::that_site_arg(destination),
+-        copyBytes(data, byteCount(count, elementSize)),
++        messageBytes(group, destination, data, byteCount(count, elementSize)),
+         collectives::tag_arg(messageTag(group, destination, tag, true)))
+         .get();
+ }
+@@ -560,7 +579,7 @@ try
+     Group & group = groupOf(comm);
+     receiveBytes(
+         data, byteCount(count, elementSize),
+-        collectives::get<Bytes>(
++        collectives::get<Message>(
+             group.channel, collectives::that_site_arg(source),
+             collectives::tag_arg(messageTag(group, source, tag, false)))
+             .get());
+@@ -580,15 +599,18 @@ try
+     Group & group = groupOf(comm);
+     auto sent = collectives::set(
+         group.channel, collectives::that_site_arg(destination),
+-        copyBytes(sendData, byteCount(sendCount, sendSize)),
++        messageBytes(group, destination, sendData,
++                     byteCount(sendCount, sendSize)),
+         collectives::tag_arg(messageTag(group, destination, sendTag, true)));
+-    receiveBytes(
+-        receiveData, byteCount(receiveCount, receiveSize),
+-        collectives::get<Bytes>(
+-            group.channel, collectives::that_site_arg(source),
+-            collectives::tag_arg(messageTag(group, source, receiveTag, false)))
+-            .get());
++    auto const incoming = collectives::get<Message>(
++        group.channel, collectives::that_site_arg(source),
++        collectives::tag_arg(messageTag(group, source, receiveTag, false)))
++                              .get();
++    // The channel returns serialize_buffer with shared ownership, avoiding
++    // its by-value get<T> deep copy of vector payloads. Finish the referenced
++    // send before writing a receive buffer that may overlap the source.
+     sent.get();
++    receiveBytes(receiveData, byteCount(receiveCount, receiveSize), incoming);
+ }
+ catch (...)
+ {

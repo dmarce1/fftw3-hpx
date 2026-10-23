@@ -1,0 +1,1361 @@
+{
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "license": "GPL-2.0-or-later",
+  "job_id": 1125425,
+  "validation": {
+    "profile_rows": 784,
+    "profile_total_rows": 112,
+    "sample_rows": 28,
+    "rank_maximum_sample_difference_seconds": 0,
+    "diagnostic_config_rows": 368,
+    "normalized_plans_equal": {
+      "backward": true,
+      "forward": true
+    }
+  },
+  "mpi_control": {
+    "path": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_mpi.log",
+    "sha256": "20744825c6be51e9032b0ed6672c47a95d73b2e5758dc2be467c7e3ab9a58577",
+    "result": {
+      "backend": "mpi",
+      "extent": "1024",
+      "ranks": "4",
+      "threads": "64",
+      "samples": "7",
+      "min_seconds": "3.2703681269999998",
+      "median_seconds": "3.3145206549999999",
+      "mean_seconds": "3.3193496424285711",
+      "max_seconds": "3.3567917729999999",
+      "status": "PASS"
+    }
+  },
+  "notes": [
+    "All durations are seconds. PROFILE counters are inclusive wall times, not CPU times.",
+    "Copy, message construction, and receive counters are contained in send/recv/sendrecv; do not add them to those totals.",
+    "Residual = each rank/sample total - run_jobs - sendrecv. This decomposition requires the audited nonnested forward plan and no separate send/recv calls.",
+    "Residual includes serial transposes, other uninstrumented FFT work, and wrapper/instrumentation/clock overhead; it is not an exclusive serial-transpose measurement.",
+    "Medians are computed independently per component; their sum need not equal the median total. Critical-rank rows use components from the actual maximum-time rank for each sample.",
+    "Instrumented results are diagnostic and must not replace the uninstrumented primary benchmark.",
+    "sendrecv_other subtracts disjoint copy_bytes, message_bytes, and receive_bytes subscopes from inclusive sendrecv; it is not a pure network or registration measurement.",
+    "Comparison differences describe separate runs and are not paired sample experiments."
+  ],
+  "runs": {
+    "hpx_profile_baseline": {
+      "source_log": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_hpx_profile_baseline.log",
+      "source_sha256": "3322befeaf409cadcb4f165a13a69fa9ed5abcdca3afc6f1e6b31d83daf8509a",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      },
+      "diagnostic_config_keys_per_rank": 23,
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "runtime_config_values_all_ranks": {
+        "hpx.affinity": "pu",
+        "hpx.bind": "none",
+        "hpx.default_scheduler_mode": "",
+        "hpx.max_background_threads": "64",
+        "hpx.max_busy_loop_count": "2000",
+        "hpx.max_idle_backoff_time": "1000",
+        "hpx.max_idle_loop_count": "200000",
+        "hpx.numa_sensitive": "1",
+        "hpx.os_threads": "64",
+        "hpx.parcel.mpi.ack_handshake": "<unset>",
+        "hpx.parcel.mpi.background_threads": "-1",
+        "hpx.parcel.mpi.enable": "1",
+        "hpx.parcel.mpi.multithreaded": "1",
+        "hpx.parcel.mpi.sendimm": "0",
+        "hpx.parcel.mpi.zero_copy_optimization": "1",
+        "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+        "hpx.parcel.zero_copy_optimization": "1",
+        "hpx.parcel.zero_copy_receive_optimization": "1",
+        "hpx.pu_offset": "0",
+        "hpx.pu_step": "1",
+        "hpx.scheduler": "local-priority-fifo",
+        "hpx.stacks.large_size": "0x0200000",
+        "hpx.stacks.use_guard_pages": "1"
+      },
+      "median_max_rank_seconds": 13.546163556,
+      "median_sample_decomposition": {
+        "sample": 5,
+        "rank": 2,
+        "total": 13.546163556,
+        "residual": 3.524613026999999,
+        "copy_bytes": 2.813058653,
+        "message_bytes": 0.0,
+        "receive_bytes": 0.747578038,
+        "recv": 0.0,
+        "run_jobs": 0.9090599770000001,
+        "send": 0.0,
+        "sendrecv": 9.112490552,
+        "sendrecv_other": 5.551853861
+      },
+      "critical_rank_component_mean_seconds": {
+        "total": 13.562144134571428,
+        "residual": 3.623417489428571,
+        "copy_bytes": 2.8312623224285716,
+        "message_bytes": 0.0,
+        "receive_bytes": 0.7318950187142857,
+        "recv": 0.0,
+        "run_jobs": 0.8828132394285715,
+        "send": 0.0,
+        "sendrecv": 9.055913405714286,
+        "sendrecv_other": 5.492756064571428
+      },
+      "critical_rank_component_median_seconds": {
+        "total": 13.546163556,
+        "residual": 3.5442334729999985,
+        "copy_bytes": 2.819951004,
+        "message_bytes": 0.0,
+        "receive_bytes": 0.6968628480000001,
+        "recv": 0.0,
+        "run_jobs": 0.8956283380000001,
+        "send": 0.0,
+        "sendrecv": 9.112490552,
+        "sendrecv_other": 5.551853861
+      },
+      "critical_rank_component_range_seconds": {
+        "total": [
+          13.298961288,
+          13.754895845
+        ],
+        "residual": [
+          3.475567815,
+          3.9487438239999992
+        ],
+        "copy_bytes": [
+          2.7960317590000003,
+          2.8879352970000003
+        ],
+        "message_bytes": [
+          0.0,
+          0.0
+        ],
+        "receive_bytes": [
+          0.675516138,
+          0.818781737
+        ],
+        "recv": [
+          0.0,
+          0.0
+        ],
+        "run_jobs": [
+          0.810650343,
+          0.915121143
+        ],
+        "send": [
+          0.0,
+          0.0
+        ],
+        "sendrecv": [
+          8.840494484,
+          9.170954867
+        ],
+        "sendrecv_other": [
+          5.13377745,
+          5.678117057000001
+        ]
+      },
+      "critical_rank_frequency": {
+        "3": 2,
+        "0": 2,
+        "2": 3
+      },
+      "per_rank_component_medians": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.804433334,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.692604733,
+            "recv_inclusive": 0.0,
+            "residual": 3.554802004999999,
+            "run_jobs_inclusive": 0.8321086050000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 9.028603379,
+            "total": 13.420189002
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.8093290680000003,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.7404206550000001,
+            "recv_inclusive": 0.0,
+            "residual": 3.5071697169999982,
+            "run_jobs_inclusive": 0.6905166540000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 9.049385566,
+            "total": 13.35579362
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.797221328,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.6993181980000001,
+            "recv_inclusive": 0.0,
+            "residual": 3.5021792799999982,
+            "run_jobs_inclusive": 0.8956283380000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 9.112490552,
+            "total": 13.48505133
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.8645838990000003,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.781003988,
+            "recv_inclusive": 0.0,
+            "residual": 3.636002356999999,
+            "run_jobs_inclusive": 0.8806136510000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.997666391000001,
+            "total": 13.487158426
+          },
+          "rank": 3
+        }
+      ],
+      "rank_total_spread_per_sample_seconds": [
+        0.29084873199999883,
+        0.26984451500000084,
+        0.12132449299999948,
+        0.2122011600000011,
+        0.2777244559999996,
+        0.19036993599999974,
+        0.19185294200000058
+      ],
+      "calls_per_rank_sample": {
+        "copy_bytes_inclusive": [
+          6
+        ],
+        "message_bytes_inclusive": [
+          0
+        ],
+        "receive_bytes_inclusive": [
+          6
+        ],
+        "recv_inclusive": [
+          0
+        ],
+        "run_jobs_inclusive": [
+          3
+        ],
+        "send_inclusive": [
+          0
+        ],
+        "sendrecv_inclusive": [
+          6
+        ]
+      },
+      "mpi_control_median_seconds": 3.314520655,
+      "hpx_over_mpi_median_ratio": 4.086914810914038
+    },
+    "hpx_profile_candidate": {
+      "source_log": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_hpx_profile_candidate.log",
+      "source_sha256": "97fb95f4ea00886ed6f64ec6005ffce501aa68758a4c9e6ca8879ddfe82e9d6d",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      },
+      "diagnostic_config_keys_per_rank": 23,
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "runtime_config_values_all_ranks": {
+        "hpx.affinity": "pu",
+        "hpx.bind": "none",
+        "hpx.default_scheduler_mode": "",
+        "hpx.max_background_threads": "64",
+        "hpx.max_busy_loop_count": "2000",
+        "hpx.max_idle_backoff_time": "1000",
+        "hpx.max_idle_loop_count": "200000",
+        "hpx.numa_sensitive": "1",
+        "hpx.os_threads": "64",
+        "hpx.parcel.mpi.ack_handshake": "<unset>",
+        "hpx.parcel.mpi.background_threads": "-1",
+        "hpx.parcel.mpi.enable": "1",
+        "hpx.parcel.mpi.multithreaded": "1",
+        "hpx.parcel.mpi.sendimm": "0",
+        "hpx.parcel.mpi.zero_copy_optimization": "1",
+        "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+        "hpx.parcel.zero_copy_optimization": "1",
+        "hpx.parcel.zero_copy_receive_optimization": "1",
+        "hpx.pu_offset": "0",
+        "hpx.pu_step": "1",
+        "hpx.scheduler": "local-priority-fifo",
+        "hpx.stacks.large_size": "0x0200000",
+        "hpx.stacks.use_guard_pages": "1"
+      },
+      "median_max_rank_seconds": 8.770220177,
+      "median_sample_decomposition": {
+        "sample": 1,
+        "rank": 3,
+        "total": 8.770220177,
+        "residual": 3.8447327070000004,
+        "copy_bytes": 0.0,
+        "message_bytes": 5.788e-06,
+        "receive_bytes": 0.732979846,
+        "recv": 0.0,
+        "run_jobs": 0.8319071480000001,
+        "send": 0.0,
+        "sendrecv": 4.093580322,
+        "sendrecv_other": 3.360594688
+      },
+      "critical_rank_component_mean_seconds": {
+        "total": 8.759922112142856,
+        "residual": 3.739733181142857,
+        "copy_bytes": 0.0,
+        "message_bytes": 3.4174285714285716e-06,
+        "receive_bytes": 0.7454873974285715,
+        "recv": 0.0,
+        "run_jobs": 0.8017883530000001,
+        "send": 0.0,
+        "sendrecv": 4.218400578000001,
+        "sendrecv_other": 3.472909763142857
+      },
+      "critical_rank_component_median_seconds": {
+        "total": 8.770220177,
+        "residual": 3.803155488999999,
+        "copy_bytes": 0.0,
+        "message_bytes": 3.058e-06,
+        "receive_bytes": 0.7510293560000001,
+        "recv": 0.0,
+        "run_jobs": 0.800636424,
+        "send": 0.0,
+        "sendrecv": 4.206000813,
+        "sendrecv_other": 3.4540083360000002
+      },
+      "critical_rank_component_range_seconds": {
+        "total": [
+          8.645231904,
+          8.889708124
+        ],
+        "residual": [
+          3.4560538990000005,
+          3.899947566999999
+        ],
+        "copy_bytes": [
+          0.0,
+          0.0
+        ],
+        "message_bytes": [
+          2.267e-06,
+          5.788e-06
+        ],
+        "receive_bytes": [
+          0.689048426,
+          0.788914934
+        ],
+        "recv": [
+          0.0,
+          0.0
+        ],
+        "run_jobs": [
+          0.7309921610000001,
+          0.904063181
+        ],
+        "send": [
+          0.0,
+          0.0
+        ],
+        "sendrecv": [
+          4.093580322,
+          4.4703718210000005
+        ],
+        "sendrecv_other": [
+          3.3469011030000004,
+          3.781320439
+        ]
+      },
+      "critical_rank_frequency": {
+        "1": 1,
+        "3": 5,
+        "0": 1
+      },
+      "per_rank_component_medians": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 2.517e-06,
+            "receive_bytes_inclusive": 0.7297936770000001,
+            "recv_inclusive": 0.0,
+            "residual": 3.4890022730000005,
+            "run_jobs_inclusive": 0.852571268,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.266651242,
+            "total": 8.653151897
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 2.9e-06,
+            "receive_bytes_inclusive": 0.715008391,
+            "recv_inclusive": 0.0,
+            "residual": 3.4959413350000004,
+            "run_jobs_inclusive": 0.838340003,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.351602633000001,
+            "total": 8.654204548
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 2.589e-06,
+            "receive_bytes_inclusive": 0.718267932,
+            "recv_inclusive": 0.0,
+            "residual": 3.583090469,
+            "run_jobs_inclusive": 0.7815080400000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.321846183,
+            "total": 8.635001569
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 3.429e-06,
+            "receive_bytes_inclusive": 0.740872258,
+            "recv_inclusive": 0.0,
+            "residual": 3.689624551999999,
+            "run_jobs_inclusive": 0.800636424,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.222838816,
+            "total": 8.740057974
+          },
+          "rank": 3
+        }
+      ],
+      "rank_total_spread_per_sample_seconds": [
+        0.16464110699999956,
+        0.1170682799999998,
+        0.1803823729999987,
+        0.18076773800000012,
+        0.2021261239999994,
+        0.07861559799999895,
+        0.20050843100000115
+      ],
+      "calls_per_rank_sample": {
+        "copy_bytes_inclusive": [
+          0
+        ],
+        "message_bytes_inclusive": [
+          6
+        ],
+        "receive_bytes_inclusive": [
+          6
+        ],
+        "recv_inclusive": [
+          0
+        ],
+        "run_jobs_inclusive": [
+          3
+        ],
+        "send_inclusive": [
+          0
+        ],
+        "sendrecv_inclusive": [
+          6
+        ]
+      },
+      "mpi_control_median_seconds": 3.314520655,
+      "hpx_over_mpi_median_ratio": 2.6459995546475183
+    },
+    "profile_baseline_bg1": {
+      "source_log": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_profile_baseline_bg1.log",
+      "source_sha256": "51d601bb4164b75ad3adbd28a21f54d6372fc72dd1d39bc03d803f2cb8b6b864",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      },
+      "diagnostic_config_keys_per_rank": 23,
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "runtime_config_values_all_ranks": {
+        "hpx.affinity": "pu",
+        "hpx.bind": "none",
+        "hpx.default_scheduler_mode": "",
+        "hpx.max_background_threads": "64",
+        "hpx.max_busy_loop_count": "2000",
+        "hpx.max_idle_backoff_time": "1000",
+        "hpx.max_idle_loop_count": "200000",
+        "hpx.numa_sensitive": "1",
+        "hpx.os_threads": "64",
+        "hpx.parcel.mpi.ack_handshake": "<unset>",
+        "hpx.parcel.mpi.background_threads": "1",
+        "hpx.parcel.mpi.enable": "1",
+        "hpx.parcel.mpi.multithreaded": "1",
+        "hpx.parcel.mpi.sendimm": "0",
+        "hpx.parcel.mpi.zero_copy_optimization": "1",
+        "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+        "hpx.parcel.zero_copy_optimization": "1",
+        "hpx.parcel.zero_copy_receive_optimization": "1",
+        "hpx.pu_offset": "0",
+        "hpx.pu_step": "1",
+        "hpx.scheduler": "local-priority-fifo",
+        "hpx.stacks.large_size": "0x0200000",
+        "hpx.stacks.use_guard_pages": "1"
+      },
+      "median_max_rank_seconds": 11.8251694,
+      "median_sample_decomposition": {
+        "sample": 3,
+        "rank": 0,
+        "total": 11.8251694,
+        "residual": 2.2293350000000007,
+        "copy_bytes": 1.6479354210000001,
+        "message_bytes": 0.0,
+        "receive_bytes": 0.562751061,
+        "recv": 0.0,
+        "run_jobs": 0.96858144,
+        "send": 0.0,
+        "sendrecv": 8.62725296,
+        "sendrecv_other": 6.416566478
+      },
+      "critical_rank_component_mean_seconds": {
+        "total": 12.770012225571428,
+        "residual": 2.221683524857142,
+        "copy_bytes": 1.6620229984285715,
+        "message_bytes": 0.0,
+        "receive_bytes": 0.5554121120000001,
+        "recv": 0.0,
+        "run_jobs": 0.8002870375714286,
+        "send": 0.0,
+        "sendrecv": 9.748041663142857,
+        "sendrecv_other": 7.5306065527142865
+      },
+      "critical_rank_component_median_seconds": {
+        "total": 11.8251694,
+        "residual": 2.2293350000000007,
+        "copy_bytes": 1.6479354210000001,
+        "message_bytes": 0.0,
+        "receive_bytes": 0.557471756,
+        "recv": 0.0,
+        "run_jobs": 0.792540942,
+        "send": 0.0,
+        "sendrecv": 8.62725296,
+        "sendrecv_other": 6.416566478
+      },
+      "critical_rank_component_range_seconds": {
+        "total": [
+          10.727910962,
+          15.165131523
+        ],
+        "residual": [
+          2.142451066999998,
+          2.2548362419999997
+        ],
+        "copy_bytes": [
+          1.6038856920000002,
+          1.8157644800000001
+        ],
+        "message_bytes": [
+          0.0,
+          0.0
+        ],
+        "receive_bytes": [
+          0.539065821,
+          0.5684513050000001
+        ],
+        "recv": [
+          0.0,
+          0.0
+        ],
+        "run_jobs": [
+          0.633724234,
+          0.96858144
+        ],
+        "send": [
+          0.0,
+          0.0
+        ],
+        "sendrecv": [
+          7.691015032,
+          12.153146439
+        ],
+        "sendrecv_other": [
+          5.520015529,
+          9.967059877
+        ]
+      },
+      "critical_rank_frequency": {
+        "0": 5,
+        "3": 1,
+        "1": 1
+      },
+      "per_rank_component_medians": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.647312541,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.558103105,
+            "recv_inclusive": 0.0,
+            "residual": 2.225479266999999,
+            "run_jobs_inclusive": 0.790881389,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.62725296,
+            "total": 11.8251694
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.678060074,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.53912536,
+            "recv_inclusive": 0.0,
+            "residual": 2.206803772999999,
+            "run_jobs_inclusive": 0.6683252820000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.515640192000001,
+            "total": 11.597630595
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.6295066020000002,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.557988962,
+            "recv_inclusive": 0.0,
+            "residual": 2.1855463660000005,
+            "run_jobs_inclusive": 0.797444398,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.118774999000001,
+            "total": 11.08549974
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.657752496,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.54661081,
+            "recv_inclusive": 0.0,
+            "residual": 2.235304241999998,
+            "run_jobs_inclusive": 0.781462573,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.587893857000001,
+            "total": 11.604012841
+          },
+          "rank": 3
+        }
+      ],
+      "rank_total_spread_per_sample_seconds": [
+        0.49021383100000016,
+        0.7975192619999998,
+        0.6606552839999988,
+        0.9891181479999993,
+        1.9351038349999996,
+        1.657105736,
+        1.0761852409999992
+      ],
+      "calls_per_rank_sample": {
+        "copy_bytes_inclusive": [
+          6
+        ],
+        "message_bytes_inclusive": [
+          0
+        ],
+        "receive_bytes_inclusive": [
+          6
+        ],
+        "recv_inclusive": [
+          0
+        ],
+        "run_jobs_inclusive": [
+          3
+        ],
+        "send_inclusive": [
+          0
+        ],
+        "sendrecv_inclusive": [
+          6
+        ]
+      },
+      "mpi_control_median_seconds": 3.314520655,
+      "hpx_over_mpi_median_ratio": 3.567686139521131
+    },
+    "profile_candidate_bg1": {
+      "source_log": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_profile_candidate_bg1.log",
+      "source_sha256": "4556c37027008f759155b4b5af8b675292d83cdfedef53b9126d7c8f8680c6c4",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      },
+      "diagnostic_config_keys_per_rank": 23,
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "runtime_config_values_all_ranks": {
+        "hpx.affinity": "pu",
+        "hpx.bind": "none",
+        "hpx.default_scheduler_mode": "",
+        "hpx.max_background_threads": "64",
+        "hpx.max_busy_loop_count": "2000",
+        "hpx.max_idle_backoff_time": "1000",
+        "hpx.max_idle_loop_count": "200000",
+        "hpx.numa_sensitive": "1",
+        "hpx.os_threads": "64",
+        "hpx.parcel.mpi.ack_handshake": "<unset>",
+        "hpx.parcel.mpi.background_threads": "1",
+        "hpx.parcel.mpi.enable": "1",
+        "hpx.parcel.mpi.multithreaded": "1",
+        "hpx.parcel.mpi.sendimm": "0",
+        "hpx.parcel.mpi.zero_copy_optimization": "1",
+        "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+        "hpx.parcel.zero_copy_optimization": "1",
+        "hpx.parcel.zero_copy_receive_optimization": "1",
+        "hpx.pu_offset": "0",
+        "hpx.pu_step": "1",
+        "hpx.scheduler": "local-priority-fifo",
+        "hpx.stacks.large_size": "0x0200000",
+        "hpx.stacks.use_guard_pages": "1"
+      },
+      "median_max_rank_seconds": 8.379852819,
+      "median_sample_decomposition": {
+        "sample": 5,
+        "rank": 3,
+        "total": 8.379852819,
+        "residual": 2.221726939,
+        "copy_bytes": 0.0,
+        "message_bytes": 5.033e-06,
+        "receive_bytes": 0.557067259,
+        "recv": 0.0,
+        "run_jobs": 0.790401019,
+        "send": 0.0,
+        "sendrecv": 5.367724861,
+        "sendrecv_other": 4.810652569
+      },
+      "critical_rank_component_mean_seconds": {
+        "total": 8.529180458,
+        "residual": 2.238070079,
+        "copy_bytes": 0.0,
+        "message_bytes": 5.037857142857143e-06,
+        "receive_bytes": 0.5676760418571429,
+        "recv": 0.0,
+        "run_jobs": 0.7856583785714286,
+        "send": 0.0,
+        "sendrecv": 5.505452000428572,
+        "sendrecv_other": 4.937770920714286
+      },
+      "critical_rank_component_median_seconds": {
+        "total": 8.379852819,
+        "residual": 2.238993486,
+        "copy_bytes": 0.0,
+        "message_bytes": 4.808e-06,
+        "receive_bytes": 0.563956221,
+        "recv": 0.0,
+        "run_jobs": 0.78961121,
+        "send": 0.0,
+        "sendrecv": 5.367724861,
+        "sendrecv_other": 4.810652569
+      },
+      "critical_rank_component_range_seconds": {
+        "total": [
+          7.770402459,
+          9.523452226
+        ],
+        "residual": [
+          2.221726939,
+          2.264192435999999
+        ],
+        "copy_bytes": [
+          0.0,
+          0.0
+        ],
+        "message_bytes": [
+          4.4600000000000005e-06,
+          6.0890000000000005e-06
+        ],
+        "receive_bytes": [
+          0.557067259,
+          0.582947061
+        ],
+        "recv": [
+          0.0,
+          0.0
+        ],
+        "run_jobs": [
+          0.769458276,
+          0.794932123
+        ],
+        "send": [
+          0.0,
+          0.0
+        ],
+        "sendrecv": [
+          4.757858714,
+          6.5100466820000005
+        ],
+        "sendrecv_other": [
+          4.197323551,
+          5.946086001
+        ]
+      },
+      "critical_rank_frequency": {
+        "0": 4,
+        "2": 2,
+        "3": 1
+      },
+      "per_rank_component_medians": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 5.13e-06,
+            "receive_bytes_inclusive": 0.576402163,
+            "recv_inclusive": 0.0,
+            "residual": 2.2280837790000003,
+            "run_jobs_inclusive": 0.7907894240000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 5.237293640000001,
+            "total": 8.274216033
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 4.3750000000000005e-06,
+            "receive_bytes_inclusive": 0.534748175,
+            "recv_inclusive": 0.0,
+            "residual": 2.2070890499999996,
+            "run_jobs_inclusive": 0.5858187490000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.94281155,
+            "total": 7.740320006
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 4.804e-06,
+            "receive_bytes_inclusive": 0.5570366680000001,
+            "recv_inclusive": 0.0,
+            "residual": 2.2439472679999994,
+            "run_jobs_inclusive": 0.780648326,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 5.172865861,
+            "total": 8.201165093
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 5.405e-06,
+            "receive_bytes_inclusive": 0.557067259,
+            "recv_inclusive": 0.0,
+            "residual": 2.226580256,
+            "run_jobs_inclusive": 0.7878807510000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.877058237,
+            "total": 7.870629735
+          },
+          "rank": 3
+        }
+      ],
+      "rank_total_spread_per_sample_seconds": [
+        0.7471434670000008,
+        1.5148746049999993,
+        1.1471079960000008,
+        0.12000007199999985,
+        0.9934374100000003,
+        0.8006461900000001,
+        0.8113056940000005
+      ],
+      "calls_per_rank_sample": {
+        "copy_bytes_inclusive": [
+          0
+        ],
+        "message_bytes_inclusive": [
+          6
+        ],
+        "receive_bytes_inclusive": [
+          6
+        ],
+        "recv_inclusive": [
+          0
+        ],
+        "run_jobs_inclusive": [
+          3
+        ],
+        "send_inclusive": [
+          0
+        ],
+        "sendrecv_inclusive": [
+          6
+        ]
+      },
+      "mpi_control_median_seconds": 3.314520655,
+      "hpx_over_mpi_median_ratio": 2.5282246488218068
+    }
+  },
+  "comparisons": {
+    "candidate_vs_baseline_default": {
+      "earlier_run": "hpx_profile_baseline",
+      "later_run": "hpx_profile_candidate",
+      "median_time_change_seconds": -4.775943378999999,
+      "median_time_reduction_percent": 35.25679694664983,
+      "critical_rank_mean_component_changes_seconds": {
+        "total": -4.802222022428571,
+        "residual": 0.11631569171428602,
+        "copy_bytes": -2.8312623224285716,
+        "message_bytes": 3.4174285714285716e-06,
+        "receive_bytes": 0.013592378714285758,
+        "recv": 0.0,
+        "run_jobs": -0.08102488642857142,
+        "send": 0.0,
+        "sendrecv": -4.837512827714285,
+        "sendrecv_other": -2.0198463014285712
+      }
+    },
+    "candidate_vs_baseline_bg1": {
+      "earlier_run": "profile_baseline_bg1",
+      "later_run": "profile_candidate_bg1",
+      "median_time_change_seconds": -3.445316581,
+      "median_time_reduction_percent": 29.135452224473003,
+      "critical_rank_mean_component_changes_seconds": {
+        "total": -4.240831767571427,
+        "residual": 0.016386554142858056,
+        "copy_bytes": -1.6620229984285715,
+        "message_bytes": 5.037857142857143e-06,
+        "receive_bytes": 0.012263929857142863,
+        "recv": 0.0,
+        "run_jobs": -0.014628658999999988,
+        "send": 0.0,
+        "sendrecv": -4.242589662714285,
+        "sendrecv_other": -2.592835632000001
+      }
+    },
+    "bg1_vs_default_baseline": {
+      "earlier_run": "hpx_profile_baseline",
+      "later_run": "profile_baseline_bg1",
+      "median_time_change_seconds": -1.7209941559999997,
+      "median_time_reduction_percent": 12.704660983055383,
+      "critical_rank_mean_component_changes_seconds": {
+        "total": -0.7921319090000001,
+        "residual": -1.401733964571429,
+        "copy_bytes": -1.169239324,
+        "message_bytes": 0.0,
+        "receive_bytes": -0.17648290671428568,
+        "recv": 0.0,
+        "run_jobs": -0.08252620185714288,
+        "send": 0.0,
+        "sendrecv": 0.6921282574285712,
+        "sendrecv_other": 2.0378504881428583
+      }
+    },
+    "bg1_vs_default_candidate": {
+      "earlier_run": "hpx_profile_candidate",
+      "later_run": "profile_candidate_bg1",
+      "median_time_change_seconds": -0.39036735800000066,
+      "median_time_reduction_percent": 4.451055391103442,
+      "critical_rank_mean_component_changes_seconds": {
+        "total": -0.23074165414285552,
+        "residual": -1.501663102142857,
+        "copy_bytes": 0.0,
+        "message_bytes": 1.6204285714285717e-06,
+        "receive_bytes": -0.17781135557142858,
+        "recv": 0.0,
+        "run_jobs": -0.016129974428571447,
+        "send": 0.0,
+        "sendrecv": 1.2870514224285712,
+        "sendrecv_other": 1.4648611575714288
+      }
+    }
+  },
+  "subsequent_tuning_context": {
+    "provenance": "Parent-reported subsequent tuning; raw logs were not present in these diagnostic inputs.",
+    "candidate_mpi_background_threads_1_median_seconds": 8.38813,
+    "candidate_mpi_and_global_background_threads_1_median_seconds": 5.55955,
+    "mpi_control_median_seconds": 3.33358,
+    "receive_experiments": "pending at analysis time"
+  }
+}

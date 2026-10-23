@@ -1,0 +1,176 @@
+START input_unchanged 2026-10-23T04:56:20Z
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/pooled_receive/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+PASS input_unchanged 2026-10-23T04:56:20Z
+START comm_1x2 2026-10-23T04:56:20Z
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+PASS comm_1x2 2026-10-23T04:56:20Z
+START comm_3x2 2026-10-23T04:56:20Z
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+communication check PASS
+communication check PASS
+PASS comm_3x2 2026-10-23T04:56:20Z
+START matched_4x2 2026-10-23T04:56:20Z
+CONFIG backend=hpx extent=64 ranks=4 threads=2 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=4194304 max_local_allocation_bytes=1048576
+PLAN_SECONDS backend=hpx value=0.072544296999999994
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64")))
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64"))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-direct-64-x512 "n1_64")
+      (dft-direct-64-x512 "n1_64")) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64")))
+    (dft-vrank>=1-x8/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64"))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-direct-64-x512 "n1_64")
+      (dft-direct-64-x512 "n1_64")) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=8.3603466663598732e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=7.2564261507230937e-16 tolerance=1e-10
+SAMPLE backend=hpx index=0 max_rank_seconds=0.003534953
+SAMPLE backend=hpx index=1 max_rank_seconds=0.003497291
+SAMPLE backend=hpx index=2 max_rank_seconds=0.00345854
+SAMPLE backend=hpx index=3 max_rank_seconds=0.0041219309999999997
+SAMPLE backend=hpx index=4 max_rank_seconds=0.0050730549999999999
+SAMPLE backend=hpx index=5 max_rank_seconds=0.003558032
+SAMPLE backend=hpx index=6 max_rank_seconds=0.0036856940000000002
+CHECK backend=hpx stage=final_roundtrip relative_max_error=1.9794899360963732e-15 tolerance=1e-10
+RESULT backend=hpx extent=64 ranks=4 threads=2 samples=7 min_seconds=0.00345854 median_seconds=0.003558032 mean_seconds=0.0038470708571428569 max_seconds=0.0050730549999999999 status=PASS
+PASS matched_4x2 2026-10-23T04:56:21Z
+{
+  "configuration": {
+    "backend": "hpx",
+    "extent": "64",
+    "ranks": "4",
+    "threads": "2",
+    "precision": "double",
+    "inplace": "1",
+    "layout": "normal",
+    "planner": "FFTW_ESTIMATE",
+    "warmups": "2",
+    "samples": "7",
+    "global_data_bytes": "4194304",
+    "max_local_allocation_bytes": "1048576"
+  },
+  "checks": [
+    {
+      "backend": "hpx",
+      "stage": "forward_spectrum",
+      "relative_max_error": "8.3603466663598732e-16",
+      "tolerance": "1e-10"
+    },
+    {
+      "backend": "hpx",
+      "stage": "initial_roundtrip",
+      "relative_max_error": "7.2564261507230937e-16",
+      "tolerance": "1e-10"
+    },
+    {
+      "backend": "hpx",
+      "stage": "final_roundtrip",
+      "relative_max_error": "1.9794899360963732e-15",
+      "tolerance": "1e-10"
+    }
+  ],
+  "result": {
+    "backend": "hpx",
+    "extent": "64",
+    "ranks": "4",
+    "threads": "2",
+    "samples": "7",
+    "min_seconds": "0.00345854",
+    "median_seconds": "0.003558032",
+    "mean_seconds": "0.0038470708571428569",
+    "max_seconds": "0.0050730549999999999",
+    "status": "PASS"
+  },
+  "scope": "local correctness only"
+}
+START inputs_still_unchanged 2026-10-23T04:56:21Z
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/pooled_receive/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+PASS inputs_still_unchanged 2026-10-23T04:56:21Z

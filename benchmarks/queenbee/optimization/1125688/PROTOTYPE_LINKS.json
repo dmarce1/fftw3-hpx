@@ -1,0 +1,12 @@
+{
+  "direct_receive": {
+    "source": "../receive_prototypes/direct_receive/hpx-comm.cpp",
+    "sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+    "identical_to": "build/qb_optimize/final_evidence/results/1125688/reused_artifacts/direct_receive/source-hpx-comm.cpp"
+  },
+  "pooled_receive": {
+    "source": "../receive_prototypes/pooled_receive/hpx-comm.cpp",
+    "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+    "identical_to": "build/qb_optimize/final_evidence/results/1125688/reused_artifacts/pooled_receive/source-hpx-comm.cpp"
+  }
+}

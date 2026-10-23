@@ -1,0 +1,3 @@
+--hpx:ini=hpx.parcel.mpi.background_threads=1
+--hpx:ini=hpx.max_background_threads=1
+--hpx:ini=hpx.parcel.mpi.multithreaded=1

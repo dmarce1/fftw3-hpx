@@ -1,0 +1,26 @@
+Fri Oct 23 05:09:19 UTC 2026
+qbd040
+main_job_id=1125395
+source=/work/dmarce1/fftw3_hpx_optimize_20261022/source
+build=/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate
+hpx=/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install
+mpi=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
+Currently Loaded Modulefiles:
+gcc/13.2.0
+g++ (Spack GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mpiexec (Open MPI) 5.0.11
+
+Report bugs to https://www.open-mpi.org/community/help/
+
+APEX_DISABLE=1
+HWLOC_COMPONENTS=-cuda,-nvml,-opencl
+OMPI_MCA_accelerator=null
+OMPI_MCA_pml=ucx
+OMPI_MCA_btl=self,sm
+UCX_TLS=rc,sm,self
+SLURM_JOB_NODELIST=qbd[040-041]
+SLURM_CPUS_PER_TASK=2

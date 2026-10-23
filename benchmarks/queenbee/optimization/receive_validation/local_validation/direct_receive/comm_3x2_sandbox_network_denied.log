@@ -1,0 +1,15 @@
+the bootstrap parcelport (tcp) has failed to initialize on locality 4294967295:
+open: Operation not permitted: HPX(network_error),
+bailing out
+terminate called without an active exception
+the bootstrap parcelport (tcp) has failed to initialize on locality 0:
+open: Operation not permitted: HPX(network_error),
+bailing out
+terminate called without an active exception
+the bootstrap parcelport (tcp) has failed to initialize on locality 4294967295:
+open: Operation not permitted: HPX(network_error),
+bailing out
+terminate called without an active exception
+Process 2 failed with an unexpected error code of -6 (expected 0)
+Process 1 failed with an unexpected error code of -6 (expected 0)
+Process 0 failed with an unexpected error code of -6 (expected 0)

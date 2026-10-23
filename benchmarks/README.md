@@ -70,8 +70,12 @@ FFTW is still built with autotools. The application target uses explicit
 paths identify the installation and source bundle used for that experiment;
 they must be adjusted before using the script on another installation.
 
-The [completed QueenBee comparison](queenbee/README.md) records the 1024³
-result, full plans, correctness checks, and seven timing samples per backend.
+The [original QueenBee comparison](queenbee/README.md) and
+[communication optimization results](queenbee/optimization/README.md) retain
+full plans, correctness checks and all seven samples for every configuration.
+The optimized library also needs the documented
+[HPX startup profile](../hpx/README.md#local-and-cluster-transports) to reproduce
+the tuned results; background-worker limits are not library defaults.
 
 ## Build from one configured FFTW tree
 
@@ -116,6 +120,10 @@ Four nodes with 64 allocated CPU workers per process use:
 <same allocated MPI launcher and CPU placement> \
   build/combined/matched_3d_hpx \
   --hpx:localities=4 --hpx:threads=64 \
+  --hpx:ini=hpx.parcel.mpi.background_threads=1 \
+  --hpx:ini=hpx.max_background_threads=1 \
+  --hpx:ini=hpx.parcel.mpi.multithreaded=1 \
+  --hpx:ini=hpx.max_idle_backoff_time=1000 \
   --size=1024 --threads=64 --warmups=2 --samples=7
 ```
 

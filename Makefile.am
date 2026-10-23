@@ -68,7 +68,8 @@ benchmarks/queenbee/1125135/input_sha256.txt \
 benchmarks/queenbee/1125135/installed_hpx_config.txt \
 benchmarks/queenbee/1125135/metadata.txt \
 benchmarks/queenbee/1125135/node_inventory.log \
-benchmarks/queenbee/1125135/nodes.txt
+benchmarks/queenbee/1125135/nodes.txt \
+benchmarks/queenbee/optimization
 
 SIMD_LIBS = simd-support/libsimd_support.la
 

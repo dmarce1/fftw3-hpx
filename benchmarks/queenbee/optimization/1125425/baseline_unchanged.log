@@ -1,0 +1,7 @@
+/work/dmarce1/fftw3_hpx_benchmark_20261022/source/benchmarks/matched_3d.cpp: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/mpi/.libs/libfftw3_mpi.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/hpx/.libs/libfftw3_hpx.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/threads/libfftw3_threads.la: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/threads/.libs/libfftw3_threads.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/libfftw3.la: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/.libs/libfftw3.a: OK

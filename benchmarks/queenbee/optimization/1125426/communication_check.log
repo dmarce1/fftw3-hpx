@@ -1,0 +1,9 @@
+hpx::init: hpx::exception caught: Attempt to initialize unknown entry:  <command line definitions>: line 4 (offending entry: hpx.parcel.tcp.enable=0): HPX(no_success)
+--------------------------------------------------------------------------
+prterun detected that one or more processes exited with non-zero status,
+thus causing the job to be terminated. The first process to do so was:
+
+   Process name: [prterun-qbd040-712268@1,0]
+   Exit code:    255
+--------------------------------------------------------------------------
+hpx::init: hpx::exception caught: Attempt to initialize unknown entry:  <command line definitions>: line 4 (offending entry: hpx.parcel.tcp.enable=0): HPX(no_success)

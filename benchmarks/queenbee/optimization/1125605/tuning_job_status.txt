@@ -1,0 +1,7 @@
+status	FAIL
+exit_status	137
+job_id	1125437
+stage	benchmark_candidate_bg1_serialized
+baseline_commit	cb205948f773e8e057b14ebbf6fa4df1c7cb994a
+main_job_id	1125395
+finished_utc	2026-10-23T05:21:52Z

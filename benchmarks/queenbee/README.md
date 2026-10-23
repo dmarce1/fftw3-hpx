@@ -18,6 +18,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
 
 # QueenBee: one matched 1024³ transform
 
+This is the original baseline. See the later
+[communication optimization and matched retests](optimization/README.md)
+for the updated implementation and results.
+
 On October 22, 2026, FFTW-HPX took **4.0351 times as long** as stock FFTW-MPI
 for this configuration: a 1024 × 1024 × 1024 double-complex transform on
 four QueenBee nodes, one rank/locality per node and 64 workers per process.

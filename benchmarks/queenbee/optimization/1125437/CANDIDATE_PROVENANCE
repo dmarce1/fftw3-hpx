@@ -1,0 +1,3 @@
+base_commit=e702e441d1914cd6e384a461fe8dd73b95e928ae
+patch_sha256=32c1c5552f49c68e834124bbd6329ab5d46b8c16994bc0416bcb98a6e8c47779
+changes=point-to-point serialize_buffer reference/shared ownership and lifetime tests

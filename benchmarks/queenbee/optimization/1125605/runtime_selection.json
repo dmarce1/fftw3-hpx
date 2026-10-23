@@ -1,0 +1,13 @@
+{
+  "tuning_job_id": "1125437",
+  "selected_case": "candidate_bg1_global1",
+  "selection_rule": "completed successful case; later serialized-MPI case excluded after shutdown failure",
+  "tuning_median_seconds": 5.559548005,
+  "mpi_control_median_seconds": 3.33357632,
+  "argv": [
+    "--hpx:ini=hpx.parcel.mpi.background_threads=1",
+    "--hpx:ini=hpx.max_background_threads=1",
+    "--hpx:ini=hpx.parcel.mpi.multithreaded=1"
+  ],
+  "scope": "chosen from a completed run in a subsequently failed allocation; remeasured here"
+}

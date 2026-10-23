@@ -1,0 +1,38 @@
+{
+  "timing_includes_instrumentation": true,
+  "metrics_are_inclusive_do_not_sum": true,
+  "runs": {
+    "hpx_profile_baseline": {
+      "profile_rows": 196,
+      "median_seconds": "13.546163556",
+      "normalized_plans_equal": {
+        "forward": true,
+        "backward": true
+      }
+    },
+    "profile_baseline_bg1": {
+      "profile_rows": 196,
+      "median_seconds": "11.8251694",
+      "normalized_plans_equal": {
+        "forward": true,
+        "backward": true
+      }
+    },
+    "hpx_profile_candidate": {
+      "profile_rows": 196,
+      "median_seconds": "8.7702201770000006",
+      "normalized_plans_equal": {
+        "forward": true,
+        "backward": true
+      }
+    },
+    "profile_candidate_bg1": {
+      "profile_rows": 196,
+      "median_seconds": "8.3798528189999999",
+      "normalized_plans_equal": {
+        "forward": true,
+        "backward": true
+      }
+    }
+  }
+}

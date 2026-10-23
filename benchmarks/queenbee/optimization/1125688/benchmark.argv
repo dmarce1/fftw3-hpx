@@ -1,0 +1,4 @@
+--size=1024
+--threads=64
+--warmups=2
+--samples=7

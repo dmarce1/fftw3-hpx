@@ -1,0 +1,4 @@
+compile_bridge	PASS	52
+replace_bridge	PASS	2
+link_bench	PASS	1
+compile_comm_check	PASS	5

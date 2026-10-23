@@ -1,0 +1,29 @@
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.zero_copy_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.zero_copy_receive_optimization value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.background_threads value=-1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.multithreaded value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.sendimm value=0
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.ack_handshake value=<unset>
+CONFIG_DIAGNOSTIC rank=0 key=hpx.parcel.mpi.enable value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_background_threads value=64
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_idle_loop_count value=200000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_busy_loop_count value=2000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.max_idle_backoff_time value=1000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.default_scheduler_mode value=
+CONFIG_DIAGNOSTIC rank=0 key=hpx.scheduler value=local-priority-fifo
+CONFIG_DIAGNOSTIC rank=0 key=hpx.numa_sensitive value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.os_threads value=64
+CONFIG_DIAGNOSTIC rank=0 key=hpx.affinity value=pu
+CONFIG_DIAGNOSTIC rank=0 key=hpx.bind value=none
+CONFIG_DIAGNOSTIC rank=0 key=hpx.pu_offset value=0
+CONFIG_DIAGNOSTIC rank=0 key=hpx.pu_step value=1
+CONFIG_DIAGNOSTIC rank=0 key=hpx.stacks.large_size value=0x0200000
+CONFIG_DIAGNOSTIC rank=0 key=hpx.stacks.use_guard_pages value=1
+110:#define HPX_HAVE_GIT_COMMIT "c9b81b401fbe6ba4a0306feff71d18ef01c71b34"
+c2077dafd399e0378518973234e35527a5c794840baeedf4c0d1e0e7b713f2a9  /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/collectives/detail/channel_communicator.hpp
+e3618f49ddb6a9152cb94dd011eae41280186d95597dda6548a0c2c584d48ef6  /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/serialization/serialize_buffer.hpp
+8192b6eae7cfef59a6e1dff846c5a043009e8cc5c2ea6dc89700741f3b6a10fd  /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/serialization/vector.hpp
+ad95b9d7ea31b86d06a4075f61c8f060b258430e8e7b6e82aae03de91d3d31c1  /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/parcelport_mpi/receiver_connection.hpp
+48d0c05c01b90b0e4fcf69fb4fafbc6cc15c0055ec87641a53f7ba575c5ffd60  /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/thread_pools/scheduling_loop.hpp

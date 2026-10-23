@@ -1,0 +1,30 @@
+JobId=1125688 JobName=fftw_hpx_final
+   UserId=dmarce1(24281) GroupId=lsuusers(25004) MCS_label=N/A
+   Priority=13031 Nice=0 Account=loni_graphshpx QOS=normal
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:01 TimeLimit=00:25:00 TimeMin=N/A
+   SubmitTime=2026-10-23T00:49:30 EligibleTime=2026-10-23T00:49:58
+   AccrueTime=2026-10-23T00:49:58
+   StartTime=2026-10-23T00:49:58 EndTime=2026-10-23T01:14:58 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-23T00:49:58 Scheduler=Main
+   Partition=workq AllocNode:Sid=qbd2:1416001
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=qbd[028-029,053-054]
+   BatchHost=qbd028
+   NumNodes=4 NumCPUs=256 NumTasks=4 CPUs/Task=64 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=256,mem=1016000M,node=4,billing=256
+   AllocTRES=cpu=256,mem=1016000M,node=4,billing=256
+   Socks/Node=* NtasksPerN:B:S:C=1:0:*:* CoreSpec=*
+   MinCPUsNode=64 MinMemoryNode=0 MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/ddnB/work/dmarce1/fftw3_hpx_optimize_20261022/final_job.sbatch
+   WorkDir=/ddnB/work/dmarce1/fftw3_hpx_optimize_20261022
+   Comment=stdout=/work/dmarce1/fftw3_hpx_optimize_20261022/final-1125688.out 
+   StdErr=/work/dmarce1/fftw3_hpx_optimize_20261022/final-1125688.err
+   StdIn=/dev/null
+   StdOut=/work/dmarce1/fftw3_hpx_optimize_20261022/final-1125688.out
+   TresPerTask=cpu=64
+   
+

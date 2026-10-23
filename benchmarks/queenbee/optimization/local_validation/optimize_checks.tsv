@@ -1,0 +1,6 @@
+singleton_double	PASS	0
+matrix_double	PASS	48
+singleton_single	PASS	0
+matrix_single	PASS	48
+singleton_long_double	PASS	0
+matrix_long_double	PASS	52

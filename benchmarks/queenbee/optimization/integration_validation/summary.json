@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "scope": "Local integration validation of the selected pooled-receive bridge; no remote connections or QueenBee jobs",
+  "bridge_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+  "base_commit": "f28b54a664aa7e345c6b394d36584952020718e4",
+  "maximum_concurrent_compiler_processes": 6,
+  "maximum_concurrent_runtime_workers": 6,
+  "runtime_execution": "serial cases; local TCP via the existing hpx-run.sh; no cross-server traffic",
+  "source_hashes_unchanged": true,
+  "precisions": {
+    "double": {
+      "build": "PASS",
+      "message_check_groups": 4,
+      "message_check": "PASS",
+      "communication_cases": {
+        "1x2": {
+          "status": "PASS",
+          "localities": 1,
+          "threads_per_locality": 2,
+          "init_cleanup_cycles": 2
+        },
+        "3x2": {
+          "status": "PASS",
+          "localities": 3,
+          "threads_per_locality": 2,
+          "init_cleanup_cycles": 2
+        }
+      },
+      "assertion_guard_enabled": true
+    },
+    "single": {
+      "build": "PASS",
+      "message_check_groups": 4,
+      "message_check": "PASS",
+      "communication_cases": {
+        "1x2": {
+          "status": "PASS",
+          "localities": 1,
+          "threads_per_locality": 2,
+          "init_cleanup_cycles": 2
+        },
+        "3x2": {
+          "status": "PASS",
+          "localities": 3,
+          "threads_per_locality": 2,
+          "init_cleanup_cycles": 2
+        }
+      },
+      "assertion_guard_enabled": true
+    },
+    "long_double": {
+      "build": "PASS",
+      "message_check_groups": 4,
+      "message_check": "PASS",
+      "communication_cases": {
+        "1x2": {
+          "status": "PASS",
+          "localities": 1,
+          "threads_per_locality": 2,
+          "init_cleanup_cycles": 2
+        },
+        "3x2": {
+          "status": "PASS",
+          "localities": 3,
+          "threads_per_locality": 2,
+          "init_cleanup_cycles": 2
+        }
+      },
+      "assertion_guard_enabled": true
+    }
+  },
+  "double_standard_make_check": {
+    "status": "PASS",
+    "upstream_serial_threaded_and_callback_checks": "PASS",
+    "hpx_message_check_line": 1420,
+    "hpx_communication_check_first_pass_line": 1436,
+    "message_check_precedes_communication_runtime": true,
+    "hpx_numerical_configurations": [
+      "HPX FFTW transforms passed 10 tests, 1 locality, 1 thread",
+      "HPX FFTW transforms passed 10 tests, 2 localities, 1 thread each",
+      "HPX FFTW transforms passed 10 tests, 3 localities, 1 thread each",
+      "HPX FFTW transforms passed 10 tests, 4 localities, 1 thread each",
+      "HPX FFTW threaded transforms passed 10 tests, 3 localities, 2 threads each"
+    ]
+  }
+}

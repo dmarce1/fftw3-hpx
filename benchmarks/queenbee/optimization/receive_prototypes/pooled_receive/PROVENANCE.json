@@ -1,0 +1,8 @@
+{
+  "base_git_commit": "e702e441d1914cd6e384a461fe8dd73b95e928ae",
+  "base_worktree_file": "hpx/hpx-comm.cpp",
+  "base_sha256": "4d605aeb52a995215296613d101a2ab0ee236fd8fbbfc479f66f766121b8d564",
+  "prototype_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+  "patch_sha256": "23a6b0fe71217fb2f04e6f6158888e44c63a7f3b080cf800561f236fc2e0fc3a",
+  "status": "isolated prototype; not compiled or run"
+}

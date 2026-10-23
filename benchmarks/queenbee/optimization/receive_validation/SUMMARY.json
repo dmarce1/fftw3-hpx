@@ -1,0 +1,42 @@
+{
+  "status": "PASS",
+  "scope": "Frozen local experimental correctness evidence, excluding all compiled artifacts.",
+  "transport": "Same-workstation TCP only; no cross-server TCP and no QueenBee access in these local validations.",
+  "standard_matrix_invocations": 30,
+  "communication_invocations_in_all_precision_phase": 12,
+  "deterministic_unit_groups": {
+    "direct_receive": 6,
+    "pooled_receive": 4
+  },
+  "records": {
+    "all_precision": "precision_validation/SUMMARY.json",
+    "initial_double": "local_validation/SUMMARY.json",
+    "deterministic_units": "prototype_units/results/summary.json"
+  },
+  "prototypes": {
+    "direct_receive": {
+      "source": "../receive_prototypes/direct_receive/hpx-comm.cpp",
+      "sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+      "all_precisions": "PASS",
+      "unit_checks": "PASS"
+    },
+    "pooled_receive": {
+      "source": "../receive_prototypes/pooled_receive/hpx-comm.cpp",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "all_precisions": "PASS",
+      "unit_checks": "PASS"
+    }
+  },
+  "archive_change": "Only hpx-comm.o replaced in each 32-member archive; other 31 members byte-identical.",
+  "raw_records_unmodified": true,
+  "compiled_artifacts_included": false,
+  "preserved_unsuccessful_attempts": [
+    "Initial local TCP socket creation denied by sandbox; subsequent local-only run passed.",
+    "Initial pooled unit test source missed a closing brace; test source corrected and all groups passed."
+  ],
+  "limits": [
+    "Local correctness results do not establish cluster transport performance.",
+    "Direct unit chunk test simulates network fill after real HPX archive destination selection.",
+    "Random matrix cases are independent per invocation; realized commands are saved."
+  ]
+}

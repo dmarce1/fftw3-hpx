@@ -1,0 +1,94 @@
+{
+  "aggregate_job_log": "preserved for failure evidence",
+  "copied_files": [
+    {
+      "bytes": 217,
+      "published": "CANDIDATE_PROVENANCE",
+      "sha256": "5e1e2674f01f3137e274472d40683c3f253def69622785c92f11bd1c6e2e36ba",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/CANDIDATE_PROVENANCE"
+    },
+    {
+      "bytes": 123,
+      "published": "FINAL_STATUS",
+      "sha256": "f2c2bbdbe700ea53a2454646228b683fa25f0dc08844147b18fa98de2eae8ae0",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/FINAL_STATUS"
+    },
+    {
+      "bytes": 80,
+      "published": "assert_enabled.h",
+      "sha256": "9b7a52d6a6c76f55689c80c9c5d8f795bb93b74f33c12612dc30cb713c8dab74",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/assert_enabled.h"
+    },
+    {
+      "bytes": 81,
+      "published": "binary.sha256",
+      "sha256": "1550b1c3ae1c91eb0e3d3714773f71159302e2e2569d4332c5093e66745c7f7b",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/binary.sha256"
+    },
+    {
+      "bytes": 6735,
+      "published": "comm_check.sbatch",
+      "sha256": "df5d74f21107b98ddf82c107fe30a379dedc931ed57b638c28be59d174218f28",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/comm_check.sbatch"
+    },
+    {
+      "bytes": 597,
+      "published": "communication_check.command",
+      "sha256": "59807a46705706d489ddcd826ef46ccfa346831c6dc010242e8ae77b6549c3c7",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/communication_check.command"
+    },
+    {
+      "bytes": 695,
+      "published": "communication_check.log",
+      "sha256": "444f4cd99eaf596f02ec791f117196c8750ab9d466639b72815eec84ac5d15ac",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/communication_check.log"
+    },
+    {
+      "bytes": 2872,
+      "published": "compile_check.command",
+      "sha256": "60e9098d654f0110f2b0bc07c913c33caa659a549dbdcd14bc42c05f100eef4e",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/compile_check.command"
+    },
+    {
+      "bytes": 0,
+      "published": "compile_check.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/compile_check.log"
+    },
+    {
+      "bytes": 4022,
+      "published": "hpx-flags.sh",
+      "sha256": "64cd6c741ada7443094d1c90279bd31d340e3f5578605ee165c1b7eba1f016c2",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/hpx-flags.sh"
+    },
+    {
+      "bytes": 1135,
+      "published": "input.sha256",
+      "sha256": "d9704e81d696503c1f95c9398a48670e511aa0293060f25846c0717fe71b6aa5",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/input.sha256"
+    },
+    {
+      "bytes": 953,
+      "published": "job.log",
+      "sha256": "998a2a1d359d213ed5d76920cd8e935d454639fa981e08367715e401812f1f22",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/job.log"
+    },
+    {
+      "bytes": 891,
+      "published": "metadata.txt",
+      "sha256": "2429356e0e777efbff24e6c2523d87ce1f6d4d49285148abb043e7131e986672",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/metadata.txt"
+    },
+    {
+      "bytes": 14,
+      "published": "nodes.txt",
+      "sha256": "50dd4d69627b0ae7c6e9b950b6619efa52c96ddd78ec81fb7c76b352bdee448c",
+      "source": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426/nodes.txt"
+    }
+  ],
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "job_id": 1125426,
+  "license": "GPL-2.0-or-later",
+  "selection": "Raw benchmark logs, executed scripts, individual launch/build/configure commands, configuration logs, provenance and checksums. No binaries, config.status, shell xtrace commands.log, or repeated comparison plan strings.",
+  "source_directory": "build/qb_optimize/diagnostic_evidence/comm_check_results/1125426"
+}

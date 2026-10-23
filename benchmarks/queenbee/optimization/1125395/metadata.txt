@@ -1,0 +1,44 @@
+Fri Oct 23 04:19:36 UTC 2026
+qbd133
+baseline_commit=cb205948f773e8e057b14ebbf6fa4df1c7cb994a
+baseline_source=/work/dmarce1/fftw3_hpx_benchmark_20261022/source
+baseline_build=/work/dmarce1/fftw3_hpx_benchmark_20261022/build
+candidate_source=/work/dmarce1/fftw3_hpx_optimize_20261022/source
+candidate_build=/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate
+profile_baseline_source=
+profile_candidate_source=
+placement=one rank per node, 64 workers, no CPU binding, NUMA interleave all
+Currently Loaded Modulefiles:
+gcc/13.2.0
+gcc (Spack GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+g++ (Spack GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mpiexec (Open MPI) 5.0.11
+
+Report bugs to https://www.open-mpi.org/community/help/
+
+g++ -I/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/include -pthread -L/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib -Wl,-rpath -Wl,/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib -Wl,--enable-new-dtags -lmpi
+PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin:/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
+LD_LIBRARY_PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
+CC=gcc
+CXX=g++
+MPICC=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpicc
+CFLAGS=-O3 -march=native
+CXXFLAGS=-O3 -march=native
+HPXRUN=/ddnB/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin/hpxrun.py
+APEX_DISABLE=1
+HWLOC_COMPONENTS=-cuda,-nvml,-opencl
+OMPI_MCA_accelerator=null
+OMPI_MCA_pml=ucx
+OMPI_MCA_btl=self,sm
+UCX_TLS=rc,sm,self
+SLURM_JOB_ID=1125395
+SLURM_JOB_NODELIST=qbd[133,381,447,459]
+SLURM_CPUS_PER_TASK=64

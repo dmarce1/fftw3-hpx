@@ -1,0 +1,6624 @@
+{
+  "normalized_plans_equal": {
+    "backward": true,
+    "forward": true
+  },
+  "notes": [
+    "All durations are seconds. PROFILE counters are inclusive wall times, not CPU times.",
+    "Copy, message construction, and receive counters are contained in send/recv/sendrecv; do not add them to those totals.",
+    "Residual = each rank/sample total - run_jobs - sendrecv. This decomposition requires the audited nonnested forward plan and no separate send/recv calls.",
+    "Residual includes serial transposes, other uninstrumented FFT work, and wrapper/instrumentation/clock overhead; it is not an exclusive serial-transpose measurement.",
+    "Medians are computed independently per component; their sum need not equal the median total. Critical-rank rows use components from the actual maximum-time rank for each sample.",
+    "Instrumented results are diagnostic and must not replace the uninstrumented primary benchmark."
+  ],
+  "runs": [
+    {
+      "checks": {
+        "final_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "5.3466393575176564e-15",
+          "stage": "final_roundtrip",
+          "tolerance": "1e-10"
+        },
+        "forward_spectrum": {
+          "backend": "hpx",
+          "relative_max_error": "7.616067116634044e-16",
+          "stage": "forward_spectrum",
+          "tolerance": "1e-10"
+        },
+        "initial_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "1.4598394285766894e-15",
+          "stage": "initial_roundtrip",
+          "tolerance": "1e-10"
+        }
+      },
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "global_data_bytes": "17179869184",
+        "inplace": "1",
+        "layout": "normal",
+        "max_local_allocation_bytes": "4294967296",
+        "planner": "FFTW_ESTIMATE",
+        "precision": "double",
+        "ranks": "4",
+        "samples": "7",
+        "threads": "64",
+        "warmups": "2"
+      },
+      "critical_rank_per_sample": [
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.8879352970000003
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.818781737
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.8707788350000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 8.840494484
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.9487438239999992,
+              "sample": 0,
+              "total_seconds": 13.660017143
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.660017143,
+          "sample": 0,
+          "sample_max_seconds": 13.660017143
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.8645838990000003
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.8063316930000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.8969257100000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 9.045879658
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.812090477,
+              "sample": 1,
+              "total_seconds": 13.754895845
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.754895845,
+          "sample": 1,
+          "sample_max_seconds": 13.754895845
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.819951004
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.675516138
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.810650343
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 8.944077472
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 3.5442334729999985,
+              "sample": 2,
+              "total_seconds": 13.298961288
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.298961288,
+          "sample": 2,
+          "sample_max_seconds": 13.298961288
+        },
+        {
+          "critical_ranks": [
+            2
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.8085862600000002
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.681388626
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.915121143
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 9.123103512
+                }
+              },
+              "rank": 2,
+              "residual_seconds": 3.4833629459999997,
+              "sample": 3,
+              "total_seconds": 13.521587601
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.521587601,
+          "sample": 3,
+          "sample_max_seconds": 13.521587601
+        },
+        {
+          "critical_ranks": [
+            2
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.7960317590000003
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.696806051
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.8956283380000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 9.170954867
+                }
+              },
+              "rank": 2,
+              "residual_seconds": 3.475567815,
+              "sample": 4,
+              "total_seconds": 13.54215102
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.54215102,
+          "sample": 4,
+          "sample_max_seconds": 13.54215102
+        },
+        {
+          "critical_ranks": [
+            2
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.813058653
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.747578038
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.9090599770000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 9.112490552
+                }
+              },
+              "rank": 2,
+              "residual_seconds": 3.524613026999999,
+              "sample": 5,
+              "total_seconds": 13.546163556
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.546163556,
+          "sample": 5,
+          "sample_max_seconds": 13.546163556
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.828689385
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.6968628480000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.8815283300000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 9.154393295
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 3.5753108640000004,
+              "sample": 6,
+              "total_seconds": 13.611232489
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 13.611232489,
+          "sample": 6,
+          "sample_max_seconds": 13.611232489
+        }
+      ],
+      "diagnostic_configuration": {
+        "0": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "1": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "2": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "3": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        }
+      },
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "path": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_hpx_profile_baseline.log",
+      "per_rank": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.804433334,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.692604733,
+            "recv_inclusive": 0.0,
+            "residual": 3.554802004999999,
+            "run_jobs_inclusive": 0.8321086050000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 9.028603379,
+            "total": 13.420189002
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.8093290680000003,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.7404206550000001,
+            "recv_inclusive": 0.0,
+            "residual": 3.5071697169999982,
+            "run_jobs_inclusive": 0.6905166540000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 9.049385566,
+            "total": 13.35579362
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.797221328,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.6993181980000001,
+            "recv_inclusive": 0.0,
+            "residual": 3.5021792799999982,
+            "run_jobs_inclusive": 0.8956283380000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 9.112490552,
+            "total": 13.48505133
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 2.8645838990000003,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.781003988,
+            "recv_inclusive": 0.0,
+            "residual": 3.636002356999999,
+            "run_jobs_inclusive": 0.8806136510000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.997666391000001,
+            "total": 13.487158426
+          },
+          "rank": 3
+        }
+      ],
+      "rank_samples": [
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.804433334
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.692971772
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8321086050000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.063076259
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.525004138,
+          "sample": 0,
+          "total_seconds": 13.420189002
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.832268043
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.685526944
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.795353132
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.308088516
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.458426998,
+          "sample": 1,
+          "total_seconds": 13.561868646
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.819951004
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.675516138
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.810650343
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.944077472
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.5442334729999985,
+          "sample": 2,
+          "total_seconds": 13.298961288
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.7628759570000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.686880841
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.80723164
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.028603379
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.5594419040000016,
+          "sample": 3,
+          "total_seconds": 13.395276923
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.788359203
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.6970808900000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.862750949
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.978492125
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.554802004999999,
+          "sample": 4,
+          "total_seconds": 13.396045079
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.7849573260000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.692604733
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8778784070000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.985967822000001
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.565929518999999,
+          "sample": 5,
+          "total_seconds": 13.429775748
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.828689385
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.6968628480000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8815283300000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.154393295
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.5753108640000004,
+          "sample": 6,
+          "total_seconds": 13.611232489
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.795464427
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.707729962
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.6905166540000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.208366944
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.470284813000001,
+          "sample": 0,
+          "total_seconds": 13.369168411
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.8080669240000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.751575678
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 1.007538592
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.029704504
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.4702607720000014,
+          "sample": 1,
+          "total_seconds": 13.507503868
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.8093290680000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7019110120000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.651303175
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.051764129
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.5071697169999982,
+          "sample": 2,
+          "total_seconds": 13.210237021
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.839056594
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7404206550000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.6562397090000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.049385566
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.603761166,
+          "sample": 3,
+          "total_seconds": 13.309386441
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.8264507080000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.712615375
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.843776421
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.932129632
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.488520511000001,
+          "sample": 4,
+          "total_seconds": 13.264426564
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.810942925
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.747950945
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 1.014623301
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.826568477
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.5146018419999994,
+          "sample": 5,
+          "total_seconds": 13.35579362
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.804598453
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.751838495
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.686798486
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.221635454000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.5109456069999982,
+          "sample": 6,
+          "total_seconds": 13.419379547
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.78248414
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7065435750000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.822790514
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.089776627
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.4900146139999997,
+          "sample": 0,
+          "total_seconds": 13.402581755
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.7691696510000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.691785196
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.860920557
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.121951493000001
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.5021792799999982,
+          "sample": 1,
+          "total_seconds": 13.48505133
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.797221328
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.732405685
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.897869624
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.791752762
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.538285782000001,
+          "sample": 2,
+          "total_seconds": 13.227908168
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.8085862600000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.681388626
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.915121143
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.123103512
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.4833629459999997,
+          "sample": 3,
+          "total_seconds": 13.521587601
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.7960317590000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.696806051
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8956283380000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.170954867
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.475567815,
+          "sample": 4,
+          "total_seconds": 13.54215102
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.813058653
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.747578038
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.9090599770000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.112490552
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.524613026999999,
+          "sample": 5,
+          "total_seconds": 13.546163556
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.806916754
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.6993181980000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8281684210000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.088557485
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.5243449869999974,
+          "sample": 6,
+          "total_seconds": 13.441070893
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.8879352970000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.818781737
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8707788350000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.840494484
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.9487438239999992,
+          "sample": 0,
+          "total_seconds": 13.660017143
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.8645838990000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.8063316930000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8969257100000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.045879658
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.812090477,
+          "sample": 1,
+          "total_seconds": 13.754895845
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.786415385
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7310246610000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8821688200000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.812112264000001
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.483355710999998,
+          "sample": 2,
+          "total_seconds": 13.177636795
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.7887279080000003
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7789384800000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.897826501
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.997666391000001
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.5812243489999975,
+          "sample": 3,
+          "total_seconds": 13.476717241
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.874872673
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.819204276
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8048182650000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.805807759
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.8524650000000005,
+          "sample": 4,
+          "total_seconds": 13.463091024
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.803275106
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7520050930000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8806136510000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.050365049
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.5610136049999994,
+          "sample": 5,
+          "total_seconds": 13.491992305
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.878731333
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.781003988
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8395789560000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.011577113000001
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.636002356999999,
+          "sample": 6,
+          "total_seconds": 13.487158426
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "max_seconds": "13.754895845",
+        "mean_seconds": "13.562144134571428",
+        "median_seconds": "13.546163556",
+        "min_seconds": "13.298961287999999",
+        "ranks": "4",
+        "samples": "7",
+        "status": "PASS",
+        "threads": "64"
+      },
+      "sha256": "3322befeaf409cadcb4f165a13a69fa9ed5abcdca3afc6f1e6b31d83daf8509a",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      }
+    },
+    {
+      "checks": {
+        "final_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "5.3466393575176564e-15",
+          "stage": "final_roundtrip",
+          "tolerance": "1e-10"
+        },
+        "forward_spectrum": {
+          "backend": "hpx",
+          "relative_max_error": "7.616067116634044e-16",
+          "stage": "forward_spectrum",
+          "tolerance": "1e-10"
+        },
+        "initial_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "1.4598394285766894e-15",
+          "stage": "initial_roundtrip",
+          "tolerance": "1e-10"
+        }
+      },
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "global_data_bytes": "17179869184",
+        "inplace": "1",
+        "layout": "normal",
+        "max_local_allocation_bytes": "4294967296",
+        "planner": "FFTW_ESTIMATE",
+        "precision": "double",
+        "ranks": "4",
+        "samples": "7",
+        "threads": "64",
+        "warmups": "2"
+      },
+      "critical_rank_per_sample": [
+        {
+          "critical_ranks": [
+            1
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 3.4720000000000004e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.7510293560000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.7309921610000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.279447643
+                }
+              },
+              "rank": 1,
+              "residual_seconds": 3.6347920999999994,
+              "sample": 0,
+              "total_seconds": 8.645231904
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.645231904,
+          "sample": 0,
+          "sample_max_seconds": 8.645231904
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.788e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.732979846
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.8319071480000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.093580322
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.8447327070000004,
+              "sample": 1,
+              "total_seconds": 8.770220177
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.770220177,
+          "sample": 1,
+          "sample_max_seconds": 8.770220177
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 3.058e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.751989419
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.800636424
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.206000813
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.803155488999999,
+              "sample": 2,
+              "total_seconds": 8.809792726
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.809792726,
+          "sample": 2,
+          "sample_max_seconds": 8.809792726
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.9520000000000003e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.788914934
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.904063181
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.135818989000001
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 3.849825954,
+              "sample": 3,
+              "total_seconds": 8.889708124
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.889708124,
+          "sample": 3,
+          "sample_max_seconds": 8.889708124
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.267e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.746968888
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.765417079
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.120745642
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.899947566999999,
+              "sample": 4,
+              "total_seconds": 8.786110288
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.786110288,
+          "sample": 4,
+          "sample_max_seconds": 8.786110288
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 3.429e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.7574809130000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.765870224
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.222838816
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.689624551999999,
+              "sample": 5,
+              "total_seconds": 8.678333592
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.678333592,
+          "sample": 5,
+          "sample_max_seconds": 8.678333592
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 2.956e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.689048426
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.813632254
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.4703718210000005
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 3.4560538990000005,
+              "sample": 6,
+              "total_seconds": 8.740057974
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.740057974,
+          "sample": 6,
+          "sample_max_seconds": 8.740057974
+        }
+      ],
+      "diagnostic_configuration": {
+        "0": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "1": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "2": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "3": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "-1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        }
+      },
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "path": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_hpx_profile_candidate.log",
+      "per_rank": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 2.517e-06,
+            "receive_bytes_inclusive": 0.7297936770000001,
+            "recv_inclusive": 0.0,
+            "residual": 3.4890022730000005,
+            "run_jobs_inclusive": 0.852571268,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.266651242,
+            "total": 8.653151897
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 2.9e-06,
+            "receive_bytes_inclusive": 0.715008391,
+            "recv_inclusive": 0.0,
+            "residual": 3.4959413350000004,
+            "run_jobs_inclusive": 0.838340003,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.351602633000001,
+            "total": 8.654204548
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 2.589e-06,
+            "receive_bytes_inclusive": 0.718267932,
+            "recv_inclusive": 0.0,
+            "residual": 3.583090469,
+            "run_jobs_inclusive": 0.7815080400000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.321846183,
+            "total": 8.635001569
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 3.429e-06,
+            "receive_bytes_inclusive": 0.740872258,
+            "recv_inclusive": 0.0,
+            "residual": 3.689624551999999,
+            "run_jobs_inclusive": 0.800636424,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.222838816,
+            "total": 8.740057974
+          },
+          "rank": 3
+        }
+      ],
+      "rank_samples": [
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.517e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.794532502
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.781716304
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.279785809
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.4890022730000005,
+          "sample": 0,
+          "total_seconds": 8.550504386
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.4620000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.757838678
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.861122449
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.129400196000001
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.6626292520000003,
+          "sample": 1,
+          "total_seconds": 8.653151897
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.1450000000000002e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.688212488
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8769722980000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.3533167100000005
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.453838931999999,
+          "sample": 2,
+          "total_seconds": 8.68412794
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.9520000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.788914934
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.904063181
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.135818989000001
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.849825954,
+          "sample": 3,
+          "total_seconds": 8.889708124
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.0610000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.6859185590000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8516740610000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.266651242
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.4656588610000005,
+          "sample": 4,
+          "total_seconds": 8.583984164
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.82e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.6764134900000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8338025200000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.332785477
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.433129997000001,
+          "sample": 5,
+          "total_seconds": 8.599717994
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.943e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7297936770000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.852571268
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.191740898
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 3.671021294,
+          "sample": 6,
+          "total_seconds": 8.71533346
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.4720000000000004e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7510293560000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7309921610000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.279447643
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.6347920999999994,
+          "sample": 0,
+          "total_seconds": 8.645231904
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.1400000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.709852072
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.918357796
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.367771051
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.4033243409999994,
+          "sample": 1,
+          "total_seconds": 8.689453188
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.342e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7119165310000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.953902545
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.2113866060000005
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.4697581580000003,
+          "sample": 2,
+          "total_seconds": 8.635047309
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.6920000000000002e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.766057442
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.838340003
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.351602633000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.581302482999999,
+          "sample": 3,
+          "total_seconds": 8.771245119
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.6470000000000004e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.715008391
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.9092162050000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.1976754650000005
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.4959413350000004,
+          "sample": 4,
+          "total_seconds": 8.602833005
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 7.252e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.72844785
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.720830226
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.412753138
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.5206211839999986,
+          "sample": 5,
+          "total_seconds": 8.654204548
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.9e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.714829732
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7299976420000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.516192287
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 3.456805363000001,
+          "sample": 6,
+          "total_seconds": 8.702995292
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.7100000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.714050669
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.759267317
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.406220778000001
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.4301363249999994,
+          "sample": 0,
+          "total_seconds": 8.59562442
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.3600000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.711301826
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7847483230000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.273951678
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.5997872919999994,
+          "sample": 1,
+          "total_seconds": 8.658487293
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.3660000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.705862964
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8671674810000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.257520008
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.5047228640000005,
+          "sample": 2,
+          "total_seconds": 8.629410353
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.2640000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7190189450000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7815080400000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.321846183
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.6277460359999996,
+          "sample": 3,
+          "total_seconds": 8.731100259
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.589e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.718267932
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.76252681
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.28938429
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.583090469,
+          "sample": 4,
+          "total_seconds": 8.635001569
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.757e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.722920384
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.749899991
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.325435111
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.599771937,
+          "sample": 5,
+          "total_seconds": 8.675107039
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.7070000000000003e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7209296390000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.802419741
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.362509276
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 3.374620526,
+          "sample": 6,
+          "total_seconds": 8.539549543
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.7420000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.69329679
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7735397900000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.43700823
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.2700427769999996,
+          "sample": 0,
+          "total_seconds": 8.480590797
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.788e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.732979846
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8319071480000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.093580322
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.8447327070000004,
+          "sample": 1,
+          "total_seconds": 8.770220177
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.058e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.751989419
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.800636424
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.206000813
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.803155488999999,
+          "sample": 2,
+          "total_seconds": 8.809792726
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.1340000000000006e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.740872258
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.832480297
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.452185357
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.4242747319999998,
+          "sample": 3,
+          "total_seconds": 8.708940386
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.267e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.746968888
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.765417079
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.120745642
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.899947566999999,
+          "sample": 4,
+          "total_seconds": 8.786110288
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.429e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.7574809130000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.765870224
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.222838816
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.689624551999999,
+          "sample": 5,
+          "total_seconds": 8.678333592
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 2.956e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.689048426
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.813632254
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.4703718210000005
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 3.4560538990000005,
+          "sample": 6,
+          "total_seconds": 8.740057974
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "max_seconds": "8.8897081240000002",
+        "mean_seconds": "8.7599221121428563",
+        "median_seconds": "8.7702201770000006",
+        "min_seconds": "8.6452319039999992",
+        "ranks": "4",
+        "samples": "7",
+        "status": "PASS",
+        "threads": "64"
+      },
+      "sha256": "97fb95f4ea00886ed6f64ec6005ffce501aa68758a4c9e6ca8879ddfe82e9d6d",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      }
+    },
+    {
+      "checks": {
+        "final_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "5.3466393575176564e-15",
+          "stage": "final_roundtrip",
+          "tolerance": "1e-10"
+        },
+        "forward_spectrum": {
+          "backend": "hpx",
+          "relative_max_error": "7.616067116634044e-16",
+          "stage": "forward_spectrum",
+          "tolerance": "1e-10"
+        },
+        "initial_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "1.4598394285766894e-15",
+          "stage": "initial_roundtrip",
+          "tolerance": "1e-10"
+        }
+      },
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "global_data_bytes": "17179869184",
+        "inplace": "1",
+        "layout": "normal",
+        "max_local_allocation_bytes": "4294967296",
+        "planner": "FFTW_ESTIMATE",
+        "precision": "double",
+        "ranks": "4",
+        "samples": "7",
+        "threads": "64",
+        "warmups": "2"
+      },
+      "critical_rank_per_sample": [
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.6038856920000002
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.553317351
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.790881389
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 7.950120986000001
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.2248630699999987,
+              "sample": 0,
+              "total_seconds": 10.965865445
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 10.965865445,
+          "sample": 0,
+          "sample_max_seconds": 10.965865445
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.6541473590000002
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.558103105
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.792540942
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 8.267539588
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.230855780999999,
+              "sample": 1,
+              "total_seconds": 11.290936311
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 11.290936311,
+          "sample": 1,
+          "sample_max_seconds": 11.290936311
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.6222751180000001
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.548724385
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.792931683
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 7.691015032
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 2.2439642469999983,
+              "sample": 2,
+              "total_seconds": 10.727910962
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 10.727910962,
+          "sample": 2,
+          "sample_max_seconds": 10.727910962
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.6479354210000001
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.562751061
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.96858144
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 8.62725296
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.2293350000000007,
+              "sample": 3,
+              "total_seconds": 11.8251694
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 11.8251694,
+          "sample": 3,
+          "sample_max_seconds": 11.8251694
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.6615381130000002
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.5684513050000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.8368437580000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 11.48705565
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.2548362419999997,
+              "sample": 4,
+              "total_seconds": 14.57873565
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 14.57873565,
+          "sample": 4,
+          "sample_max_seconds": 14.57873565
+        },
+        {
+          "critical_ranks": [
+            1
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.8157644800000001
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.539065821
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.633724234
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 12.060160987000001
+                }
+              },
+              "rank": 1,
+              "residual_seconds": 2.142451066999998,
+              "sample": 5,
+              "total_seconds": 14.836336288
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 14.836336288,
+          "sample": 5,
+          "sample_max_seconds": 14.836336288
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 1.628614806
+                },
+                "message_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.557471756
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.786505817
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 12.153146439
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.225479266999999,
+              "sample": 6,
+              "total_seconds": 15.165131523
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 15.165131523,
+          "sample": 6,
+          "sample_max_seconds": 15.165131523
+        }
+      ],
+      "diagnostic_configuration": {
+        "0": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "1": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "2": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "3": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        }
+      },
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "path": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_profile_baseline_bg1.log",
+      "per_rank": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.647312541,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.558103105,
+            "recv_inclusive": 0.0,
+            "residual": 2.225479266999999,
+            "run_jobs_inclusive": 0.790881389,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.62725296,
+            "total": 11.8251694
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.678060074,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.53912536,
+            "recv_inclusive": 0.0,
+            "residual": 2.206803772999999,
+            "run_jobs_inclusive": 0.6683252820000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.515640192000001,
+            "total": 11.597630595
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.6295066020000002,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.557988962,
+            "recv_inclusive": 0.0,
+            "residual": 2.1855463660000005,
+            "run_jobs_inclusive": 0.797444398,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.118774999000001,
+            "total": 11.08549974
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              6
+            ],
+            "message_bytes_inclusive": [
+              0
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 1.657752496,
+            "message_bytes_inclusive": 0.0,
+            "receive_bytes_inclusive": 0.54661081,
+            "recv_inclusive": 0.0,
+            "residual": 2.235304241999998,
+            "run_jobs_inclusive": 0.781462573,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 8.587893857000001,
+            "total": 11.604012841
+          },
+          "rank": 3
+        }
+      ],
+      "rank_samples": [
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6038856920000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.553317351
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.790881389
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.950120986000001
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2248630699999987,
+          "sample": 0,
+          "total_seconds": 10.965865445
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6541473590000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.558103105
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.792540942
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.267539588
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.230855780999999,
+          "sample": 1,
+          "total_seconds": 11.290936311
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6319704560000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5579180530000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7864787190000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.066701465
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2140754940000003,
+          "sample": 2,
+          "total_seconds": 10.067255678
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6479354210000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.562751061
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.96858144
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.62725296
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2293350000000007,
+          "sample": 3,
+          "total_seconds": 11.8251694
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6615381130000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5684513050000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8368437580000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 11.48705565
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2548362419999997,
+          "sample": 4,
+          "total_seconds": 14.57873565
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.647312541
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.579907383
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.786136892
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 11.522495852
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2142520249999986,
+          "sample": 5,
+          "total_seconds": 14.522884769
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.628614806
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.557471756
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.786505817
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 12.153146439
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.225479266999999,
+          "sample": 6,
+          "total_seconds": 15.165131523
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.625937474
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.537036521
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.559426494
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.823000438
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.1559608260000003,
+          "sample": 0,
+          "total_seconds": 10.538387758
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.7530449490000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5298458340000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.692276702
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.327866871000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.1679127009999988,
+          "sample": 1,
+          "total_seconds": 11.188056274
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.72844182
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5631708790000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.504129446
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.391042583000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.206803772999999,
+          "sample": 2,
+          "total_seconds": 10.101975802
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6532945280000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.543894377
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.8371577990000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.515640192000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.244832603999999,
+          "sample": 3,
+          "total_seconds": 11.597630595
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.678060074
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.548450741
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7449408430000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 11.417075447
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.2120519429999987,
+          "sample": 4,
+          "total_seconds": 14.374068233
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.8157644800000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.539065821
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.633724234
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 12.060160987000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.142451066999998,
+          "sample": 5,
+          "total_seconds": 14.836336288
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.625041822
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.53912536
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.6683252820000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 11.581045527
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.2096023339999995,
+          "sample": 6,
+          "total_seconds": 14.458973143
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.631651635
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5595552500000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.788420585
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.502482494000001
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.184748534999999,
+          "sample": 0,
+          "total_seconds": 10.475651614
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6029572060000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.563196645
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.797444398
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.118774999000001
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.1692803429999987,
+          "sample": 1,
+          "total_seconds": 11.08549974
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6321797070000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.53217479
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.800193695
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.0740374390000005
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.2238941909999985,
+          "sample": 2,
+          "total_seconds": 10.098125325
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6398556780000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.556566568
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7985399110000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.810979458
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.226531883,
+          "sample": 3,
+          "total_seconds": 10.836051252
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.585430852
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.555693046
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.801729616
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 10.048652915
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.1855463660000005,
+          "sample": 4,
+          "total_seconds": 13.035928897
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6295066020000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.557988962
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7862851510000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 10.777952682
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.169400584,
+          "sample": 5,
+          "total_seconds": 13.733638417
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.616714827
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.577438466
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7920917630000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 11.212308369
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.2523213039999987,
+          "sample": 6,
+          "total_seconds": 14.256721436
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6364372850000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.54661081
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.779890964
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.649293665
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.181022285000001,
+          "sample": 0,
+          "total_seconds": 10.610206914
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6709407230000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5516476180000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7837740230000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.463889606
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.24575342,
+          "sample": 1,
+          "total_seconds": 10.493417049
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6222751180000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.548724385
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.792931683
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 7.691015032
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.2439642469999983,
+          "sample": 2,
+          "total_seconds": 10.727910962
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.657752496
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5535215800000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.780814742
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 8.587893857000001
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.235304241999998,
+          "sample": 3,
+          "total_seconds": 11.604012841
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.662945954
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.530951535
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7807112460000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 9.678649186000001
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.1842713829999987,
+          "sample": 4,
+          "total_seconds": 12.643631815
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6220714070000002
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.532636106
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.781462573
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 10.201719017
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.196048961999999,
+          "sample": 5,
+          "total_seconds": 13.179230552
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 1.6730087040000001
+            },
+            "message_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.539217183
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.93752548
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 10.897447634
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.253973168,
+          "sample": 6,
+          "total_seconds": 14.088946282
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "max_seconds": "15.165131522999999",
+        "mean_seconds": "12.770012225571429",
+        "median_seconds": "11.8251694",
+        "min_seconds": "10.727910961999999",
+        "ranks": "4",
+        "samples": "7",
+        "status": "PASS",
+        "threads": "64"
+      },
+      "sha256": "51d601bb4164b75ad3adbd28a21f54d6372fc72dd1d39bc03d803f2cb8b6b864",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      }
+    },
+    {
+      "checks": {
+        "final_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "5.3466393575176564e-15",
+          "stage": "final_roundtrip",
+          "tolerance": "1e-10"
+        },
+        "forward_spectrum": {
+          "backend": "hpx",
+          "relative_max_error": "7.616067116634044e-16",
+          "stage": "forward_spectrum",
+          "tolerance": "1e-10"
+        },
+        "initial_roundtrip": {
+          "backend": "hpx",
+          "relative_max_error": "1.4598394285766894e-15",
+          "stage": "initial_roundtrip",
+          "tolerance": "1e-10"
+        }
+      },
+      "configuration": {
+        "backend": "hpx",
+        "extent": "1024",
+        "global_data_bytes": "17179869184",
+        "inplace": "1",
+        "layout": "normal",
+        "max_local_allocation_bytes": "4294967296",
+        "planner": "FFTW_ESTIMATE",
+        "precision": "double",
+        "ranks": "4",
+        "samples": "7",
+        "threads": "64",
+        "warmups": "2"
+      },
+      "critical_rank_per_sample": [
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.622e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.570703798
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.78961121
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.291724707
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.238993486,
+              "sample": 0,
+              "total_seconds": 8.320329403
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.320329403,
+          "sample": 0,
+          "sample_max_seconds": 8.320329403
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.604e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.582947061
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.785621333
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 6.122469261
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.264192435999999,
+              "sample": 1,
+              "total_seconds": 9.17228303
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 9.17228303,
+          "sample": 1,
+          "sample_max_seconds": 9.17228303
+        },
+        {
+          "critical_ranks": [
+            2
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.808e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.557647385
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.7787952650000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.466923079000001
+                }
+              },
+              "rank": 2,
+              "residual_seconds": 2.2477923239999997,
+              "sample": 2,
+              "total_seconds": 8.493510668
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.493510668,
+          "sample": 2,
+          "sample_max_seconds": 8.493510668
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.6490000000000005e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.5605295140000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.7907894240000001
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.757858714
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.2217543209999997,
+              "sample": 3,
+              "total_seconds": 7.770402459
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 7.770402459,
+          "sample": 3,
+          "sample_max_seconds": 7.770402459
+        },
+        {
+          "critical_ranks": [
+            2
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 4.4600000000000005e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.563956221
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.769458276
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 6.5100466820000005
+                }
+              },
+              "rank": 2,
+              "residual_seconds": 2.2439472679999994,
+              "sample": 4,
+              "total_seconds": 9.523452226
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 9.523452226,
+          "sample": 4,
+          "sample_max_seconds": 9.523452226
+        },
+        {
+          "critical_ranks": [
+            3
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.033e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.557067259
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.790401019
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.367724861
+                }
+              },
+              "rank": 3,
+              "residual_seconds": 2.221726939,
+              "sample": 5,
+              "total_seconds": 8.379852819
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.379852819,
+          "sample": 5,
+          "sample_max_seconds": 8.379852819
+        },
+        {
+          "critical_ranks": [
+            0
+          ],
+          "decompositions": [
+            {
+              "metrics": {
+                "copy_bytes_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "message_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 6.0890000000000005e-06
+                },
+                "receive_bytes_inclusive": {
+                  "calls": 6,
+                  "seconds": 0.5808810550000001
+                },
+                "recv_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "run_jobs_inclusive": {
+                  "calls": 3,
+                  "seconds": 0.794932123
+                },
+                "send_inclusive": {
+                  "calls": 0,
+                  "seconds": 0.0
+                },
+                "sendrecv_inclusive": {
+                  "calls": 6,
+                  "seconds": 5.021416699
+                }
+              },
+              "rank": 0,
+              "residual_seconds": 2.2280837790000003,
+              "sample": 6,
+              "total_seconds": 8.044432601
+            }
+          ],
+          "difference_seconds": 0.0,
+          "rank_max_seconds": 8.044432601,
+          "sample": 6,
+          "sample_max_seconds": 8.044432601
+        }
+      ],
+      "diagnostic_configuration": {
+        "0": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "1": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "2": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        },
+        "3": {
+          "hpx.affinity": "pu",
+          "hpx.bind": "none",
+          "hpx.default_scheduler_mode": "",
+          "hpx.max_background_threads": "64",
+          "hpx.max_busy_loop_count": "2000",
+          "hpx.max_idle_backoff_time": "1000",
+          "hpx.max_idle_loop_count": "200000",
+          "hpx.numa_sensitive": "1",
+          "hpx.os_threads": "64",
+          "hpx.parcel.mpi.ack_handshake": "<unset>",
+          "hpx.parcel.mpi.background_threads": "1",
+          "hpx.parcel.mpi.enable": "1",
+          "hpx.parcel.mpi.multithreaded": "1",
+          "hpx.parcel.mpi.sendimm": "0",
+          "hpx.parcel.mpi.zero_copy_optimization": "1",
+          "hpx.parcel.mpi.zero_copy_receive_optimization": "1",
+          "hpx.parcel.zero_copy_optimization": "1",
+          "hpx.parcel.zero_copy_receive_optimization": "1",
+          "hpx.pu_offset": "0",
+          "hpx.pu_step": "1",
+          "hpx.scheduler": "local-priority-fifo",
+          "hpx.stacks.large_size": "0x0200000",
+          "hpx.stacks.use_guard_pages": "1"
+        }
+      },
+      "normalized_plan_sha256": {
+        "backward": "ad1bec05b5ba2f6dee71a3192f05a7e30258e9554e06063efd60c3f9df6af26b",
+        "forward": "1a5bfdc00b3c865994c62df3ace0403a78c57b25ee72b7ba78f2798df95ab632"
+      },
+      "path": "/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_profile_candidate_bg1.log",
+      "per_rank": [
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 5.13e-06,
+            "receive_bytes_inclusive": 0.576402163,
+            "recv_inclusive": 0.0,
+            "residual": 2.2280837790000003,
+            "run_jobs_inclusive": 0.7907894240000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 5.237293640000001,
+            "total": 8.274216033
+          },
+          "rank": 0
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 4.3750000000000005e-06,
+            "receive_bytes_inclusive": 0.534748175,
+            "recv_inclusive": 0.0,
+            "residual": 2.2070890499999996,
+            "run_jobs_inclusive": 0.5858187490000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.94281155,
+            "total": 7.740320006
+          },
+          "rank": 1
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 4.804e-06,
+            "receive_bytes_inclusive": 0.5570366680000001,
+            "recv_inclusive": 0.0,
+            "residual": 2.2439472679999994,
+            "run_jobs_inclusive": 0.780648326,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 5.172865861,
+            "total": 8.201165093
+          },
+          "rank": 2
+        },
+        {
+          "calls_per_sample": {
+            "copy_bytes_inclusive": [
+              0
+            ],
+            "message_bytes_inclusive": [
+              6
+            ],
+            "receive_bytes_inclusive": [
+              6
+            ],
+            "recv_inclusive": [
+              0
+            ],
+            "run_jobs_inclusive": [
+              3
+            ],
+            "send_inclusive": [
+              0
+            ],
+            "sendrecv_inclusive": [
+              6
+            ]
+          },
+          "median_seconds": {
+            "copy_bytes_inclusive": 0.0,
+            "message_bytes_inclusive": 5.405e-06,
+            "receive_bytes_inclusive": 0.557067259,
+            "recv_inclusive": 0.0,
+            "residual": 2.226580256,
+            "run_jobs_inclusive": 0.7878807510000001,
+            "send_inclusive": 0.0,
+            "sendrecv_inclusive": 4.877058237,
+            "total": 7.870629735
+          },
+          "rank": 3
+        }
+      ],
+      "rank_samples": [
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.622e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.570703798
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.78961121
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.291724707
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.238993486,
+          "sample": 0,
+          "total_seconds": 8.320329403
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.604e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.582947061
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.785621333
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 6.122469261
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.264192435999999,
+          "sample": 1,
+          "total_seconds": 9.17228303
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.13e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.576402163
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.776728458
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.237293640000001
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2601939349999993,
+          "sample": 2,
+          "total_seconds": 8.274216033
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.6490000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5605295140000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7907894240000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.757858714
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2217543209999997,
+          "sample": 3,
+          "total_seconds": 7.770402459
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.9940000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5769236440000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.790798721
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.779651697
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.1953594219999992,
+          "sample": 4,
+          "total_seconds": 8.76580984
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.118e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.570284177
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.795870736
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.825076864000001
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.213312049999999,
+          "sample": 5,
+          "total_seconds": 7.83425965
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 6.0890000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5808810550000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.794932123
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.021416699
+            }
+          },
+          "rank": 0,
+          "residual_seconds": 2.2280837790000003,
+          "sample": 6,
+          "total_seconds": 8.044432601
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.124e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.534748175
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.569936242
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.7808801160000005
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.2223695779999995,
+          "sample": 0,
+          "total_seconds": 7.573185936
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 3.9300000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5330958570000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.6152287230000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 6.044507427
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.1671841039999995,
+          "sample": 1,
+          "total_seconds": 8.826920254
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.0070000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5445695580000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.554169574
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.483782236000001
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.1874303929999996,
+          "sample": 2,
+          "total_seconds": 8.225382203
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.2120000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.531682749
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.5858187490000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.94281155
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.2116897069999997,
+          "sample": 3,
+          "total_seconds": 7.740320006
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.3750000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5393087120000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.857042292
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.478033204
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.1949393199999996,
+          "sample": 4,
+          "total_seconds": 8.530014816
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.5280000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5515569370000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.977191311
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.394926268
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.2070890499999996,
+          "sample": 5,
+          "total_seconds": 7.579206629
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.276e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.526012563
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.545000785
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.466668512
+            }
+          },
+          "rank": 1,
+          "residual_seconds": 2.22145761,
+          "sample": 6,
+          "total_seconds": 7.233126907
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.710000000000001e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5500211420000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.783768698
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.212407735
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.260305321999999,
+          "sample": 0,
+          "total_seconds": 8.256481755
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.85e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.568866284
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.780326183
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.172865861
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.2479730490000005,
+          "sample": 1,
+          "total_seconds": 8.201165093
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.808e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.557647385
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7787952650000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.466923079000001
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.2477923239999997,
+          "sample": 2,
+          "total_seconds": 8.493510668
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.804e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5570366680000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.780648326
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.732963229
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.224707199,
+          "sample": 3,
+          "total_seconds": 7.738318754
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.4600000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.563956221
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.769458276
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 6.5100466820000005
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.2439472679999994,
+          "sample": 4,
+          "total_seconds": 9.523452226
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 6.433e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.552813805
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.783757911
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.062607871
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.2423004010000005,
+          "sample": 5,
+          "total_seconds": 8.088666183
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.617e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.541480786
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.787220578
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.298117097
+            }
+          },
+          "rank": 2,
+          "residual_seconds": 2.188239992999999,
+          "sample": 6,
+          "total_seconds": 7.273577668
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 7.646000000000001e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.557118426
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.770492892
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.048724486
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.1906716299999998,
+          "sample": 0,
+          "total_seconds": 8.009889008
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.6740000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.555166469
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7739682
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.655562135
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.22787809,
+          "sample": 1,
+          "total_seconds": 7.657408425
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.405e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.571930909
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7878807510000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.321561699
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.2369602219999996,
+          "sample": 2,
+          "total_seconds": 7.346402672
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 4.306e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.5474808130000001
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.79068581
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.597562599000001
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.262153977999999,
+          "sample": 3,
+          "total_seconds": 7.650402387
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 6.3250000000000004e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.546886377
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.7900631600000001
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.780304396
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.226580256,
+          "sample": 4,
+          "total_seconds": 8.796947812
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.033e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.557067259
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.790401019
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 5.367724861
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.221726939,
+          "sample": 5,
+          "total_seconds": 8.379852819
+        },
+        {
+          "metrics": {
+            "copy_bytes_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "message_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 5.6320000000000005e-06
+            },
+            "receive_bytes_inclusive": {
+              "calls": 6,
+              "seconds": 0.562320617
+            },
+            "recv_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "run_jobs_inclusive": {
+              "calls": 3,
+              "seconds": 0.781124119
+            },
+            "send_inclusive": {
+              "calls": 0,
+              "seconds": 0.0
+            },
+            "sendrecv_inclusive": {
+              "calls": 6,
+              "seconds": 4.877058237
+            }
+          },
+          "rank": 3,
+          "residual_seconds": 2.2124473789999994,
+          "sample": 6,
+          "total_seconds": 7.870629735
+        }
+      ],
+      "result": {
+        "backend": "hpx",
+        "extent": "1024",
+        "max_seconds": "9.5234522259999999",
+        "mean_seconds": "8.5291804580000008",
+        "median_seconds": "8.3798528189999999",
+        "min_seconds": "7.7704024589999996",
+        "ranks": "4",
+        "samples": "7",
+        "status": "PASS",
+        "threads": "64"
+      },
+      "sha256": "4556c37027008f759155b4b5af8b675292d83cdfedef53b9126d7c8f8680c6c4",
+      "validated_counts": {
+        "PROFILE": 196,
+        "PROFILE_TOTAL": 28,
+        "SAMPLE": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+NOTE: All durations are seconds. PROFILE counters are inclusive wall times, not CPU times.
+NOTE: Copy, message construction, and receive counters are contained in send/recv/sendrecv; do not add them to those totals.
+NOTE: Residual = each rank/sample total - run_jobs - sendrecv. This decomposition requires the audited nonnested forward plan and no separate send/recv calls.
+NOTE: Residual includes serial transposes, other uninstrumented FFT work, and wrapper/instrumentation/clock overhead; it is not an exclusive serial-transpose measurement.
+NOTE: Medians are computed independently per component; their sum need not equal the median total. Critical-rank rows use components from the actual maximum-time rank for each sample.
+NOTE: Instrumented results are diagnostic and must not replace the uninstrumented primary benchmark.
+Normalized plans equal across runs: {"forward": true, "backward": true}
+
+RUN /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_hpx_profile_baseline.log
+Validated rows: {"PROFILE": 196, "PROFILE_TOTAL": 28, "SAMPLE": 7}
+Benchmark median (maximum over ranks): 13.546163556 seconds
+Per-rank component medians:
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+0             13.420189    0.832109    9.028603    2.804433    0.692605    3.554802
+1             13.355794    0.690517    9.049386    2.809329    0.740421    3.507170
+2             13.485051    0.895628    9.112491    2.797221    0.699318    3.502179
+3             13.487158    0.880614    8.997666    2.864584    0.781004    3.636002
+Actual critical-rank decomposition per sample (rank/sample):
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+3/0           13.660017    0.870779    8.840494    2.887935    0.818782    3.948744
+3/1           13.754896    0.896926    9.045880    2.864584    0.806332    3.812090
+0/2           13.298961    0.810650    8.944077    2.819951    0.675516    3.544233
+2/3           13.521588    0.915121    9.123104    2.808586    0.681389    3.483363
+2/4           13.542151    0.895628    9.170955    2.796032    0.696806    3.475568
+2/5           13.546164    0.909060    9.112491    2.813059    0.747578    3.524613
+0/6           13.611232    0.881528    9.154393    2.828689    0.696863    3.575311
+SAMPLE cross-check: all rank maxima match; largest absolute difference 0 seconds
+Phase calls per sample: {"0": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "1": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "2": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "3": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}}
+Runtime configuration rank=0 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=1 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=2 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=3 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+
+RUN /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_hpx_profile_candidate.log
+Validated rows: {"PROFILE": 196, "PROFILE_TOTAL": 28, "SAMPLE": 7}
+Benchmark median (maximum over ranks): 8.7702201770000006 seconds
+Per-rank component medians:
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+0              8.653152    0.852571    4.266651    0.000000    0.729794    3.489002
+1              8.654205    0.838340    4.351603    0.000000    0.715008    3.495941
+2              8.635002    0.781508    4.321846    0.000000    0.718268    3.583090
+3              8.740058    0.800636    4.222839    0.000000    0.740872    3.689625
+Actual critical-rank decomposition per sample (rank/sample):
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+1/0            8.645232    0.730992    4.279448    0.000000    0.751029    3.634792
+3/1            8.770220    0.831907    4.093580    0.000000    0.732980    3.844733
+3/2            8.809793    0.800636    4.206001    0.000000    0.751989    3.803155
+0/3            8.889708    0.904063    4.135819    0.000000    0.788915    3.849826
+3/4            8.786110    0.765417    4.120746    0.000000    0.746969    3.899948
+3/5            8.678334    0.765870    4.222839    0.000000    0.757481    3.689625
+3/6            8.740058    0.813632    4.470372    0.000000    0.689048    3.456054
+SAMPLE cross-check: all rank maxima match; largest absolute difference 0 seconds
+Phase calls per sample: {"0": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "1": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "2": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "3": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}}
+Runtime configuration rank=0 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=1 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=2 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=3 {"hpx.parcel.mpi.background_threads": "-1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+
+RUN /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_profile_baseline_bg1.log
+Validated rows: {"PROFILE": 196, "PROFILE_TOTAL": 28, "SAMPLE": 7}
+Benchmark median (maximum over ranks): 11.8251694 seconds
+Per-rank component medians:
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+0             11.825169    0.790881    8.627253    1.647313    0.558103    2.225479
+1             11.597631    0.668325    8.515640    1.678060    0.539125    2.206804
+2             11.085500    0.797444    8.118775    1.629507    0.557989    2.185546
+3             11.604013    0.781463    8.587894    1.657752    0.546611    2.235304
+Actual critical-rank decomposition per sample (rank/sample):
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+0/0           10.965865    0.790881    7.950121    1.603886    0.553317    2.224863
+0/1           11.290936    0.792541    8.267540    1.654147    0.558103    2.230856
+3/2           10.727911    0.792932    7.691015    1.622275    0.548724    2.243964
+0/3           11.825169    0.968581    8.627253    1.647935    0.562751    2.229335
+0/4           14.578736    0.836844   11.487056    1.661538    0.568451    2.254836
+1/5           14.836336    0.633724   12.060161    1.815764    0.539066    2.142451
+0/6           15.165132    0.786506   12.153146    1.628615    0.557472    2.225479
+SAMPLE cross-check: all rank maxima match; largest absolute difference 0 seconds
+Phase calls per sample: {"0": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "1": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "2": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "3": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}}
+Runtime configuration rank=0 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=1 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=2 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=3 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+
+RUN /home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/diagnostic_evidence/results/1125425/benchmark_profile_candidate_bg1.log
+Validated rows: {"PROFILE": 196, "PROFILE_TOTAL": 28, "SAMPLE": 7}
+Benchmark median (maximum over ranks): 8.3798528189999999 seconds
+Per-rank component medians:
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+0              8.274216    0.790789    5.237294    0.000000    0.576402    2.228084
+1              7.740320    0.585819    4.942812    0.000000    0.534748    2.207089
+2              8.201165    0.780648    5.172866    0.000000    0.557037    2.243947
+3              7.870630    0.787881    4.877058    0.000000    0.557067    2.226580
+Actual critical-rank decomposition per sample (rank/sample):
+rank/sample  total       run_jobs    sendrecv    copy_bytes  receive     residual
+0/0            8.320329    0.789611    5.291725    0.000000    0.570704    2.238993
+0/1            9.172283    0.785621    6.122469    0.000000    0.582947    2.264192
+2/2            8.493511    0.778795    5.466923    0.000000    0.557647    2.247792
+0/3            7.770402    0.790789    4.757859    0.000000    0.560530    2.221754
+2/4            9.523452    0.769458    6.510047    0.000000    0.563956    2.243947
+3/5            8.379853    0.790401    5.367725    0.000000    0.557067    2.221727
+0/6            8.044433    0.794932    5.021417    0.000000    0.580881    2.228084
+SAMPLE cross-check: all rank maxima match; largest absolute difference 0 seconds
+Phase calls per sample: {"0": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "1": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "2": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}, "3": {"run_jobs_inclusive": [3], "sendrecv_inclusive": [6]}}
+Runtime configuration rank=0 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=1 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=2 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}
+Runtime configuration rank=3 {"hpx.parcel.mpi.background_threads": "1", "hpx.parcel.mpi.multithreaded": "1", "hpx.parcel.mpi.zero_copy_optimization": "1", "hpx.parcel.mpi.zero_copy_receive_optimization": "1", "hpx.parcel.zero_copy_optimization": "1", "hpx.parcel.zero_copy_receive_optimization": "1"}

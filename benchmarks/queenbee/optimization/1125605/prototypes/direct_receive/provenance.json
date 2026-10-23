@@ -1,0 +1,8 @@
+{
+  "base_head": "e702e441d1914cd6e384a461fe8dd73b95e928ae",
+  "base_worktree_sha256": "4d605aeb52a995215296613d101a2ab0ee236fd8fbbfc479f66f766121b8d564",
+  "prototype_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+  "status": "source prototype only; not compiled or run",
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "license": "GPL-2.0-or-later"
+}

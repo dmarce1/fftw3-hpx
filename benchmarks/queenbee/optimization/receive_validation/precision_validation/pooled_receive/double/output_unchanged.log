@@ -1,0 +1,3 @@
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-bench: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_optimize/precision_validation/pooled_receive/double/hpx-comm-check: OK
