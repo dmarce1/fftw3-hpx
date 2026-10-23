@@ -103,6 +103,13 @@ void checkSplits(fftw_hpx_comm const world, int const rank, int const size)
                 actualRank + iteration, FFTW_HPX_SUM, selected);
             assert(total == expectedSize * iteration +
                                 expectedSize * (expectedSize - 1) / 2);
+            int const sent = actualRank + iteration * 100;
+            int received = -1;
+            int const source = (actualRank + expectedSize - 1) % expectedSize;
+            FFTW_HPX_COMM_FN(sendrecv)(&sent, 1, sizeof(int),
+                (actualRank + 1) % expectedSize, 76, &received, 1,
+                sizeof(int), source, 76, selected);
+            assert(received == source + iteration * 100);
             FFTW_HPX_COMM_FN(comm_free)(&repeated);
         }
         FFTW_HPX_COMM_FN(comm_free)(&first);
@@ -197,6 +204,73 @@ void checkMessageLifetime(fftw_hpx_comm const world, int const rank,
         for (size_t index = 0; index < offset; ++index)
         {
             assert(data[index] == rank * 100003 + static_cast<int>(index));
+        }
+    }
+}
+
+void checkRendezvousMatching(fftw_hpx_comm const world, int const rank,
+                             int const size, int const cycle)
+{
+    if (size < 2)
+    {
+        return;
+    }
+    size_t constexpr count = 32768;
+    for (int iteration = 0; iteration < 4; ++iteration)
+    {
+        for (int mode = 0; mode < 6; ++mode)
+        {
+            if (rank < 2)
+            {
+                int const peer = 1 - rank;
+                bool const overlap = mode == 2 ? rank == 1 :
+                    mode == 3 ? rank == 0 : mode == 4;
+                size_t const offset = mode == 4 && rank == 1 ? 17 : 0;
+                size_t const sendCount = mode == 5 && rank == 0 ? 0 : count;
+                size_t const receiveCount = mode == 5 && rank == 1 ? 0 : count;
+                std::vector<int> source(count + offset);
+                std::vector<int> destination(count, -1);
+                for (size_t index = 0; index < source.size(); ++index)
+                {
+                    source[index] = cycle * 10000000 + iteration * 1000000 +
+                        mode * 100000 + rank * 40000 + static_cast<int>(index);
+                }
+                int * const target = overlap ? source.data() + offset :
+                    destination.data();
+                if (rank == 1 && mode == 0)
+                {
+                    FFTW_HPX_COMM_FN(send)(source.data(), sendCount,
+                        sizeof(int), peer, 75, world);
+                    FFTW_HPX_COMM_FN(recv)(target, receiveCount,
+                        sizeof(int), peer, 75, world);
+                }
+                else if (rank == 1 && mode == 1)
+                {
+                    FFTW_HPX_COMM_FN(recv)(target, receiveCount,
+                        sizeof(int), peer, 75, world);
+                    FFTW_HPX_COMM_FN(send)(source.data(), sendCount,
+                        sizeof(int), peer, 75, world);
+                }
+                else
+                {
+                    FFTW_HPX_COMM_FN(sendrecv)(source.data(), sendCount,
+                        sizeof(int), peer, 75, target, receiveCount,
+                        sizeof(int), peer, 75, world);
+                }
+                for (size_t index = 0; index < receiveCount; ++index)
+                {
+                    assert(target[index] == cycle * 10000000 +
+                        iteration * 1000000 + mode * 100000 + peer * 40000 +
+                        static_cast<int>(index));
+                }
+                for (size_t index = 0; index < offset; ++index)
+                {
+                    assert(source[index] == cycle * 10000000 +
+                        iteration * 1000000 + mode * 100000 + rank * 40000 +
+                        static_cast<int>(index));
+                }
+            }
+            assert(FFTW_HPX_COMM_FN(allreduce_int)(1, FFTW_HPX_LAND, world));
         }
     }
 }
@@ -329,6 +403,8 @@ void checkCommunication()
         checkMessages(world, rank, size, cycle);
         stage(rank, cycle, "message ownership and overlapping buffers");
         checkMessageLifetime(world, rank, size);
+        stage(rank, cycle, "rendezvous mixed standalone, overlap and directional empty messages");
+        checkRendezvousMatching(world, rank, size, cycle);
         stage(rank, cycle, "variable all-to-all byte counts");
         checkVariableExchange(world, rank, size);
         stage(rank, cycle, "thread callback and nested large stacks");

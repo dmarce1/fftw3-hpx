@@ -24,11 +24,14 @@
 #include <exception>
 #include <functional>
 #include <limits>
+#include <map>
 #include <memory>
 #include <mutex>
 #include <numeric>
 #include <stddef.h>
+#include <stdexcept>
 #include <string>
+#include <tuple>
 #include <unordered_map>
 #include <utility>
 #include <vector>
@@ -46,12 +49,17 @@
 #include <hpx/include/runtime.hpp>
 #include <hpx/include/threads.hpp>
 #include <hpx/runtime_local/run_as_hpx_thread.hpp>
-#include <hpx/serialization/serialize_buffer.hpp>
+#include <hpx/serialization/array.hpp>
+#include <hpx/serialization/serialize.hpp>
+#include <hpx/serialization/string.hpp>
 #include <hpx/serialization/vector.hpp>
+#include <hpx/synchronization/spinlock.hpp>
 
 #include "config.h"
 #include "hpx-comm.h"
 
+// Isolated rendezvous experiment: publish destinations before readiness,
+// then initiate eligible remote payloads only after matching peer readiness.
 #if defined(FFTW_SINGLE)
 namespace fftwf_hpx_pool_transport
 #elif defined(FFTW_LDOUBLE)
@@ -239,18 +247,243 @@ private:
 
 } // namespace: unique transport types for each precision
 
+// Precision-specific external type names keep HPX action registrations distinct
+// when a program links several precision libraries into the same process.
+namespace FFTW_HPX_COMM_FN(transport)
+{
+namespace pool_transport = FFTW_HPX_COMM_FN(pool_transport);
+using Key = std::tuple<std::string, int, size_t>;
+
+// Readiness uses a distinct channel but the exact data-message sequence/tag.
+// It contains no process-local pointers, and every receive publishes one token.
+struct Readiness
+{
+    size_t bytes = 0;
+    bool direct = false;
+
+    template <typename Archive>
+    void serialize(Archive & archive, unsigned int const)
+    {
+        archive & bytes & direct;
+    }
+};
+
+struct Target
+{
+    char * data;
+    size_t bytes;
+    bool claimed = false;
+};
+
+struct Registry
+{
+    hpx::spinlock mutex;
+    std::map<Key, std::shared_ptr<Target>> targets;
+};
+
+Registry & registry()
+{
+    static Registry instance;
+    return instance;
+}
+
+class Registration
+{
+    Key key_;
+    std::shared_ptr<Target> target_;
+
+public:
+    Registration(Key key, void * const data, size_t const bytes,
+                 bool const enabled)
+        : key_(std::move(key))
+    {
+        if (bytes != 0 && data == nullptr)
+        {
+            throw std::invalid_argument("null posted receive buffer");
+        }
+        if (!enabled || bytes == 0)
+        {
+            return;
+        }
+        target_ = std::make_shared<Target>(
+            Target{static_cast<char *>(data), bytes, false});
+        Registry & entries = registry();
+        std::lock_guard<hpx::spinlock> const lock(entries.mutex);
+        if (!entries.targets.emplace(key_, target_).second)
+        {
+            throw std::logic_error("duplicate posted receive key");
+        }
+    }
+
+    Registration(Registration const &) = delete;
+    Registration & operator=(Registration const &) = delete;
+
+    ~Registration()
+    {
+        if (target_)
+        {
+            Registry & entries = registry();
+            std::lock_guard<hpx::spinlock> const lock(entries.mutex);
+            auto const found = entries.targets.find(key_);
+            if (found != entries.targets.end() && found->second == target_)
+            {
+                entries.targets.erase(found);
+            }
+        }
+    }
+};
+
+std::shared_ptr<Target> claimTarget(Key const & key, size_t const bytes)
+{
+    Registry & entries = registry();
+    std::lock_guard<hpx::spinlock> const lock(entries.mutex);
+    auto const found = entries.targets.find(key);
+    if (found == entries.targets.end())
+    {
+        return {};
+    }
+    if (found->second->bytes != bytes)
+    {
+        throw std::length_error("posted receive byte count mismatch");
+    }
+    if (found->second->claimed)
+    {
+        throw std::logic_error("posted receive claimed more than once");
+    }
+    found->second->claimed = true;
+    return found->second;
+}
+
+void ensureNoReceives()
+{
+    Registry & entries = registry();
+    std::lock_guard<hpx::spinlock> const lock(entries.mutex);
+    if (!entries.targets.empty())
+    {
+        throw std::logic_error("cleanup with a posted receive still active");
+    }
+}
+
+class Message
+{
+    Key key_;
+    size_t bytes_ = 0;
+    bool requirePosted_ = false;
+    char * data_ = nullptr;
+    pool_transport::ReceiveAllocator allocator_;
+    std::shared_ptr<char[]> owned_;
+    std::shared_ptr<Target> target_;
+
+public:
+    Message() = default;
+
+    Message(Key key, void const * const data, size_t const bytes,
+            bool const copy, bool const requirePosted = false)
+        : key_(std::move(key)), bytes_(bytes), requirePosted_(requirePosted)
+    {
+        if (bytes == 0)
+        {
+            return;
+        }
+        if (data == nullptr)
+        {
+            throw std::invalid_argument("null outgoing message buffer");
+        }
+        if (copy)
+        {
+            allocateOwned();
+            std::memcpy(data_, data, bytes);
+        }
+        else
+        {
+            data_ = const_cast<char *>(static_cast<char const *>(data));
+        }
+    }
+
+    size_t size() const noexcept
+    {
+        return bytes_;
+    }
+
+    char const * data() const noexcept
+    {
+        return data_;
+    }
+
+    friend bool operator==(Message const & left, Message const & right) noexcept
+    {
+        return left.data_ == right.data_ && left.bytes_ == right.bytes_;
+    }
+
+private:
+    friend class hpx::serialization::access;
+
+    void allocateOwned()
+    {
+        // Every shared Message copy retains this deleter's allocator/epoch.
+        // Only the last owner can return the payload to its original pool.
+        owned_ = std::shared_ptr<char[]>(
+            allocator_.allocate(bytes_),
+            [allocator = allocator_, bytes = bytes_](char * const data) mutable noexcept
+            {
+                allocator.deallocate(data, bytes);
+            });
+        data_ = owned_.get();
+    }
+
+    template <typename Archive>
+    void save(Archive & archive, unsigned int) const
+    {
+        archive << std::get<0>(key_) << std::get<1>(key_) << std::get<2>(key_)
+                << bytes_ << requirePosted_ << allocator_;
+        if (bytes_ != 0)
+        {
+            archive << hpx::serialization::make_array(data(), bytes_);
+        }
+    }
+
+    template <typename Archive>
+    void load(Archive & archive, unsigned int)
+    {
+        owned_.reset();
+        target_.reset();
+        data_ = nullptr;
+        archive >> std::get<0>(key_) >> std::get<1>(key_) >> std::get<2>(key_)
+                >> bytes_ >> requirePosted_ >> allocator_;
+        if (bytes_ != 0)
+        {
+            // This can execute on the parcel progress path. Look up once and
+            // fall back immediately; never wait for the matching recv call.
+            target_ = claimTarget(key_, bytes_);
+            if (requirePosted_ && !target_)
+            {
+                throw std::logic_error("rendezvous payload lost its posted target");
+            }
+            if (target_)
+            {
+                data_ = target_->data;
+            }
+            else
+            {
+                allocateOwned();
+            }
+            // HPX 1.11's MPI receiver fills this address before it runs the
+            // channel set action. Without zero-copy reception, load copies
+            // into the same address instead; completion semantics are equal.
+            archive >> hpx::serialization::make_array(data_, bytes_);
+        }
+    }
+
+    HPX_SERIALIZATION_SPLIT_MEMBER()
+};
+} // namespace FFTW_HPX_COMM_FN(transport)
+
+
 namespace
 {
-#if defined(FFTW_SINGLE)
-namespace pool_transport = fftwf_hpx_pool_transport;
-#elif defined(FFTW_LDOUBLE)
-namespace pool_transport = fftwl_hpx_pool_transport;
-#else
-namespace pool_transport = fftw_hpx_pool_transport;
-#endif
 using Bytes = std::vector<char>;
-using Message =
-    hpx::serialization::serialize_buffer<char, pool_transport::ReceiveAllocator>;
+namespace transport = FFTW_HPX_COMM_FN(transport);
+using Message = transport::Message;
 namespace collectives = hpx::collectives;
 
 #if defined(FFTW_SINGLE)
@@ -287,6 +520,7 @@ struct Group
     std::vector<int> members;
     collectives::communicator collective;
     collectives::channel_communicator channel;
+    collectives::channel_communicator readiness;
     size_t generation = 0;
     size_t splitCounter = 0;
     std::vector<size_t> sendSequence;
@@ -308,6 +542,10 @@ struct Group
         }
         channel = collectives::create_channel_communicator(
             hpx::launch::sync, (basename + "/channel").c_str(),
+            collectives::num_sites_arg(size),
+            collectives::this_site_arg(rank));
+        readiness = collectives::create_channel_communicator(
+            hpx::launch::sync, (basename + "/readiness").c_str(),
             collectives::num_sites_arg(size),
             collectives::this_site_arg(rank));
     }
@@ -356,29 +594,46 @@ Bytes copyBytes(void const * const data, size_t const bytes)
 }
 
 Message messageBytes(Group const & group, int const destination,
-                     void const * const data, size_t const bytes)
+                     void const * const data, size_t const bytes,
+                     size_t const sequenceTag,
+                     bool const requirePosted = false)
 {
-    if (bytes == 0)
+    return Message(transport::Key{group.basename, group.rank, sequenceTag},
+                   data, bytes, destination == group.rank, requirePosted);
+}
+
+bool buffersOverlap(void const * const first, size_t const firstBytes,
+                    void const * const second, size_t const secondBytes)
+{
+    if (firstBytes == 0 || secondBytes == 0)
     {
-        return Message();
+        return false;
     }
-    assert(data != nullptr);
-    // channel_communicator::set completes after the destination action stores
-    // its payload. Remote serialization has then finished reading the source;
-    // a local action instead retains the object, so self-sends need ownership.
-    return Message(static_cast<char const *>(data), bytes,
-                   destination == group.rank ? Message::copy
-                                             : Message::reference);
+    auto const firstAddress = reinterpret_cast<std::uintptr_t>(first);
+    auto const secondAddress = reinterpret_cast<std::uintptr_t>(second);
+    // Compare differences, avoiding overflow in address + byte count.
+    return firstAddress <= secondAddress
+        ? secondAddress - firstAddress < firstBytes
+        : firstAddress - secondAddress < secondBytes;
 }
 
 template <typename Payload>
 void receiveBytes(void * const data, size_t const bytes, Payload const & payload)
 {
-    assert(payload.size() == bytes);
+    if (payload.size() != bytes)
+    {
+        throw std::length_error("received message byte count mismatch");
+    }
     if (bytes != 0)
     {
-        assert(data != nullptr);
-        std::memcpy(data, payload.data(), bytes);
+        if (data == nullptr)
+        {
+            throw std::invalid_argument("null receive buffer");
+        }
+        if (data != payload.data())
+        {
+            std::memcpy(data, payload.data(), bytes);
+        }
     }
 }
 
@@ -458,7 +713,7 @@ try
         assert(worldEpoch < std::numeric_limits<size_t>::max());
         std::string const basename = std::string(precisionPrefix) + "/world/e" +
             std::to_string(++worldEpoch);
-        pool_transport::startReceivePool(worldEpoch);
+        transport::pool_transport::startReceivePool(worldEpoch);
         world = std::make_unique<fftw_hpx_comm_s>();
         world->group = std::make_shared<Group>(basename, rank, std::move(members));
     }
@@ -471,7 +726,8 @@ catch (...)
 extern "C" void FFTW_HPX_COMM_FN(comm_cleanup)(void)
 try
 {
-    pool_transport::stopReceivePool();
+    transport::ensureNoReceives();
+    transport::pool_transport::stopReceivePool();
     splitGroups.clear();
     world.reset();
 }
@@ -757,10 +1013,19 @@ extern "C" void FFTW_HPX_COMM_FN(send)(void const * const data,
 try
 {
     Group & group = groupOf(comm);
+    size_t const sequenceTag = messageTag(group, destination, tag, true);
+    // get installs a local continuation and returns an HPX future. Destroying
+    // that future does not wait: eager standalone send behavior is preserved,
+    // while the peer's eventual readiness token still has one consumer.
+    auto const ready = collectives::get<transport::Readiness>(
+        group.readiness, collectives::that_site_arg(destination),
+        collectives::tag_arg(sequenceTag));
+    (void) ready;
     collectives::set(
         group.channel, collectives::that_site_arg(destination),
-        messageBytes(group, destination, data, byteCount(count, elementSize)),
-        collectives::tag_arg(messageTag(group, destination, tag, true)))
+        messageBytes(group, destination, data, byteCount(count, elementSize),
+                     sequenceTag),
+        collectives::tag_arg(sequenceTag))
         .get();
 }
 catch (...)
@@ -775,12 +1040,23 @@ extern "C" void FFTW_HPX_COMM_FN(recv)(void * const data, size_t const count,
 try
 {
     Group & group = groupOf(comm);
+    size_t const bytes = byteCount(count, elementSize);
+    size_t const sequenceTag = messageTag(group, source, tag, false);
+    transport::Registration const posted(
+        transport::Key{group.basename, source, sequenceTag}, data, bytes,
+        source != group.rank);
+    auto announced = collectives::set(
+        group.readiness, collectives::that_site_arg(source),
+        transport::Readiness{bytes, source != group.rank && bytes != 0},
+        collectives::tag_arg(sequenceTag));
     receiveBytes(
-        data, byteCount(count, elementSize),
+        data, bytes,
         collectives::get<Message>(
             group.channel, collectives::that_site_arg(source),
-            collectives::tag_arg(messageTag(group, source, tag, false)))
+            collectives::tag_arg(sequenceTag))
             .get());
+    // Channel set completes on storage/continuation delivery, not a peer wait.
+    announced.get();
 }
 catch (...)
 {
@@ -795,20 +1071,51 @@ extern "C" void FFTW_HPX_COMM_FN(sendrecv)(
 try
 {
     Group & group = groupOf(comm);
+    size_t const sendBytes = byteCount(sendCount, sendSize);
+    size_t const receivedBytes = byteCount(receiveCount, receiveSize);
+    size_t const sendSequenceTag = messageTag(group, destination, sendTag, true);
+    size_t const receiveSequenceTag = messageTag(group, source, receiveTag, false);
+    bool const direct = source != group.rank && destination != group.rank &&
+        !buffersOverlap(sendData, sendBytes, receiveData, receivedBytes);
+    // Publish before advertising readiness, and initiate that advertisement
+    // before any wait. All-receive announcements break dependency cycles for
+    // rings and mixed sendrecv/standalone/overlapping-buffer calls.
+    transport::Registration const posted(
+        transport::Key{group.basename, source, receiveSequenceTag}, receiveData,
+        receivedBytes, direct);
+    auto announced = collectives::set(
+        group.readiness, collectives::that_site_arg(source),
+        transport::Readiness{receivedBytes, direct && receivedBytes != 0},
+        collectives::tag_arg(receiveSequenceTag));
+    auto ready = collectives::get<transport::Readiness>(
+        group.readiness, collectives::that_site_arg(destination),
+        collectives::tag_arg(sendSequenceTag));
+    bool requirePosted = false;
+    if (direct)
+    {
+        auto const peer = ready.get();
+        if (peer.bytes != sendBytes)
+        {
+            throw std::length_error("rendezvous receive byte count mismatch");
+        }
+        requirePosted = peer.direct;
+    }
+    // Self and overlap cases keep eager owned reception and finish the source
+    // send before copying. Their readiness future is consumed without waiting.
     auto sent = collectives::set(
         group.channel, collectives::that_site_arg(destination),
-        messageBytes(group, destination, sendData,
-                     byteCount(sendCount, sendSize)),
-        collectives::tag_arg(messageTag(group, destination, sendTag, true)));
+        messageBytes(group, destination, sendData, sendBytes, sendSequenceTag,
+                     requirePosted),
+        collectives::tag_arg(sendSequenceTag));
     auto const incoming = collectives::get<Message>(
         group.channel, collectives::that_site_arg(source),
-        collectives::tag_arg(messageTag(group, source, receiveTag, false)))
+        collectives::tag_arg(receiveSequenceTag))
                               .get();
-    // The channel returns serialize_buffer with shared ownership, avoiding
-    // its by-value get<T> deep copy of vector payloads. Finish the referenced
-    // send before writing a receive buffer that may overlap the source.
+    // Aliased calls never publish a target, so their incoming payload is owned
+    // separately. Finish the referenced send before copying it into the caller.
     sent.get();
-    receiveBytes(receiveData, byteCount(receiveCount, receiveSize), incoming);
+    receiveBytes(receiveData, receivedBytes, incoming);
+    announced.get();
 }
 catch (...)
 {
