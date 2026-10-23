@@ -1,0 +1,3325 @@
+CONFIG backend=mpi extent=1024 ranks=4 threads=64 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=17179869184 max_local_allocation_bytes=4294967296
+PLAN_SECONDS backend=mpi value=0.030437585999999999
+PLAN_FORWARD_BEGIN
+(mpi-dft-rank-geq2
+  (dft-thr-vrank>=1-x64/1
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2"))))))
+  (mpi-dft-rank1-bigvec/discontig 
+    (mpi-transpose-pairwise
+      (rdft-transpose-toms513-256x4-x524288)
+      (rdft-thr-vrank>=1-x64/1
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x64/1
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))) 
+    (mpi-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x256-x524288)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(mpi-dft-rank-geq2
+  (dft-thr-vrank>=1-x64/1
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop)))))
+  (mpi-dft-rank1-bigvec/discontig 
+    (mpi-transpose-pairwise
+      (rdft-transpose-toms513-256x4-x524288)
+      (rdft-thr-vrank>=1-x64/1
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-buffered-1024-x32/262144-6
+      (dft-thr-vrank>=1-x32/1
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128"))))
+      (dft-r2hc-1
+        (rdft-thr-vrank>=1-x32/1
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))))
+      (dft-nop)) 
+    (mpi-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x256-x524288)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=mpi stage=forward_spectrum relative_max_error=7.3248988013960868e-16 tolerance=1e-10
+CHECK backend=mpi stage=initial_roundtrip relative_max_error=1.3986960342891404e-15 tolerance=1e-10
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.37076873200000005
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78421847300000003
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=enqueue_wall calls=189 bytes=0 seconds=0.00035343900000000004
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.76723707100000005
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.016607640999999999
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=48.549590256000002
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.031347866000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.376471291000001
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3428095910000002
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9711817920000001
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.5173000000000006e-05
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00076620600000000007
+PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1939991330000002
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=0 seconds=3.320446843 process_cpu_seconds=50.910106109000004 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=0 max_rank_seconds=3.32101347
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.36162995000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81244188500000003
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033732100000000002
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.71489615900000003
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.097189254000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=48.751080581000004
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.031825784000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.570073867000005
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3222483710000001
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.95979289400000001
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.7982e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073922000000000007
+PROFILE_DETAIL backend=mpi rank=3 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1744234870000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=0 seconds=3.3084905839999998 process_cpu_seconds=51.061887709000004 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.34029804700000005
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81401249400000009
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033695799999999999
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.77364755200000002
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.040009631000000004
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=48.851241730000005
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.033746546000000002
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.677623578000002
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.312352945
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.97117924700000002
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.4632e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00079417100000000009
+PROFILE_DETAIL backend=mpi rank=1 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.195118841
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=0 seconds=3.32101347 process_cpu_seconds=51.180370207000003 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.37226674900000001
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.786419745
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=enqueue_wall calls=189 bytes=0 seconds=0.000338036
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.75510773400000009
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.030955464000000002
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=48.857023681000001
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.042411434000000005
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.678348800000002
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3415526040000001
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96847288800000009
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=6.4553000000000003e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00074179600000000008
+PROFILE_DETAIL backend=mpi rank=2 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1885689740000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=0 seconds=3.3159758799999999 process_cpu_seconds=51.203842543 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.367325811
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.791639447
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033678400000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.747009904
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.044271359000000003
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.759376465000003
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.034025152000000003
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.584965756000003
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.337447064
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96926727900000009
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.6666e-05
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00075949500000000001
+PROFILE_DETAIL backend=mpi rank=0 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1897993550000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=1 seconds=3.318154957 process_cpu_seconds=51.110077370000006 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=1 max_rank_seconds=3.3189428429999999
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.371099126
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78931863200000008
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=enqueue_wall calls=189 bytes=0 seconds=0.000342591
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.72485469400000002
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.064100425000000003
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=49.175831663000004
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.042154587
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.997208738000005
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.339870659
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96796433700000006
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=6.6666000000000002e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073378400000000002
+PROFILE_DETAIL backend=mpi rank=2 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1885200680000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=1 seconds=3.3171185419999998 process_cpu_seconds=51.521493555000006 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.33946514700000002
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81933067800000003
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=enqueue_wall calls=189 bytes=0 seconds=0.00035540400000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.74746361100000003
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.071490047000000001
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.717644696000001
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.044204012000000001
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.464514810000004
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3090204730000001
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96868202000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.1515000000000008e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00078499100000000007
+PROFILE_DETAIL backend=mpi rank=1 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1910620570000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=1 seconds=3.3189428429999999 process_cpu_seconds=50.959409042000004 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.37200123700000004
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80386980900000005
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=enqueue_wall calls=189 bytes=0 seconds=0.00037077600000000002
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.69515412900000007
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.10831950800000001
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.705891848
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.042819851000000006
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.539849364000005
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.332306234
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9594877140000001
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.3516000000000006e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073485800000000002
+PROFILE_DETAIL backend=mpi rank=3 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1741606600000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=1 seconds=3.3097205779999999 process_cpu_seconds=51.042418297000005 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.36877839700000004
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79353558700000004
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=enqueue_wall calls=189 bytes=0 seconds=0.00032182900000000004
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.76248236200000008
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.030712840000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=49.234267443
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.032252976000000003
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.051893964000001
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.338063268
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9684354260000001
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.7617000000000012e-05
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.000753862
+PROFILE_DETAIL backend=mpi rank=0 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.189479344
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=2 seconds=3.3204138570000001 process_cpu_seconds=51.576327139 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=2 max_rank_seconds=3.3398339699999999
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.35857048500000005
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81008344900000007
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=enqueue_wall calls=189 bytes=0 seconds=0.00035478300000000001
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.76134647100000008
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.048360980000000005
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=48.799615352000004
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.029713851000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.620732540000006
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.328943051
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9695479640000001
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.0246000000000004e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073540000000000009
+PROFILE_DETAIL backend=mpi rank=3 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1882335150000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=2 seconds=3.326677873 process_cpu_seconds=51.133380199000001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.31516884300000003
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.8017929840000001
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=enqueue_wall calls=189 bytes=0 seconds=0.00036269000000000004
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.747233331
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.054171638000000001
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=48.769368218000004
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.042547888000000006
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.519025585000001
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3250465760000001
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0090485900000001
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.3780000000000002e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00074889200000000003
+PROFILE_DETAIL backend=mpi rank=2 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2135819110000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=2 seconds=3.3398339699999999 process_cpu_seconds=51.053910945000005 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.34857123000000001
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80830376000000004
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=enqueue_wall calls=189 bytes=0 seconds=0.00032379200000000005
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.75181912900000003
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.056139385000000007
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=48.80500146
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.031038513
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.637920205
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3205922160000001
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.97115821600000007
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.1302000000000002e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00077311000000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1946811000000002
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=2 seconds=3.3230367959999998 process_cpu_seconds=51.149497679000007 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.39258514900000002
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78375985800000003
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=enqueue_wall calls=189 bytes=0 seconds=0.00039287500000000005
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.75484284000000001
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.028496276000000001
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=48.770468470000004
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.031833756000000005
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.601126134000005
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3643577180000002
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.97093633300000004
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.4451999999999998e-05
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00075279100000000005
+PROFILE_DETAIL backend=mpi rank=0 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.193312844
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=3 seconds=3.3408910939999998 process_cpu_seconds=51.155902620000006 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=3 max_rank_seconds=3.3555257059999999
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.42421375700000002
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78246646600000003
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033698500000000004
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.74645323100000005
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.035656664000000005
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=48.796927776000004
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.030333766000000002
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.627729909000003
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.30915103900000002
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81435094500000005
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033408200000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.783733707
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.030261862
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=49.163856386000006
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.029067486000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.990552332
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3195688250000002
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0095452010000001
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.2101000000000006e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00078336300000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2221932340000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=3 seconds=3.3555257059999999 process_cpu_seconds=51.528246042000006 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.35363093600000001
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81491269500000008
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=enqueue_wall calls=189 bytes=0 seconds=0.00039413500000000005
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.70564055000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.108850899
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=48.684154566000004
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.044508178000000002
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.429220392000005
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3244156460000001
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96995853400000009
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.7029000000000011e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00074061700000000005
+PROFILE_DETAIL backend=mpi rank=3 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.18854682
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=3 seconds=3.3272379270000001 process_cpu_seconds=50.938044780000006 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.374358698
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9493350450000001
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.4083000000000001e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00071867200000000006
+PROFILE_DETAIL backend=mpi rank=2 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1543260040000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=3 seconds=3.3105516119999998 process_cpu_seconds=51.153491574 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.37636823700000005
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78462157900000007
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=enqueue_wall calls=189 bytes=0 seconds=0.00032450300000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.764321311
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.019955909000000001
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=48.780897695
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.030821142000000003
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.617446245000004
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3472138170000001
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96999407300000007
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.7915000000000002e-05
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00076570000000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.19341925
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=4 seconds=3.3247229319999998 process_cpu_seconds=51.155090310000006 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=4 max_rank_seconds=3.3393476629999999
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.35923559600000005
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.800384706
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=enqueue_wall calls=189 bytes=0 seconds=0.00034999300000000005
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.74806370700000002
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.051949952000000001
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=49.164240096
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.033181749000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.987577915000003
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3296747790000001
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96961011800000008
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.5020000000000009e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073497100000000006
+PROFILE_DETAIL backend=mpi rank=3 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.187954682
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=4 seconds=3.317317369 process_cpu_seconds=51.500810575000003 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.40838004600000005
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78704739000000001
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=enqueue_wall calls=189 bytes=0 seconds=0.000339413
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.73103119999999999
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.055653036000000003
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=48.777913338000005
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.029985106000000001
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.587156749000002
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3598031130000001
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.95061936600000008
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=6.5186999999999998e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073117000000000006
+PROFILE_DETAIL backend=mpi rank=2 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1552230350000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=4 seconds=3.3014412750000002 process_cpu_seconds=51.098522337000006 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.30585875800000001
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80131303700000001
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=enqueue_wall calls=189 bytes=0 seconds=0.000344991
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.75632318100000007
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.044624507000000001
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=48.708866205
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.041121091000000005
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.536699384000002
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3159259860000001
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0091793250000001
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.4266000000000009e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00079658100000000009
+PROFILE_DETAIL backend=mpi rank=1 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.222676061
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=4 seconds=3.3393476629999999 process_cpu_seconds=51.071199114000002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.43727437100000005
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.77560936000000003
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033295600000000003
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.75120601500000006
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.024048846000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=48.362827922000001
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.031649043000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.178113381000003
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.38828445
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9501375700000001
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=0.000103541
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00076060600000000004
+PROFILE_DETAIL backend=mpi rank=0 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1573259690000002
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=5 seconds=3.3206167689999999 process_cpu_seconds=50.721145554000003 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=5 max_rank_seconds=3.3533928149999999
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.39700650000000004
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79391824
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=enqueue_wall calls=189 bytes=0 seconds=0.00037138700000000004
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.65743977600000003
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.136082176
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=48.927237273000003
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.031165379000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.758414764000001
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3572540690000001
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.95941880800000001
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.4656999999999999e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073468200000000007
+PROFILE_DETAIL backend=mpi rank=3 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1742342300000002
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=5 seconds=3.3247999699999999 process_cpu_seconds=51.285043903000002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.31609439900000003
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80579137100000009
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033034900000000002
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.77251793200000007
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.032924381000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=48.630724199000007
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.032771199000000001
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.444818906000002
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3254497030000001
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.008485831
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.5885999999999998e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00078653800000000004
+PROFILE_DETAIL backend=mpi rank=1 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.222663509
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=5 seconds=3.3533928149999999 process_cpu_seconds=50.988222977000007 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.38902851400000005
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79105338200000008
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=enqueue_wall calls=189 bytes=0 seconds=0.000368193
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.74509527600000003
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.045564723000000001
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=49.500483218000007
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.030713742000000002
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.323983680000005
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.355308564
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96546242100000002
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=6.2716000000000001e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.0007469340000000001
+PROFILE_DETAIL backend=mpi rank=2 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1848767930000002
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=5 seconds=3.3305957959999999 process_cpu_seconds=51.859882593000002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.40556880700000003
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.799928215
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033462900000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.76927359400000006
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.030299979000000001
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=48.889209309000002
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.047946755000000001
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.630765555000004
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3760864000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96967054500000005
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=9.171400000000001e-05
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00074725300000000002
+PROFILE_DETAIL backend=mpi rank=0 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1930033010000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=0 sample=6 seconds=3.368575382 process_cpu_seconds=51.198297173 pending_scopes=0 late_scopes=0
+SAMPLE backend=mpi index=6 max_rank_seconds=3.3830760670000002
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.31669045900000004
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.83410138500000008
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=enqueue_wall calls=189 bytes=0 seconds=0.00036647300000000003
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.76009180700000001
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.073621451000000004
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=48.735904012000006
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.044631850000000001
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.465399348000005
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3263636140000001
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0088289480000001
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=6.7219000000000008e-05
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00076979300000000006
+PROFILE_DETAIL backend=mpi rank=1 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2232070450000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=1 sample=6 seconds=3.3830760670000002 process_cpu_seconds=51.009582270000003 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.42089680600000001
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78683224600000001
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=enqueue_wall calls=189 bytes=0 seconds=0.00033956600000000002
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.74429466500000008
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.042178763000000001
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=49.135181493000005
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.033212295000000003
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.964329543000005
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.387263369
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.9655433040000001
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=7.6119000000000008e-05
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073981100000000005
+PROFILE_DETAIL backend=mpi rank=2 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1847890400000001
+PROFILE_DETAIL_TOTAL backend=mpi rank=2 sample=6 seconds=3.3583459269999998 process_cpu_seconds=51.531785060000004 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.40194541900000003
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=send_initiation_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=receive_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.81169979000000003
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=enqueue_wall calls=189 bytes=0 seconds=0.000385621
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.693917495
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.117371871
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=49.080814818
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.032685785000000002
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.908669385000003
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.3664513300000001
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.96367749400000002
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=8.0652e-05
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00073901000000000001
+PROFILE_DETAIL backend=mpi rank=3 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.175460792
+PROFILE_DETAIL_TOTAL backend=mpi rank=3 sample=6 seconds=3.3530192379999999 process_cpu_seconds=51.445644084000001 pending_scopes=0 late_scopes=0
+CHECK backend=mpi stage=final_roundtrip relative_max_error=5.196128222638237e-15 tolerance=1e-10
+RESULT backend=mpi extent=1024 ranks=4 threads=64 samples=7 min_seconds=3.3189428429999999 median_seconds=3.3398339699999999 mean_seconds=3.3444475048571429 max_seconds=3.3830760670000002 status=PASS

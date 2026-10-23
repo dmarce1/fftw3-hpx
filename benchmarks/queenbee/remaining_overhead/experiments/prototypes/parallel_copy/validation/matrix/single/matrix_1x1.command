@@ -1,0 +1,1 @@
+timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi sh\ \"/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh\"\ \"/home/dmarce1/local/hpx/Release/bin/hpxrun.py\"\ 1\ 1\ \"/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench\" 

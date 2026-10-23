@@ -1,0 +1,38 @@
+--- a/benchmarks/matched_3d.cpp
++++ b/benchmarks/matched_3d.cpp
+@@ -16,6 +16,8 @@
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+  */
+ 
++// Experimental diagnostic-only copy: reset/report receive counters outside
++// the unchanged forward timer and barrier before inverse counter activity.
+ #include <algorithm>
+ #include <array>
+ #include <chrono>
+@@ -46,6 +48,7 @@
+ 
+ #ifdef FFTW_BENCH_HPX
+ #include "fftw3-hpx.h"
++#include "receive-diagnostics.hpp"
+ #else
+ #include "fftw3-mpi.h"
+ #endif
+@@ -435,11 +438,18 @@
+     samples.reserve(static_cast<size_t>(options.samples));
+     for (int sample = 0; sample < options.samples; ++sample)
+     {
++        // Diagnostic-only: the previous local inverse has completed. All ranks
++        // reset before the existing barrier permits the next forward transform.
++        FFTW_HPX_COMM_FN(receive_diagnostics_reset)();
+         backend.barrier();
+         auto const begin = Clock::now();
+         fftw_execute(forward);
+         double const localElapsed = std::chrono::duration<double>(Clock::now() - begin).count();
+         double const elapsed = backend.maximum(localElapsed);
++        FFTW_HPX_COMM_FN(receive_diagnostics_report)(backend.rank, sample);
++        // Keep every inverse behind all reports so a fast rank cannot change
++        // another rank's counters while it reports the completed forward.
++        backend.barrier();
+         samples.push_back(elapsed);
+         if (backend.rank == 0)
+         {

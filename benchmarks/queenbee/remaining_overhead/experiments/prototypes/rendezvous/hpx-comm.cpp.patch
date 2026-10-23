@@ -1,0 +1,193 @@
+--- hybrid/hpx-comm.cpp
++++ rendezvous/hpx-comm.cpp
+@@ -58,8 +58,8 @@
+ #include "config.h"
+ #include "hpx-comm.h"
+ 
+-// Isolated hybrid experiment: direct destinations with epoch-scoped pooled
+-// ownership for early-message fallbacks and self copies.
++// Isolated rendezvous experiment: publish destinations before readiness,
++// then initiate eligible remote payloads only after matching peer readiness.
+ #if defined(FFTW_SINGLE)
+ namespace fftwf_hpx_pool_transport
+ #elif defined(FFTW_LDOUBLE)
+@@ -254,6 +254,20 @@
+ namespace pool_transport = FFTW_HPX_COMM_FN(pool_transport);
+ using Key = std::tuple<std::string, int, size_t>;
+ 
++// Readiness uses a distinct channel but the exact data-message sequence/tag.
++// It contains no process-local pointers, and every receive publishes one token.
++struct Readiness
++{
++    size_t bytes = 0;
++    bool direct = false;
++
++    template <typename Archive>
++    void serialize(Archive & archive, unsigned int const)
++    {
++        archive & bytes & direct;
++    }
++};
++
+ struct Target
+ {
+     char * data;
+@@ -354,6 +368,7 @@
+ {
+     Key key_;
+     size_t bytes_ = 0;
++    bool requirePosted_ = false;
+     char * data_ = nullptr;
+     pool_transport::ReceiveAllocator allocator_;
+     std::shared_ptr<char[]> owned_;
+@@ -363,8 +378,8 @@
+     Message() = default;
+ 
+     Message(Key key, void const * const data, size_t const bytes,
+-            bool const copy)
+-        : key_(std::move(key)), bytes_(bytes)
++            bool const copy, bool const requirePosted = false)
++        : key_(std::move(key)), bytes_(bytes), requirePosted_(requirePosted)
+     {
+         if (bytes == 0)
+         {
+@@ -420,7 +435,7 @@
+     void save(Archive & archive, unsigned int) const
+     {
+         archive << std::get<0>(key_) << std::get<1>(key_) << std::get<2>(key_)
+-                << bytes_ << allocator_;
++                << bytes_ << requirePosted_ << allocator_;
+         if (bytes_ != 0)
+         {
+             archive << hpx::serialization::make_array(data(), bytes_);
+@@ -434,12 +449,16 @@
+         target_.reset();
+         data_ = nullptr;
+         archive >> std::get<0>(key_) >> std::get<1>(key_) >> std::get<2>(key_)
+-                >> bytes_ >> allocator_;
++                >> bytes_ >> requirePosted_ >> allocator_;
+         if (bytes_ != 0)
+         {
+             // This can execute on the parcel progress path. Look up once and
+             // fall back immediately; never wait for the matching recv call.
+             target_ = claimTarget(key_, bytes_);
++            if (requirePosted_ && !target_)
++            {
++                throw std::logic_error("rendezvous payload lost its posted target");
++            }
+             if (target_)
+             {
+                 data_ = target_->data;
+@@ -501,6 +520,7 @@
+     std::vector<int> members;
+     collectives::communicator collective;
+     collectives::channel_communicator channel;
++    collectives::channel_communicator readiness;
+     size_t generation = 0;
+     size_t splitCounter = 0;
+     std::vector<size_t> sendSequence;
+@@ -524,6 +544,10 @@
+             hpx::launch::sync, (basename + "/channel").c_str(),
+             collectives::num_sites_arg(size),
+             collectives::this_site_arg(rank));
++        readiness = collectives::create_channel_communicator(
++            hpx::launch::sync, (basename + "/readiness").c_str(),
++            collectives::num_sites_arg(size),
++            collectives::this_site_arg(rank));
+     }
+ 
+     collectives::generation_arg nextGeneration()
+@@ -571,10 +595,11 @@
+ 
+ Message messageBytes(Group const & group, int const destination,
+                      void const * const data, size_t const bytes,
+-                     size_t const sequenceTag)
++                     size_t const sequenceTag,
++                     bool const requirePosted = false)
+ {
+     return Message(transport::Key{group.basename, group.rank, sequenceTag},
+-                   data, bytes, destination == group.rank);
++                   data, bytes, destination == group.rank, requirePosted);
+ }
+ 
+ bool buffersOverlap(void const * const first, size_t const firstBytes,
+@@ -989,6 +1014,13 @@
+ {
+     Group & group = groupOf(comm);
+     size_t const sequenceTag = messageTag(group, destination, tag, true);
++    // get installs a local continuation and returns an HPX future. Destroying
++    // that future does not wait: eager standalone send behavior is preserved,
++    // while the peer's eventual readiness token still has one consumer.
++    auto const ready = collectives::get<transport::Readiness>(
++        group.readiness, collectives::that_site_arg(destination),
++        collectives::tag_arg(sequenceTag));
++    (void) ready;
+     collectives::set(
+         group.channel, collectives::that_site_arg(destination),
+         messageBytes(group, destination, data, byteCount(count, elementSize),
+@@ -1013,12 +1045,18 @@
+     transport::Registration const posted(
+         transport::Key{group.basename, source, sequenceTag}, data, bytes,
+         source != group.rank);
++    auto announced = collectives::set(
++        group.readiness, collectives::that_site_arg(source),
++        transport::Readiness{bytes, source != group.rank && bytes != 0},
++        collectives::tag_arg(sequenceTag));
+     receiveBytes(
+         data, bytes,
+         collectives::get<Message>(
+             group.channel, collectives::that_site_arg(source),
+             collectives::tag_arg(sequenceTag))
+             .get());
++    // Channel set completes on storage/continuation delivery, not a peer wait.
++    announced.get();
+ }
+ catch (...)
+ {
+@@ -1039,14 +1077,35 @@
+     size_t const receiveSequenceTag = messageTag(group, source, receiveTag, false);
+     bool const direct = source != group.rank && destination != group.rank &&
+         !buffersOverlap(sendData, sendBytes, receiveData, receivedBytes);
+-    // Publish before launching the outgoing action. An early incoming action
+-    // still falls back to owned storage rather than waiting for this entry.
++    // Publish before advertising readiness, and initiate that advertisement
++    // before any wait. All-receive announcements break dependency cycles for
++    // rings and mixed sendrecv/standalone/overlapping-buffer calls.
+     transport::Registration const posted(
+         transport::Key{group.basename, source, receiveSequenceTag}, receiveData,
+         receivedBytes, direct);
++    auto announced = collectives::set(
++        group.readiness, collectives::that_site_arg(source),
++        transport::Readiness{receivedBytes, direct && receivedBytes != 0},
++        collectives::tag_arg(receiveSequenceTag));
++    auto ready = collectives::get<transport::Readiness>(
++        group.readiness, collectives::that_site_arg(destination),
++        collectives::tag_arg(sendSequenceTag));
++    bool requirePosted = false;
++    if (direct)
++    {
++        auto const peer = ready.get();
++        if (peer.bytes != sendBytes)
++        {
++            throw std::length_error("rendezvous receive byte count mismatch");
++        }
++        requirePosted = peer.direct;
++    }
++    // Self and overlap cases keep eager owned reception and finish the source
++    // send before copying. Their readiness future is consumed without waiting.
+     auto sent = collectives::set(
+         group.channel, collectives::that_site_arg(destination),
+-        messageBytes(group, destination, sendData, sendBytes, sendSequenceTag),
++        messageBytes(group, destination, sendData, sendBytes, sendSequenceTag,
++                     requirePosted),
+         collectives::tag_arg(sendSequenceTag));
+     auto const incoming = collectives::get<Message>(
+         group.channel, collectives::that_site_arg(source),
+@@ -1056,6 +1115,7 @@
+     // separately. Finish the referenced send before copying it into the caller.
+     sent.get();
+     receiveBytes(receiveData, receivedBytes, incoming);
++    announced.get();
+ }
+ catch (...)
+ {

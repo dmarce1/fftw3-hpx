@@ -1,0 +1,2 @@
+cd /work/dmarce1/fftw3_hpx_remaining_20261023
+g++ -O3 -march=native -DNDEBUG -std=c++20 -pthread -I/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125966/diagnostic_source/benchmarks -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125966/diagnostic_source/benchmarks/remaining_profile.cpp -o /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125966/objects/diagnostic/remaining_profile.o 

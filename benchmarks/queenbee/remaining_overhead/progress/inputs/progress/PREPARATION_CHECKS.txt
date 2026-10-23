@@ -1,0 +1,10 @@
+PASS: bash -n job.sbatch common.sh
+PASS: Python 3.6 syntax/API audit for every helper
+PASS: six-case parser retains both MPI controls and repeated lean baseline with correct separate drift/variant ratios
+PASS: result parser rejects failed MPI-end numerics, changed repeated-baseline plans and invalid sendimm
+PASS: prior1125925 gate recomputes all five cases without rewriting evidence and rejects failed final status
+PASS: run_log producer failure propagates exit7 through tee
+PASS: independent read-only review found no execution, gating or comparison blocker
+No local compilation, cluster access, submission or benchmark execution; synthetic fixtures are not packaged.
+PASS: actual downloaded1125925 completed evidence revalidated locally: all5 cases,15numerical checks, exact plans,2comm gates and31unchanged archive members; prior evidence unchanged.
+PASS: root reviewed fixed6-case/2-gate scripts; no default parameter selection; root will explicitly submit FFTW_SENDIMM=0.

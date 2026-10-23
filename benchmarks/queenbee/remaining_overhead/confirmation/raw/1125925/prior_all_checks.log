@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "primary_cases": 7,
+  "diagnostic_cases": 2,
+  "diagnostic_rows": 616,
+  "all_plans_equal": true,
+  "all_numerical_checks_pass": true
+}
+{
+  "status": "PASS",
+  "prior_job": "1125899",
+  "selected": "rendezvous",
+  "primary_cases": 7,
+  "diagnostic_cases": 2,
+  "diagnostic_rows": 616,
+  "prior_evidence_unchanged": true
+}

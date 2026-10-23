@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/work/dmarce1/fftw3_hpx_remaining_20261023/inputs_v2/check_members.py", line 30, in <module>
+    thread_names=[name for name in members(threads) if name=="threads.o" or name.endswith("_la-threads.o")]
+  File "/work/dmarce1/fftw3_hpx_remaining_20261023/inputs_v2/check_members.py", line 26, in members
+    names=subprocess.check_output(['ar','t',str(path)],text=True).splitlines()
+  File "/usr/lib64/python3.6/subprocess.py", line 356, in check_output
+    **kwargs).stdout
+  File "/usr/lib64/python3.6/subprocess.py", line 423, in run
+    with Popen(*popenargs, **kwargs) as process:
+TypeError: __init__() got an unexpected keyword argument 'text'

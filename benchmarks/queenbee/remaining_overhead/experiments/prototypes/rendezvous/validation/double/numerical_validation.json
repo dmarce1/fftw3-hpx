@@ -1,0 +1,49 @@
+{
+  "configuration": {
+    "backend": "hpx",
+    "extent": "256",
+    "ranks": "2",
+    "threads": "2",
+    "precision": "double",
+    "inplace": "1",
+    "layout": "normal",
+    "planner": "FFTW_ESTIMATE",
+    "warmups": "2",
+    "samples": "7",
+    "global_data_bytes": "268435456",
+    "max_local_allocation_bytes": "134217728"
+  },
+  "checks": [
+    {
+      "backend": "hpx",
+      "stage": "forward_spectrum",
+      "relative_max_error": "7.5395217858013326e-16",
+      "tolerance": "1e-10"
+    },
+    {
+      "backend": "hpx",
+      "stage": "initial_roundtrip",
+      "relative_max_error": "1.3056059912435614e-15",
+      "tolerance": "1e-10"
+    },
+    {
+      "backend": "hpx",
+      "stage": "final_roundtrip",
+      "relative_max_error": "7.4990760765808042e-15",
+      "tolerance": "1e-10"
+    }
+  ],
+  "result": {
+    "backend": "hpx",
+    "extent": "256",
+    "ranks": "2",
+    "threads": "2",
+    "samples": "7",
+    "min_seconds": "0.464443043",
+    "median_seconds": "0.48417331899999999",
+    "mean_seconds": "0.48818442014285718",
+    "max_seconds": "0.52123594500000003",
+    "status": "PASS"
+  },
+  "scope": "local correctness only"
+}

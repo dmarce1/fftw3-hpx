@@ -1,0 +1,37 @@
+{
+  "license": "GPL-2.0-or-later",
+  "scope": "Prepared runtime-only follow-up, no builds or remote access by preparer",
+  "required_prior_jobs": [
+    "1125925",
+    "1125966"
+  ],
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "clean_bridge_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "diagnostic_bridge_sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13",
+  "driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "run_order": [
+    "mpi_start",
+    "lean_baseline1000",
+    "lean_backoff10",
+    "lean_baseline1000repeat",
+    "mpi_end",
+    "hpx_profile10"
+  ],
+  "runtime": {
+    "localities": 4,
+    "workers": 64,
+    "extent": 1024,
+    "warmups": 2,
+    "samples": 7,
+    "sendimm": 0,
+    "mpi_background_threads": 1,
+    "global_background_threads": 1,
+    "mpi_multithreaded": 1,
+    "idle_loop_count": "default200000, no override",
+    "tcp_enabled": false
+  },
+  "only_clean_runtime_change": "hpx.max_idle_backoff_time=1000,10,1000",
+  "diagnostic_scope": "One new HPX-only diagnostic; no MPI profile from any previous allocation is paired",
+  "mpi_environment": "Record and preserve inherited OMPI_MPI_THREAD_LEVEL; never force, clear or replace it",
+  "no_performance_assumption": true
+}

@@ -1,0 +1,166 @@
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/copy-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+COPY_PASS bytes=33554449 owned=0 jobs=1
+COPY_PASS bytes=0 owned=0 jobs=1
+COPY_PASS bytes=1 owned=0 jobs=1
+COPY_PASS bytes=33554431 owned=0 jobs=1
+COPY_PASS bytes=33554432 owned=0 jobs=1
+COPY_PASS bytes=33554449 owned=0 jobs=1
+COPY_PASS bytes=67108867 owned=0 jobs=1
+COPY_PASS bytes=33554449 owned=1 jobs=1
+PARALLEL_COPY_CHECK_PASS
+COPY_PASS bytes=33554449 owned=0 jobs=1
+COPY_PASS bytes=0 owned=0 jobs=1
+COPY_PASS bytes=1 owned=0 jobs=1
+COPY_PASS bytes=33554431 owned=0 jobs=1
+COPY_PASS bytes=33554432 owned=0 jobs=4
+COPY_PASS bytes=33554449 owned=0 jobs=4
+COPY_PASS bytes=67108867 owned=0 jobs=4
+COPY_PASS bytes=33554449 owned=1 jobs=4
+PARALLEL_COPY_CHECK_PASS
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+communication check PASS
+CONFIG backend=hpx extent=256 ranks=2 threads=2 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=1 samples=3 global_data_bytes=268435456 max_local_allocation_bytes=134217728
+PLAN_SECONDS backend=hpx value=0.052312115999999999
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))))
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16"))))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-128x2-x65536)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-2x128-x65536)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))))
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16"))))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-128x2-x65536)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-2x128-x65536)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=7.5395217858013326e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=1.3056059912435614e-15 tolerance=1e-10
+SAMPLE backend=hpx index=0 max_rank_seconds=0.49806334099999999
+SAMPLE backend=hpx index=1 max_rank_seconds=0.48561164499999998
+SAMPLE backend=hpx index=2 max_rank_seconds=0.50253937400000004
+CHECK backend=hpx stage=final_roundtrip relative_max_error=4.2992488704309729e-15 tolerance=1e-10
+RESULT backend=hpx extent=256 ranks=2 threads=2 samples=3 min_seconds=0.48561164499999998 median_seconds=0.49806334099999999 mean_seconds=0.49540478666666665 max_seconds=0.50253937400000004 status=PASS
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/copy-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK

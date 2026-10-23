@@ -1,0 +1,3325 @@
+CONFIG backend=hpx extent=1024 ranks=4 threads=64 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=17179869184 max_local_allocation_bytes=4294967296
+PLAN_SECONDS backend=hpx value=0.030761765999999999
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x64/1
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2")))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n2fv_32_avx2")))
+        (dft-vrank>=1-x1024/1
+          (dft-ct-dit/32
+            (dftw-direct-32/8 "t3fv_32_avx2_128")
+            (dft-directbuf/34-32-x32 "n1fv_32_avx2"))))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-256x4-x524288)
+      (rdft-thr-vrank>=1-x64/1
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x64/1
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))
+      (dft-vrank>=1-x4096/1
+        (dft-ct-dit/32
+          (dftw-direct-32/8 "t3fv_32_avx2_128")
+          (dft-directbuf/34-32-x32 "n1fv_32_avx2")))) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x256-x524288)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x64/1
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop))))
+    (dft-vrank>=1-x4/1
+      (dft-rank>=2/1
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-iter-ci/2048-x32))
+          (dft-nop))
+        (dft-buffered-1024-x32/1024-6
+          (dft-vrank>=1-x32/1
+            (dft-ct-dit/32
+              (dftw-direct-32/8 "t3bv_32_avx2_128")
+              (dft-direct-32-x32 "n2bv_32_avx2_128")))
+          (dft-r2hc-1
+            (rdft-rank0-tiledbuf/2-x32-x1024))
+          (dft-nop)))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-256x4-x524288)
+      (rdft-thr-vrank>=1-x64/1
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-buffered-1024-x32/262144-6
+      (dft-thr-vrank>=1-x32/1
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128")))
+        (dft-thr-ct-dit-x2/32
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dftw-direct-32/8 "t3bv_32_avx2_128")
+          (dft-thr-vrank>=1-x2/1
+            (dft-direct-32-x16 "n2bv_32_avx2_128")
+            (dft-direct-32-x16 "n2bv_32_avx2_128"))))
+      (dft-r2hc-1
+        (rdft-thr-vrank>=1-x32/1
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-iter-ci/2-x512)
+            (rdft-rank0-iter-ci/2-x512))))
+      (dft-nop)) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x256-x524288)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=7.616067116634044e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=1.4434208435274806e-15 tolerance=1e-10
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.6311679300000002
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.013259899
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.92696829400000003
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.086601404000000007
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.60432016900000007
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=2.2120000000000002e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.1840000000000003e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.803434062
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=enqueue_wall calls=3 bytes=0 seconds=0.00056225000000000003
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.75933675100000009
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.043507767000000003
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=49.301357635000002
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.099587495000000012
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.140456708000002
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.6637958050000003
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0316070080000002
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1484000000000001e-05
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.001001793
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2016438120000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=0 seconds=4.6679995490000001 process_cpu_seconds=140.33350615099999 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=0 max_rank_seconds=4.6679995490000001
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.6400095810000002
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.012550983
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.89161770400000007
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.17797300300000002
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.55735966600000009
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=0.00031260000000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_hit calls=5 bytes=5368709120 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_miss calls=1 bytes=1073741824 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=heap_allocate_wall calls=1 bytes=1073741824 seconds=0.00031148900000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=0.00048909799999999999
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_keep calls=5 bytes=5368709120 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_delete calls=1 bytes=1073741824 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79692664400000002
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=enqueue_wall calls=3 bytes=0 seconds=0.00053549700000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.79349955599999999
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.002874082
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=49.510836905000005
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.056394026000000007
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.1613352460000002
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010732586000000001
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.44783131900000001
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.13327796
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.56894947600000001
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.2485000000000002e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_hit calls=5 bytes=5368709120 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_miss calls=1 bytes=1073741824 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=heap_allocate_wall calls=1 bytes=1073741824 seconds=1.1132000000000001e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=0.00052844600000000002
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_keep calls=5 bytes=5368709120 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_delete calls=1 bytes=1073741824 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79921134400000005
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=enqueue_wall calls=3 bytes=0 seconds=0.00055159800000000004
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.74199975200000001
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.056635569000000004
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=49.333040155000006
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.12983804400000001
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.161367803000005
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.2038022740000001
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.041648028
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2849e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00079837000000000007
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.180404287
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=0 seconds=4.1830349780000002 process_cpu_seconds=135.76069060100002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.660365418
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010791989
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=1.0273503430000002
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.053180554000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.56902451500000006
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.872e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.7410000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79942977500000001
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=enqueue_wall calls=3 bytes=0 seconds=0.00046943600000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.7881388680000001
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.010802745000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=task_wall_sum calls=192 bytes=0 seconds=49.489066754
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=0.20205693100000002
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.343734142000002
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.6629508030000002
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0017486740000001
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1930000000000001e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00081612500000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1944414730000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=0 seconds=4.6564102460000001 process_cpu_seconds=134.189248163 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.363880423000005
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.6468881880000001
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.005943061
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.0508e-05
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00091593800000000004
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1917894120000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=0 seconds=4.6342563999999999 process_cpu_seconds=144.61346023500002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.031756033
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.012619602000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.26619467200000002
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.17432125200000001
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.57860170399999999
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.1630000000000001e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.7520000000000001e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78495035400000002
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=enqueue_wall calls=3 bytes=0 seconds=0.0021741360000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.74749097900000006
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.035259286000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.406277195000001
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.080901225000000007
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.252033605000001
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0555896120000003
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.022864692
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2249000000000001e-05
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00094893000000000006
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1772686890000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=1 seconds=4.0159611279999998 process_cpu_seconds=124.33187630800001 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=1 max_rank_seconds=4.0303647500000004
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0371180340000001
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.012911583000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.43456520800000004
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.043640010999999999
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.54598429100000001
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.2950000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.9840000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78879497600000004
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=enqueue_wall calls=3 bytes=0 seconds=0.00053360400000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.77216277200000005
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.016082048000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.591038721000004
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.082366830000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.424182917000003
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0426537929999999
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0046774350000001
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1491000000000001e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00083912100000000007
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1753995690000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=1 seconds=4.0064731250000003 process_cpu_seconds=123.128007987 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.038050344
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0090795030000000009
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.42856314500000003
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.043810410000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.55657525900000004
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.1740000000000001e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.1100000000000003e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79144834500000005
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=enqueue_wall calls=3 bytes=0 seconds=0.00051100899999999999
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.77197918900000007
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.018937820000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.955819859000002
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.10041713200000001
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.799932375000004
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0384909330000003
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.99953348700000011
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2492e-05
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00088616000000000009
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1808673270000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=1 seconds=4.0104167789999998 process_cpu_seconds=124.32276600500001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.032725705
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010755594
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.37637795000000002
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.086822821000000008
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.558745245
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.192e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.4650000000000003e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=run_jobs_wall calls=3 bytes=0 seconds=0.77888503900000006
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=enqueue_wall calls=3 bytes=0 seconds=0.00050590200000000002
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=inline_work_wall calls=3 bytes=0 seconds=0.74746602200000001
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=join_wall calls=3 bytes=0 seconds=0.030895453000000003
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=task_wall_sum calls=192 bytes=0 seconds=48.087156808000003
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=queue_delay_sum calls=189 bytes=0 seconds=0.098856185000000013
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=47.941379715000004
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.063991948
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.030398479
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.0715e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.000848874
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1882070950000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=1 seconds=4.0303647500000004 process_cpu_seconds=125.18494630400001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.2592465860000002
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.011077084000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.53263876399999999
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.13078113600000002
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.58472890700000002
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.325e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.0360000000000002e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80666767400000006
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=enqueue_wall calls=3 bytes=0 seconds=0.00050952400000000002
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.77879338200000003
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.027341989000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=49.778988561000006
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.12798921400000002
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.606362248000003
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.2806326370000001
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0204021750000001
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.0691000000000001e-05
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00096483500000000004
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1943161550000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=2 seconds=4.2808813929999996 process_cpu_seconds=138.306860777 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=2 max_rank_seconds=4.2808813929999996
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0851362090000001
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0077338020000000006
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.47274719700000001
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.046646782000000005
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.55798935400000005
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.145e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.3070000000000003e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79447495000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=enqueue_wall calls=3 bytes=0 seconds=0.00050482900000000004
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.7796558950000001
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.014286741
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=49.313612419000002
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.083031746000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.145100577000001
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0350075920000001
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.012815088000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.41882228600000004
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.043314879000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.56003702100000008
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.5e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.9810000000000003e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79210349700000005
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=enqueue_wall calls=3 bytes=0 seconds=0.00055572
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.76603766800000006
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.025484572
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=49.103160704000004
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.101899034
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.933647093000005
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.051790671
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.015899323
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1143e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00086401900000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.218562039
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=2 seconds=4.0620847900000001 process_cpu_seconds=122.255705195 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.00344901
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0095691260000000007
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.29877020300000001
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.13146445100000001
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.56362489599999999
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.1990000000000001e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.6850000000000003e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=run_jobs_wall calls=3 bytes=0 seconds=0.7969594430000001
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=enqueue_wall calls=3 bytes=0 seconds=0.00047611400000000003
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=inline_work_wall calls=3 bytes=0 seconds=0.77659825800000004
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=join_wall calls=3 bytes=0 seconds=0.019866004
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=task_wall_sum calls=192 bytes=0 seconds=49.099678804
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=queue_delay_sum calls=189 bytes=0 seconds=0.101511213
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.932336560000003
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0293785200000003
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0250062720000002
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.0890000000000001e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00090442800000000009
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.207376649
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=2 seconds=4.0335210290000001 process_cpu_seconds=129.62311712500002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0982998240000001
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.012252733
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.186e-05
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00089244300000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.167107361
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=2 seconds=4.0591713470000004 process_cpu_seconds=123.249501721 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.029029671
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.013092996000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.25453891200000001
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.17361152400000002
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.58776723900000005
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.3690000000000001e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.8060000000000003e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79726028500000001
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=enqueue_wall calls=3 bytes=0 seconds=0.001044901
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.774403112
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.021784722000000003
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=48.889903930000003
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.17961705700000002
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.738685682000003
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0528482050000001
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0227728730000001
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2580000000000002e-05
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.0010235160000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.16901728
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=3 seconds=4.0183958960000004 process_cpu_seconds=127.48489375800001 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=3 max_rank_seconds=4.0238930570000004
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.99635322600000009
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010482827
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.34960193100000003
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.087937913000000006
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.54831018900000006
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.3340000000000001e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.5770000000000002e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79529808700000004
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=enqueue_wall calls=3 bytes=0 seconds=0.00048815700000000002
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.77148652900000003
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.023298701000000002
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=49.328785205000003
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.07003152800000001
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.181325571000002
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0232190280000002
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0260129730000001
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1334e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.0008330220000000001
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.202816662
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=3 seconds=4.0211423899999996 process_cpu_seconds=121.95307034100001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.019161051
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0095373880000000008
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.41743994400000001
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.044120590000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.54804595900000008
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.2020000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.4770000000000002e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.7928602010000001
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=enqueue_wall calls=3 bytes=0 seconds=0.00049555699999999999
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.76589172000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.026451381000000003
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=49.076327012
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.062316872000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.923944702
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0161182050000002
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.99610589100000002
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1718e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00083341600000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.198047498
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=3 seconds=4.0068557919999996 process_cpu_seconds=123.10556332100001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.99772204800000008
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010810701000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.44509079900000004
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00041946000000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.54138090700000008
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.1320000000000001e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.3520000000000001e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=run_jobs_wall calls=3 bytes=0 seconds=0.8089233990000001
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=enqueue_wall calls=3 bytes=0 seconds=0.00052732500000000004
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=inline_work_wall calls=3 bytes=0 seconds=0.78350121300000009
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=join_wall calls=3 bytes=0 seconds=0.024861554000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=task_wall_sum calls=192 bytes=0 seconds=50.033385070000001
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=queue_delay_sum calls=189 bytes=0 seconds=0.076158640999999999
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.868185913000005
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.006540335
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.007905281
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1534e-05
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00089459800000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.209148844
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=3 seconds=4.0238930570000004 process_cpu_seconds=121.896780155 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0399430710000002
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.01118413
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.30930532199999999
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.13133984100000001
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.58809338100000008
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.7400000000000001e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.9930000000000004e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79628323900000009
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=enqueue_wall calls=3 bytes=0 seconds=0.000498016
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.78376685600000007
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.011993025000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=49.22011483
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.16458113900000002
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.057898688000002
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0541582750000003
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.013213454
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2677000000000001e-05
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00098048600000000003
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1681487150000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=4 seconds=4.017676711 process_cpu_seconds=133.849248491 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0509557730000001
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010135227
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.44781919200000003
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.044899700000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.548082972
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.5830000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.204e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79321858600000006
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=enqueue_wall calls=3 bytes=0 seconds=0.000494539
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.74829639700000006
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.044404298000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=48.853756783000001
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.11569971500000001
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.704322791000003
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0477994989999999
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.99598258500000003
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2694000000000001e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00084199700000000004
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.188499073
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=4 seconds=4.0291640099999997 process_cpu_seconds=122.325646538 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=4 max_rank_seconds=4.0305513399999997
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.036190948
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0096368730000000007
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.43179158100000004
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.043483846
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.55125798700000006
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.1290000000000001e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.8500000000000002e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.808943246
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=enqueue_wall calls=3 bytes=0 seconds=0.00049491800000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.80375615500000008
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.0046722109999999999
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=50.153749912000002
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.027245915000000002
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.997705136
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0309206420000003
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.99379113900000005
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.0791000000000001e-05
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00091923700000000005
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1900812250000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=4 seconds=4.0297619359999999 process_cpu_seconds=124.68111017100001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.99779228100000006
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010896595
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.329452354
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.08757411200000001
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.56985012600000007
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.5460000000000001e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.3910000000000002e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80289403800000003
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=enqueue_wall calls=3 bytes=0 seconds=0.00054888400000000003
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=inline_work_wall calls=3 bytes=0 seconds=0.75858527100000006
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=join_wall calls=3 bytes=0 seconds=0.043726581
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=task_wall_sum calls=192 bytes=0 seconds=49.596426349000005
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=queue_delay_sum calls=189 bytes=0 seconds=0.099891589000000003
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.449849297
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0375037979999999
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0388607330000001
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=9.0399999999999998e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.0008326640000000001
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1909371950000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=4 seconds=4.0305513399999997 process_cpu_seconds=126.34680295000001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0207577160000001
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.011457922000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.23473644300000002
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.175416035
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.59912485500000001
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.271e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.6160000000000002e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79220370600000001
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=enqueue_wall calls=3 bytes=0 seconds=0.000502196
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.762465897
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.029217261000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=49.153644732000004
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.10417345
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.997905867
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0538330890000003
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0319983610000001
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.1867e-05
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00105631
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2247397250000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=5 seconds=4.0705868489999997 process_cpu_seconds=124.150579221 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=5 max_rank_seconds=4.0765599420000003
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0559087110000001
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.009379717000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.48411659100000004
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.0018346600000000001
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.56055880200000008
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.1000000000000001e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.6640000000000002e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79052521600000003
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=enqueue_wall calls=3 bytes=0 seconds=0.00051394800000000007
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.78098149800000005
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.0089926140000000012
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=49.206305909000001
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.001226869
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.063357719000003
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0573589600000002
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0005106510000001
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=9.2490000000000007e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00092261700000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.20159193
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=5 seconds=4.0492868900000003 process_cpu_seconds=116.848124247 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=0.99500547000000006
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.009506576000000001
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.30267019300000003
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.087403529000000008
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.59540557700000007
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.128e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.5470000000000001e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.79730959600000006
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=enqueue_wall calls=3 bytes=0 seconds=0.00055097499999999999
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.75098232100000006
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.045755585000000001
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=49.448584626000006
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.097900308000000005
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.289212968000001
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0483480250000001
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.052484746
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2622e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00083790000000000004
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2037868380000001
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=5 seconds=4.0485851190000002 process_cpu_seconds=128.404230786 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.038233306
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.012721538000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.38049923900000004
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.086542988000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.55845083800000006
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.6360000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.1130000000000001e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=run_jobs_wall calls=3 bytes=0 seconds=0.80769457300000003
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=enqueue_wall calls=3 bytes=0 seconds=0.0013519740000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=inline_work_wall calls=3 bytes=0 seconds=0.7777562990000001
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=join_wall calls=3 bytes=0 seconds=0.028568268000000001
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=task_wall_sum calls=192 bytes=0 seconds=49.582373491000006
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=queue_delay_sum calls=189 bytes=0 seconds=0.056962542000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=49.410289129000006
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0384132260000003
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.99930944200000005
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.0203e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00085198800000000003
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.231525958
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=5 seconds=4.0765599420000003 process_cpu_seconds=123.91252456900001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.032225822
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.013907174000000001
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.29048202900000003
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.13104859800000002
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.59676574500000001
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.4950000000000001e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=3.3380000000000001e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78390141000000002
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=enqueue_wall calls=3 bytes=0 seconds=0.00049588799999999999
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.74788407600000006
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.035506278000000002
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=48.349442913000004
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.15556819300000002
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.199116247000006
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0573689630000001
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0241582890000001
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=9.825e-06
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00096637100000000005
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.176676195
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=6 seconds=4.0172200120000001 process_cpu_seconds=126.474592997 pending_scopes=0 late_scopes=0
+SAMPLE backend=hpx index=6 max_rank_seconds=4.0459073139999999
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.052937786
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0090599140000000005
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.45323593500000003
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.044052191000000004
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.54657001700000007
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.6030000000000002e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.4150000000000002e-06
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78894453000000009
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=enqueue_wall calls=3 bytes=0 seconds=0.000534291
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.77985081200000006
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.0085310339999999998
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=48.823666847000005
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.064783136000000005
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.683084932
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0485102620000002
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=0.99468653200000001
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.4208e-05
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00086432200000000005
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.1753656920000002
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=6 seconds=4.0123723250000003 process_cpu_seconds=117.80032073800001 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0485506880000002
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.0084011900000000011
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.41940840700000004
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.043316129000000002
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.57740773300000003
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.35e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.7500000000000004e-06
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78523618800000006
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=enqueue_wall calls=3 bytes=0 seconds=0.00048682300000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.77103925900000003
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.013690841
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=48.422344251000005
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.103743873
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.273512343
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0613042020000001
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0118906890000001
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.2023e-05
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.00084345800000000005
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.19687656
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=6 seconds=4.043246162 process_cpu_seconds=122.976354391 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.0108901720000001
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.010483242
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.232419441
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.17467852
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.59329111800000001
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=1.2670000000000001e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_hit calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=2.8030000000000001e-06
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_keep calls=6 bytes=6442450944 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=run_jobs_wall calls=3 bytes=0 seconds=0.78811953900000009
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=enqueue_wall calls=3 bytes=0 seconds=0.00053438400000000005
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=inline_work_wall calls=3 bytes=0 seconds=0.72016909300000009
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=join_wall calls=3 bytes=0 seconds=0.067392859999999999
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=task_wall_sum calls=192 bytes=0 seconds=48.520411777
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=queue_delay_sum calls=189 bytes=0 seconds=0.130652553
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=48.351505365000001
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.0486001590000003
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_copy_wall calls=6 bytes=6442450944 seconds=1.0368462310000002
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_allocate_wall calls=2 bytes=2147483648 seconds=1.3081000000000001e-05
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=0.000842711
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=1.2098682360000002
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=6 seconds=4.0459073139999999 process_cpu_seconds=127.42122822700001 pending_scopes=0 late_scopes=0
+CHECK backend=hpx stage=final_roundtrip relative_max_error=5.9257913899479424e-15 tolerance=1e-10
+RESULT backend=hpx extent=1024 ranks=4 threads=64 samples=7 min_seconds=4.0238930570000004 median_seconds=4.0459073139999999 mean_seconds=4.1651653350000002 max_seconds=4.6679995490000001 status=PASS

@@ -1,0 +1,826 @@
+{
+  "license": "GPL-2.0-or-later",
+  "frozen_local_source": "build/qb_remaining/rendezvous_profile",
+  "byte_identical_copies": [
+    {
+      "source": "instrument.py",
+      "destination": "tools/instrument.py",
+      "sha256": "3fb55549d969f4967fa96122d797f8b90de396e6b858adeb2f6db3b68f1e0fd8",
+      "bytes": 16385
+    },
+    {
+      "source": "remaining_profile.h",
+      "destination": "tools/remaining_profile.h",
+      "sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3",
+      "bytes": 3819
+    },
+    {
+      "source": "remaining_profile.cpp",
+      "destination": "tools/remaining_profile.cpp",
+      "sha256": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b",
+      "bytes": 9894
+    },
+    {
+      "source": "remaining_mpi_profile.cpp",
+      "destination": "tools/remaining_mpi_profile.cpp",
+      "sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+      "bytes": 1387
+    },
+    {
+      "source": "analyze.py",
+      "destination": "tools/analyze.py",
+      "sha256": "bc22dc65767029aaeef2a6e1dce1f8e3c9ca8a6a5c65317672cfad97afdfebd0",
+      "bytes": 16868
+    },
+    {
+      "source": "check_analyzer.py",
+      "destination": "tools/check_analyzer.py",
+      "sha256": "c71dda3c38abc908f0d5d0c1d73035f0c510bff352dabb6fa548fffbb689695c",
+      "bytes": 7956
+    },
+    {
+      "source": "phase_check.cpp",
+      "destination": "tools/phase_check.cpp",
+      "sha256": "afc0a70b1023b1885417cf1fea01a7487948b50d236f24ff96c8b18db14a9b98",
+      "bytes": 3133
+    },
+    {
+      "source": "compile_check.sh",
+      "destination": "tools/compile_check.sh",
+      "sha256": "ca142f7530a84cca508c493be4ac69e9dd56c2d4071121b18901ef3803714193",
+      "bytes": 2498
+    },
+    {
+      "source": "TOOLS_SHA256SUMS",
+      "destination": "tools/TOOLS_SHA256SUMS",
+      "sha256": "06559b3f2312b14a05696d30483ea68361177722c3c80ab4867158a9e758e9b6",
+      "bytes": 672
+    },
+    {
+      "source": "README.md",
+      "destination": "provenance/README.md",
+      "sha256": "bdf8a0ea256d5735224dcbbf11e8fbdbf761e01148a6f8d3cce7847061b7753b",
+      "bytes": 9088
+    },
+    {
+      "source": "VALIDATION.json",
+      "destination": "provenance/VALIDATION.json",
+      "sha256": "f7e1f23605f671d285382351217ae1cc69892d65e38d419e1c2708e31788a26c",
+      "bytes": 3408
+    },
+    {
+      "source": "FROZEN_SHA256SUMS",
+      "destination": "provenance/FROZEN_SHA256SUMS",
+      "sha256": "1fd43626ff83587e76497ee681c0535d885b5e48e88a73be4c5fcd53542cbf98",
+      "bytes": 16832
+    },
+    {
+      "source": "PROJECT_INPUTS.sha256",
+      "destination": "provenance/PROJECT_INPUTS.sha256",
+      "sha256": "a995d08a3ec661e836bed136a49f00a7fa47e29d04e8212a74c83273cf32c5bd",
+      "bytes": 441
+    },
+    {
+      "source": "phase_check.log",
+      "destination": "provenance/phase_check.log",
+      "sha256": "ccfdc95363d0dd23c12f437a3b61fcd4111361cb4fbeceffa935314f32ac715e",
+      "bytes": 84
+    },
+    {
+      "source": "phase_check_compile.log",
+      "destination": "provenance/phase_check_compile.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "analyzer_check.log",
+      "destination": "provenance/analyzer_check.log",
+      "sha256": "b4690bca64024879f2641dbd35ad95fa170c902445f711f70b8ea8fa7aba7511",
+      "bytes": 131
+    },
+    {
+      "source": "transform_final.log",
+      "destination": "provenance/transform_final.log",
+      "sha256": "94a711f31409f640816d60e7c1a029cace4ec3b9f687705a3dd997ffaa15c4a4",
+      "bytes": 1797
+    },
+    {
+      "source": "compile_check/bridge.command",
+      "destination": "compile/bridge.command",
+      "sha256": "915ba3674207b68a9861ed9c28d9f84d0b2b0adbd066dc4af697056c9b63cb38",
+      "bytes": 575
+    },
+    {
+      "source": "compile_check/bridge.log",
+      "destination": "compile/bridge.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/common.command",
+      "destination": "compile/common.command",
+      "sha256": "9a92c7bdaaf60d769a7937f7b5fb566b9f664e9bb3fdb6f29a3a1b17cc4d49fa",
+      "bytes": 372
+    },
+    {
+      "source": "compile_check/common.log",
+      "destination": "compile/common.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/hpx_driver.command",
+      "destination": "compile/hpx_driver.command",
+      "sha256": "932852b4c7bb44453af0a12d6d1fca9c08bd230b368cc3ce99cca0dba8b48470",
+      "bytes": 570
+    },
+    {
+      "source": "compile_check/hpx_driver.log",
+      "destination": "compile/hpx_driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/hpx_pairwise.command",
+      "destination": "compile/hpx_pairwise.command",
+      "sha256": "b2480bc0e05fdae29b3cbf51039d07b2558af4c2a8fbdd8fe6412b75056624fc",
+      "bytes": 295
+    },
+    {
+      "source": "compile_check/hpx_pairwise.log",
+      "destination": "compile/hpx_pairwise.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/mpi_driver.command",
+      "destination": "compile/mpi_driver.command",
+      "sha256": "739dc92d6cbce40d0d55833ceaaf24cca856fed17872514fda0d9b0a5052cf96",
+      "bytes": 272
+    },
+    {
+      "source": "compile_check/mpi_driver.log",
+      "destination": "compile/mpi_driver.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/mpi_interpose.command",
+      "destination": "compile/mpi_interpose.command",
+      "sha256": "fe381d29185143540233f78e585cf8fbef891e86a6f1932d2dfd3a8d7d8f6ee7",
+      "bytes": 383
+    },
+    {
+      "source": "compile_check/mpi_interpose.log",
+      "destination": "compile/mpi_interpose.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/mpi_pairwise.command",
+      "destination": "compile/mpi_pairwise.command",
+      "sha256": "5247fbf113148d986790c615d243125554da7ce9655fa68adddf1b21a6cb9be6",
+      "bytes": 297
+    },
+    {
+      "source": "compile_check/mpi_pairwise.log",
+      "destination": "compile/mpi_pairwise.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "compile_check/threads.command",
+      "destination": "compile/threads.command",
+      "sha256": "68091df4927278214e2b058a9fc46e2f05eb6899be365d72d23a71f60b49855c",
+      "bytes": 271
+    },
+    {
+      "source": "compile_check/threads.log",
+      "destination": "compile/threads.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "local_runtime/archives.json",
+      "destination": "raw/local_runtime/archives.json",
+      "sha256": "076df5102f6cea97914f4d020b95aa6844c5c946bbae86a4d5e16b09af75c51d",
+      "bytes": 15257
+    },
+    {
+      "source": "local_runtime/benchmark_hpx.command",
+      "destination": "raw/local_runtime/benchmark_hpx.command",
+      "sha256": "ce38fa7b28224c600eee7a717dcabdc4dda8dd85866a95d9fe70524b2006fd61",
+      "bytes": 499
+    },
+    {
+      "source": "local_runtime/benchmark_hpx.log",
+      "destination": "raw/local_runtime/benchmark_hpx.log",
+      "sha256": "28d8a835b6ccd0b9e6b25f483543f8e65a3649fd0d4ca96a4beac85e8e061aa1",
+      "bytes": 2116
+    },
+    {
+      "source": "local_runtime/benchmark_mpi.command",
+      "destination": "raw/local_runtime/benchmark_mpi.command",
+      "sha256": "efe25d48de25a793f1121739e6effd1894099ed86ecb4e85322f2ee91c2324b3",
+      "bytes": 441
+    },
+    {
+      "source": "local_runtime/benchmark_mpi.log",
+      "destination": "raw/local_runtime/benchmark_mpi.log",
+      "sha256": "34f206a86471579fce38939984068522fde28242f2ea7f98e779e3e8f73f0b8a",
+      "bytes": 4308
+    },
+    {
+      "source": "local_runtime/hpx_interleaved.log",
+      "destination": "raw/local_runtime/hpx_interleaved.log",
+      "sha256": "f343b6d144e644278b996db3dd24c73f12dd21ef64ef128c82420288e1bf4bc5",
+      "bytes": 131868
+    },
+    {
+      "source": "local_runtime/hpx_rank_logs/hpx-0.log",
+      "destination": "raw/local_runtime/hpx_rank_logs/hpx-0.log",
+      "sha256": "6f8505dc52890755e16c006d6970b336be86c03e8d475c72baeb6f5683dd576d",
+      "bytes": 32528
+    },
+    {
+      "source": "local_runtime/hpx_rank_logs/hpx-1.log",
+      "destination": "raw/local_runtime/hpx_rank_logs/hpx-1.log",
+      "sha256": "0fbcb88953e2d263257856db1d35fffbcb565cb3caf8485d2e61b0408edaca35",
+      "bytes": 32411
+    },
+    {
+      "source": "local_runtime/hpx_rank_logs/hpx-2.log",
+      "destination": "raw/local_runtime/hpx_rank_logs/hpx-2.log",
+      "sha256": "0f8f6beac559002b18a27b0840ccf55151790b1621176dad0fc17444919eed74",
+      "bytes": 32534
+    },
+    {
+      "source": "local_runtime/hpx_rank_logs/hpx-3.log",
+      "destination": "raw/local_runtime/hpx_rank_logs/hpx-3.log",
+      "sha256": "7d5f39210d77e83d79a96d2c76e4083fb9d4cd89ff6c6024e2e77f41f157839b",
+      "bytes": 32490
+    },
+    {
+      "source": "local_runtime/link_hpx.command",
+      "destination": "raw/local_runtime/link_hpx.command",
+      "sha256": "dec7f3caf002ee292e0ba36cb44b311831352e800bbe4bdbe9a2ebd45141b9ee",
+      "bytes": 952
+    },
+    {
+      "source": "local_runtime/link_hpx.log",
+      "destination": "raw/local_runtime/link_hpx.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "local_runtime/link_mpi.command",
+      "destination": "raw/local_runtime/link_mpi.command",
+      "sha256": "a53903085d995f0defc209da8ee0cb480cd5d2f346ed3693ec37a26d38c1cce4",
+      "bytes": 685
+    },
+    {
+      "source": "local_runtime/link_mpi.log",
+      "destination": "raw/local_runtime/link_mpi.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source": "local_runtime/mpi_interleaved.log",
+      "destination": "raw/local_runtime/mpi_interleaved.log",
+      "sha256": "9cb04ca9ba1c6d4bef00fa610aafff63e9347ee46e139553639fa4abed5515ef",
+      "bytes": 128413
+    },
+    {
+      "source": "local_runtime/mpi_rank_logs/mpi-0.log",
+      "destination": "raw/local_runtime/mpi_rank_logs/mpi-0.log",
+      "sha256": "4470c2aed271402c7335592bb8ee573409c522cd2010c9974433a7601049d012",
+      "bytes": 31026
+    },
+    {
+      "source": "local_runtime/mpi_rank_logs/mpi-1.log",
+      "destination": "raw/local_runtime/mpi_rank_logs/mpi-1.log",
+      "sha256": "79dfc60d54b32195d50f4975d9cb708229addcb2e1911384a59a4a57c5a3433d",
+      "bytes": 31015
+    },
+    {
+      "source": "local_runtime/mpi_rank_logs/mpi-2.log",
+      "destination": "raw/local_runtime/mpi_rank_logs/mpi-2.log",
+      "sha256": "57abf631d79b670d82db72f1cfd29a33c4bd961befa70604579d9d3550071da8",
+      "bytes": 31040
+    },
+    {
+      "source": "local_runtime/mpi_rank_logs/mpi-3.log",
+      "destination": "raw/local_runtime/mpi_rank_logs/mpi-3.log",
+      "sha256": "f2aecb240979ff4d855f8fc7cfe4d50174c4119d9b0747655c26bf9a9e5fc7d8",
+      "bytes": 31013
+    },
+    {
+      "source": "local_runtime/mpi_sandbox_socket_denial.log",
+      "destination": "raw/local_runtime/mpi_sandbox_socket_denial.log",
+      "sha256": "e510533d207c3028ae5b46b608e32e13abb0cf927fcac6cb2cc3f9ce901da6fa",
+      "bytes": 557
+    },
+    {
+      "source": "local_threaded/benchmark_hpx.command",
+      "destination": "raw/local_threaded/benchmark_hpx.command",
+      "sha256": "65069ba003d00e8f6246714758ff4cfe0739b926415eaa09c1b83da7b67bac1c",
+      "bytes": 501
+    },
+    {
+      "source": "local_threaded/benchmark_hpx.log",
+      "destination": "raw/local_threaded/benchmark_hpx.log",
+      "sha256": "7064f0e11b1aec6602997df690b038c5a2386f879f70214b8eb15774f725b2ae",
+      "bytes": 8043
+    },
+    {
+      "source": "local_threaded/benchmark_mpi.command",
+      "destination": "raw/local_threaded/benchmark_mpi.command",
+      "sha256": "fd81180f6f5375d2f405a5b2e3d690652ce79c5cb69b3199184bf94d804b4eda",
+      "bytes": 443
+    },
+    {
+      "source": "local_threaded/benchmark_mpi.log",
+      "destination": "raw/local_threaded/benchmark_mpi.log",
+      "sha256": "3ff629d68da8886583360bfb9e4e199d94d8922bbc8485d9c47126d4ab8cab12",
+      "bytes": 9174
+    },
+    {
+      "source": "local_threaded/hpx_rank_logs/hpx-0.log",
+      "destination": "raw/local_threaded/hpx_rank_logs/hpx-0.log",
+      "sha256": "0e42960e74c093601faab63566fc9b8c18264b48dec87b093b4f6e4bdbddc872",
+      "bytes": 33736
+    },
+    {
+      "source": "local_threaded/hpx_rank_logs/hpx-1.log",
+      "destination": "raw/local_threaded/hpx_rank_logs/hpx-1.log",
+      "sha256": "80f7d9366111281b09bd87218c185207551ae229d834f1e5724badc6567cb39b",
+      "bytes": 33644
+    },
+    {
+      "source": "local_threaded/hpx_rank_logs/hpx-2.log",
+      "destination": "raw/local_threaded/hpx_rank_logs/hpx-2.log",
+      "sha256": "95e94df436a4ba38b431c2299793c4d37089811616673f0a060ff36f50f0c1e3",
+      "bytes": 33654
+    },
+    {
+      "source": "local_threaded/mpi_rank_logs/mpi-0.log",
+      "destination": "raw/local_threaded/mpi_rank_logs/mpi-0.log",
+      "sha256": "686e4a35491fbf89f099565f6eff2f3184fe57e0eea95b48b61e922f2559c53b",
+      "bytes": 32312
+    },
+    {
+      "source": "local_threaded/mpi_rank_logs/mpi-1.log",
+      "destination": "raw/local_threaded/mpi_rank_logs/mpi-1.log",
+      "sha256": "32ce64cfa6d5bf8e191db6ea4deb35667c0a8ba4234abff563f91e0d5a14e3f9",
+      "bytes": 32366
+    },
+    {
+      "source": "local_threaded/mpi_rank_logs/mpi-2.log",
+      "destination": "raw/local_threaded/mpi_rank_logs/mpi-2.log",
+      "sha256": "fd6bf7fb8c8a67cf6cf9483bcdc2645e7ee8100074c5918f65cbe2515639bdfe",
+      "bytes": 32313
+    },
+    {
+      "source": "final_reverse_check/hpx/hpx-comm.cpp",
+      "destination": "source_inputs/hpx/hpx-comm.cpp",
+      "sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "bytes": 38100
+    },
+    {
+      "source": "final_reverse_check/benchmarks/matched_3d.cpp",
+      "destination": "source_inputs/benchmarks/matched_3d.cpp",
+      "sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "bytes": 18075
+    },
+    {
+      "source": "final_reverse_check/threads/threads.c",
+      "destination": "source_inputs/threads/threads.c",
+      "sha256": "e47e83fce6c6ec01b1b073429ed844b0c1768402eab8d00df18262f5748f3bd3",
+      "bytes": 13049
+    },
+    {
+      "source": "final_reverse_check/hpx/transpose-pairwise.c",
+      "destination": "source_inputs/hpx/transpose-pairwise.c",
+      "sha256": "250cf3f915690e5c8e914d8395625d09c9cbd8626f6528ec3350465cf8664fdc",
+      "bytes": 15537
+    },
+    {
+      "source": "final_reverse_check/mpi/transpose-pairwise.c",
+      "destination": "source_inputs/mpi/transpose-pairwise.c",
+      "sha256": "173df10a57fdad3c3392a59c96e33e852e91b0281033be87cffdd169daa695cb",
+      "bytes": 15505
+    },
+    {
+      "source": "reproduction_check/remaining_profile.patch",
+      "destination": "transformation/remaining_profile.patch",
+      "sha256": "3f4020e50b5312081395fb5d9d05eaf81d5f53bad903415068a854983638b282",
+      "bytes": 18177
+    },
+    {
+      "source": "reproduction_check/remaining_profile_manifest.json",
+      "destination": "transformation/remaining_profile_manifest.json",
+      "sha256": "94a711f31409f640816d60e7c1a029cace4ec3b9f687705a3dd997ffaa15c4a4",
+      "bytes": 1797
+    },
+    {
+      "source": "reproduction_check/hpx/hpx-comm.cpp",
+      "destination": "transformation/hpx-comm.cpp",
+      "sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13",
+      "bytes": 39968
+    },
+    {
+      "source": "analyzer_check/SYNTHETIC_mpi.log",
+      "destination": "fixtures/SYNTHETIC_mpi.log",
+      "sha256": "d5440c954589a4e2acecf265584dc5a4b386484fdd49c898e5bcc84955b54e2f",
+      "bytes": 219496
+    },
+    {
+      "source": "analyzer_check/SYNTHETIC_hpx.log",
+      "destination": "fixtures/SYNTHETIC_hpx.log",
+      "sha256": "26bff14dbc09761a26b9828c23fa9382badb41195f044026d258a92fdd5a21f0",
+      "bytes": 229679
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_no_exact_ns.log",
+      "destination": "fixtures/INVALID_hpx_no_exact_ns.log",
+      "sha256": "96e6c38867c47fe8d668aff550e9aca485975bafbdf88c7767b1b8b3cc952088",
+      "bytes": 209547
+    },
+    {
+      "source": "analyzer_check/SYNTHETIC_legacy_mpi.log",
+      "destination": "fixtures/SYNTHETIC_legacy_mpi.log",
+      "sha256": "11be630a80ae9e2cbf5f40d66e93f400a3c2db95817f64692ff3a82c6d3332c1",
+      "bytes": 174102
+    }
+  ],
+  "losslessly_encoded_fixtures": "fixtures/FIXTURES.json",
+  "excluded_files": [
+    {
+      "source": "analyzer_check/SYNTHETIC_analysis.json",
+      "sha256": "f95e41b009d5a4363e004e2c5523a154fa3f864e1a73d9b3f2058b56c1181501",
+      "bytes": 622532,
+      "reason": "Large derived analysis JSON omitted; raw logs and exact analyzer retained, compact summary provided."
+    },
+    {
+      "source": "analyzer_check/cli.log",
+      "sha256": "50d0952c5db0d45797f64eaa6e83b4be84898e28c770f2741486d324af64981a",
+      "bytes": 2977,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "compile_check/hpx-comm.o",
+      "sha256": "1feb854413ab45cc4e340177bab05e5d39e5c4728131b57eb1ced96a5c057183",
+      "bytes": 6274784,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/hpx-driver.o",
+      "sha256": "6ab49ea95cb3bfc82b6d43acc0d63935f7a82634c2f601bb593f30d82d59e83c",
+      "bytes": 1393616,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/hpx-transpose-pairwise.o",
+      "sha256": "3396dd6e2baf630241fd24a5af90f235374658a203b138fbe17972ba9dea6a59",
+      "bytes": 11912,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/mpi-driver.o",
+      "sha256": "db243b7a72af5ce72811ae9d92c6f7d38b8cbedf0060bce34f46fcb1d9f4958e",
+      "bytes": 41264,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/mpi-transpose-pairwise.o",
+      "sha256": "56d0f25a6f5635c65c7636fc5013a90d20fb0a29b185a7636e6bef17f6fffe0c",
+      "bytes": 12064,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/remaining_mpi_profile.o",
+      "sha256": "22875704ee58e0753074c992b009f37700dba9a533e5f2575d05cc9647695913",
+      "bytes": 2944,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/remaining_profile.o",
+      "sha256": "01bb4d9892d868ede90bef6661a7f4c5b688fe52df332abc48683d1944b43158",
+      "bytes": 24720,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "compile_check/threads.o",
+      "sha256": "398cfcf9bb6b371aa5c2e446b166568e1bab1bcccc778d5eeca01ecf1b99bacf",
+      "bytes": 9280,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "final_reverse_check/benchmarks/remaining_mpi_profile.cpp",
+      "sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+      "bytes": 1387,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "final_reverse_check/benchmarks/remaining_profile.cpp",
+      "sha256": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b",
+      "bytes": 9894,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "final_reverse_check/benchmarks/remaining_profile.h",
+      "sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3",
+      "bytes": 3819,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "final_reverse_check/remaining_profile.patch",
+      "sha256": "3f4020e50b5312081395fb5d9d05eaf81d5f53bad903415068a854983638b282",
+      "bytes": 18177,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "final_reverse_check/remaining_profile_manifest.json",
+      "sha256": "94a711f31409f640816d60e7c1a029cace4ec3b9f687705a3dd997ffaa15c4a4",
+      "bytes": 1797,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "local_runtime/analysis.json",
+      "sha256": "4ae105abaf90fad509b1c08cf8dd5d416629a790d6beb9a724039ac03515a135",
+      "bytes": 605832,
+      "reason": "Large derived analysis JSON omitted; raw logs and exact analyzer retained, compact summary provided."
+    },
+    {
+      "source": "local_runtime/analysis.log",
+      "sha256": "53aed08a455c87a00af9923b3516971944a61bd33685178e07371e1358a29d53",
+      "bytes": 2688,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "local_runtime/analysis_hpx.log",
+      "sha256": "ac42bc4a0f65cbef42375f7dc810572d237eaada0102a33bb0214549070afeb7",
+      "bytes": 132083,
+      "reason": "Concatenated duplicate analysis input omitted; original benchmark and rank files retained separately."
+    },
+    {
+      "source": "local_runtime/analysis_mpi.log",
+      "sha256": "9482c70f995c9079e134fc21beeab9c3e1ab27ebf7f54e5b8db3392cf73e0ec5",
+      "bytes": 128406,
+      "reason": "Concatenated duplicate analysis input omitted; original benchmark and rank files retained separately."
+    },
+    {
+      "source": "local_runtime/hpx_members/hpx-comm.o",
+      "sha256": "1feb854413ab45cc4e340177bab05e5d39e5c4728131b57eb1ced96a5c057183",
+      "bytes": 6274784,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/hpx_members/transpose-pairwise.o",
+      "sha256": "3396dd6e2baf630241fd24a5af90f235374658a203b138fbe17972ba9dea6a59",
+      "bytes": 11912,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/libfftw3_hpx.a",
+      "sha256": "5a021ef3a0a408269d525f979c4f545939329f5637c4565ae06d71148259cec3",
+      "bytes": 7576140,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/libfftw3_mpi.a",
+      "sha256": "6711e92dac3517cceddb9a78954fd17f59db58150e3cc8f4ed4c33037a51e890",
+      "bytes": 208648,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/libfftw3_threads.a",
+      "sha256": "c5188dc4776b6a1dc82de928d7329ca7eef495e91bea1790b4f2ce6d5329d40c",
+      "bytes": 51314,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/matched_hpx",
+      "sha256": "b5a2bf2be7f38cf11c5d79e401470db721fea44ab93a18369838be96c807e5b2",
+      "bytes": 4971136,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/matched_mpi",
+      "sha256": "bc1bc4c939d99eb9a3f39fe8da2aa6c8d7b41be8bcc53d6007f690ebbb33b310",
+      "bytes": 1378600,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/mpi_members/transpose-pairwise.o",
+      "sha256": "56d0f25a6f5635c65c7636fc5013a90d20fb0a29b185a7636e6bef17f6fffe0c",
+      "bytes": 12064,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_runtime/threads_members/libfftw3_threads_la-threads.o",
+      "sha256": "398cfcf9bb6b371aa5c2e446b166568e1bab1bcccc778d5eeca01ecf1b99bacf",
+      "bytes": 9280,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "local_threaded/analysis.json",
+      "sha256": "e54aa460193a514360585b7ec177d22c23cb4f1ad1166b2b7894edaac3746957",
+      "bytes": 497467,
+      "reason": "Large derived analysis JSON omitted; raw logs and exact analyzer retained, compact summary provided."
+    },
+    {
+      "source": "local_threaded/analysis.log",
+      "sha256": "acdb7ad1be0b97a2ddd60d5749eb206a4000c5e30fd76686eef61e73a7d858d6",
+      "bytes": 2951,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "local_threaded/analysis_hpx.log",
+      "sha256": "c7341f886a7807ef5572c9ed0599da205d6b1aba54da895c946bc308f3eb116d",
+      "bytes": 109080,
+      "reason": "Concatenated duplicate analysis input omitted; original benchmark and rank files retained separately."
+    },
+    {
+      "source": "local_threaded/analysis_mpi.log",
+      "sha256": "ce28aa380b339fc547258c43057405a9f17ea7fdcd1287cec0b0fa26461835de",
+      "bytes": 106168,
+      "reason": "Concatenated duplicate analysis input omitted; original benchmark and rank files retained separately."
+    },
+    {
+      "source": "phase_check",
+      "sha256": "5723b630dd92d1b94bf6834ae443e656a67303a0a0b53d875f2a27880d77e515",
+      "bytes": 36368,
+      "reason": "Binary executable/object/archive omitted; exact digest retained."
+    },
+    {
+      "source": "reproduction_check/benchmarks/matched_3d.cpp",
+      "sha256": "a679e0b3584ae14816d1e677b653ca9889cb644e9643cd7a024c045a2f9c6da0",
+      "bytes": 18317,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reproduction_check/benchmarks/remaining_mpi_profile.cpp",
+      "sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+      "bytes": 1387,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reproduction_check/benchmarks/remaining_profile.cpp",
+      "sha256": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b",
+      "bytes": 9894,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reproduction_check/benchmarks/remaining_profile.h",
+      "sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3",
+      "bytes": 3819,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reproduction_check/hpx/transpose-pairwise.c",
+      "sha256": "e45a7538b43c6d71711abac63d33e67cfcf458168d83e26cc92062aad53881a9",
+      "bytes": 16493,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reproduction_check/mpi/transpose-pairwise.c",
+      "sha256": "5d86828ab734fbdbb7a9a18ba7d88682d4f3ce1af8d2902ef77f4772f58e69e8",
+      "bytes": 16461,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reproduction_check/threads/threads.c",
+      "sha256": "d020df071438e33ca472f917e56fcdcd2cacebddde71bdfe3ead961e9f9c3fa6",
+      "bytes": 14046,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/benchmarks/matched_3d.cpp",
+      "sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "bytes": 18075,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/benchmarks/remaining_mpi_profile.cpp",
+      "sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+      "bytes": 1387,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/benchmarks/remaining_profile.cpp",
+      "sha256": "620308867c78278d6ffd08ea5e83d31a8b4b51fb0edd681196bd0baa27bcd289",
+      "bytes": 9036,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/benchmarks/remaining_profile.h",
+      "sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3",
+      "bytes": 3819,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/hpx/hpx-comm.cpp",
+      "sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "bytes": 38100,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/hpx/transpose-pairwise.c",
+      "sha256": "250cf3f915690e5c8e914d8395625d09c9cbd8626f6528ec3350465cf8664fdc",
+      "bytes": 15537,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/mpi/transpose-pairwise.c",
+      "sha256": "173df10a57fdad3c3392a59c96e33e852e91b0281033be87cffdd169daa695cb",
+      "bytes": 15505,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/remaining_profile.patch",
+      "sha256": "3f4020e50b5312081395fb5d9d05eaf81d5f53bad903415068a854983638b282",
+      "bytes": 18177,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/remaining_profile_manifest.json",
+      "sha256": "9abf2d966073c788764a122773d56e1d595eaa37024ce58b42346e95291fecb6",
+      "bytes": 1794,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "reverse_check/threads/threads.c",
+      "sha256": "e47e83fce6c6ec01b1b073429ed844b0c1768402eab8d00df18262f5748f3bd3",
+      "bytes": 13049,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/benchmarks/matched_3d.cpp",
+      "sha256": "a679e0b3584ae14816d1e677b653ca9889cb644e9643cd7a024c045a2f9c6da0",
+      "bytes": 18317,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/benchmarks/remaining_mpi_profile.cpp",
+      "sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+      "bytes": 1387,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/benchmarks/remaining_profile.cpp",
+      "sha256": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b",
+      "bytes": 9894,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/benchmarks/remaining_profile.h",
+      "sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3",
+      "bytes": 3819,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/hpx/hpx-comm.cpp",
+      "sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13",
+      "bytes": 39968,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/hpx/transpose-pairwise.c",
+      "sha256": "e45a7538b43c6d71711abac63d33e67cfcf458168d83e26cc92062aad53881a9",
+      "bytes": 16493,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/mpi/transpose-pairwise.c",
+      "sha256": "5d86828ab734fbdbb7a9a18ba7d88682d4f3ce1af8d2902ef77f4772f58e69e8",
+      "bytes": 16461,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/remaining_profile.patch",
+      "sha256": "3f4020e50b5312081395fb5d9d05eaf81d5f53bad903415068a854983638b282",
+      "bytes": 18177,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/remaining_profile_manifest.json",
+      "sha256": "6cd8c4de97dae51f1476ebd8901f759a43daaf1f5713eb8ece07cef00ab556f5",
+      "bytes": 1794,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check/threads/threads.c",
+      "sha256": "d020df071438e33ca472f917e56fcdcd2cacebddde71bdfe3ead961e9f9c3fa6",
+      "bytes": 14046,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    },
+    {
+      "source": "transform_check.log",
+      "sha256": "9abf2d966073c788764a122773d56e1d595eaa37024ce58b42346e95291fecb6",
+      "bytes": 1794,
+      "reason": "Duplicate intermediate snapshot/output omitted; final tool/source/patch and validation receipts retained."
+    }
+  ],
+  "binary_limit": "Binaries and archives were built and locally validated but deliberately excluded from this text-only publication. Recorded hashes do not constitute a new build or runtime."
+}

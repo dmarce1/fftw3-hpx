@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_negative_residual.log
+@@ -2525,7 +2525,7 @@
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=0.0040784150000000002 nanoseconds=4078415
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_keep calls=6 bytes=6442450944 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=1.223524351 nanoseconds=1223524351
++PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=1000 nanoseconds=1223524351
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=enqueue_wall calls=3 bytes=0 seconds=0.081568290000000002 nanoseconds=81568290
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.48940974000000004 nanoseconds=489409740
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.57097803000000003 nanoseconds=570978030

@@ -1,0 +1,75 @@
+--- a/hpx/hpx-comm.cpp
++++ b/hpx/hpx-comm.cpp
+@@ -382,6 +382,72 @@
+     }
+ }
+ 
++// Keep the ordinary collective payload path above unchanged. Only a large
++// point-to-point Message uses bounded parallel copies on existing HPX workers.
++// The copy granularity and task cap are policy constants, not FFT dimensions.
++size_t receiveCopyJobs(size_t const bytes)
++{
++    constexpr size_t minimumParallelBytes = 32 * 1024 * 1024;
++    constexpr size_t minimumJobBytes = 8 * 1024 * 1024;
++    constexpr size_t maximumJobs = 8;
++    if (bytes < minimumParallelBytes || hpx::threads::get_self_ptr() == nullptr)
++    {
++        return 1;
++    }
++    return std::max(size_t(1),
++                    std::min({maximumJobs, hpx::get_num_worker_threads(),
++                              bytes / minimumJobBytes}));
++}
++
++void receiveBytes(void * const data, size_t const bytes, Message const & payload)
++{
++    assert(payload.size() == bytes);
++    if (bytes == 0)
++    {
++        return;
++    }
++    assert(data != nullptr);
++    size_t const jobs = receiveCopyJobs(bytes);
++    if (jobs == 1)
++    {
++        std::memcpy(data, payload.data(), bytes);
++        return;
++    }
++
++    char * const destination = static_cast<char *>(data);
++    char const * const source = payload.data();
++    size_t const chunk = bytes / jobs;
++    hpx::execution::parallel_executor const executor(
++        hpx::threads::thread_stacksize::default_);
++    std::vector<hpx::future<void>> futures;
++    futures.reserve(jobs - 1);
++    try
++    {
++        for (size_t job = 0; job < jobs - 1; ++job)
++        {
++            size_t const begin = job * chunk;
++            futures.push_back(hpx::async(executor, [destination, source, begin, chunk]
++            {
++                std::memcpy(destination + begin, source + begin, chunk);
++            }));
++        }
++        size_t const begin = (jobs - 1) * chunk;
++        std::memcpy(destination + begin, source + begin, bytes - begin);
++    }
++    catch (...)
++    {
++        // An allocation/submission failure must not let a launched task retain
++        // pointers after this Message or its destination leaves the call.
++        hpx::wait_all(futures);
++        throw;
++    }
++    hpx::wait_all(futures);
++    for (auto & future : futures)
++    {
++        future.get();
++    }
++}
++
+ void const * offsetBytes(void const * const data, size_t const bytes)
+ {
+     return bytes == 0 ? data : static_cast<char const *>(data) + bytes;

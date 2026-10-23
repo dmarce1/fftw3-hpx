@@ -1,0 +1,10 @@
+check_results.py: Python 3.6 syntax/API audit PASS
+check_members.py: Python 3.6 syntax/API audit PASS
+hpx_cmake_flags.py: Python 3.6 syntax/API audit PASS
+check_lean_ldd.py: Python 3.6 syntax/API audit PASS
+bash -n: PASS
+check_results.py synthetic 616-row complete data: PASS
+check_results.py synthetic inconsistent byte counter rejected: PASS
+check_results.py synthetic duplicate row rejected: PASS
+check_lean_ldd.py synthetic correct paths accepted/APEX rejected: PASS
+These are preparation/static and synthetic parser checks only. No cluster build, execution, or remote access was performed.

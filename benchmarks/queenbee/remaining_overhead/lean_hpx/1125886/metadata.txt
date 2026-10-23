@@ -1,0 +1,17 @@
+Fri Oct 23 07:52:35 UTC 2026
+qbd007
+Currently Loaded Modulefiles:
+gcc/13.2.0
+cmake version 3.26.5
+
+CMake suite maintained and supported by Kitware (kitware.com/cmake).
+Python 3.6.8
+g++ (Spack GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+g++ -I/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/include -pthread -L/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib -Wl,-rpath -Wl,/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib -Wl,--enable-new-dtags -lmpi
+source=/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src
+source_commit=c9b81b401fbe6ba4a0306feff71d18ef01c71b34
+workers=32

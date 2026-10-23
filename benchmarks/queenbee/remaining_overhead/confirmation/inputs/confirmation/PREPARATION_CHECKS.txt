@@ -1,0 +1,9 @@
+PASS: bash -n job.sbatch common.sh
+PASS: every Python helper parses as Python 3.6 and avoids newer known subprocess/pathlib APIs
+PASS: prior-job gate reproduces all eight numerical/plan summaries and 616 diagnostic rows without changing prior files
+PASS: prior-job gate rejects FAIL status, an invalid numerical check, and an incomplete communication gate
+PASS: five-case parser preserves exact run order, recomputes median ratios, and rejects mismatched plans or non-allowlisted candidate
+PASS: lean library audit accepts exact prefixes and rejects APEX
+PASS: run_log pipeline propagates producer failure exit 7
+No cluster access, Slurm submission, local compilation or benchmark execution; synthetic fixtures were temporary and are not packaged.
+PASS: independent read-only script review found no execution, gating, or experimental-comparison blocker; sendimm default 0 confirmed against HPX source.

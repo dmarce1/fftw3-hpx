@@ -1,0 +1,1 @@
+python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/prepare.py audit /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/results/1125886/configuration.json /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/build 

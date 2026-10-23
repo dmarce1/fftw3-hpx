@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2026 Dominic C. Marcello
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+ */
+
+#ifndef FFTW_REMAINING_PROFILE_H
+#define FFTW_REMAINING_PROFILE_H
+#include <stddef.h>
+#ifdef __cplusplus
+extern "C" {
+#endif
+/* Temporary diagnostics only. No HPX dependency in this shared C interface. */
+enum FrpMetric {
+    FRP_EXCHANGE, FRP_SEND_INIT, FRP_RECV_WAIT, FRP_SEND_WAIT,
+    FRP_RECEIVE_COPY, FRP_POOL_ALLOCATE, FRP_POOL_HIT, FRP_POOL_MISS,
+    FRP_HEAP_ALLOCATE, FRP_POOL_DEALLOCATE, FRP_POOL_KEEP, FRP_POOL_DELETE,
+    FRP_RUN_JOBS, FRP_ENQUEUE, FRP_INLINE_WORK, FRP_JOIN,
+    FRP_TASK_WALL, FRP_QUEUE_DELAY, FRP_TASK_CPU, FRP_TASK_CPU_MIGRATION,
+    FRP_NESTED_JOBS, FRP_SEPARATE_SEND, FRP_SEPARATE_RECV,
+    FRP_PAIRWISE_CHUNKS, FRP_PAIRWISE_COPY, FRP_PAIRWISE_ALLOCATE,
+    FRP_PAIRWISE_FREE, FRP_LOCAL_TRANSPOSE, FRP_COUNT
+};
+typedef struct FrpToken {
+    unsigned long long start;
+    unsigned long long cpu;
+    unsigned long long thread;
+    unsigned long long generation;
+    size_t bytes;
+    int metric;
+} FrpToken;
+FrpToken frp_begin(int metric, size_t bytes);
+void frp_end(FrpToken token);
+void frp_event(int metric, size_t bytes);
+FrpToken frp_task_begin(void);
+void frp_task_end(FrpToken token);
+void frp_jobs_enter(void);
+void frp_jobs_leave(void);
+void frp_reset(void);
+void frp_sample_begin(void);
+void frp_sample_end(double seconds);
+void frp_report(char const * backend, int rank, int sample);
+void * frp_memcpy(void * destination, void const * source, size_t bytes);
+void * frp_memmove(void * destination, void const * source, size_t bytes);
+#ifdef __cplusplus
+}
+class FrpScope {
+    FrpToken token;
+public:
+    explicit FrpScope(int const metric, size_t const bytes = 0)
+        : token(frp_begin(metric, bytes)) {}
+    ~FrpScope() { frp_end(token); }
+    FrpScope(FrpScope const &) = delete;
+    FrpScope & operator=(FrpScope const &) = delete;
+};
+class FrpTask {
+    FrpToken token;
+public:
+    FrpTask() : token(frp_task_begin()) {}
+    ~FrpTask() { frp_task_end(token); }
+};
+class FrpJobs {
+public:
+    FrpJobs() { frp_jobs_enter(); }
+    ~FrpJobs() { frp_jobs_leave(); }
+};
+#endif
+#endif

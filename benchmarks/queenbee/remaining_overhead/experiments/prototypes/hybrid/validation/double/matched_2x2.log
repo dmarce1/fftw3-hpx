@@ -1,0 +1,105 @@
+CONFIG backend=hpx extent=256 ranks=2 threads=2 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=268435456 max_local_allocation_bytes=134217728
+PLAN_SECONDS backend=hpx value=0.032383713000000001
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))))
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16"))))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-128x2-x65536)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-2x128-x65536)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))))
+    (dft-vrank>=1-x64/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16")))
+        (dft-vrank>=1-x256/1
+          (dft-ct-dit/16
+            (dftw-direct-16/8 "t2_16")
+            (dft-directbuf/18-16-x16 "n1_16"))))))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-128x2-x65536)
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-nop)
+        (rdft-nop))
+      (rdft-nop)
+      (null)) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))
+      (dft-vrank>=1-x16384/1
+        (dft-ct-dit/16
+          (dftw-direct-16/8 "t2_16")
+          (dft-directbuf/18-16-x16 "n1_16")))) 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-2x128-x65536)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=7.5395217858013326e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=1.3056059912435614e-15 tolerance=1e-10
+SAMPLE backend=hpx index=0 max_rank_seconds=0.47737730499999997
+SAMPLE backend=hpx index=1 max_rank_seconds=0.471176084
+SAMPLE backend=hpx index=2 max_rank_seconds=0.49276029199999999
+SAMPLE backend=hpx index=3 max_rank_seconds=0.48678675100000002
+SAMPLE backend=hpx index=4 max_rank_seconds=0.48482802200000003
+SAMPLE backend=hpx index=5 max_rank_seconds=0.48976596700000002
+SAMPLE backend=hpx index=6 max_rank_seconds=0.48012484700000002
+CHECK backend=hpx stage=final_roundtrip relative_max_error=7.4990760765808042e-15 tolerance=1e-10
+RESULT backend=hpx extent=256 ranks=2 threads=2 samples=7 min_seconds=0.471176084 median_seconds=0.48482802200000003 mean_seconds=0.48325989542857134 max_seconds=0.49276029199999999 status=PASS

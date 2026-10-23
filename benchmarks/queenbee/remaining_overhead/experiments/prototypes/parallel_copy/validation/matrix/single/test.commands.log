@@ -1,0 +1,169 @@
++ build/qb_remaining/parallel_copy/validate_precision.sh:59 /home/dmarce1/workspace/fftw3-hpx: export APEX_DISABLE=1
++ build/qb_remaining/parallel_copy/validate_precision.sh:59 /home/dmarce1/workspace/fftw3-hpx: APEX_DISABLE=1
++ build/qb_remaining/parallel_copy/validate_precision.sh:60 /home/dmarce1/workspace/fftw3-hpx: export HWLOC_COMPONENTS=-cuda,-nvml,-opencl
++ build/qb_remaining/parallel_copy/validate_precision.sh:60 /home/dmarce1/workspace/fftw3-hpx: HWLOC_COMPONENTS=-cuda,-nvml,-opencl
++ build/qb_remaining/parallel_copy/validate_precision.sh:61 /home/dmarce1/workspace/fftw3-hpx: cd /home/dmarce1/workspace/fftw3-hpx
++ build/qb_remaining/parallel_copy/validate_precision.sh:62 /home/dmarce1/workspace/fftw3-hpx: '[' test = build ']'
++ build/qb_remaining/parallel_copy/validate_precision.sh:100 /home/dmarce1/workspace/fftw3-hpx: grep -q '^exit_status=0$' /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/BUILD_STATUS
++ build/qb_remaining/parallel_copy/validate_precision.sh:101 /home/dmarce1/workspace/fftw3-hpx: run_log input_unchanged sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=input_unchanged
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=input_unchanged
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single input_unchanged 2026-10-23T08:15:11Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input_unchanged.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' input_unchanged 0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single input_unchanged 2026-10-23T08:15:11Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:102 /home/dmarce1/workspace/fftw3-hpx: run_log output_unchanged sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/output.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=output_unchanged
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=output_unchanged
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single output_unchanged 2026-10-23T08:15:11Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/output.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/output.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/output_unchanged.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' output_unchanged 0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single output_unchanged 2026-10-23T08:15:11Z
+++ build/qb_remaining/parallel_copy/validate_precision.sh:103 /home/dmarce1/workspace/fftw3-hpx: command -v hpxrun.py
++ build/qb_remaining/parallel_copy/validate_precision.sh:103 /home/dmarce1/workspace/fftw3-hpx: hpxrun=/home/dmarce1/local/hpx/Release/bin/hpxrun.py
++ build/qb_remaining/parallel_copy/validate_precision.sh:104 /home/dmarce1/workspace/fftw3-hpx: '[' single '!=' double ']'
++ build/qb_remaining/parallel_copy/validate_precision.sh:105 /home/dmarce1/workspace/fftw3-hpx: run_log comm_1x2 timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=comm_1x2
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=comm_1x2
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single comm_1x2 2026-10-23T08:15:11Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 1 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/comm_1x2.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' comm_1x2 0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single comm_1x2 2026-10-23T08:15:11Z
+++ build/qb_remaining/parallel_copy/validate_precision.sh:106 /home/dmarce1/workspace/fftw3-hpx: grep -c '^communication check PASS$' /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/comm_1x2.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:106 /home/dmarce1/workspace/fftw3-hpx: '[' 1 -eq 1 ']'
++ build/qb_remaining/parallel_copy/validate_precision.sh:108 /home/dmarce1/workspace/fftw3-hpx: run_log comm_3x2 timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=comm_3x2
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=comm_3x2
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single comm_3x2 2026-10-23T08:15:11Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/comm_3x2.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' comm_3x2 1
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single comm_3x2 2026-10-23T08:15:12Z
+++ build/qb_remaining/parallel_copy/validate_precision.sh:109 /home/dmarce1/workspace/fftw3-hpx: grep -c '^communication check PASS$' /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/comm_3x2.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:109 /home/dmarce1/workspace/fftw3-hpx: '[' 3 -eq 3 ']'
++ build/qb_remaining/parallel_copy/validate_precision.sh:110 /home/dmarce1/workspace/fftw3-hpx: for localities in 1 2 3 4
++ build/qb_remaining/parallel_copy/validate_precision.sh:111 /home/dmarce1/workspace/fftw3-hpx: launcher='sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:112 /home/dmarce1/workspace/fftw3-hpx: run_log matrix_1x1 timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=matrix_1x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=matrix_1x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=1
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single matrix_1x1 2026-10-23T08:15:12Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/matrix_1x1.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' matrix_1x1 0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single matrix_1x1 2026-10-23T08:15:12Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:110 /home/dmarce1/workspace/fftw3-hpx: for localities in 1 2 3 4
++ build/qb_remaining/parallel_copy/validate_precision.sh:111 /home/dmarce1/workspace/fftw3-hpx: launcher='sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:112 /home/dmarce1/workspace/fftw3-hpx: run_log matrix_2x1 timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=matrix_2x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=matrix_2x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=1
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single matrix_2x1 2026-10-23T08:15:12Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/matrix_2x1.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' matrix_2x1 4
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single matrix_2x1 2026-10-23T08:15:16Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:110 /home/dmarce1/workspace/fftw3-hpx: for localities in 1 2 3 4
++ build/qb_remaining/parallel_copy/validate_precision.sh:111 /home/dmarce1/workspace/fftw3-hpx: launcher='sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:112 /home/dmarce1/workspace/fftw3-hpx: run_log matrix_3x1 timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=matrix_3x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=matrix_3x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=5
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single matrix_3x1 2026-10-23T08:15:16Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/matrix_3x1.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' matrix_3x1 9
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single matrix_3x1 2026-10-23T08:15:25Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:110 /home/dmarce1/workspace/fftw3-hpx: for localities in 1 2 3 4
++ build/qb_remaining/parallel_copy/validate_precision.sh:111 /home/dmarce1/workspace/fftw3-hpx: launcher='sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:112 /home/dmarce1/workspace/fftw3-hpx: run_log matrix_4x1 timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=matrix_4x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=matrix_4x1
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=14
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single matrix_4x1 2026-10-23T08:15:25Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/matrix_4x1.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' matrix_4x1 14
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single matrix_4x1 2026-10-23T08:15:39Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:115 /home/dmarce1/workspace/fftw3-hpx: launcher='sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:116 /home/dmarce1/workspace/fftw3-hpx: run_log matrix_3x2 timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=matrix_3x2
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=matrix_3x2
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=28
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single matrix_3x2 2026-10-23T08:15:39Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 600s perl -w /home/dmarce1/workspace/fftw3-hpx/tests/check.pl --verbose --random --maxsize=10000 -c=10 --mpi --nthreads=2 'sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench"'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/matrix_3x2.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' matrix_3x2 19
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single matrix_3x2 2026-10-23T08:15:58Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:118 /home/dmarce1/workspace/fftw3-hpx: run_log inputs_still_unchanged sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:48 /home/dmarce1/workspace/fftw3-hpx: local label=inputs_still_unchanged
++ build/qb_remaining/parallel_copy/validate_precision.sh:49 /home/dmarce1/workspace/fftw3-hpx: shift
++ build/qb_remaining/parallel_copy/validate_precision.sh:50 /home/dmarce1/workspace/fftw3-hpx: stage=inputs_still_unchanged
++ build/qb_remaining/parallel_copy/validate_precision.sh:51 /home/dmarce1/workspace/fftw3-hpx: local started=47
+++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:52 /home/dmarce1/workspace/fftw3-hpx: printf 'START %s/%s %s %s\n' parallel_copy single inputs_still_unchanged 2026-10-23T08:15:58Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:53 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:54 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/input.sha256
++ build/qb_remaining/parallel_copy/validate_precision.sh:55 /home/dmarce1/workspace/fftw3-hpx: stdbuf -oL -eL tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/inputs_still_unchanged.log
++ build/qb_remaining/parallel_copy/validate_precision.sh:56 /home/dmarce1/workspace/fftw3-hpx: printf '%s\tPASS\t%s\n' inputs_still_unchanged 0
+++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: date -u +%FT%TZ
++ build/qb_remaining/parallel_copy/validate_precision.sh:57 /home/dmarce1/workspace/fftw3-hpx: printf 'PASS %s/%s %s %s\n' parallel_copy single inputs_still_unchanged 2026-10-23T08:15:58Z
++ build/qb_remaining/parallel_copy/validate_precision.sh:120 /home/dmarce1/workspace/fftw3-hpx: stage=complete
++ build/qb_remaining/parallel_copy/validate_precision.sh:1 /home/dmarce1/workspace/fftw3-hpx: finish 0
++ build/qb_remaining/parallel_copy/validate_precision.sh:37 /home/dmarce1/workspace/fftw3-hpx: local result=0
++ build/qb_remaining/parallel_copy/validate_precision.sh:38 /home/dmarce1/workspace/fftw3-hpx: trap - EXIT
++ build/qb_remaining/parallel_copy/validate_precision.sh:39 /home/dmarce1/workspace/fftw3-hpx: set +e
++ build/qb_remaining/parallel_copy/validate_precision.sh:40 /home/dmarce1/workspace/fftw3-hpx: set +x

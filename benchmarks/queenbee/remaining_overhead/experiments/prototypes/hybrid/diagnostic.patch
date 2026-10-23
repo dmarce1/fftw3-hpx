@@ -1,0 +1,216 @@
+--- a/hpx/hpx-comm.cpp
++++ b/hpx/hpx-comm.cpp
+@@ -17,6 +17,8 @@
+  */
+ 
+ #include <algorithm>
++#include <array>
++#include <atomic>
+ #include <cassert>
+ #include <cstdint>
+ #include <cstdio>
+@@ -32,6 +34,7 @@
+ #include <stdexcept>
+ #include <string>
+ #include <tuple>
++#include <type_traits>
+ #include <unordered_map>
+ #include <utility>
+ #include <vector>
+@@ -57,6 +60,83 @@
+ 
+ #include "config.h"
+ #include "hpx-comm.h"
++#include "receive-diagnostics.hpp"
++
++// This entire source is a temporary diagnostic variant. Its relaxed atomic
++// counters are absent from hpx-comm.cpp and must not be used for final timing.
++namespace FFTW_HPX_COMM_FN(receive_diagnostics)
++{
++enum class Metric : size_t
++{
++    posted,
++    disabled_registration,
++    remote_load,
++    direct_hit,
++    fallback_unposted,
++    pool_hit,
++    pool_miss,
++    unpooled_allocation,
++    self_copy,
++    final_copy,
++    direct_copy_elided,
++    count
++};
++
++struct Counter
++{
++    std::atomic<std::uint64_t> calls{0};
++    std::atomic<std::uint64_t> bytes{0};
++};
++
++std::array<Counter, static_cast<size_t>(Metric::count)> counters;
++
++void record(Metric const metric, size_t const bytes)
++{
++    auto & counter = counters[static_cast<size_t>(metric)];
++    counter.calls.fetch_add(1, std::memory_order_relaxed);
++    counter.bytes.fetch_add(bytes, std::memory_order_relaxed);
++}
++
++void reset()
++{
++    for (auto & counter : counters)
++    {
++        counter.calls.store(0, std::memory_order_relaxed);
++        counter.bytes.store(0, std::memory_order_relaxed);
++    }
++}
++
++void report(int const rank, int const sample)
++{
++    static constexpr std::array<char const *, static_cast<size_t>(Metric::count)>
++        names{{"posted", "disabled_registration", "remote_load", "direct_hit",
++               "fallback_unposted", "pool_hit", "pool_miss",
++               "unpooled_allocation", "self_copy", "final_copy",
++               "direct_copy_elided"}};
++    for (size_t index = 0; index < counters.size(); ++index)
++    {
++        auto const calls = counters[index].calls.load(std::memory_order_relaxed);
++        auto const bytes = counters[index].bytes.load(std::memory_order_relaxed);
++        std::fprintf(stderr,
++                     "RECEIVE_DIAGNOSTIC rank=%d sample=%d metric=%s "
++                     "calls=%llu bytes=%llu\n",
++                     rank, sample, names[index],
++                     static_cast<unsigned long long>(calls),
++                     static_cast<unsigned long long>(bytes));
++    }
++}
++} // namespace FFTW_HPX_COMM_FN(receive_diagnostics)
++
++extern "C" void FFTW_HPX_COMM_FN(receive_diagnostics_reset)(void)
++{
++    FFTW_HPX_COMM_FN(receive_diagnostics)::reset();
++}
++
++extern "C" void FFTW_HPX_COMM_FN(receive_diagnostics_report)(int const rank,
++                                                           int const sample)
++{
++    FFTW_HPX_COMM_FN(receive_diagnostics)::report(rank, sample);
++}
+ 
+ // Isolated hybrid experiment: direct destinations with epoch-scoped pooled
+ // ownership for early-message fallbacks and self copies.
+@@ -71,6 +151,8 @@
+ // Experimental receive allocation cache. Each precision owns a separate pool
+ // and retains at most one idle block, no larger than its largest returned block.
+ // Blocks still owned by a Message are never available for reuse.
++namespace diagnostics = FFTW_HPX_COMM_FN(receive_diagnostics);
++
+ struct ReceivePool
+ {
+     size_t const epoch;
+@@ -94,10 +176,12 @@
+                 char * const result = cached;
+                 cached = nullptr;
+                 cachedBytes = 0;
++                diagnostics::record(diagnostics::Metric::pool_hit, bytes);
+                 return result;
+             }
+         }
+         // A miss never waits for an outstanding Message to release a block.
++        diagnostics::record(diagnostics::Metric::pool_miss, bytes);
+         return new char[bytes];
+     }
+ 
+@@ -196,7 +280,12 @@
+ 
+     char * allocate(size_t const bytes)
+     {
+-        return pool ? pool->allocate(bytes) : new char[bytes];
++        if (pool)
++        {
++            return pool->allocate(bytes);
++        }
++        diagnostics::record(diagnostics::Metric::unpooled_allocation, bytes);
++        return new char[bytes];
+     }
+ 
+     void deallocate(char * const data, size_t const bytes) noexcept
+@@ -252,6 +341,7 @@
+ namespace FFTW_HPX_COMM_FN(transport)
+ {
+ namespace pool_transport = FFTW_HPX_COMM_FN(pool_transport);
++namespace diagnostics = FFTW_HPX_COMM_FN(receive_diagnostics);
+ using Key = std::tuple<std::string, int, size_t>;
+ 
+ struct Target
+@@ -289,6 +379,11 @@
+         }
+         if (!enabled || bytes == 0)
+         {
++            if (bytes != 0)
++            {
++                diagnostics::record(diagnostics::Metric::disabled_registration,
++                                    bytes);
++            }
+             return;
+         }
+         target_ = std::make_shared<Target>(
+@@ -299,6 +394,7 @@
+         {
+             throw std::logic_error("duplicate posted receive key");
+         }
++        diagnostics::record(diagnostics::Metric::posted, bytes);
+     }
+ 
+     Registration(Registration const &) = delete;
+@@ -376,6 +472,7 @@
+         }
+         if (copy)
+         {
++            diagnostics::record(diagnostics::Metric::self_copy, bytes);
+             allocateOwned();
+             std::memcpy(data_, data, bytes);
+         }
+@@ -439,13 +536,16 @@
+         {
+             // This can execute on the parcel progress path. Look up once and
+             // fall back immediately; never wait for the matching recv call.
++            diagnostics::record(diagnostics::Metric::remote_load, bytes_);
+             target_ = claimTarget(key_, bytes_);
+             if (target_)
+             {
++                diagnostics::record(diagnostics::Metric::direct_hit, bytes_);
+                 data_ = target_->data;
+             }
+             else
+             {
++                diagnostics::record(diagnostics::Metric::fallback_unposted, bytes_);
+                 allocateOwned();
+             }
+             // HPX 1.11's MPI receiver fills this address before it runs the
+@@ -464,6 +564,7 @@
+ {
+ using Bytes = std::vector<char>;
+ namespace transport = FFTW_HPX_COMM_FN(transport);
++namespace diagnostics = FFTW_HPX_COMM_FN(receive_diagnostics);
+ using Message = transport::Message;
+ namespace collectives = hpx::collectives;
+ 
+@@ -607,7 +708,15 @@
+         }
+         if (data != payload.data())
+         {
++            if constexpr (std::is_same<Payload, Message>::value)
++            {
++                diagnostics::record(diagnostics::Metric::final_copy, bytes);
++            }
+             std::memcpy(data, payload.data(), bytes);
++        }
++        else if constexpr (std::is_same<Payload, Message>::value)
++        {
++            diagnostics::record(diagnostics::Metric::direct_copy_elided, bytes);
+         }
+     }
+ }

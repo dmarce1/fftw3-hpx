@@ -1,0 +1,138 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "scope": "Local diagnostic correctness and instrumentation validation; not cluster performance evidence.",
+  "production_bridge_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "diagnostic_bridge_sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13",
+  "unchanged_primary_driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "runs": [
+    {
+      "directory": "local_runtime",
+      "configuration": {
+        "backend": "hpx",
+        "extent": "64",
+        "ranks": "4",
+        "threads": "1",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "4194304",
+        "max_local_allocation_bytes": "1048576"
+      },
+      "status": "PASS",
+      "numerical_checks": 6,
+      "samples_each_backend": 7,
+      "normalized_plan_sha256": {
+        "forward": "4027002e1d17ded8296ddf0bf9582f26253d587f28bbf88dd86fd6153b8e8567",
+        "backward": "4027002e1d17ded8296ddf0bf9582f26253d587f28bbf88dd86fd6153b8e8567"
+      },
+      "mpi_rank_samples": 28,
+      "hpx_rank_samples": 28,
+      "phase_coverage_error_nanoseconds": [
+        0
+      ],
+      "message_load_counts": {
+        "message_load": 168,
+        "direct_message_load": 168,
+        "owned_message_load": 0,
+        "empty_message_load": 0,
+        "required_posted_message_load": 168
+      },
+      "final_receive_copy_bytes": 0,
+      "callback_calls_match_every_rank_sample": true,
+      "callback_call_counts_per_rank_sample": {
+        "run_jobs_wall": [
+          0
+        ],
+        "task_wall_sum": [
+          0
+        ],
+        "nested_jobs": [
+          0
+        ],
+        "task_cpu_migration": [
+          0
+        ]
+      },
+      "raw_log_sha256": {
+        "raw/local_runtime/benchmark_hpx.log": "28d8a835b6ccd0b9e6b25f483543f8e65a3649fd0d4ca96a4beac85e8e061aa1",
+        "raw/local_runtime/benchmark_mpi.log": "34f206a86471579fce38939984068522fde28242f2ea7f98e779e3e8f73f0b8a",
+        "raw/local_runtime/hpx_rank_logs/hpx-0.log": "6f8505dc52890755e16c006d6970b336be86c03e8d475c72baeb6f5683dd576d",
+        "raw/local_runtime/hpx_rank_logs/hpx-1.log": "0fbcb88953e2d263257856db1d35fffbcb565cb3caf8485d2e61b0408edaca35",
+        "raw/local_runtime/hpx_rank_logs/hpx-2.log": "0f8f6beac559002b18a27b0840ccf55151790b1621176dad0fc17444919eed74",
+        "raw/local_runtime/hpx_rank_logs/hpx-3.log": "7d5f39210d77e83d79a96d2c76e4083fb9d4cd89ff6c6024e2e77f41f157839b",
+        "raw/local_runtime/mpi_rank_logs/mpi-0.log": "4470c2aed271402c7335592bb8ee573409c522cd2010c9974433a7601049d012",
+        "raw/local_runtime/mpi_rank_logs/mpi-1.log": "79dfc60d54b32195d50f4975d9cb708229addcb2e1911384a59a4a57c5a3433d",
+        "raw/local_runtime/mpi_rank_logs/mpi-2.log": "57abf631d79b670d82db72f1cfd29a33c4bd961befa70604579d9d3550071da8",
+        "raw/local_runtime/mpi_rank_logs/mpi-3.log": "f2aecb240979ff4d855f8fc7cfe4d50174c4119d9b0747655c26bf9a9e5fc7d8"
+      }
+    },
+    {
+      "directory": "local_threaded",
+      "configuration": {
+        "backend": "hpx",
+        "extent": "64",
+        "ranks": "3",
+        "threads": "2",
+        "precision": "double",
+        "inplace": "1",
+        "layout": "normal",
+        "planner": "FFTW_ESTIMATE",
+        "warmups": "2",
+        "samples": "7",
+        "global_data_bytes": "4194304",
+        "max_local_allocation_bytes": "1441792"
+      },
+      "status": "PASS",
+      "numerical_checks": 6,
+      "samples_each_backend": 7,
+      "normalized_plan_sha256": {
+        "forward": "0c540f5b475258852f1bbc04bbe53c3a9d645ea4f0e9e98ccb9e53037131aaeb",
+        "backward": "0c540f5b475258852f1bbc04bbe53c3a9d645ea4f0e9e98ccb9e53037131aaeb"
+      },
+      "mpi_rank_samples": 21,
+      "hpx_rank_samples": 21,
+      "phase_coverage_error_nanoseconds": [
+        0
+      ],
+      "message_load_counts": {
+        "message_load": 84,
+        "direct_message_load": 84,
+        "owned_message_load": 0,
+        "empty_message_load": 0,
+        "required_posted_message_load": 84
+      },
+      "final_receive_copy_bytes": 0,
+      "callback_calls_match_every_rank_sample": true,
+      "callback_call_counts_per_rank_sample": {
+        "run_jobs_wall": [
+          184,
+          188
+        ],
+        "task_wall_sum": [
+          368,
+          376
+        ],
+        "nested_jobs": [
+          0
+        ],
+        "task_cpu_migration": [
+          0
+        ]
+      },
+      "raw_log_sha256": {
+        "raw/local_threaded/benchmark_hpx.log": "7064f0e11b1aec6602997df690b038c5a2386f879f70214b8eb15774f725b2ae",
+        "raw/local_threaded/benchmark_mpi.log": "3ff629d68da8886583360bfb9e4e199d94d8922bbc8485d9c47126d4ab8cab12",
+        "raw/local_threaded/hpx_rank_logs/hpx-0.log": "0e42960e74c093601faab63566fc9b8c18264b48dec87b093b4f6e4bdbddc872",
+        "raw/local_threaded/hpx_rank_logs/hpx-1.log": "80f7d9366111281b09bd87218c185207551ae229d834f1e5724badc6567cb39b",
+        "raw/local_threaded/hpx_rank_logs/hpx-2.log": "95e94df436a4ba38b431c2299793c4d37089811616673f0a060ff36f50f0c1e3",
+        "raw/local_threaded/mpi_rank_logs/mpi-0.log": "686e4a35491fbf89f099565f6eff2f3184fe57e0eea95b48b61e922f2559c53b",
+        "raw/local_threaded/mpi_rank_logs/mpi-1.log": "32ce64cfa6d5bf8e191db6ea4deb35667c0a8ba4234abff563f91e0d5a14e3f9",
+        "raw/local_threaded/mpi_rank_logs/mpi-2.log": "fd6bf7fb8c8a67cf6cf9483bcdc2645e7ee8100074c5918f65cbe2515639bdfe"
+      }
+    }
+  ]
+}

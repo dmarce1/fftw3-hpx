@@ -1,0 +1,7 @@
+inputs_v2/check_members.py: OK
+inputs_v2/common.sh: OK
+inputs_v2/profile/instrument.py: OK
+inputs_v2/profile/remaining_mpi_profile.cpp: OK
+inputs_v2/profile/remaining_profile.cpp: OK
+inputs_v2/profile/remaining_profile.h: OK
+inputs_v2/profile_job.sbatch: OK

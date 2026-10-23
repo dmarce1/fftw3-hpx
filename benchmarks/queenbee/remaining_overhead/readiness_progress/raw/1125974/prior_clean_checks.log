@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "prior_job": "1125925",
+  "candidate": "rendezvous",
+  "primary_cases": 5,
+  "numerical_checks": 15,
+  "all_plans_equal": true,
+  "unchanged_archive_members": 31,
+  "median_seconds": {
+    "pool_release": 4.217723127,
+    "selected_original": 4.334012694,
+    "selected_lean": 3.869753593,
+    "selected_lean_sendimm": 8.298036712,
+    "mpi": 3.277328622
+  },
+  "median_ratios": {
+    "pool_release_over_mpi": 1.2869393379374088,
+    "selected_original_over_mpi": 1.3224223731812268,
+    "selected_lean_over_mpi": 1.1807645919372194,
+    "selected_lean_sendimm_over_mpi": 2.5319513753662264,
+    "selected_original_over_pool_release": 1.0275716455296853,
+    "selected_lean_over_selected_original": 0.8928800781680405,
+    "selected_lean_sendimm_over_selected_lean": 2.144332064710871,
+    "selected_lean_over_pool_release": 0.9174982511838075
+  },
+  "original_evidence_unchanged": true
+}

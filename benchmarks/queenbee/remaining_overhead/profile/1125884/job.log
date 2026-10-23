@@ -1,0 +1,227 @@
+START node_inventory 2026-10-23T07:43:29Z
+srun: lua: Submitted job 1125884
+0: qbd031
+0: Linux qbd031 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+1: qbd032
+1: Linux qbd032 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+3: qbd135
+3: Linux qbd135 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+2: qbd134
+2: Linux qbd134 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+2: Architecture:        x86_64
+2: CPU op-mode(s):      32-bit, 64-bit
+2: Byte Order:          Little Endian
+2: CPU(s):              64
+2: On-line CPU(s) list: 0-63
+2: Thread(s) per core:  1
+2: Core(s) per socket:  32
+2: Socket(s):           2
+2: NUMA node(s):        2
+2: Vendor ID:           GenuineIntel
+2: CPU family:          6
+2: Model:               106
+2: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+2: Stepping:            6
+2: CPU MHz:             3399.997
+2: CPU max MHz:         3400.0000
+2: CPU min MHz:         800.0000
+2: BogoMIPS:            5200.00
+2: L1d cache:           48K
+2: L1i cache:           32K
+2: L2 cache:            1280K
+2: L3 cache:            49152K
+2: NUMA node0 CPU(s):   0-31
+2: NUMA node1 CPU(s):   32-63
+2: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+2: policy: default
+2: preferred node: current
+2: physcpubind: 0 
+2: cpubind: 0 
+2: nodebind: 0 
+2: membind: 0 1 
+2: preferred: 
+1: Architecture:        x86_64
+1: CPU op-mode(s):      32-bit, 64-bit
+1: Byte Order:          Little Endian
+1: CPU(s):              64
+1: On-line CPU(s) list: 0-63
+1: Thread(s) per core:  1
+1: Core(s) per socket:  32
+1: Socket(s):           2
+1: NUMA node(s):        4
+1: Vendor ID:           GenuineIntel
+1: CPU family:          6
+1: Model:               106
+1: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+1: Stepping:            6
+1: CPU MHz:             3392.310
+1: CPU max MHz:         3400.0000
+1: CPU min MHz:         800.0000
+1: BogoMIPS:            5200.00
+1: L1d cache:           48K
+1: L1i cache:           32K
+1: L2 cache:            1280K
+1: L3 cache:            49152K
+1: NUMA node0 CPU(s):   0-15
+1: NUMA node1 CPU(s):   16-31
+1: NUMA node2 CPU(s):   32-47
+1: NUMA node3 CPU(s):   48-63
+1: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+0: Architecture:        x86_64
+0: CPU op-mode(s):      32-bit, 64-bit
+0: Byte Order:          Little Endian
+0: CPU(s):              64
+0: On-line CPU(s) list: 0-63
+0: Thread(s) per core:  1
+0: Core(s) per socket:  32
+0: Socket(s):           2
+0: NUMA node(s):        4
+0: Vendor ID:           GenuineIntel
+0: CPU family:          6
+0: Model:               106
+0: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+0: Stepping:            6
+0: CPU MHz:             3400.004
+0: CPU max MHz:         3400.0000
+0: CPU min MHz:         800.0000
+0: BogoMIPS:            5200.00
+0: L1d cache:           48K
+0: L1i cache:           32K
+0: L2 cache:            1280K
+0: L3 cache:            49152K
+0: NUMA node0 CPU(s):   0-15
+0: NUMA node1 CPU(s):   16-31
+0: NUMA node2 CPU(s):   32-47
+0: NUMA node3 CPU(s):   48-63
+0: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+0: policy: default
+0: preferred node: current
+0: physcpubind: 0 
+0: cpubind: 0 
+0: nodebind: 0 
+0: membind: 0 1 2 3 
+0: preferred: 
+1: policy: default
+1: preferred node: current
+1: physcpubind: 0 
+1: cpubind: 0 
+1: nodebind: 0 
+1: membind: 0 1 2 3 
+1: preferred: 
+3: Architecture:        x86_64
+3: CPU op-mode(s):      32-bit, 64-bit
+3: Byte Order:          Little Endian
+3: CPU(s):              64
+3: On-line CPU(s) list: 0-63
+3: Thread(s) per core:  1
+3: Core(s) per socket:  32
+3: Socket(s):           2
+3: NUMA node(s):        4
+3: Vendor ID:           GenuineIntel
+3: CPU family:          6
+3: Model:               106
+3: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+3: Stepping:            6
+3: CPU MHz:             3398.896
+3: CPU max MHz:         3400.0000
+3: CPU min MHz:         800.0000
+3: BogoMIPS:            5200.00
+3: L1d cache:           48K
+3: L1i cache:           32K
+3: L2 cache:            1280K
+3: L3 cache:            49152K
+3: NUMA node0 CPU(s):   0-15
+3: NUMA node1 CPU(s):   16-31
+3: NUMA node2 CPU(s):   32-47
+3: NUMA node3 CPU(s):   48-63
+3: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+3: policy: default
+3: preferred node: current
+3: physcpubind: 0 
+3: cpubind: 0 
+3: nodebind: 0 
+3: membind: 0 1 2 3 
+3: preferred: 
+PASS node_inventory 2026-10-23T07:43:29Z
+START instrument 2026-10-23T07:43:37Z
+{
+  "diagnostic_only": true,
+  "source": "/ddnB/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125884/diagnostic_source",
+  "threads": true,
+  "pairwise": true,
+  "files": {
+    "hpx/hpx-comm.cpp": {
+      "before_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "after_sha256": "5e51fc13f7bd4eedcabe6ef669d9125334e60f6e2613d36deb93e0b87539d6a8"
+    },
+    "benchmarks/matched_3d.cpp": {
+      "before_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "after_sha256": "a679e0b3584ae14816d1e677b653ca9889cb644e9643cd7a024c045a2f9c6da0"
+    },
+    "threads/threads.c": {
+      "before_sha256": "e47e83fce6c6ec01b1b073429ed844b0c1768402eab8d00df18262f5748f3bd3",
+      "after_sha256": "d020df071438e33ca472f917e56fcdcd2cacebddde71bdfe3ead961e9f9c3fa6"
+    },
+    "hpx/transpose-pairwise.c": {
+      "before_sha256": "250cf3f915690e5c8e914d8395625d09c9cbd8626f6528ec3350465cf8664fdc",
+      "after_sha256": "e45a7538b43c6d71711abac63d33e67cfcf458168d83e26cc92062aad53881a9"
+    },
+    "mpi/transpose-pairwise.c": {
+      "before_sha256": "173df10a57fdad3c3392a59c96e33e852e91b0281033be87cffdd169daa695cb",
+      "after_sha256": "5d86828ab734fbdbb7a9a18ba7d88682d4f3ce1af8d2902ef77f4772f58e69e8"
+    },
+    "benchmarks/remaining_profile.h": {
+      "generated_sha256": "b29d0f5c7a5868517ee6df6e5558e4676a05c3920f69769ab38d98a1cbc69982"
+    },
+    "benchmarks/remaining_profile.cpp": {
+      "generated_sha256": "2e084c5fb516ea29d61d43136443f4824685ed32f617650776c09b7efa00ee3e"
+    },
+    "benchmarks/remaining_mpi_profile.cpp": {
+      "generated_sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb"
+    }
+  }
+}
+PASS instrument 2026-10-23T07:43:37Z
+START compile_bridge_pool_release 2026-10-23T07:43:37Z
+PASS compile_bridge_pool_release 2026-10-23T07:44:20Z
+START replace_bridge_pool_release 2026-10-23T07:44:20Z
+PASS replace_bridge_pool_release 2026-10-23T07:44:20Z
+START compile_matched_pool_release 2026-10-23T07:44:20Z
+PASS compile_matched_pool_release 2026-10-23T07:44:35Z
+START compile_profile 2026-10-23T07:44:35Z
+PASS compile_profile 2026-10-23T07:44:36Z
+START compile_mpi_interposer 2026-10-23T07:44:36Z
+PASS compile_mpi_interposer 2026-10-23T07:44:36Z
+START compile_threads_profile 2026-10-23T07:44:36Z
+PASS compile_threads_profile 2026-10-23T07:44:36Z
+START replace_threads 2026-10-23T07:44:36Z
+PASS replace_threads 2026-10-23T07:44:36Z
+START compile_mpi_pairwise 2026-10-23T07:44:36Z
+PASS compile_mpi_pairwise 2026-10-23T07:44:36Z
+START replace_mpi_pairwise 2026-10-23T07:44:36Z
+PASS replace_mpi_pairwise 2026-10-23T07:44:36Z
+START compile_hpx_pairwise 2026-10-23T07:44:36Z
+PASS compile_hpx_pairwise 2026-10-23T07:44:37Z
+START compile_bridge_hpx_profile 2026-10-23T07:44:37Z
+PASS compile_bridge_hpx_profile 2026-10-23T07:45:19Z
+START replace_bridge_hpx_profile 2026-10-23T07:45:19Z
+PASS replace_bridge_hpx_profile 2026-10-23T07:45:19Z
+START replace_hpx_pairwise 2026-10-23T07:45:19Z
+PASS replace_hpx_pairwise 2026-10-23T07:45:19Z
+START compile_matched_hpx_profile 2026-10-23T07:45:19Z
+PASS compile_matched_hpx_profile 2026-10-23T07:45:33Z
+START compile_mpi_profile 2026-10-23T07:45:33Z
+PASS compile_mpi_profile 2026-10-23T07:45:35Z
+START archive_members 2026-10-23T07:45:35Z
+Traceback (most recent call last):
+  File "/work/dmarce1/fftw3_hpx_remaining_20261023/inputs_v2/check_members.py", line 30, in <module>
+    thread_names=[name for name in members(threads) if name=="threads.o" or name.endswith("_la-threads.o")]
+  File "/work/dmarce1/fftw3_hpx_remaining_20261023/inputs_v2/check_members.py", line 26, in members
+    names=subprocess.check_output(['ar','t',str(path)],text=True).splitlines()
+  File "/usr/lib64/python3.6/subprocess.py", line 356, in check_output
+    **kwargs).stdout
+  File "/usr/lib64/python3.6/subprocess.py", line 423, in run
+    with Popen(*popenargs, **kwargs) as process:
+TypeError: __init__() got an unexpected keyword argument 'text'
+FAIL archive_members exit=1
+FINAL_STATUS FAIL exit=1 stage=archive_members

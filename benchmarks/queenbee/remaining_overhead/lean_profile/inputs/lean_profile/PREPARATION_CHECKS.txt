@@ -1,0 +1,15 @@
+Copyright (c) 2026 Dominic C. Marcello. SPDX-License-Identifier: GPL-2.0-or-later
+
+Prepared locally on 2026-10-23; no build, runtime, QB access or submission by the bundle preparer.
+PASS: bash -n job.sbatch common.sh.
+PASS: all bundle Python sources parse with Python 3.6 grammar.
+PASS: verify_prior.py against downloaded complete job1125925 evidence: five cases, numerical/plan comparisons, two communication gates and archive proof.
+PASS: verify_transformation.py against the separately generated rendezvous_profile/transform_check copy and frozen clean rendezvous source.
+PASS: temporary explicitly synthetic analyzer plus result-wrapper fixture: five cases, 15 numerical checks and distinct auxiliary role. Mixed normal-probe rank levels correctly rejected. Synthetic fixtures are not packaged.
+PASS: five copied core profile tools match the frozen source hashes.
+PASS: parent read-only job review and hpx_build independent review of final scripts, probe/environment/loader gates, transformer, recorder and parser; no blocker reported.
+PASS: independent phase/ABI source review: matching new helper/header for all diagnostic consumers, exact disjoint nanosecond phases, nested counters excluded from phase addition.
+
+Separate API-agent compile/runtime correctness validation is documented in profile/VALIDATION.json and profile/README.md. It includes eight successful compiles, phase unit tests, parser rejection tests and local N64 MPI/HPX numerical checks at 4x1 and 3x2. These are local correctness evidence, not cluster performance.
+
+The final outer and nested tool SHA manifests are verified when freezing this bundle. No changes to earlier frozen bundles, primary benchmark source, original FFTW archives or production code are part of this preparation.

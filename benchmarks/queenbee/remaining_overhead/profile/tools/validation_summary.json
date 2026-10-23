@@ -1,0 +1,74 @@
+{
+  "tracked_source_edits": false,
+  "local_build_limit": 2,
+  "compile_checks": {
+    "bridge": {
+      "object": "build/qb_remaining/profile/compile_check/hpx-comm.o",
+      "object_sha256": "adc46a71663fe2a3ed53599d81172d83f10fd527ff12fc5cf02abc38aa3da4b5",
+      "command": "build/qb_remaining/profile/compile_check/bridge.command",
+      "log": "build/qb_remaining/profile/compile_check/bridge.log",
+      "log_empty": true
+    },
+    "common": {
+      "object": "build/qb_remaining/profile/compile_check/remaining_profile.o",
+      "object_sha256": "786ba1fbb8d8e2b0edf602199b467a4ffde3f07383b4a961c4c46728a3ce091f",
+      "command": "build/qb_remaining/profile/compile_check/common.command",
+      "log": "build/qb_remaining/profile/compile_check/common.log",
+      "log_empty": true
+    },
+    "mpi_interpose": {
+      "object": "build/qb_remaining/profile/compile_check/remaining_mpi_profile.o",
+      "object_sha256": "22875704ee58e0753074c992b009f37700dba9a533e5f2575d05cc9647695913",
+      "command": "build/qb_remaining/profile/compile_check/mpi_interpose.command",
+      "log": "build/qb_remaining/profile/compile_check/mpi_interpose.log",
+      "log_empty": true
+    },
+    "threads": {
+      "object": "build/qb_remaining/profile/compile_check/threads.o",
+      "object_sha256": "0e0c8fc60cab4b3e28895b32b82cb6faae663ce43b5e26fd7ef1951cceb67056",
+      "command": "build/qb_remaining/profile/compile_check/threads.command",
+      "log": "build/qb_remaining/profile/compile_check/threads.log",
+      "log_empty": true
+    },
+    "hpx_pairwise": {
+      "object": "build/qb_remaining/profile/compile_check/hpx-transpose-pairwise.o",
+      "object_sha256": "3396dd6e2baf630241fd24a5af90f235374658a203b138fbe17972ba9dea6a59",
+      "command": "build/qb_remaining/profile/compile_check/hpx_pairwise.command",
+      "log": "build/qb_remaining/profile/compile_check/hpx_pairwise.log",
+      "log_empty": true
+    },
+    "mpi_pairwise": {
+      "object": "build/qb_remaining/profile/compile_check/mpi-transpose-pairwise.o",
+      "object_sha256": "56d0f25a6f5635c65c7636fc5013a90d20fb0a29b185a7636e6bef17f6fffe0c",
+      "command": "build/qb_remaining/profile/compile_check/mpi_pairwise.command",
+      "log": "build/qb_remaining/profile/compile_check/mpi_pairwise.log",
+      "log_empty": true
+    },
+    "mpi_driver": {
+      "object": "build/qb_remaining/profile/compile_check/mpi-driver.o",
+      "object_sha256": "db243b7a72af5ce72811ae9d92c6f7d38b8cbedf0060bce34f46fcb1d9f4958e",
+      "command": "build/qb_remaining/profile/compile_check/mpi_driver.command",
+      "log": "build/qb_remaining/profile/compile_check/mpi_driver.log",
+      "log_empty": true
+    },
+    "hpx_driver": {
+      "object": "build/qb_remaining/profile/compile_check/hpx-driver.o",
+      "object_sha256": "6ab49ea95cb3bfc82b6d43acc0d63935f7a82634c2f601bb593f30d82d59e83c",
+      "command": "build/qb_remaining/profile/compile_check/hpx_driver.command",
+      "log": "build/qb_remaining/profile/compile_check/hpx_driver.log",
+      "log_empty": true
+    }
+  },
+  "source_sha256": {
+    "instrument.py": "7fd52b4092337a8e95455adbc8fb740c791a257da26332af6d11db08d3064ca1",
+    "remaining_profile.h": "b29d0f5c7a5868517ee6df6e5558e4676a05c3920f69769ab38d98a1cbc69982",
+    "remaining_profile.cpp": "2e084c5fb516ea29d61d43136443f4824685ed32f617650776c09b7efa00ee3e",
+    "remaining_mpi_profile.cpp": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+    "analyze.py": "0b57e273a1a37b0a115c71da778a4b2f2b78b312b5f33ef92d5a3c7fba31d0d3",
+    "check_analyzer.py": "01f0c837da1b2b1e01b8a927a53bf50ff500d7c03839bd103bcb0cefb201fb06",
+    "README.md": "fe4ca3f86b3e9d81825ca184185a4a920fc1545c7a80f0181be1f12bfbd041bb",
+    "compile_check.sh": "95bc21bded52e86bd754c346dd4d77fe6a723e13133016d26876b2aa47fbe6eb"
+  },
+  "v2_instrument_sha256": "78e0414a2d6d759a97c954c2e17df9112b70031a907e9f6b128f9096782a556f",
+  "validation_boundary": "Eight individual release object compiles plus synthetic parser tests; no local HPX runtime or measured profile run."
+}

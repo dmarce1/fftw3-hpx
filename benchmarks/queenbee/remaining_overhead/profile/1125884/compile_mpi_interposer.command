@@ -1,0 +1,2 @@
+cd /work/dmarce1/fftw3_hpx_remaining_20261023
+/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpicxx -O3 -march=native -DNDEBUG -std=c++20 -pthread -I/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125884/diagnostic_source/benchmarks -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125884/diagnostic_source/benchmarks/remaining_mpi_profile.cpp -o /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125884/objects/diagnostic/remaining_mpi_profile.o 

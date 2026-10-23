@@ -1,0 +1,4 @@
+MPI_THREAD_PROBE rank=0 requested=1 provided=3 query=3 env_is_set=1 env=3 forced=1 status=PASS
+MPI_THREAD_PROBE rank=1 requested=1 provided=3 query=3 env_is_set=1 env=3 forced=1 status=PASS
+MPI_THREAD_PROBE rank=3 requested=1 provided=3 query=3 env_is_set=1 env=3 forced=1 status=PASS
+MPI_THREAD_PROBE rank=2 requested=1 provided=3 query=3 env_is_set=1 env=3 forced=1 status=PASS

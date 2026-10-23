@@ -1,0 +1,10 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_missing_metric.log
+@@ -2519,7 +2519,6 @@
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.040784145000000001 nanoseconds=40784145
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_memcpy_wall calls=6 bytes=6442450944 seconds=0.69333046600000003 nanoseconds=693330466
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_allocate_wall calls=6 bytes=6442450944 seconds=0.0040784150000000002 nanoseconds=4078415
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_hit calls=6 bytes=6442450944 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_deallocate_wall calls=6 bytes=6442450944 seconds=0.0040784150000000002 nanoseconds=4078415

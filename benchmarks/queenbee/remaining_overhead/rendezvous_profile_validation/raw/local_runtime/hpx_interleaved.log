@@ -1,0 +1,1143 @@
+CONFIG backend=hpx extent=64 ranks=4 threads=1 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=4194304 max_local_allocation_bytes=1048576
+PLAN_SECONDS backend=hpx value=0.087470126999999995
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-vrank>=1-x16/1
+    (dft-rank>=2/1
+      (dft-direct-64-x64 "n1_64")
+      (dft-direct-64-x64 "n1_64")))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-nop)
+      (rdft-nop)
+      (null)) 
+    (dft-direct-64-x1024 "n1_64") 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-vrank>=1-x16/1
+    (dft-rank>=2/1
+      (dft-direct-64-x64 "n1_64")
+      (dft-direct-64-x64 "n1_64")))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-nop)
+      (rdft-nop)
+      (null)) 
+    (dft-direct-64-x1024 "n1_64") 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=8.3603466663598732e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=7.2564261507230937e-16 tolerance=1e-10
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0033696950000000002 nanoseconds=3369695
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.000224892 nanoseconds=224892
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0011797440000000001 nanoseconds=1179744
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.0014006650000000002 nanoseconds=1400665
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0032412550000000002 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+3241255
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00022383 nanoseconds=223830
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0018334990000000002 nanoseconds=18PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+33499
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00038566100000000003 nanosPROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=385661
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0042902399999999999 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+4290240
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00026026100000000002 nanosecondPROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+s=260261
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001550306 nanoseconds=1550306
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00087619400000000006 nanosPROFILE_DETAIL backend=hpx rank=1 sample=0 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0043222500000000006 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=876194
+4322250
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00024991200000000003 nanosecondPROFILE_DETAIL backend=hpx rank=3 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+s=249912
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0034889360000000002 nanosecondsPROFILE_DETAIL backend=hpx rank=2 sample=0 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0022414000000000002 nanoseconds=22=3488936
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+41400
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.000113831 nanoseconds=11383PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00021536100000000001 nanos1
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=215361
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.3400000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=2 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1340
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.12e-06 nanoseconds=2120
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0033692650000000002 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.2411000000000008e-05 n=3369265
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=82411
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00012210000000000001 nanosePROFILE_DETAIL backend=hpx rank=0 sample=0 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.000161912 nanoseconds=conds=122100
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+161912
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.6500000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00039683200000000001 nanosecondoseconds=1650
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+s=396832
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.1299999999999999e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=receive_finish_wall calls=6 bytes=0 seconds=4.4000000000000002e-07 nanoseconds2130
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=440
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=0.00010259100000000001 nPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.2700000000000001e-06 nanoseconds=102591
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=1270
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00018557100000000002 nPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.9400000000000004e-06 nanosecondsanoseconds=185571
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0044091400000000006 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=0 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+=3940
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00060690400000000002 nanosecond=4409140
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+s=606904
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00011338 nanoseconds=113380PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=receive_finish_wall calls=6 bytes=0 seconds=6.1000000000000009e-07 nanoseconds
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+=610
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.5400000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=1 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.2900000000000001e-06 noseconds=1540
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=0 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+anoseconds=1290
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=0 seconds=0.0043935600000000003 process_cpu_seconds=0.006469013 pending_scopes=0 PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.2300000000000002e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0044348700000000005 nanosecondsPROFILE_DETAIL backend=hpx rank=2 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.89e-06 nanoseconds=3890
+late_scopes=0
+2230
+=4434870
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.756000000000001e-05 naPROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010635000000000001 nanosePROFILE_DETAIL backend=hpx rank=2 sample=0 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+noseconds=77560
+conds=106350
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00020901100000000002 nPROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.6700000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=2 sample=0 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=209011
+oseconds=1670
+PROFILE_DETAIL backend=hpx rank=2 sample=0 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0013713380000000002 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=0 metric=pairwise_free_wall calls=2 bytes=0 seconds=3.0900000000000001e-06 nanoseconds=PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=0 seconds=0.00443524 process_cpu_seconds=0.0068568230000000006 pending_scopes=0 l=1371338
+3090
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_finish_wall calls=6 bytes=0 seconds=4.2e-07 nanoseconds=420
+ate_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=local_transpose_children_wall calls=4 bytes=0 seconds=6.887000000000001e-05 naPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.8730000000000002e-05 nnoseconds=68870
+anoseconds=18730
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00017352000000000001 nPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.98e-06 nanoseconds=3980
+anoseconds=173520
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0014367070000000002 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+=1436707
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=receive_finish_wall calls=6 bytes=0 seconds=3.6000000000000005e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=0 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+=360
+PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=9.9000000000000005e-07 nPROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=0 seconds=0.0053287730000000002 process_cpu_seconds=0.0076044630000000005 pendinganoseconds=990
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.0000000000000007e-06 nanoseconds=4000
+SAMPLE backend=hpx index=0 max_rank_seconds=0.0053341329999999996
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=0 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=0 seconds=0.0053341329999999996 process_cpu_seconds=0.0074659720000000004 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0038141160000000002 nanoseconds=3814116
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00043839300000000003 nanoseconds=438393
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0010437550000000002 nanoseconds=1043755
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.001047903 nanoseconds=1047903
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0031531850000000002 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+3153185
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.000174031 nanoseconds=174031
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.002225341 nanoseconds=2225341
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00022756100000000001 nanosPROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=227561
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0039208670000000006 nanosecondsPROFILE_DETAIL backend=hpx rank=2 sample=1 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+=3920867
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.000101611 nanoseconds=10161PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+1
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.2300000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=2 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1230
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.3e-06 nanoseconds=2300
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=9.1880000000000008e-05 nPROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0032555750000000001 nanosecondsanoseconds=91880
+=3255575
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00019589000000000002 nPROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.7880000000000005e-05 nanoseanoseconds=195890
+conds=97880
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.001082455 nanoseconds=1082455
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.1800000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=0 sample=1 metric=receive_finish_wall calls=6 bytes=0 seconds=5.4000000000000002e-07 nanosecondsoseconds=1180
+=540
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=1.7700000000000002e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.28e-06 nanoseconds=1281770
+0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.7771000000000011e-05 nPROFILE_DETAIL backend=hpx rank=0 sample=1 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.8999999999999999e-06 nanosecondsanoseconds=77771
+=3900
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.000151991 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+151991
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.000369711 nanoseconds=369711
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=receive_finish_wall calls=6 bytes=0 seconds=2.8000000000000002e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=1 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+=280
+PROFILE_DETAIL backend=hpx rank=0 sample=1 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.08e-06 nanoseconds=108PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=1 seconds=0.0048571509999999997 process_cpu_seconds=0.0069271310000000004 pending0
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.1900000000000004e-06 nanosecondsSAMPLE backend=hpx index=1 max_rank_seconds=0.0048571509999999997
+=3190
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=1 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=1 seconds=0.004171129 process_cpu_seconds=0.006353142 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=exchange_wall calls=6 bytes=1572864 seconds=0.003109704 nanoseconds=3109704
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00025071100000000003 nanoseconds=250711
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001230905 nanoseconds=1230905
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00019114200000000002 nanoseconds=191142
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0038126560000000002 nanoseconds=PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+3812656
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00025558200000000002 nanosecondPROFILE_DETAIL backend=hpx rank=1 sample=1 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+s=255582
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001275984 nanoseconds=1275984
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00054552400000000003 nanosPROFILE_DETAIL backend=hpx rank=1 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=545524
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0032248240000000003 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+=3224824
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010717000000000001 nanosePROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=107170
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=2.34e-06 nanoseconds=2340
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=4.0799999999999999e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+4080
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.5470000000000008e-05 nPROFILE_DETAIL backend=hpx rank=3 sample=1 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=75470
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00026882000000000002 nPROFILE_DETAIL backend=hpx rank=3 sample=1 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=268820
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0011624160000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=1 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+=1162416
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=receive_finish_wall calls=6 bytes=0 seconds=4.2e-07 nanoseconds=420
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=9.9000000000000005e-07 nPROFILE_DETAIL backend=hpx rank=3 sample=1 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=990
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.3000000000000003e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0039142980000000001 nanoseconds=4300
+=3914298
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.5792000000000007e-05 nanosePROFILE_DETAIL backend=hpx rank=1 sample=1 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+conds=95792
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.5500000000000002e-06 nanPROFILE_DETAIL backend=hpx rank=1 sample=1 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1550
+PROFILE_DETAIL backend=hpx rank=1 sample=1 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.4600000000000002e-06 nanoseconds=PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=1 seconds=0.0041540980000000002 process_cpu_seconds=0.0062551720000000007 pending2460
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.085e-05 nanoseconds=80850
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00019002 nanoseconds=190020
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.001539056 nanoseconds=1539056
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=receive_finish_wall calls=6 bytes=0 seconds=4.9000000000000007e-07 nanoseconds=490
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.1200000000000001e-06 nanoseconds=1120
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.8800000000000007e-06 nanoseconds=4880
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=1 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=1 seconds=0.0048293709999999998 process_cpu_seconds=0.0069930820000000003 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0037742470000000001 nanoseconds=3774247
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00024976100000000004 nanoseconds=249761
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001618506 nanoseconds=1618506
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00027183300000000002 nanoseconds=271833
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0028193330000000003 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+2819333
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00023612100000000003 nanosecondPROFILE_DETAIL backend=hpx rank=0 sample=2 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+s=236121
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0014350770000000001 nanoseconds=14PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+35077
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00047478200000000004 nanosPROFILE_DETAIL backend=hpx rank=0 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=474782
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0038820770000000003 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3882077
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010194 nanoseconds=101940PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.8700000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1870
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.2700000000000003e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+2270
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.4560000000000004e-05 nPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=74560
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00017601000000000002 nPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=176010
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0014530070000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+=1453007
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=receive_finish_wall calls=6 bytes=0 seconds=5.2e-07 nanoseconds=520
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.0100000000000001e-06 nPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=1010
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.6000000000000003e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3600
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0029263730000000003 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=2 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+=2926373
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.9060000000000004e-05 nanosePROFILE_DETAIL backend=hpx rank=0 sample=2 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=99060
+PROFILE_DETAIL backend=hpx rank=0 sample=2 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=3.05e-06 nanoseconds=3050
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=2 seconds=0.0047873710000000003 process_cpu_seconds=0.0070709230000000007 pendingPROFILE_DETAIL backend=hpx rank=1 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=3.2600000000000001e-06 nanoseconds=_scopes=0 late_scopes=0
+3260
+SAMPLE backend=hpx index=2 max_rank_seconds=0.0047873710000000003
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=6.8770000000000007e-05 nanoseconds=68770
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.000233181 nanoseconds=233181
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00043458200000000003 nanoseconds=434582
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=receive_finish_wall calls=6 bytes=0 seconds=3.8000000000000001e-07 nanoseconds=380
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.0500000000000001e-06 nanoseconds=1050
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.16e-06 nanoseconds=4160
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=2 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=2 seconds=0.0038571870000000002 process_cpu_seconds=0.0060350120000000002 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=exchange_wall calls=6 bytes=1572864 seconds=0.003454604 nanoseconds=3454604
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00020797100000000002 nanoseconds=207971
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0014338770000000001 nanoseconds=1433877
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00027085 nanoseconds=270850
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0034559950000000003 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+3455995
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00022924200000000003 nanosecondPROFILE_DETAIL backend=hpx rank=2 sample=2 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+s=229242
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0017416270000000001 nanoseconds=17PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+41627
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00059974400000000004 nanosPROFILE_DETAIL backend=hpx rank=2 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=599744
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0035628560000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3562856
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.000103022 nanoseconds=10302PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+2
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.5400000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1540
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=1.9300000000000002e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+1930
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.8120000000000003e-05 nPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=88120
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00014961 nanoseconds=1PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+49610
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.001387606 nanoseconds=1387606
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=receive_finish_wall calls=6 bytes=0 seconds=6.1000000000000009e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+=610
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=8.9000000000000006e-07 nPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=890
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.1900000000000004e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3190
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0035606850000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=2 sample=2 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+=3560685
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.8720000000000003e-05 nanosePROFILE_DETAIL backend=hpx rank=2 sample=2 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=98720
+PROFILE_DETAIL backend=hpx rank=2 sample=2 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=2.04e-06 nanoseconds=2040
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=2 seconds=0.0044980799999999998 process_cpu_seconds=0.0068590420000000001 pendingPROFILE_DETAIL backend=hpx rank=3 sample=2 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.08e-06 nanoseconds=2080
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.8970999999999999e-05 nanoseconds=88971
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00020502000000000001 nanoseconds=205020
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00067478200000000007 nanoseconds=674782
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=receive_finish_wall calls=6 bytes=0 seconds=4.4000000000000002e-07 nanoseconds=440
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.02e-06 nanoseconds=1020
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.1200000000000004e-06 nanoseconds=4120
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=2 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=2 seconds=0.0045119799999999996 process_cpu_seconds=0.0066492730000000007 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0036228760000000001 nanoseconds=3622876
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00031046300000000003 nanoseconds=310463
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001468446 nanoseconds=1468446
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00013355100000000001 nanoseconds=133551
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0035891760000000003 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+3589176
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00027721100000000003 nanosecondPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+s=277211
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.00055724500000000005 nanoseconds=5PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+57245
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00052263100000000007 nanosPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=522631
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0037270160000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=3 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3727016
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.8470000000000011e-05 nanosePROFILE_DETAIL backend=hpx rank=1 sample=3 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=98470
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.8900000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=1 sample=3 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1890
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.03e-06 nanoseconds=2030
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.1680000000000004e-05 nPROFILE_DETAIL backend=hpx rank=1 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=81680
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00018628000000000001 nPROFILE_DETAIL backend=hpx rank=1 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=186280
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.001518536 nanoseconds=1518536
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0036957760000000004 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=receive_finish_wall calls=6 bytes=0 seconds=5.5000000000000003e-07 nanoseconds=3695776
+=550
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.889000000000001e-05 nanosecPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.26e-06 nanoseconds=126onds=98890
+0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=3.1500000000000003e-06 nanPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.7900000000000001e-06 nanosecondsoseconds=3150
+=3790
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.7600000000000003e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+2760
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.196100000000001e-05 naPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+noseconds=81961
+PROFILE_DETAIL backend=hpx rank=0 sample=3 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00017951000000000002 nPROFILE_DETAIL backend=hpx rank=0 sample=3 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+anoseconds=179510
+PROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=3 seconds=0.0046744300000000003 process_cpu_seconds=0.0069829710000000001 pendingPROFILE_DETAIL backend=hpx rank=1 sample=3 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.002047119 nanoseconds=2047119
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=receive_finish_wall calls=6 bytes=0 seconds=3.4000000000000003e-07 nanosecondsSAMPLE backend=hpx index=3 max_rank_seconds=0.004958222
+=340
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.1000000000000001e-06 nanoseconds=1100
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.0200000000000005e-06 nanoseconds=4020
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=3 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=3 seconds=0.0046716609999999997 process_cpu_seconds=0.0068558810000000003 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0039046970000000004 nanoseconds=3904697
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00022514100000000002 nanoseconds=225141
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0028475840000000002 nanoseconds=2847584
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00056827100000000008 nanoseconds=568271
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0040103270000000002 nanoseconds=4010327
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0039356170000000006 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010085000000000001 nanose3935617
+conds=100850
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00024087100000000001 nanosecondPROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.26e-06 nanoseconds=1260
+s=240871
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=1.7800000000000001e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=receive_wait_wall calls=6 bytes=0 seconds=0.00098706500000000008 nanoseconds=91780
+87065
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.7750000000000006e-05 nPROFILE_DETAIL backend=hpx rank=2 sample=3 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.0011341140000000001 nanoseanoseconds=77750
+conds=1134114
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00022413100000000003 nPROFILE_DETAIL backend=hpx rank=2 sample=3 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=224131
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=readiness_phase_wall calls=6 bytes=0 seconds=3.4270000000000002e-05 nanosecondPROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+s=34270
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=receive_finish_wall calls=6 bytes=0 seconds=4.2e-07 nanoseconds=420
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.0100000000000001e-06 nPROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=1010
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.8700000000000002e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+=3870
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=3 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=3 seconds=0.0049393120000000004 process_cpu_seconds=0.0069818310000000008 pendingPROFILE_DETAIL backend=hpx rank=2 sample=3 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0040425870000000003 nanoseconds=4042587
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010128000000000001 nanoseconds=101280
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.2100000000000001e-06 nanoseconds=1210
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.7800000000000001e-06 nanoseconds=2780
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.1081000000000005e-05 nanoseconds=81081
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.000180841 nanoseconds=180841
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0013868060000000002 nanoseconds=1386806
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=receive_finish_wall calls=6 bytes=0 seconds=4.6000000000000004e-07 nanoseconds=460
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.2300000000000001e-06 nanoseconds=1230
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.2300000000000002e-06 nanoseconds=4230
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=3 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=3 seconds=0.004958222 process_cpu_seconds=0.0072044210000000008 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0030233030000000002 nanoseconds=3023303
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00034220100000000004 nanoseconds=342201
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0011968850000000002 nanoseconds=1196885
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00033462200000000002 nanoseconds=334622
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=exchange_wall calls=6 bytes=1572864 seconds=0.002352781 nanoseconds=2352781
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00028587100000000004 nanosecondPROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+s=285871
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.00091669500000000003 nanoseconds=9PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+16695
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00032389100000000003 nanosPROFILE_DETAIL backend=hpx rank=0 sample=4 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=323891
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0031310540000000003 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=4 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3131054
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010196100000000001 nanosePROFILE_DETAIL backend=hpx rank=1 sample=4 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=101961
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.5200000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=1 sample=4 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1520
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.4100000000000002e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+2410
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=9.9010000000000002e-05 nPROFILE_DETAIL backend=hpx rank=1 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=99010
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00028502099999999999 nPROFILE_DETAIL backend=hpx rank=1 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=285021
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0024727010000000003 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=4 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00085865400000000004 nanosecond=2472701
+s=858654
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00011355000000000001 nanosePROFILE_DETAIL backend=hpx rank=0 sample=4 metric=receive_finish_wall calls=6 bytes=0 seconds=4.0000000000000003e-07 nanosecondsconds=113550
+=400
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.7700000000000002e-06 nanPROFILE_DETAIL backend=hpx rank=0 sample=4 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.3e-06 nanoseconds=1300oseconds=1770
+
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=3.0200000000000003e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.2200000000000003e-06 nanoseconds3020
+=4220
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.8210000000000011e-05 nPROFILE_DETAIL backend=hpx rank=0 sample=4 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+anoseconds=88210
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00019458100000000001 nPROFILE_DETAIL backend=hpx rank=0 sample=4 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=194581
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.000626053 nanoseconds=626053
+PROFILE_DETAIL backend=hpx rank=0 sample=4 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=receive_finish_wall calls=6 bytes=0 seconds=4.0000000000000003e-07 nanosecondsPROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=4 seconds=0.0040838580000000001 process_cpu_seconds=0.0064028510000000002 pending=400
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.1200000000000001e-06 nSAMPLE backend=hpx index=4 max_rank_seconds=0.0041764790000000003
+anoseconds=1120
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.1699999999999999e-06 nanoseconds=4170
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=4 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=4 seconds=0.003406975 process_cpu_seconds=0.00572924 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0024069900000000003 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0031510930000000002 nanoseconds=2406990
+3151093
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00025870100000000002 nanosecondPROFILE_DETAIL backend=hpx rank=2 sample=4 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00023340000000000001 nanoseconds=258701
+s=233400
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0014798970000000002 nanoseconds=14PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001160295 nanoseconds=1160295
+79897
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00048954100000000002 nanosPROFILE_DETAIL backend=hpx rank=3 sample=4 metric=send_completion_wait_wall calls=6 bytes=0 seconds=8.6399999999999999e-05 nanoseconds=489541
+econds=86400
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0032656440000000003 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0025236400000000002 nanoseconds=3265644
+=2523640
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010784100000000001 nanosePROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00011135000000000001 nanoseconds=107841
+conds=111350
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=2.21e-06 nanoseconds=2210
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.4500000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=2 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.6400000000000001e-06 nanoseconds=oseconds=1450
+2640
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.0000000000000003e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.7801000000000009e-05 n2000
+anoseconds=77801
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=local_transpose_children_wall calls=4 bytes=0 seconds=9.6172e-05 nanoseconds=9PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00014788 nanoseconds=16172
+47880
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00020052000000000001 nPROFILE_DETAIL backend=hpx rank=2 sample=4 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0011144570000000001 nanosecondsanoseconds=200520
+=1114457
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.000376432 nanoseconds=376432
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=receive_finish_wall calls=6 bytes=0 seconds=7.7000000000000004e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=4 metric=receive_finish_wall calls=6 bytes=0 seconds=4.4000000000000002e-07 nanoseconds=770
+=440
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.28e-06 nanoseconds=128PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=8.5000000000000001e-07 n0
+anoseconds=850
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.4700000000000002e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=4 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.7500000000000001e-06 nanoseconds=3470
+=3750
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=4 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=4 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=4 seconds=0.0041764790000000003 process_cpu_seconds=0.0067193220000000007 pendingPROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=4 seconds=0.0034540259999999998 process_cpu_seconds=0.0058946800000000002 pending_scopes=0 late_scopes=0
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0035151540000000004 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0047856120000000007 nanoseconds=3515154
+4785612
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00025974100000000002 nanosecondPROFILE_DETAIL backend=hpx rank=0 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00028339100000000002 nanoseconds=259741
+s=283391
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.00092062500000000011 nanoseconds=9PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0026187910000000001 nanoseconds=2620625
+18791
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00023034000000000002 nanoseconds=230340
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0039247280000000006 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+3924728
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00025999000000000004 nanosecondPROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+s=259990
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0011509350000000001 nanoseconds=11PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+50935
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.000300253 nanoseconds=3002PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+53
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0045748110000000007 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+4574811
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00028594200000000002 nanosPROFILE_DETAIL backend=hpx rank=2 sample=5 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00029237100000000004 nanosecondeconds=285942
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+s=292371
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0017680880000000001 nanoseconds=17PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+68088
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.0011509440000000001 nanosePROFILE_DETAIL backend=hpx rank=2 sample=5 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=1150944
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0036421160000000004 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=5 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3642116
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00012199200000000001 nanosePROFILE_DETAIL backend=hpx rank=0 sample=5 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=121992
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.5e-06 nanoseconds=1500
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=1.8700000000000001e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+1870
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=0.00010829000000000001 nPROFILE_DETAIL backend=hpx rank=0 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0040372289999999998 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=5 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=108290
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=4037229
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0048945120000000002 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.000106031 nanoseconds=10603PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00022794000000000002 n=4894512
+1
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010334000000000001 nanosePROFILE_DETAIL backend=hpx rank=3 sample=5 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=227940
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.8900000000000001e-06 nanconds=103340
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0018716780000000001 nanosecondsoseconds=1890
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.5e-06 nanoseconds=1500
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+=1871678
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.9500000000000001e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.21e-06 nanoseconds=2210
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=receive_finish_wall calls=6 bytes=0 seconds=3.5000000000000004e-07 nanoseconds2950
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=6.7670000000000008e-05 nPROFILE_DETAIL backend=hpx rank=3 sample=5 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=350
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.6399999999999999e-05 nanoseconds=67670
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0046835210000000004 nanosecondsPROFILE_DETAIL backend=hpx rank=2 sample=5 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=9.2000000000000009e-07 nanoseconds=86400
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00038998200000000003 n=4683521
+anoseconds=920
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00024328200000000002 nanoseconds=389982
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010309 nanoseconds=103090PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.5600000000000002e-06 nanosecondsanoseconds=243282
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0012022560000000001 nanoseconds
+=3560
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0019647779999999999 nanoseconds=1202256
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.61e-06 nanoseconds=1610
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+=1964778
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=receive_finish_wall calls=6 bytes=0 seconds=3.3000000000000002e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=5 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.12e-06 nanoseconds=2120
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=receive_finish_wall calls=6 bytes=0 seconds=3.7e-07 nanoseconds=370
+=330
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=local_transpose_children_wall calls=4 bytes=0 seconds=9.4470000000000009e-05 nPROFILE_DETAIL backend=hpx rank=2 sample=5 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.0100000000000001e-06 nPROFILE_DETAIL backend=hpx rank=0 sample=5 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.08e-06 nanoseconds=108anoseconds=94470
+PROFILE_DETAIL backend=hpx rank=2 sample=5 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=1010
+0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.1100000000000005e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=5 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00019036300000000001 nPROFILE_DETAIL backend=hpx rank=2 sample=5 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.8400000000000005e-06 nanoseconds=4110
+anoseconds=190363
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=5 seconds=0.0046164500000000002 process_cpu_seconds=0.0067804010000000001 pending=3840
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0011672050000000002 nanoseconds_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+=1167205
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=receive_finish_wall calls=6 bytes=0 seconds=5.0000000000000008e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=5 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+=500
+PROFILE_DETAIL backend=hpx rank=1 sample=5 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.1000000000000001e-06 nPROFILE_DETAIL backend=hpx rank=1 sample=5 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=5 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=5 seconds=0.0050647829999999998 process_cpu_seconds=0.0072604010000000005 pendingPROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=5 seconds=0.0057821360000000002 process_cpu_seconds=0.0079582410000000013 pendinganoseconds=1100
+_scopes=0 late_scopes=0
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.2400000000000001e-06 nanosecondsSAMPLE backend=hpx index=5 max_rank_seconds=0.0057821360000000002
+=4240
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=5 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=5 seconds=0.0056152249999999997 process_cpu_seconds=0.0077654210000000006 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0032036440000000003 nanoseconds=3203644
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00026940000000000004 nanoseconds=269400
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0014078770000000001 nanoseconds=1407877
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00032038100000000001 nanoseconds=320381
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0026392820000000002 nanoseconds=PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+2639282
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00025064200000000003 nanosecondPROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+s=250642
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0013201060000000001 nanoseconds=13PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+20106
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00059600199999999999 nanosPROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=596002
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0033090260000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=6 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+=3309026
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010042200000000001 nanosePROFILE_DETAIL backend=hpx rank=1 sample=6 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=100422
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.37e-06 nanoseconds=1370
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=1.7600000000000001e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+1760
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=5.7560000000000005e-05 nPROFILE_DETAIL backend=hpx rank=1 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=57560
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.0027455130000000002 nanosecondsPROFILE_DETAIL backend=hpx rank=0 sample=6 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.000229621 nanoseconds==2745513
+229621
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=0.00010000100000000001 nanosePROFILE_DETAIL backend=hpx rank=0 sample=6 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00097102500000000003 nanosecondconds=100001
+s=971025
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.6300000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=0 sample=6 metric=receive_finish_wall calls=6 bytes=0 seconds=3.7e-07 nanoseconds=370
+oseconds=1630
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=1.2000000000000002e-06 nPROFILE_DETAIL backend=hpx rank=1 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.9500000000000001e-06 nanoseconds=anoseconds=1200
+2950
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.7700000000000003e-06 nanosecondsPROFILE_DETAIL backend=hpx rank=1 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=7.8440000000000001e-05 n=3770
+anoseconds=78440
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00024937100000000002 nPROFILE_DETAIL backend=hpx rank=0 sample=6 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+anoseconds=249371
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00021776100000000002 nanosecondPROFILE_DETAIL backend=hpx rank=0 sample=6 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+s=217761
+PROFILE_DETAIL backend=hpx rank=0 sample=6 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=receive_finish_wall calls=6 bytes=0 seconds=3.8000000000000001e-07 nanosecondsPROFILE_DETAIL_TOTAL backend=hpx rank=0 sample=6 seconds=0.0042101990000000004 process_cpu_seconds=0.0064015910000000007 pending=380
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=9.1000000000000008e-07 nSAMPLE backend=hpx index=6 max_rank_seconds=0.0042873490000000002
+anoseconds=910
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.1100000000000005e-06 nanoseconds=4110
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=1 sample=6 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=1 sample=6 seconds=0.003662406 process_cpu_seconds=0.0056393800000000003 pending_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0026463120000000001 nanoseconds=2646312
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.00021836000000000002 nanoseconds=218360
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.001491757 nanoseconds=1491757
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00029542199999999999 nanoseconds=295422
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=exchange_wall calls=6 bytes=1572864 seconds=0.0032690940000000002 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+3269094
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=send_initiation_wall calls=6 bytes=0 seconds=0.000189941 nanoseconds=189941
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=receive_wait_wall calls=6 bytes=0 seconds=0.0013389560000000001 nanoseconds=13PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+38956
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.00019704000000000002 nanosPROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+econds=197040
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=run_jobs_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=enqueue_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=inline_work_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=join_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=task_wall_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.002746432 nanoseconds=2746432
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=queue_delay_sum calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.3770000000000005e-05 nanosePROFILE_DETAIL backend=hpx rank=2 sample=6 metric=task_thread_cpu_observed calls=0 bytes=0 seconds=0 nanoseconds=0
+conds=93770
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.6300000000000001e-06 nanPROFILE_DETAIL backend=hpx rank=2 sample=6 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+oseconds=1630
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=2.8600000000000001e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+2860
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=0.003369824 nanoseconds=3369824
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.933e-05 nanoseconds=89PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_copy_wall calls=6 bytes=1572864 seconds=9.5950000000000001e-05 nanose330
+conds=95950
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00020761 nanoseconds=2PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_allocate_wall calls=2 bytes=524288 seconds=1.61e-06 nanoseconds=1610
+07610
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=pairwise_free_wall calls=2 bytes=0 seconds=1.6400000000000002e-06 nanoseconds=PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.00042770300000000003 nanosecond1640
+s=427703
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=local_transpose_children_wall calls=4 bytes=0 seconds=8.0951000000000005e-05 nPROFILE_DETAIL backend=hpx rank=3 sample=6 metric=receive_finish_wall calls=6 bytes=0 seconds=4.5000000000000003e-07 nanosecondsanoseconds=80951
+=450
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=post_announce_initiation_wall calls=6 bytes=0 seconds=0.00013062100000000001 nPROFILE_DETAIL backend=hpx rank=3 sample=6 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=9.9000000000000005e-07 nanoseconds=130621
+anoseconds=990
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.0014084760000000001 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=6 metric=exchange_rest_wall calls=12 bytes=0 seconds=4.0200000000000005e-06 nanoseconds=1408476
+=4020
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=receive_finish_wall calls=6 bytes=0 seconds=2.7000000000000001e-07 nanosecondsPROFILE_DETAIL backend=hpx rank=3 sample=6 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+=270
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=7.8000000000000005e-07 nPROFILE_DETAIL backend=hpx rank=3 sample=6 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+anoseconds=780
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=exchange_rest_wall calls=12 bytes=0 seconds=3.01e-06 nanoseconds=3010
+PROFILE_DETAIL backend=hpx rank=3 sample=6 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=3 sample=6 seconds=0.0036867660000000002 process_cpu_seconds=0.0056054800000000004 pendingPROFILE_DETAIL backend=hpx rank=2 sample=6 metric=direct_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+_scopes=0 late_scopes=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=owned_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+PROFILE_DETAIL backend=hpx rank=2 sample=6 metric=required_posted_message_load calls=6 bytes=1572864 seconds=0 nanoseconds=0
+PROFILE_DETAIL_TOTAL backend=hpx rank=2 sample=6 seconds=0.0042873490000000002 process_cpu_seconds=0.0065484110000000005 pending_scopes=0 late_scopes=0
+CHECK backend=hpx stage=final_roundtrip relative_max_error=1.9794899360963732e-15 tolerance=1e-10
+RESULT backend=hpx extent=64 ranks=4 threads=1 samples=7 min_seconds=0.0041764790000000003 median_seconds=0.0048571509999999997 mean_seconds=0.0048832629999999997 max_seconds=0.0057821360000000002 status=PASS

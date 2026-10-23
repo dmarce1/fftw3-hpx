@@ -1,4 +1,4 @@
-fftw3-hpx (2026-10-22)
+fftw3-hpx (2026-10-23)
 =====================
 
 The hpx/ directory ports FFTW 3.3.11's distributed-memory library to HPX
@@ -8,12 +8,21 @@ large-stack threads. Configure with --enable-hpx --enable-threads and the HPX
 pkg-config path; double, single and long-double precision are supported.
 See hpx/README.md for the SPMD application contract and build/test commands,
 and hpx/VALIDATION.md for source provenance, exact checks and local results.
-The unchanged 1024-cubed QueenBee benchmark now measures HPX at 4.203 s
-versus MPI at 3.356 s (1.2524 times MPI), with pooled receive storage and
-explicitly tuned HPX background-worker limits. The original result was about
-four times MPI. See benchmarks/queenbee/optimization/README.md for the
-controlled comparisons, full samples, diagnosis, correctness evidence and
-startup settings. benchmarks/queenbee/README.md preserves the original run.
+The bridge now receives large pairwise messages directly into FFTW-owned
+storage after exchanging readiness notifications. FFTW retains ownership of
+its allocations. Profiling identified the removed final receive copy as about
+70 percent of the previously measured HPX/MPI timing gap. A lean HPX build
+also removes optional instrumentation while retaining the MPI parcelport.
+The final 1024-cubed QueenBee cohort measured HPX at 3.489 seconds versus MPI
+controls of 3.279 and 3.312 seconds, with a 10 ms HPX idle-backoff cap. The
+remaining overhead is 5.4-6.4 percent; the report records run variation and
+the increased runtime CPU activity observed with the shorter cap.
+See benchmarks/queenbee/remaining_overhead/README.md for the unchanged
+1024-cubed QueenBee comparison, all timing cohorts, remaining overhead,
+correctness checks and exact build/runtime settings. Earlier pooled-receive
+and original results remain in benchmarks/queenbee/optimization/README.md and
+benchmarks/queenbee/README.md. hpx/MPI_MAPPING.md lists the MPI calls replaced
+and the scope of their HPX replacements.
 
 This repository starts from the official release tarball, including its
 already-generated codelets:

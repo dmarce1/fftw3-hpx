@@ -1,0 +1,22 @@
+/home/dmarce1/workspace/fftw3-hpx/build/combined_precision_smoke.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/double/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/libfftw3f_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/single/threads/.libs/libfftw3f_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/single/.libs/libfftw3f.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/long_double/libfftw3l_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/threads/.libs/libfftw3l_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/.libs/libfftw3l.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/combined/combined_precision_smoke: OK
+combined double/single/long-double precision smoke PASS
+/home/dmarce1/workspace/fftw3-hpx/build/combined_precision_smoke.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/double/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/libfftw3f_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/single/threads/.libs/libfftw3f_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/single/.libs/libfftw3f.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/long_double/libfftw3l_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/threads/.libs/libfftw3l_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/.libs/libfftw3l.a: OK

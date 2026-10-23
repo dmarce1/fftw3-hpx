@@ -1,0 +1,290 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "finished_utc": "2026-10-23T07:49:40.641114+00:00",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "prototype_sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+  "diagnostic_sha256": "bf48e1637c085e76eef0fe8e86cb757487ce763a4a688cdac7acfe7374007516",
+  "scope": "Local correctness only; no cluster performance evidence",
+  "status_files": {
+    "units": {
+      "build": {
+        "exit_status": "0",
+        "finished_utc": "2026-10-23T07:40:07Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "finished_utc": "2026-10-23T07:42:44Z"
+      }
+    },
+    "double": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T07:40:35Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T07:45:53Z"
+      }
+    },
+    "single": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T07:44:01Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T07:47:02Z"
+      }
+    },
+    "long_double": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T07:44:01Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T07:48:19Z"
+      }
+    },
+    "combined": {
+      "build": {
+        "exit_status": "0",
+        "finished_utc": "2026-10-23T07:44:39Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "finished_utc": "2026-10-23T07:48:25Z"
+      }
+    }
+  },
+  "deterministic_unit_groups": [
+    "CHECK posted_destination_exact_pointer_contents_guards_and_single_claim PASS",
+    "CHECK missing_target_fallback_owns_storage_beyond_source_archive_and_original_message PASS",
+    "CHECK size_mismatch_throws_before_write_or_claim PASS",
+    "CHECK precision_group_epoch_source_tag_sequence_isolation PASS",
+    "CHECK actual_hpx_zero_copy_archive_exports_exact_posted_chunk_destination PASS",
+    "CHECK empty_payload_self_copy_and_overlap_boundaries PASS",
+    "CHECK hybrid_early_fallback_no_redirection_shared_ownership_then_exact_pool_hit PASS",
+    "CHECK hybrid_direct_target_does_not_consume_or_free_pool_storage_and_counter_identities PASS",
+    "CHECK hybrid_cleanup_live_fallback_late_release_and_old_epoch_wire_isolation PASS",
+    "CHECK hybrid_pool_exact_size_largest_retention_and_replacement PASS"
+  ],
+  "standard_matrix_calls": [
+    {
+      "precision": "double",
+      "configuration": "matrix_1x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "double",
+      "configuration": "matrix_2x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "double",
+      "configuration": "matrix_3x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "double",
+      "configuration": "matrix_4x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "double",
+      "configuration": "matrix_3x2",
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "matrix_1x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "matrix_2x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "matrix_3x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "matrix_4x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "matrix_3x2",
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "matrix_1x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "matrix_2x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "matrix_3x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "matrix_4x1",
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "matrix_3x2",
+      "status": "PASS"
+    }
+  ],
+  "communication_calls": [
+    {
+      "precision": "double",
+      "configuration": "comm_1x2",
+      "locality_pass_lines": 1,
+      "status": "PASS"
+    },
+    {
+      "precision": "double",
+      "configuration": "comm_3x2",
+      "locality_pass_lines": 3,
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "comm_1x2",
+      "locality_pass_lines": 1,
+      "status": "PASS"
+    },
+    {
+      "precision": "single",
+      "configuration": "comm_3x2",
+      "locality_pass_lines": 3,
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "comm_1x2",
+      "locality_pass_lines": 1,
+      "status": "PASS"
+    },
+    {
+      "precision": "long_double",
+      "configuration": "comm_3x2",
+      "locality_pass_lines": 3,
+      "status": "PASS"
+    }
+  ],
+  "combined_precision": {
+    "status": "PASS",
+    "localities": 3,
+    "workers_per_locality": 2,
+    "assertions": "enabled"
+  },
+  "matched_numerical": {
+    "configuration": {
+      "backend": "hpx",
+      "extent": "256",
+      "ranks": "2",
+      "threads": "2",
+      "precision": "double",
+      "inplace": "1",
+      "layout": "normal",
+      "planner": "FFTW_ESTIMATE",
+      "warmups": "2",
+      "samples": "7",
+      "global_data_bytes": "268435456",
+      "max_local_allocation_bytes": "134217728"
+    },
+    "checks": [
+      {
+        "backend": "hpx",
+        "stage": "forward_spectrum",
+        "relative_max_error": "7.5395217858013326e-16",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "hpx",
+        "stage": "initial_roundtrip",
+        "relative_max_error": "1.3056059912435614e-15",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "hpx",
+        "stage": "final_roundtrip",
+        "relative_max_error": "7.4990760765808042e-15",
+        "tolerance": "1e-10"
+      }
+    ],
+    "result": {
+      "backend": "hpx",
+      "extent": "256",
+      "ranks": "2",
+      "threads": "2",
+      "samples": "7",
+      "min_seconds": "0.471176084",
+      "median_seconds": "0.48482802200000003",
+      "mean_seconds": "0.48325989542857134",
+      "max_seconds": "0.49276029199999999",
+      "status": "PASS"
+    },
+    "scope": "local correctness only"
+  },
+  "archive_member_proofs": [
+    {
+      "precision": "double",
+      "member_count": 32,
+      "unchanged_members": 31,
+      "changed": [
+        "hpx-comm.o"
+      ]
+    },
+    {
+      "precision": "single",
+      "member_count": 32,
+      "unchanged_members": 31,
+      "changed": [
+        "hpx-comm.o"
+      ]
+    },
+    {
+      "precision": "long_double",
+      "member_count": 32,
+      "unchanged_members": 31,
+      "changed": [
+        "hpx-comm.o"
+      ]
+    }
+  ],
+  "original_inputs_reverified": true,
+  "tracked_worktree_clean": true,
+  "local_resources": {
+    "max_concurrent_compilers": 2,
+    "max_runtime_workers": 6,
+    "compilation_and_distributed_runtime_separate": true
+  },
+  "transport": "TCP between processes on the same workstation only",
+  "qb_login_attempts": 0,
+  "limitations": [
+    "No MPI parcelport runtime test of the hybrid yet",
+    "No controlled hybrid performance comparison yet",
+    "Diagnostic counters compiled and deterministically checked, but no distributed diagnostic hit-rate measurement yet",
+    "HPX chunk archive unit checks simulate network fill after actual archive destination selection"
+  ]
+}

@@ -1,0 +1,249 @@
+bin/selected_lean: OK
+bin/selected_lean_comm_check: OK
+objects/selected_lean/hpx-comm.o: OK
+objects/selected_lean/libfftw3_hpx.a: OK
+objects/selected_lean/source-hpx-comm.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/rendezvous: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/objects/pool_release/libfftw3_hpx.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/threads/.libs/libfftw3_threads.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/.libs/libfftw3.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/mpi/.libs/libfftw3_mpi.a: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm-check.cpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate/config.h: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/hpx/hpx-comm.h: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/hpx/fftw3-hpx.h: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/summarize.py: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/hpx-flags.sh: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/lean_metadata/hpx-flags.sh: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/FINAL_STATUS: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/candidate_comparison.json: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/results.tsv: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/artifacts.sha256: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/fixed_inputs.sha256: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/reused_artifacts/lean_installed-artifacts.sha256: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_hybrid.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_hybrid_diagnostic.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_lean_pool.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_mpi.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_parallel_copy.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_pool_release.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_pooled_current.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_rendezvous.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/benchmark_rendezvous_diagnostic.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_hybrid.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_hybrid_diagnostic.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_lean_pool.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_parallel_copy.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_pool_release.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_pooled_current.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_rendezvous.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/comparison_rendezvous_diagnostic.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_hybrid.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_hybrid_diagnostic.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_lean_pool.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_parallel_copy.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_pool_release.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_rendezvous.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/communication_rendezvous_diagnostic.log: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/SOURCE_COMMIT: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/SHA256SUMS: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/confirmation/SHA256SUMS: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/rendezvous: OK
+bin/hybrid: OK
+bin/hybrid_comm_check: OK
+bin/hybrid_diagnostic: OK
+bin/hybrid_diagnostic_comm_check: OK
+bin/lean_pool: OK
+bin/lean_pool_comm_check: OK
+bin/parallel_copy: OK
+bin/parallel_copy_comm_check: OK
+bin/pool_release: OK
+bin/pool_release_comm_check: OK
+bin/rendezvous: OK
+bin/rendezvous_comm_check: OK
+bin/rendezvous_diagnostic: OK
+bin/rendezvous_diagnostic_comm_check: OK
+objects/hybrid/hpx-comm.o: OK
+objects/hybrid/libfftw3_hpx.a: OK
+objects/hybrid/source-hpx-comm.cpp: OK
+objects/hybrid_diagnostic/hpx-comm.o: OK
+objects/hybrid_diagnostic/libfftw3_hpx.a: OK
+objects/hybrid_diagnostic/source-hpx-comm.cpp: OK
+objects/lean_pool/hpx-comm.o: OK
+objects/lean_pool/libfftw3_hpx.a: OK
+objects/lean_pool/source-hpx-comm.cpp: OK
+objects/parallel_copy/hpx-comm.o: OK
+objects/parallel_copy/libfftw3_hpx.a: OK
+objects/parallel_copy/source-hpx-comm.cpp: OK
+objects/pool_release/hpx-comm.o: OK
+objects/pool_release/libfftw3_hpx.a: OK
+objects/pool_release/source-hpx-comm.cpp: OK
+objects/rendezvous/hpx-comm.o: OK
+objects/rendezvous/libfftw3_hpx.a: OK
+objects/rendezvous/source-hpx-comm.cpp: OK
+objects/rendezvous_diagnostic/hpx-comm.o: OK
+objects/rendezvous_diagnostic/libfftw3_hpx.a: OK
+objects/rendezvous_diagnostic/source-hpx-comm.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/bin/pooled_receive: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/prototypes/pooled_receive/libfftw3_hpx.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/source/benchmarks/matched_3d.cpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate/config.h: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125605/primary_hpx-flags.sh: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/hpx/hpx-comm.h: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/hpx/fftw3-hpx.h: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/hpx/hpx-comm-check.cpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/summarize.py: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/mpi/.libs/libfftw3_mpi.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/threads/.libs/libfftw3_threads.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/.libs/libfftw3.a: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/libhpx.so: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/libhpx_core.so: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/include/hpx/config/defines.hpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake: OK
+candidates/PREPARATION_CHECKS.txt: OK
+candidates/PROVENANCE.json: OK
+candidates/README.md: OK
+candidates/check_lean_ldd.py: OK
+candidates/check_members.py: OK
+candidates/check_results.py: OK
+candidates/common.sh: OK
+candidates/drivers/diagnostic.patch: OK
+candidates/drivers/matched_3d.cpp: OK
+candidates/drivers/matched_3d_diagnostic.cpp: OK
+candidates/drivers/receive-diagnostics.hpp: OK
+candidates/hpx_cmake_flags.py: OK
+candidates/job.sbatch: OK
+candidates/prototypes/hybrid/hpx-comm.cpp: OK
+candidates/prototypes/hybrid_diagnostic/hpx-comm.cpp: OK
+candidates/prototypes/hybrid_diagnostic/receive-diagnostics.hpp: OK
+candidates/prototypes/parallel_copy/hpx-comm.cpp: OK
+candidates/prototypes/pool_release/hpx-comm.cpp: OK
+candidates/prototypes/rendezvous/hpx-comm-check.cpp: OK
+candidates/prototypes/rendezvous/hpx-comm.cpp: OK
+candidates/prototypes/rendezvous_diagnostic/hpx-comm-check.cpp: OK
+candidates/prototypes/rendezvous_diagnostic/hpx-comm.cpp: OK
+candidates/prototypes/rendezvous_diagnostic/receive-diagnostics.hpp: OK
+confirmation/PREPARATION_CHECKS.txt: OK
+confirmation/PROVENANCE.json: OK
+confirmation/README.md: OK
+confirmation/check_lean_ldd.py: OK
+confirmation/check_members.py: OK
+confirmation/check_results.py: OK
+confirmation/common.sh: OK
+confirmation/job.sbatch: OK
+confirmation/verify_prior.py: OK
+lean_profile/PREPARATION_CHECKS.txt: OK
+lean_profile/PROVENANCE.json: OK
+lean_profile/README.md: OK
+lean_profile/check_lean_ldd.py: OK
+lean_profile/check_members.py: OK
+lean_profile/check_mpi_ldd.py: OK
+lean_profile/check_results.py: OK
+lean_profile/common.sh: OK
+lean_profile/job.sbatch: OK
+lean_profile/mpi_thread_probe.c: OK
+lean_profile/profile/PROJECT_INPUTS.sha256: OK
+lean_profile/profile/README.md: OK
+lean_profile/profile/TOOLS_SHA256SUMS: OK
+lean_profile/profile/VALIDATION.json: OK
+lean_profile/profile/analyze.py: OK
+lean_profile/profile/check_analyzer.py: OK
+lean_profile/profile/compile_check.sh: OK
+lean_profile/profile/instrument.py: OK
+lean_profile/profile/phase_check.cpp: OK
+lean_profile/profile/remaining_mpi_profile.cpp: OK
+lean_profile/profile/remaining_profile.cpp: OK
+lean_profile/profile/remaining_profile.h: OK
+lean_profile/verify_prior.py: OK
+lean_profile/verify_transformation.py: OK
+readiness_progress/EXPECTED_BINARIES.sha256: OK
+readiness_progress/PROVENANCE.json: OK
+readiness_progress/README.md: OK
+readiness_progress/check_results.py: OK
+readiness_progress/common.sh: OK
+readiness_progress/job.sbatch: OK
+readiness_progress/verify_profile_prior.py: OK
+bin/hpx_profile: OK
+bin/hpx_profile_comm_check: OK
+bin/mpi_profile: OK
+bin/mpi_thread_probe: OK
+objects/diagnostic/remaining_mpi_profile.o: OK
+objects/diagnostic/remaining_profile.o: OK
+objects/hpx_profile/hpx-comm.o: OK
+objects/hpx_profile/libfftw3_hpx.a: OK
+objects/hpx_profile/transpose-pairwise.o: OK
+objects/mpi_profile/libfftw3_mpi.a: OK
+objects/mpi_profile/transpose-pairwise.o: OK
+objects/threads_profile/libfftw3_threads.a: OK
+objects/threads_profile/libfftw3_threads_la-threads.o: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/objects/selected_lean/libfftw3_hpx.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/threads/.libs/libfftw3_threads.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/mpi/.libs/libfftw3_mpi.a: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/.libs/libfftw3.a: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/hpx-comm-check.cpp: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/build/candidate/config.h: OK
+/work/dmarce1/fftw3_hpx_benchmark_20261022/build/config.h: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/hpx/transpose-pairwise.c: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/mpi/transpose-pairwise.c: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/source/threads/threads.c: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/lean_hpx-flags.sh: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/FINAL_STATUS: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/confirmation_comparison.json: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/artifacts.sha256: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/fixed_inputs.sha256: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/reused_binaries.sha256: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/SOURCE_COMMIT: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/SHA256SUMS: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/confirmation/SHA256SUMS: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/lean_profile/SHA256SUMS: OK
+/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean: OK
+/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check: OK
+{
+  "status": "PASS",
+  "diagnostic_only": true,
+  "files": {
+    "hpx/hpx-comm.cpp": {
+      "before_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "after_sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13"
+    },
+    "benchmarks/matched_3d.cpp": {
+      "before_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "after_sha256": "a679e0b3584ae14816d1e677b653ca9889cb644e9643cd7a024c045a2f9c6da0"
+    },
+    "threads/threads.c": {
+      "before_sha256": "e47e83fce6c6ec01b1b073429ed844b0c1768402eab8d00df18262f5748f3bd3",
+      "after_sha256": "d020df071438e33ca472f917e56fcdcd2cacebddde71bdfe3ead961e9f9c3fa6"
+    },
+    "hpx/transpose-pairwise.c": {
+      "before_sha256": "250cf3f915690e5c8e914d8395625d09c9cbd8626f6528ec3350465cf8664fdc",
+      "after_sha256": "e45a7538b43c6d71711abac63d33e67cfcf458168d83e26cc92062aad53881a9"
+    },
+    "mpi/transpose-pairwise.c": {
+      "before_sha256": "173df10a57fdad3c3392a59c96e33e852e91b0281033be87cffdd169daa695cb",
+      "after_sha256": "5d86828ab734fbdbb7a9a18ba7d88682d4f3ce1af8d2902ef77f4772f58e69e8"
+    },
+    "benchmarks/remaining_profile.h": {
+      "generated_sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3"
+    },
+    "benchmarks/remaining_profile.cpp": {
+      "generated_sha256": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b"
+    },
+    "benchmarks/remaining_mpi_profile.cpp": {
+      "generated_sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+mpicxx -O3 -DNDEBUG -pthread -std=c++20 -Iapi -Impi -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/transform_check/benchmarks/matched_3d.cpp -o /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/compile_check/mpi-driver.o 

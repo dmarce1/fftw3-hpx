@@ -1,0 +1,2 @@
+. build/hpx_env.sh
+FFTW_REMAINING_PROFILE_DIR=/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/local_threaded/hpx_rank_logs timeout --kill-after=15s 180s sh hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/local_runtime/matched_hpx --size=64 --threads=2 --warmups=2 --samples=7 > /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/local_threaded/benchmark_hpx.log 2>&1

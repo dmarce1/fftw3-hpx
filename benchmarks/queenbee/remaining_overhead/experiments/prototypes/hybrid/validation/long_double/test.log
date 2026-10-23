@@ -1,0 +1,337 @@
+START hybrid/long_double input_unchanged 2026-10-23T07:47:26Z
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/.libs/libfftw3l_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/tests/check.pl: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/.libs/libfftw3l.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/threads/.libs/libfftw3l_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/libbench2/libbench2.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-hpx-bench.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-hpx-bench-main.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-fftw-bench.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-hook.o: OK
+PASS hybrid/long_double input_unchanged 2026-10-23T07:47:26Z
+START hybrid/long_double output_unchanged 2026-10-23T07:47:26Z
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/libfftw3l_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-comm-check: OK
+PASS hybrid/long_double output_unchanged 2026-10-23T07:47:26Z
+START hybrid/long_double comm_1x2 2026-10-23T07:47:26Z
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+PASS hybrid/long_double comm_1x2 2026-10-23T07:47:26Z
+START hybrid/long_double comm_3x2 2026-10-23T07:47:26Z
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+communication check PASS
+communication check PASS
+PASS hybrid/long_double comm_3x2 2026-10-23T07:47:27Z
+START hybrid/long_double matrix_1x1 2026-10-23T07:47:27Z
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 1 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'ok[9bx8e10' --verify 'ik[9bx8e10' --verify 'obr[6x6x7v6' --verify 'ibr[6x6x7v6' --verify 'obc[6x6x7v6' --verify 'ibc[6x6x7v6' --verify 'ofc[6x6x7v6' --verify 'ifc[6x6x7v6' --verify 'ok]6bx11e00x6o00' --verify 'ik]6bx11e00x6o00' --verify 'obrd4x8x11x10' --verify 'ibrd4x8x11x10' --verify 'ofrd4x8x11x10' --verify 'ifrd4x8x11x10' --verify 'obcd4x8x11x10' --verify 'ibcd4x8x11x10' --verify 'ofcd4x8x11x10' --verify 'ifcd4x8x11x10' --verify 'ok[9o10x10e00x11e00x13b' --verify 'ik[9o10x10e00x11e00x13b' --verify 'obrd12x5x15v1' --verify 'ibrd12x5x15v1' --verify 'ofrd12x5x15v1' --verify 'ifrd12x5x15v1' --verify 'obcd12x5x15v1' --verify 'ibcd12x5x15v1' --verify 'ofcd12x5x15v1' --verify 'ifcd12x5x15v1' --verify 'okd]5e10x8e01x6bx13h' --verify 'ikd]5e10x8e01x6bx13h' --verify 'ofr]3x8x5x5' --verify 'ifr]3x8x5x5' --verify 'obc]3x8x5x5' --verify 'ibc]3x8x5x5' --verify 'ofc]3x8x5x5' --verify 'ifc]3x8x5x5'"
+ok[9bx8e10 1.39337e-19 1.13841e-18 1.8905e-19
+ik[9bx8e10 1.22248e-19 1.19262e-18 1.5312e-19
+obr[6x6x7v6 1.64159e-19 2.5498e-19 1.66354e-19
+ibr[6x6x7v6 1.75036e-19 2.5498e-19 1.82091e-19
+obc[6x6x7v6 1.82863e-19 2.5498e-19 2.65589e-19
+ibc[6x6x7v6 1.67332e-19 2.5498e-19 3.00972e-19
+ofc[6x6x7v6 1.73321e-19 1.91235e-19 3.10516e-19
+ifc[6x6x7v6 1.8478e-19 2.5498e-19 2.83636e-19
+ok]6bx11e00x6o00 1.74353e-19 5.17119e-18 2.0447e-19
+ik]6bx11e00x6o00 1.77217e-19 5.50482e-18 1.75169e-19
+obrd4x8x11x10 1.66486e-19 3.50865e-19 2.41293e-19
+ibrd4x8x11x10 2.02751e-19 3.50865e-19 2.50523e-19
+ofrd4x8x11x10 2.03865e-19 2.92388e-19 3.76853e-19
+ifrd4x8x11x10 1.7459e-19 2.92388e-19 3.59157e-19
+obcd4x8x11x10 2.1414e-19 3.50865e-19 3.25334e-19
+ibcd4x8x11x10 2.08176e-19 3.50865e-19 3.43091e-19
+ofcd4x8x11x10 2.2275e-19 4.09343e-19 3.34383e-19
+ifcd4x8x11x10 1.77599e-19 3.50865e-19 3.2969e-19
+ok[9o10x10e00x11e00x13b 2.41537e-19 7.1991e-17 1.95163e-19
+ik[9o10x10e00x11e00x13b 2.6166e-19 6.0878e-17 2.54799e-19
+obrd12x5x15v1 1.80653e-19 4.62593e-19 2.2001e-19
+ibrd12x5x15v1 1.75671e-19 4.62593e-19 2.76561e-19
+ofrd12x5x15v1 1.52715e-19 2.31296e-19 3.45722e-19
+ifrd12x5x15v1 1.9225e-19 2.31296e-19 2.82226e-19
+obcd12x5x15v1 1.98566e-19 3.46945e-19 2.51729e-19
+ibcd12x5x15v1 2.58813e-19 3.46945e-19 2.4062e-19
+ofcd12x5x15v1 1.86205e-19 2.89121e-19 2.46403e-19
+ifcd12x5x15v1 1.70306e-19 3.46945e-19 3.23364e-19
+okd]5e10x8e01x6bx13h 1.91332e-19 1.98409e-17 2.0179e-19
+ikd]5e10x8e01x6bx13h 2.0196e-19 1.45825e-17 2.55157e-19
+ofr]3x8x5x5 1.87089e-19 2.83279e-19 2.37638e-19
+ifr]3x8x5x5 1.82897e-19 2.83279e-19 2.26222e-19
+obc]3x8x5x5 1.98966e-19 2.83279e-19 2.29176e-19
+ibc]3x8x5x5 1.91754e-19 2.83279e-19 2.34032e-19
+ofc]3x8x5x5 1.94466e-19 3.54099e-19 2.44987e-19
+ifc]3x8x5x5 1.78515e-19 2.83279e-19 2.22902e-19
+PASS hybrid/long_double matrix_1x1 2026-10-23T07:47:28Z
+START hybrid/long_double matrix_2x1 2026-10-23T07:47:28Z
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'ok11e00x7o11v9' --verify 'ik11e00x7o11v9' --verify 'obrd16x5v18' --verify 'ibrd16x5v18' --verify 'ofrd16x5v18' --verify 'ifrd16x5v18' --verify 'obcd16x5v18' --verify 'ibcd16x5v18' --verify 'ofcd16x5v18' --verify 'ifcd16x5v18' --verify 'okd13hx8hx4o00' --verify 'ikd13hx8hx4o00' --verify 'obrd[6x8x11v2' --verify 'ibrd[6x8x11v2' --verify 'obcd[6x8x11v2' --verify 'ibcd[6x8x11v2' --verify 'ofcd[6x8x11v2' --verify 'ifcd[6x8x11v2' --verify 'ok10bx72e10' --verify 'ik10bx72e10' --verify 'ofrd]12x40' --verify 'ifrd]12x40' --verify 'obcd]12x40' --verify 'ibcd]12x40' --verify 'ofcd]12x40' --verify 'ifcd]12x40' --verify 'ok8e01x4hv11' --verify 'ik8e01x4hv11' --verify 'okd[33e01x13o11' --verify 'ikd[33e01x13o11' --verify 'ofrd]10x2' --verify 'ifrd]10x2' --verify 'obcd]10x2' --verify 'ibcd]10x2' --verify 'ofcd]10x2' --verify 'ifcd]10x2' --verify 'obr5x6x8x7' --verify 'ibr5x6x8x7' --verify 'ofr5x6x8x7' --verify 'ifr5x6x8x7' --verify 'obc5x6x8x7' --verify 'ibc5x6x8x7' --verify 'ofc5x6x8x7' --verify 'ifc5x6x8x7'"
+ok11e00x7o11v9 1.4174e-19 8.48604e-19 2.08816e-19
+ik11e00x7o11v9 1.98282e-19 1.03045e-18 1.62299e-19
+obrd16x5v18 1.42937e-19 2.04723e-19 1.65693e-19
+ibrd16x5v18 1.73098e-19 2.04723e-19 1.90342e-19
+ofrd16x5v18 1.4441e-19 2.04723e-19 2.61887e-19
+ifrd16x5v18 1.4251e-19 2.04723e-19 2.77871e-19
+obcd16x5v18 2.26797e-19 2.04723e-19 2.66188e-19
+ibcd16x5v18 1.69399e-19 2.04723e-19 2.97874e-19
+ofcd16x5v18 1.68993e-19 2.04723e-19 2.31287e-19
+ifcd16x5v18 1.9103e-19 2.04723e-19 2.13053e-19
+okd13hx8hx4o00 2.57006e-19 2.90699e-18 2.23137e-19
+ikd13hx8hx4o00 2.0966e-19 2.90699e-18 2.29099e-19
+obrd[6x8x11v2 2.49391e-19 3.39724e-19 1.88563e-19
+ibrd[6x8x11v2 1.85457e-19 2.83103e-19 2.5261e-19
+obcd[6x8x11v2 2.10393e-19 2.26482e-19 3.22445e-19
+ibcd[6x8x11v2 1.87746e-19 2.83103e-19 3.05922e-19
+ofcd[6x8x11v2 1.7195e-19 3.39724e-19 3.81757e-19
+ifcd[6x8x11v2 1.98946e-19 2.83103e-19 2.93358e-19
+ok10bx72e10 1.86642e-19 4.8518e-18 1.86393e-19
+ik10bx72e10 1.61914e-19 5.25838e-18 1.6316e-19
+ofrd]12x40 1.98031e-19 3.16716e-19 2.92193e-19
+ifrd]12x40 1.69321e-19 3.16716e-19 3.13886e-19
+obcd]12x40 1.76401e-19 3.16716e-19 3.39291e-19
+ibcd]12x40 1.74758e-19 3.16716e-19 3.25757e-19
+ofcd]12x40 1.80539e-19 3.16716e-19 2.95905e-19
+ifcd]12x40 1.96257e-19 3.16716e-19 2.71077e-19
+ok8e01x4hv11 1.75822e-19 4.73106e-19 1.00325e-19
+ik8e01x4hv11 2.50197e-19 9.46213e-19 1.40236e-19
+okd[33e01x13o11 2.02477e-19 6.02832e-18 2.0805e-19
+ikd[33e01x13o11 2.41638e-19 5.70247e-18 2.61606e-19
+ofrd]10x2 1.03641e-19 9.6974e-20 3.0804e-19
+ifrd]10x2 1.1856e-19 0 3.30962e-19
+obcd]10x2 1.77932e-19 1.93948e-19 3.18913e-19
+ibcd]10x2 1.10733e-19 9.6974e-20 3.45298e-19
+ofcd]10x2 1.85267e-19 1.93948e-19 3.17117e-19
+ifcd]10x2 1.60462e-19 1.93948e-19 2.74073e-19
+obr5x6x8x7 1.97269e-19 3.38583e-19 2.4034e-19
+ibr5x6x8x7 1.53639e-19 3.38583e-19 1.92628e-19
+ofr5x6x8x7 2.09505e-19 3.38583e-19 2.98381e-19
+ifr5x6x8x7 2.00354e-19 3.38583e-19 3.35476e-19
+obc5x6x8x7 2.05056e-19 4.23229e-19 3.19282e-19
+ibc5x6x8x7 2.07779e-19 3.38583e-19 2.99044e-19
+ofc5x6x8x7 2.13093e-19 3.38583e-19 3.13195e-19
+ifc5x6x8x7 1.99427e-19 3.38583e-19 2.8742e-19
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 2 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'obr[3x8x10x6v3' --verify 'ibr[3x8x10x6v3' --verify 'obc[3x8x10x6v3' --verify 'ibc[3x8x10x6v3' --verify 'ofc[3x8x10x6v3' --verify 'ifc[3x8x10x6v3'"
+obr[3x8x10x6v3 1.84037e-19 3.0476e-19 2.10549e-19
+ibr[3x8x10x6v3 1.96471e-19 3.0476e-19 1.94313e-19
+obc[3x8x10x6v3 2.17856e-19 3.65712e-19 3.45247e-19
+ibc[3x8x10x6v3 1.84394e-19 2.43808e-19 3.18108e-19
+ofc[3x8x10x6v3 1.95337e-19 3.0476e-19 3.40006e-19
+ifc[3x8x10x6v3 1.65724e-19 2.43808e-19 3.18071e-19
+PASS hybrid/long_double matrix_2x1 2026-10-23T07:47:34Z
+START hybrid/long_double matrix_3x1 2026-10-23T07:47:34Z
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'ofcd[8x2v10' --verify 'ifcd[8x2v10' --verify 'ok]11e01x10o00' --verify 'ik]11e01x10o00' --verify 'obr[8x6' --verify 'ibr[8x6' --verify 'obc[8x6' --verify 'ibc[8x6' --verify 'ofc[8x6' --verify 'ifc[8x6' --verify 'okd[8e10x3e00v3' --verify 'ikd[8e10x3e00v3' --verify 'obr[13x20x12' --verify 'ibr[13x20x12' --verify 'obc[13x20x12' --verify 'ibc[13x20x12' --verify 'ofc[13x20x12' --verify 'ifc[13x20x12' --verify 'obrd12x12' --verify 'ibrd12x12' --verify 'ofrd12x12' --verify 'ifrd12x12' --verify 'obcd12x12' --verify 'ibcd12x12' --verify 'ofcd12x12' --verify 'ifcd12x12' --verify 'ok13o00x10e11x10e01' --verify 'ik13o00x10e11x10e01' --verify 'ok8o00x3e11x16e11' --verify 'ik8o00x3e11x16e11' --verify 'obr[4x2x8x6' --verify 'ibr[4x2x8x6' --verify 'obc[4x2x8x6' --verify 'ibc[4x2x8x6' --verify 'ofc[4x2x8x6' --verify 'ifc[4x2x8x6' --verify 'ok[13e11x33b' --verify 'ik[13e11x33b' --verify 'obr[12x7x9x5' --verify 'ibr[12x7x9x5' --verify 'obc[12x7x9x5' --verify 'ibc[12x7x9x5' --verify 'ofc[12x7x9x5' --verify 'ifc[12x7x9x5'"
+ofcd[8x2v10 1.32657e-19 1.19262e-19 1.74608e-19
+ifcd[8x2v10 1.12572e-19 1.19262e-19 1.86567e-19
+ok]11e01x10o00 2.08904e-19 1.42396e-18 1.94351e-19
+ik]11e01x10o00 2.05476e-19 1.31442e-18 2.24145e-19
+obr[8x6 1.73623e-19 1.87789e-19 1.80323e-19
+ibr[8x6 1.57496e-19 1.87789e-19 1.53162e-19
+obc[8x6 1.68801e-19 1.25193e-19 1.98106e-19
+ibc[8x6 1.75377e-19 1.87789e-19 1.83112e-19
+ofc[8x6 1.85661e-19 2.50386e-19 1.7541e-19
+ifc[8x6 1.30659e-19 1.87789e-19 1.83947e-19
+okd[8e10x3e00v3 1.34156e-19 3.43331e-19 1.18538e-19
+ikd[8e10x3e00v3 1.6239e-19 2.89121e-19 1.45958e-19
+obr[13x20x12 1.99953e-19 3.72678e-19 2.25807e-19
+ibr[13x20x12 2.17576e-19 4.96905e-19 2.02399e-19
+obc[13x20x12 2.18644e-19 3.72678e-19 3.46597e-19
+ibc[13x20x12 2.47457e-19 3.72678e-19 3.3145e-19
+ofc[13x20x12 1.95471e-19 3.72678e-19 2.9952e-19
+ifc[13x20x12 2.1202e-19 3.72678e-19 3.10391e-19
+obrd12x12 1.6924e-19 2.89121e-19 1.77244e-19
+ibrd12x12 1.64422e-19 2.89121e-19 1.93438e-19
+ofrd12x12 1.55751e-19 1.4456e-19 2.7093e-19
+ifrd12x12 1.89068e-19 1.4456e-19 2.47702e-19
+obcd12x12 1.96175e-19 2.89121e-19 2.50249e-19
+ibcd12x12 1.67258e-19 2.89121e-19 2.50568e-19
+ofcd12x12 1.56697e-19 2.1684e-19 2.54064e-19
+ifcd12x12 1.65174e-19 2.89121e-19 3.11032e-19
+ok13o00x10e11x10e01 2.11009e-19 6.30782e-18 2.40794e-19
+ik13o00x10e11x10e01 2.00656e-19 5.05713e-18 2.25466e-19
+ok8o00x3e11x16e11 2.1556e-19 1.89714e-18 2.57612e-19
+ik8o00x3e11x16e11 2.81432e-19 1.7331e-18 2.81345e-19
+obr[4x2x8x6 1.99837e-19 1.77049e-19 1.71422e-19
+ibr[4x2x8x6 1.69057e-19 2.65574e-19 1.66893e-19
+obc[4x2x8x6 1.76534e-19 2.65574e-19 2.22764e-19
+ibc[4x2x8x6 1.65898e-19 2.65574e-19 1.97774e-19
+ofc[4x2x8x6 1.50989e-19 2.65574e-19 2.00354e-19
+ifc[4x2x8x6 1.76046e-19 2.65574e-19 1.9076e-19
+ok[13e11x33b 2.00148e-19 3.84577e-18 2.04495e-19
+ik[13e11x33b 2.6898e-19 4.39904e-18 2.15397e-19
+obr[12x7x9x5 2.34826e-19 4.51444e-19 3.12437e-19
+ibr[12x7x9x5 2.09228e-19 4.51444e-19 3.39217e-19
+obc[12x7x9x5 2.07373e-19 3.38583e-19 4.15887e-19
+ibc[12x7x9x5 1.96708e-19 3.38583e-19 4.32135e-19
+ofc[12x7x9x5 2.75327e-19 3.38583e-19 4.14525e-19
+ifc[12x7x9x5 2.17568e-19 3.38583e-19 3.7152e-19
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'obr4x10x11' --verify 'ibr4x10x11' --verify 'ofr4x10x11' --verify 'ifr4x10x11' --verify 'obc4x10x11' --verify 'ibc4x10x11' --verify 'ofc4x10x11' --verify 'ifc4x10x11' --verify 'ok[13e10x3o11v3' --verify 'ik[13e10x3o11v3' --verify 'obcd1728' --verify 'ibcd1728' --verify 'ofcd1728' --verify 'ifcd1728' --verify 'obrd[8x2v10' --verify 'ibrd[8x2v10' --verify 'obcd[8x2v10' --verify 'ibcd[8x2v10'"
+obr4x10x11 2.00302e-19 3.30799e-19 2.08988e-19
+ibr4x10x11 1.65646e-19 3.30799e-19 1.88583e-19
+ofr4x10x11 1.54481e-19 2.48099e-19 2.85597e-19
+ifr4x10x11 1.73212e-19 3.30799e-19 3.63435e-19
+obc4x10x11 1.89111e-19 3.30799e-19 2.74737e-19
+ibc4x10x11 1.63122e-19 2.48099e-19 2.83512e-19
+ofc4x10x11 1.83129e-19 4.13498e-19 3.30019e-19
+ifc4x10x11 1.68485e-19 3.30799e-19 3.24281e-19
+ok[13e10x3o11v3 1.81407e-19 4.48979e-19 1.63525e-19
+ik[13e10x3o11v3 2.43396e-19 4.86394e-19 1.55629e-19
+obcd1728 2.22983e-19 4.1731e-19 2.66084e-19
+ibcd1728 2.02524e-19 3.33848e-19 2.73253e-19
+ofcd1728 1.78313e-19 3.33848e-19 2.64988e-19
+ifcd1728 2.00971e-19 4.1731e-19 2.41229e-19
+obrd[8x2v10 1.55329e-19 1.19262e-19 1.21672e-19
+ibrd[8x2v10 1.51591e-19 1.19262e-19 1.81365e-19
+obcd[8x2v10 1.6188e-19 1.19262e-19 1.65432e-19
+ibcd[8x2v10 1.47951e-19 1.19262e-19 1.93852e-19
+PASS hybrid/long_double matrix_3x1 2026-10-23T07:47:48Z
+START hybrid/long_double matrix_4x1 2026-10-23T07:47:48Z
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'obr[6x11x4v4' --verify 'ibr[6x11x4v4' --verify 'obc[6x11x4v4' --verify 'ibc[6x11x4v4' --verify 'ofc[6x11x4v4' --verify 'ifc[6x11x4v4' --verify 'ok10o01x11e10v13' --verify 'ik10o01x11e10v13' --verify 'obrd[8x12x7' --verify 'ibrd[8x12x7' --verify 'obcd[8x12x7' --verify 'ibcd[8x12x7' --verify 'ofcd[8x12x7' --verify 'ifcd[8x12x7' --verify 'ok[10e00x7e10x12e11x12e00' --verify 'ik[10e00x7e10x12e11x12e00' --verify 'ofrd]7x12x12x4' --verify 'ifrd]7x12x12x4' --verify 'obcd]7x12x12x4' --verify 'ibcd]7x12x12x4' --verify 'ofcd]7x12x12x4' --verify 'ifcd]7x12x12x4' --verify 'ok[8e01x5o01x8o11v4' --verify 'ik[8e01x5o01x8o11v4' --verify 'obr8x13v7' --verify 'ibr8x13v7' --verify 'ofr8x13v7' --verify 'ifr8x13v7' --verify 'obc8x13v7' --verify 'ibc8x13v7' --verify 'ofc8x13v7' --verify 'ifc8x13v7' --verify 'ofr]3x11x11x7' --verify 'ifr]3x11x11x7' --verify 'obc]3x11x11x7' --verify 'ibc]3x11x11x7' --verify 'ofc]3x11x11x7' --verify 'ifc]3x11x11x7' --verify 'ofrd]9x13' --verify 'ifrd]9x13' --verify 'obcd]9x13' --verify 'ibcd]9x13' --verify 'ofcd]9x13' --verify 'ifcd]9x13'"
+obr[6x11x4v4 1.65333e-19 2.66912e-19 1.87041e-19
+ibr[6x11x4v4 1.61247e-19 2.66912e-19 1.77367e-19
+obc[6x11x4v4 1.51225e-19 2.66912e-19 3.06941e-19
+ibc[6x11x4v4 1.73171e-19 2.66912e-19 2.8917e-19
+ofc[6x11x4v4 1.67406e-19 2.00184e-19 2.81828e-19
+ifc[6x11x4v4 1.7158e-19 2.00184e-19 2.73809e-19
+ok10o01x11e10v13 2.9962e-19 9.45725e-19 1.92138e-19
+ik10o01x11e10v13 2.03611e-19 8.86617e-19 1.6652e-19
+obrd[8x12x7 1.52143e-19 4.0151e-19 2.02163e-19
+ibrd[8x12x7 1.6161e-19 2.67674e-19 2.05859e-19
+obcd[8x12x7 1.94328e-19 2.67674e-19 3.03108e-19
+ibcd[8x12x7 1.80371e-19 2.67674e-19 3.02714e-19
+ofcd[8x12x7 1.85645e-19 4.0151e-19 2.82437e-19
+ifcd[8x12x7 2.06947e-19 3.34592e-19 3.11238e-19
+ok[10e00x7e10x12e11x12e00 2.08515e-19 4.96e-17 1.90316e-19
+ik[10e00x7e10x12e11x12e00 2.16976e-19 4.35698e-17 2.30971e-19
+ofrd]7x12x12x4 1.90541e-19 3.27832e-19 3.32029e-19
+ifrd]7x12x12x4 1.99682e-19 3.27832e-19 3.15299e-19
+obcd]7x12x12x4 2.0165e-19 4.37109e-19 2.87603e-19
+ibcd]7x12x12x4 2.1532e-19 3.27832e-19 2.76814e-19
+ofcd]7x12x12x4 1.79805e-19 4.37109e-19 2.56555e-19
+ifcd]7x12x12x4 1.84881e-19 3.82471e-19 2.8558e-19
+ok[8e01x5o01x8o11v4 2.43153e-19 1.99165e-18 2.5004e-19
+ik[8e01x5o01x8o11v4 2.68378e-19 2.4853e-18 2.58363e-19
+obr8x13v7 1.64713e-19 2.43005e-19 2.12728e-19
+ibr8x13v7 1.76617e-19 1.94404e-19 1.803e-19
+ofr8x13v7 1.66317e-19 1.94404e-19 2.98823e-19
+ifr8x13v7 1.41618e-19 1.94404e-19 2.90961e-19
+obc8x13v7 1.6313e-19 1.94404e-19 2.62621e-19
+ibc8x13v7 1.72208e-19 1.94404e-19 2.65229e-19
+ofc8x13v7 1.93377e-19 1.94404e-19 3.37335e-19
+ifc8x13v7 1.55099e-19 2.91606e-19 2.88723e-19
+ofr]3x11x11x7 1.6692e-19 2.75307e-19 3.68014e-19
+ifr]3x11x11x7 2.03628e-19 3.44134e-19 3.36698e-19
+obc]3x11x11x7 2.17122e-19 4.12961e-19 3.46089e-19
+ibc]3x11x11x7 2.38769e-19 4.12961e-19 2.99439e-19
+ofc]3x11x11x7 1.9255e-19 3.44134e-19 3.3585e-19
+ifc]3x11x11x7 1.92895e-19 4.12961e-19 3.56511e-19
+ofrd]9x13 1.8553e-19 2.40563e-19 3.84165e-19
+ifrd]9x13 1.81874e-19 2.40563e-19 4.13609e-19
+obcd]9x13 1.87688e-19 2.40563e-19 3.78496e-19
+ibcd]9x13 2.17465e-19 3.2075e-19 3.3968e-19
+ofcd]9x13 1.72967e-19 3.2075e-19 3.48256e-19
+ifcd]9x13 2.16248e-19 2.40563e-19 4.15602e-19
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 4 1 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" --verbose=1   --verify 'obr6x10' --verify 'ibr6x10' --verify 'ofr6x10' --verify 'ifr6x10' --verify 'obc6x10' --verify 'ibc6x10' --verify 'ofc6x10' --verify 'ifc6x10' --verify 'ok10bx2e10v5' --verify 'ik10bx2e10v5' --verify 'ok9e11x15o11' --verify 'ik9e11x15o11'"
+obr6x10 1.62016e-19 2.23952e-19 2.0437e-19
+ibr6x10 1.72603e-19 2.23952e-19 1.67711e-19
+ofr6x10 1.07989e-19 1.11976e-19 3.06718e-19
+ifr6x10 1.46676e-19 2.23952e-19 2.80219e-19
+obc6x10 1.90435e-19 2.23952e-19 2.72988e-19
+ibc6x10 1.46837e-19 1.67964e-19 3.22458e-19
+ofc6x10 1.67206e-19 2.23952e-19 2.17228e-19
+ifc6x10 1.43557e-19 2.23952e-19 3.34123e-19
+ok10bx2e10v5 2.07612e-19 4.55365e-19 7.51344e-20
+ik10bx2e10v5 1.19302e-19 3.49655e-19 9.14492e-20
+ok9e11x15o11 2.01634e-19 1.3623e-18 1.86625e-19
+ik9e11x15o11 1.94662e-19 2.34996e-18 2.83157e-19
+PASS hybrid/long_double matrix_4x1 2026-10-23T07:48:03Z
+START hybrid/long_double matrix_3x2 2026-10-23T07:48:03Z
+Executing "sh "/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh" "/home/dmarce1/local/hpx/Release/bin/hpxrun.py" 3 2 "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/validation/long_double/hpx-bench" -o nthreads=2 --verbose=1   --verify 'ok5o10x11e00x12e00' --verify 'ik5o10x11e00x12e00' --verify 'obrd[4x8x5x7' --verify 'ibrd[4x8x5x7' --verify 'obcd[4x8x5x7' --verify 'ibcd[4x8x5x7' --verify 'ofcd[4x8x5x7' --verify 'ifcd[4x8x5x7' --verify 'ok[9o11x12e00x13o10' --verify 'ik[9o11x12e00x13o10' --verify 'okd]7o10x8o01x5o00' --verify 'ikd]7o10x8o01x5o00' --verify 'okd5e11x6e10v13' --verify 'ikd5e11x6e10v13' --verify 'ofrd]12x8x10' --verify 'ifrd]12x8x10' --verify 'obcd]12x8x10' --verify 'ibcd]12x8x10' --verify 'ofcd]12x8x10' --verify 'ifcd]12x8x10' --verify 'ofr]13x12x9x11' --verify 'ifr]13x12x9x11' --verify 'obc]13x12x9x11' --verify 'ibc]13x12x9x11' --verify 'ofc]13x12x9x11' --verify 'ifc]13x12x9x11' --verify 'obr8x6v8' --verify 'ibr8x6v8' --verify 'ofr8x6v8' --verify 'ifr8x6v8' --verify 'obc8x6v8' --verify 'ibc8x6v8' --verify 'ofc8x6v8' --verify 'ifc8x6v8' --verify 'ok[9e11x16e01x3o10' --verify 'ik[9e11x16e01x3o10' --verify 'ofr]10x6x12v2' --verify 'ifr]10x6x12v2' --verify 'obc]10x6x12v2' --verify 'ibc]10x6x12v2' --verify 'ofc]10x6x12v2' --verify 'ifc]10x6x12v2'"
+ok5o10x11e00x12e00 1.50797e-19 7.64363e-18 1.86797e-19
+ik5o10x11e00x12e00 1.43879e-19 7.91468e-18 1.52642e-19
+obrd[4x8x5x7 1.5134e-19 3.11009e-19 2.48607e-19
+ibrd[4x8x5x7 1.79513e-19 3.11009e-19 1.94149e-19
+obcd[4x8x5x7 2.12404e-19 4.14678e-19 3.07496e-19
+ibcd[4x8x5x7 1.92773e-19 4.14678e-19 3.42674e-19
+ofcd[4x8x5x7 2.02741e-19 3.11009e-19 3.02913e-19
+ifcd[4x8x5x7 1.76248e-19 4.14678e-19 3.23327e-19
+ok[9o11x12e00x13o10 2.35591e-19 6.69331e-18 2.15801e-19
+ik[9o11x12e00x13o10 2.34563e-19 7.83607e-18 2.12936e-19
+okd]7o10x8o01x5o00 1.69581e-19 1.40944e-18 2.44023e-19
+ikd]7o10x8o01x5o00 2.15127e-19 1.27126e-18 2.08923e-19
+okd5e11x6e10v13 1.99662e-19 4.80251e-19 2.14307e-19
+ikd5e11x6e10v13 1.61318e-19 5.33818e-19 1.5542e-19
+ofrd]12x8x10 1.38263e-19 2.7994e-19 2.74576e-19
+ifrd]12x8x10 1.46413e-19 2.23952e-19 3.30578e-19
+obcd]12x8x10 1.76351e-19 2.7994e-19 3.08042e-19
+ibcd]12x8x10 1.61452e-19 2.7994e-19 3.5721e-19
+ofcd]12x8x10 1.80336e-19 3.35928e-19 3.31264e-19
+ifcd]12x8x10 1.67077e-19 3.35928e-19 3.34008e-19
+ofr]13x12x9x11 2.09214e-19 3.90848e-19 4.54462e-19
+ifr]13x12x9x11 2.23871e-19 3.35013e-19 4.0428e-19
+obc]13x12x9x11 2.36163e-19 4.46684e-19 3.95416e-19
+ibc]13x12x9x11 2.37108e-19 4.46684e-19 3.685e-19
+ofc]13x12x9x11 2.30834e-19 5.02519e-19 3.77174e-19
+ifc]13x12x9x11 1.97036e-19 4.46684e-19 3.8463e-19
+obr8x6v8 1.40705e-19 2.11263e-19 1.85192e-19
+ibr8x6v8 1.1912e-19 1.40842e-19 2.0066e-19
+ofr8x6v8 1.17954e-19 1.40842e-19 1.85147e-19
+ifr8x6v8 1.58081e-19 1.40842e-19 2.09822e-19
+obc8x6v8 1.57293e-19 1.40842e-19 2.10951e-19
+ibc8x6v8 1.70212e-19 1.40842e-19 1.97345e-19
+ofc8x6v8 1.42248e-19 1.40842e-19 2.28239e-19
+ifc8x6v8 1.26182e-19 1.40842e-19 1.93036e-19
+ok[9e11x16e01x3o10 1.74533e-19 2.72766e-18 1.69816e-19
+ik[9e11x16e01x3o10 1.81181e-19 3.04736e-18 1.85057e-19
+ofr]10x6x12v2 1.71847e-19 1.93948e-19 3.5421e-19
+ifr]10x6x12v2 1.65714e-19 2.90922e-19 3.17539e-19
+obc]10x6x12v2 1.6342e-19 3.87896e-19 2.94007e-19
+ibc]10x6x12v2 1.88216e-19 2.90922e-19 2.92891e-19
+ofc]10x6x12v2 2.03197e-19 2.90922e-19 3.2327e-19
+ifc]10x6x12v2 1.83572e-19 2.90922e-19 3.02777e-19
+PASS hybrid/long_double matrix_3x2 2026-10-23T07:48:19Z
+START hybrid/long_double inputs_still_unchanged 2026-10-23T07:48:19Z
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/hybrid/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/.libs/libfftw3l_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/tests/check.pl: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/.libs/libfftw3l.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/threads/.libs/libfftw3l_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/libbench2/libbench2.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-hpx-bench.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-hpx-bench-main.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-fftw-bench.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/long_double/hpx/hpx_bench-hook.o: OK
+PASS hybrid/long_double inputs_still_unchanged 2026-10-23T07:48:19Z

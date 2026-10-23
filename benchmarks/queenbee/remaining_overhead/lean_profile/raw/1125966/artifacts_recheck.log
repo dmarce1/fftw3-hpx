@@ -1,0 +1,13 @@
+bin/hpx_profile: OK
+bin/hpx_profile_comm_check: OK
+bin/mpi_profile: OK
+bin/mpi_thread_probe: OK
+objects/diagnostic/remaining_mpi_profile.o: OK
+objects/diagnostic/remaining_profile.o: OK
+objects/hpx_profile/hpx-comm.o: OK
+objects/hpx_profile/libfftw3_hpx.a: OK
+objects/hpx_profile/transpose-pairwise.o: OK
+objects/mpi_profile/libfftw3_mpi.a: OK
+objects/mpi_profile/transpose-pairwise.o: OK
+objects/threads_profile/libfftw3_threads.a: OK
+objects/threads_profile/libfftw3_threads_la-threads.o: OK

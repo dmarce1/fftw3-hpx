@@ -1,0 +1,25 @@
+Fri Oct 23 08:40:39 UTC 2026
+qbd007
+Currently Loaded Modulefiles:
+gcc/13.2.0
+gcc (Spack GCC) 13.2.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+mpiexec (Open MPI) 5.0.11
+
+Report bugs to https://www.open-mpi.org/community/help/
+
+source_commit=4cd4e9b9961bf50295df9eb0b905e0bf45a13659
+FFTW_CANDIDATE=rendezvous
+PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin:/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
+LD_LIBRARY_PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
+HWLOC_COMPONENTS=-cuda,-nvml,-opencl
+APEX_DISABLE=1
+OMPI_MCA_accelerator=null
+OMPI_MCA_pml=ucx
+OMPI_MCA_btl=self,sm
+UCX_TLS=rc,sm,self
+SLURM_JOB_ID=1125925
+SLURM_JOB_NODELIST=qbd[007-008,043-044]

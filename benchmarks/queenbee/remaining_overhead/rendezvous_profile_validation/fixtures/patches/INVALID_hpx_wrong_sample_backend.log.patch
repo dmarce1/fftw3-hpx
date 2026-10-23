@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_wrong_sample_backend.log
+@@ -2503,7 +2503,7 @@
+ PLAN_BACKWARD_END
+ CHECK backend=hpx stage=forward_spectrum relative_max_error=7.616067116634044e-16 tolerance=1e-10
+ CHECK backend=hpx stage=initial_roundtrip relative_max_error=1.4434208435274806e-15 tolerance=1e-10
+-SAMPLE backend=hpx index=0 max_rank_seconds=4.2045510339999996
++SAMPLE backend=wrong index=0 max_rank_seconds=4.2045510339999996
+ SAMPLE backend=hpx index=1 max_rank_seconds=4.2306398889999999
+ SAMPLE backend=hpx index=2 max_rank_seconds=4.2143596199999998
+ SAMPLE backend=hpx index=3 max_rank_seconds=4.0328475890000002

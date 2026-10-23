@@ -1,0 +1,1 @@
+mpicxx -O3 -DNDEBUG -pthread -std=c++20 -I/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/transform_check/benchmarks -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/transform_check/benchmarks/remaining_mpi_profile.cpp -o /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/compile_check/remaining_mpi_profile.o 

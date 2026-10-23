@@ -1,0 +1,3 @@
+mpi PASS positive=1 negative=12
+hpx PASS positive=1 negative=18
+ANALYZER_SYNTHETIC_CHECK PASS plans_equal=1 measured_diagnostics=0

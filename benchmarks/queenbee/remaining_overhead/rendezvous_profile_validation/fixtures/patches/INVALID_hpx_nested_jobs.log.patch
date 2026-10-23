@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_nested_jobs.log
+@@ -2533,7 +2533,7 @@
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=1.6313658010000001 nanoseconds=1631365801
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=57.097803042000002 nanoseconds=57097803042
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
++PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=nested_jobs calls=1 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.2431279770000003 nanoseconds=2243127977

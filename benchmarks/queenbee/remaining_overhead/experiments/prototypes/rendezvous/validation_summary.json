@@ -1,0 +1,181 @@
+{
+  "status": "PASS",
+  "scope": "local correctness only; no cluster timing claims",
+  "max_simultaneous_local_compilers": 3,
+  "max_simultaneous_hpx_workers": 6,
+  "tracked_worktree_clean": true,
+  "source_sha256": {
+    "hpx-comm.cpp": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+    "hpx-comm-diagnostic.cpp": "f0627393ad79a93e3e85f58d0d9ced6f8da3fea53f1d9e6aafa14a65bd698cef",
+    "hpx-comm-check.cpp": "058f61b04748abae744c38e3645ff4a0196963acc9093d0b56bf48b7a25c2160",
+    "rendezvous_units.cpp": "b1c4b15254a22f71ef82005f646db81a237756965ac03a7b5ff929bd34b70906",
+    "prepare.py": "99c2517f9451f47a59ca638716145cbeb3381b5c330f1491ed92f80a66f8ae5a"
+  },
+  "initial": {
+    "bridge": {
+      "exit_status": "0",
+      "stage": "complete",
+      "finished_utc": "2026-10-23T07:56:16Z"
+    },
+    "units": {
+      "exit_status": "0",
+      "stage": "complete",
+      "finished_utc": "2026-10-23T07:56:14Z"
+    },
+    "link": {
+      "exit_status": "0",
+      "stage": "complete",
+      "finished_utc": "2026-10-23T07:58:17Z"
+    },
+    "runtime": {
+      "exit_status": "0",
+      "stage": "complete",
+      "finished_utc": "2026-10-23T07:58:53Z"
+    },
+    "deterministic_unit_groups": 11
+  },
+  "precisions": {
+    "double": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:03:00Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:05:41Z"
+      },
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "standard_numcheck10_matrix": [
+        "matrix_1x1",
+        "matrix_2x1",
+        "matrix_3x1",
+        "matrix_4x1",
+        "matrix_3x2"
+      ],
+      "comm_1x2_pass_lines": 1,
+      "comm_3x2_pass_lines": 3,
+      "matched256_2x2": {
+        "configuration": {
+          "backend": "hpx",
+          "extent": "256",
+          "ranks": "2",
+          "threads": "2",
+          "precision": "double",
+          "inplace": "1",
+          "layout": "normal",
+          "planner": "FFTW_ESTIMATE",
+          "warmups": "2",
+          "samples": "7",
+          "global_data_bytes": "268435456",
+          "max_local_allocation_bytes": "134217728"
+        },
+        "checks": [
+          {
+            "backend": "hpx",
+            "stage": "forward_spectrum",
+            "relative_max_error": "7.5395217858013326e-16",
+            "tolerance": "1e-10"
+          },
+          {
+            "backend": "hpx",
+            "stage": "initial_roundtrip",
+            "relative_max_error": "1.3056059912435614e-15",
+            "tolerance": "1e-10"
+          },
+          {
+            "backend": "hpx",
+            "stage": "final_roundtrip",
+            "relative_max_error": "7.4990760765808042e-15",
+            "tolerance": "1e-10"
+          }
+        ],
+        "result": {
+          "backend": "hpx",
+          "extent": "256",
+          "ranks": "2",
+          "threads": "2",
+          "samples": "7",
+          "min_seconds": "0.464443043",
+          "median_seconds": "0.48417331899999999",
+          "mean_seconds": "0.48818442014285718",
+          "max_seconds": "0.52123594500000003",
+          "status": "PASS"
+        },
+        "scope": "local correctness only"
+      }
+    },
+    "single": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:02:48Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:06:38Z"
+      },
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "standard_numcheck10_matrix": [
+        "matrix_1x1",
+        "matrix_2x1",
+        "matrix_3x1",
+        "matrix_4x1",
+        "matrix_3x2"
+      ],
+      "comm_1x2_pass_lines": 1,
+      "comm_3x2_pass_lines": 3
+    },
+    "long_double": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:02:48Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:07:40Z"
+      },
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "standard_numcheck10_matrix": [
+        "matrix_1x1",
+        "matrix_2x1",
+        "matrix_3x1",
+        "matrix_4x1",
+        "matrix_3x2"
+      ],
+      "comm_1x2_pass_lines": 1,
+      "comm_3x2_pass_lines": 3
+    }
+  },
+  "combined": {
+    "build": {
+      "exit_status": "0",
+      "finished_utc": "2026-10-23T08:04:07Z"
+    },
+    "test": {
+      "exit_status": "0",
+      "finished_utc": "2026-10-23T08:07:40Z"
+    },
+    "localities": 3,
+    "workers_per_locality": 2
+  },
+  "notes": [
+    "Production bridges compiled with -O3 -DNDEBUG; communication tests use -UNDEBUG and a source guard.",
+    "Original input source and archives rechecked after each full precision test.",
+    "Only hpx-comm.o replaced in copied32-member HPX archives.",
+    "Rendezvous control traffic retains a map entry per completed message, matching the preexisting data channel retention pattern; see tag_reuse_assessment.md."
+  ],
+  "concurrent_untracked_paths": [
+    "benchmarks/queenbee/remaining_overhead/"
+  ]
+}

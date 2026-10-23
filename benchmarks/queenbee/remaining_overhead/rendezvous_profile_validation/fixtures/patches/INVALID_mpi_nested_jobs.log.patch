@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_mpi.log
++++ fixture/INVALID_mpi_nested_jobs.log
+@@ -2533,7 +2533,7 @@
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=queue_delay_sum calls=189 bytes=0 seconds=1.3035470150000001 nanoseconds=1303547015
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=45.624145509000002 nanoseconds=45624145509
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
++PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=nested_jobs calls=1 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=1.7923771450000001 nanoseconds=1792377145

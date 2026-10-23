@@ -1,0 +1,11 @@
+input_unchanged	PASS	0
+output_unchanged	PASS	1
+comm_1x2	PASS	0
+comm_3x2	PASS	0
+matched_2x2	PASS	11
+matrix_1x1	PASS	2
+matrix_2x1	PASS	4
+matrix_3x1	PASS	12
+matrix_4x1	PASS	21
+matrix_3x2	PASS	19
+inputs_still_unchanged	PASS	0

@@ -1,0 +1,54 @@
+{
+  "license": "GPL-2.0-or-later",
+  "cluster_performance": "pending",
+  "candidate_job": "1125899",
+  "candidate_input_files": 23,
+  "scope": "Local correctness, frozen prototype source, reproduction helpers and exact candidate inputs",
+  "local_validation": {
+    "hybrid": {
+      "status": "PASS",
+      "summary": "prototypes/hybrid/validation/SUMMARY.json",
+      "matrix_calls": 15,
+      "deterministic_groups": 10,
+      "matched": "256^3, 2x2, two warmups, seven samples"
+    },
+    "parallel_copy": {
+      "status": "PASS",
+      "focused_summary": "prototypes/parallel_copy/validation/SUMMARY.json",
+      "matrix_summary": "prototypes/parallel_copy/validation/matrix/SUMMARY.json",
+      "matrix_calls": 15,
+      "matched": "256^3, 2x2, one warmup, three samples"
+    },
+    "rendezvous": {
+      "status": "PASS",
+      "summary": "prototypes/rendezvous/validation_summary.json",
+      "matrix_calls": 15,
+      "deterministic_groups": 11,
+      "matched": [
+        "128^3, 3x2, two warmups, seven samples",
+        "256^3, 2x2, two warmups, seven samples"
+      ]
+    }
+  },
+  "source_patches": {
+    "status": "PASS",
+    "count": 7,
+    "details": "PATCH_VERIFICATION.json"
+  },
+  "excluded": [
+    "executables",
+    "objects",
+    "static/shared libraries",
+    "whole FFTW source trees",
+    "synthetic fixture outputs"
+  ],
+  "qb_logins_by_packaging_agent": 0,
+  "clean_source_message_checks": {
+    "status": "PASS",
+    "precision": "double",
+    "hybrid_groups": 10,
+    "rendezvous_groups": 11,
+    "summary": "integration_tests/validation_summary.json",
+    "hpx_runtime": false
+  }
+}

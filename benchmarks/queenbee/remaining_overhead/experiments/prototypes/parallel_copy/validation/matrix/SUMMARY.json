@@ -1,0 +1,135 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "finished_utc": "2026-10-23T08:19:01.787008+00:00",
+  "scope": "Local correctness only; cluster performance pending",
+  "prototype_sha256": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+  "precisions": {
+    "double": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:10:50Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:14:17Z"
+      },
+      "matrix": [
+        "matrix_1x1",
+        "matrix_2x1",
+        "matrix_3x1",
+        "matrix_4x1",
+        "matrix_3x2"
+      ],
+      "communication": {
+        "comm_3x2": {
+          "status": "PASS",
+          "locality_pass_lines": 3
+        }
+      },
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "archive_unchanged_members": 31
+    },
+    "single": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:10:50Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:15:58Z"
+      },
+      "matrix": [
+        "matrix_1x1",
+        "matrix_2x1",
+        "matrix_3x1",
+        "matrix_4x1",
+        "matrix_3x2"
+      ],
+      "communication": {
+        "comm_3x2": {
+          "status": "PASS",
+          "locality_pass_lines": 3
+        },
+        "comm_1x2": {
+          "status": "PASS",
+          "locality_pass_lines": 1
+        }
+      },
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "archive_unchanged_members": 31
+    },
+    "long_double": {
+      "build": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:10:50Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "stage": "complete",
+        "finished_utc": "2026-10-23T08:17:02Z"
+      },
+      "matrix": [
+        "matrix_1x1",
+        "matrix_2x1",
+        "matrix_3x1",
+        "matrix_4x1",
+        "matrix_3x2"
+      ],
+      "communication": {
+        "comm_3x2": {
+          "status": "PASS",
+          "locality_pass_lines": 3
+        },
+        "comm_1x2": {
+          "status": "PASS",
+          "locality_pass_lines": 1
+        }
+      },
+      "archive_changed_members": [
+        "hpx-comm.o"
+      ],
+      "archive_unchanged_members": 31
+    }
+  },
+  "matrix_call_count": 15,
+  "additional_communication_launches": 5,
+  "additional_communication_locality_pass_lines": 11,
+  "combined_precision": {
+    "localities": 3,
+    "workers_per_locality": 2,
+    "status": {
+      "build": {
+        "exit_status": "0",
+        "finished_utc": "2026-10-23T08:11:52Z"
+      },
+      "test": {
+        "exit_status": "0",
+        "finished_utc": "2026-10-23T08:17:28Z"
+      }
+    }
+  },
+  "reused_prior_focused_checks": {
+    "summary": "../SUMMARY.json",
+    "rerun": false,
+    "double_bridge_object_identical": true,
+    "bridge_object_sha256": "26f991862be1f90d13ccc102e1efd849323a5f86f054c11d9fd728de8b11725b"
+  },
+  "resources": {
+    "max_concurrent_compilers": 3,
+    "max_runtime_workers": 6,
+    "phases_separate": true
+  },
+  "transport": "TCP only between processes on the same workstation",
+  "input_hashes_reverified": true,
+  "qb_login_attempts": 0
+}

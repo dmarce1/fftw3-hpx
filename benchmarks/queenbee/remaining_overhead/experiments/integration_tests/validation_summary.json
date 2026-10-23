@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-10-23T08:20:28.810551+00:00",
+  "scope": "double-precision ordinary-main tests against frozen clean bridges; no HPX runtime",
+  "tracked_sources_modified": false,
+  "max_concurrent_compilers": 2,
+  "variants": {
+    "hybrid": {
+      "test_groups_passed": 10,
+      "clean_bridge_sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+      "test_source_sha256": "4a15921773c40ade1dd8ff7a74f6f7a04080e5ecfe43ef31ab83afd96ffd5705",
+      "evidence_directory": "build/qb_remaining/integration_tests/validation/hybrid/double",
+      "build_and_test_exit_status": 0,
+      "compiler_log_empty": true,
+      "inputs_unchanged": true
+    },
+    "rendezvous": {
+      "test_groups_passed": 11,
+      "clean_bridge_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "test_source_sha256": "f473c896d12ae0481170175f82293d361e878999c7f199aef001d33085301cc8",
+      "evidence_directory": "build/qb_remaining/integration_tests/validation/rendezvous/double",
+      "build_and_test_exit_status": 0,
+      "compiler_log_empty": true,
+      "inputs_unchanged": true
+    }
+  }
+}

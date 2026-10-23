@@ -1,0 +1,1341 @@
+{
+  "license": "GPL-2.0-or-later",
+  "local_extraction_root": "build/qb_remaining/candidate_evidence",
+  "cluster_run": "/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899",
+  "byte_identical_copies": [
+    {
+      "source": "candidates-1125899.err",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/candidates-1125899.err"
+    },
+    {
+      "source": "results/1125899/CANDIDATES_FINAL_STATUS",
+      "sha256": "be08038bec01c357ecf52374e63d185c267a5ddb08c64e9c91d36d5693d28f24",
+      "bytes": 123,
+      "destination": "raw/1125899/CANDIDATES_FINAL_STATUS"
+    },
+    {
+      "source": "results/1125899/FINAL_STATUS",
+      "sha256": "be08038bec01c357ecf52374e63d185c267a5ddb08c64e9c91d36d5693d28f24",
+      "bytes": 123,
+      "destination": "raw/1125899/FINAL_STATUS"
+    },
+    {
+      "source": "results/1125899/PROVENANCE.json",
+      "sha256": "213c55b231ecf98dea8f69116c9bacf12b7d574450eacea2b985e30f97bb463c",
+      "bytes": 917,
+      "destination": "raw/1125899/PROVENANCE.json"
+    },
+    {
+      "source": "results/1125899/accounting_pending.txt",
+      "sha256": "80f16f7e1acaa51ab67a83d9126f74c03342a31fbede8a0b8e2ff0136b57459c",
+      "bytes": 122,
+      "destination": "raw/1125899/accounting_pending.txt"
+    },
+    {
+      "source": "results/1125899/archive_members.command",
+      "sha256": "7672baedd93f705bccf9d4009c7afc2164fa785c453619ca2aba69af687fea86",
+      "bytes": 295,
+      "destination": "raw/1125899/archive_members.command"
+    },
+    {
+      "source": "results/1125899/archive_members.log",
+      "sha256": "3d14e68c77f6e514efaf68578e4fa72cb426c05c536c7e16be13b17d17c54bd0",
+      "bytes": 42490,
+      "destination": "raw/1125899/archive_members.log"
+    },
+    {
+      "source": "results/1125899/artifacts.sha256",
+      "sha256": "a978cabc4202e49029c2207144d240f97dd58a2dca942265556b7d064dd00897",
+      "bytes": 3408,
+      "destination": "raw/1125899/artifacts.sha256"
+    },
+    {
+      "source": "results/1125899/benchmark_hybrid.command",
+      "sha256": "4c39a24dc25c3f541e571afa57fc6f89b379f723a2bac82a73fcc8d7c9a923bf",
+      "bytes": 708,
+      "destination": "raw/1125899/benchmark_hybrid.command"
+    },
+    {
+      "source": "results/1125899/benchmark_hybrid.log",
+      "sha256": "7f33956d1dbc3ff5850858be5962d954440e1aadd33c1f3649d6dbc3375274e1",
+      "bytes": 89840,
+      "destination": "raw/1125899/benchmark_hybrid.log"
+    },
+    {
+      "source": "results/1125899/benchmark_hybrid_diagnostic.command",
+      "sha256": "00adf48d3f74301c0b39355676a4f23c3343aafe2e3cfcd36aeeb7feae78fb65",
+      "bytes": 719,
+      "destination": "raw/1125899/benchmark_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/benchmark_hybrid_diagnostic.log",
+      "sha256": "42be528e4e50f0e7e797146f9123edd0d8af47e617d09a4e4727a83ada144285",
+      "bytes": 113587,
+      "destination": "raw/1125899/benchmark_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/benchmark_lean_pool.command",
+      "sha256": "ae27eee33cd3ac65c259e9a27cc021db52357b05890f3391128742adeb3e6420",
+      "bytes": 711,
+      "destination": "raw/1125899/benchmark_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/benchmark_lean_pool.log",
+      "sha256": "6bbbcb2098bfac60b3d480b5866d7108808051e25fa5f59f15b53d0a912dc192",
+      "bytes": 89828,
+      "destination": "raw/1125899/benchmark_lean_pool.log"
+    },
+    {
+      "source": "results/1125899/benchmark_mpi.command",
+      "sha256": "a212687877f840fef53d7aa92a702c0d88d383f6a86c4e7bc4da19f538d66606",
+      "bytes": 314,
+      "destination": "raw/1125899/benchmark_mpi.command"
+    },
+    {
+      "source": "results/1125899/benchmark_mpi.log",
+      "sha256": "c18b65c906afea4a2ba0a91c829a351db5460ea82fa1209f490296b9c0b6a19b",
+      "bytes": 89842,
+      "destination": "raw/1125899/benchmark_mpi.log"
+    },
+    {
+      "source": "results/1125899/benchmark_parallel_copy.command",
+      "sha256": "1f26f37f34c589def677e9df84e1f16622d7be24c58e0462e51f33d39a407209",
+      "bytes": 715,
+      "destination": "raw/1125899/benchmark_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/benchmark_parallel_copy.log",
+      "sha256": "330bdd1a82460d5212a456e24e5f31816d9163bb398c9202fb38af83ee236e71",
+      "bytes": 89834,
+      "destination": "raw/1125899/benchmark_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/benchmark_pool_release.command",
+      "sha256": "9e31c43f8e2b8f261c9d62851ad720e81e8d6b76b82d9b7ed83f73939c4bc311",
+      "bytes": 714,
+      "destination": "raw/1125899/benchmark_pool_release.command"
+    },
+    {
+      "source": "results/1125899/benchmark_pool_release.log",
+      "sha256": "7adf66c8772f74bc5278a1ba58f0b44c5e88062119ae330c91a4214b5a0188ba",
+      "bytes": 89834,
+      "destination": "raw/1125899/benchmark_pool_release.log"
+    },
+    {
+      "source": "results/1125899/benchmark_pooled_current.command",
+      "sha256": "22c7e96e2c5397ab522586700aae27c23a89c3786136f817eeacce43521de3f7",
+      "bytes": 715,
+      "destination": "raw/1125899/benchmark_pooled_current.command"
+    },
+    {
+      "source": "results/1125899/benchmark_pooled_current.log",
+      "sha256": "e9b05a254332d200325db571807948914c313a5652acffa55ce8244f4e69bacd",
+      "bytes": 89835,
+      "destination": "raw/1125899/benchmark_pooled_current.log"
+    },
+    {
+      "source": "results/1125899/benchmark_rendezvous.command",
+      "sha256": "03e7bce96835ac26f8546d69650b365e42bf343f014db7964803e5899d40b879",
+      "bytes": 712,
+      "destination": "raw/1125899/benchmark_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/benchmark_rendezvous.log",
+      "sha256": "c9266333dc571c9593197b32c35493440254fac1a96e9be0372d21ba398cba7d",
+      "bytes": 89835,
+      "destination": "raw/1125899/benchmark_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/benchmark_rendezvous_diagnostic.command",
+      "sha256": "1414df37bac588f059d217fba79cfcdd355137c148e0f65270cd80a8049bc562",
+      "bytes": 723,
+      "destination": "raw/1125899/benchmark_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/benchmark_rendezvous_diagnostic.log",
+      "sha256": "ad75f1a98fa264c6c86e435468352bbc5dec19407969d3e30e4667b573e4d734",
+      "bytes": 112856,
+      "destination": "raw/1125899/benchmark_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/candidate_checks.command",
+      "sha256": "94a17bea934f3a9ea62fe03f5c06342caa9397b638f2f39e8f94e5d111169e61",
+      "bytes": 188,
+      "destination": "raw/1125899/candidate_checks.command"
+    },
+    {
+      "source": "results/1125899/candidate_checks.log",
+      "sha256": "19294577aac702569d7c10ab44573a422a1a9c3762eff85ea4ab51b784fc171e",
+      "bytes": 160,
+      "destination": "raw/1125899/candidate_checks.log"
+    },
+    {
+      "source": "results/1125899/commands.log",
+      "sha256": "76d2dd32e016e29437eb53d3fd4f3d4bb6a382400310607a3d67e188e8c0f508",
+      "bytes": 470984,
+      "destination": "raw/1125899/commands.log"
+    },
+    {
+      "source": "results/1125899/common.sh",
+      "sha256": "2ec9330e6509d331c02b1b5e6721115e39058f1c41e3e94d6ef65793df5f013b",
+      "bytes": 8978,
+      "destination": "raw/1125899/common.sh"
+    },
+    {
+      "source": "results/1125899/communication_hybrid.command",
+      "sha256": "5d1d7fca9ebf226ea7ba480c54715b81daf26fb6b872af3249a08c75f1e894cf",
+      "bytes": 669,
+      "destination": "raw/1125899/communication_hybrid.command"
+    },
+    {
+      "source": "results/1125899/communication_hybrid.log",
+      "sha256": "08266c28166aa38e25d68784f7669249ceeb327c21a827a91daf5366f5d2d0d1",
+      "bytes": 970,
+      "destination": "raw/1125899/communication_hybrid.log"
+    },
+    {
+      "source": "results/1125899/communication_hybrid_diagnostic.command",
+      "sha256": "c918f60165410b98c46caaf1f17b08af4953e5d001c6e1fee8d5e1be025b9017",
+      "bytes": 680,
+      "destination": "raw/1125899/communication_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/communication_hybrid_diagnostic.log",
+      "sha256": "08266c28166aa38e25d68784f7669249ceeb327c21a827a91daf5366f5d2d0d1",
+      "bytes": 970,
+      "destination": "raw/1125899/communication_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/communication_lean_pool.command",
+      "sha256": "0c9db560c6b64631ad67b3f79bbdf875f9d9c6fa5a823149f28ab662bc843385",
+      "bytes": 672,
+      "destination": "raw/1125899/communication_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/communication_lean_pool.log",
+      "sha256": "08266c28166aa38e25d68784f7669249ceeb327c21a827a91daf5366f5d2d0d1",
+      "bytes": 970,
+      "destination": "raw/1125899/communication_lean_pool.log"
+    },
+    {
+      "source": "results/1125899/communication_parallel_copy.command",
+      "sha256": "b29f20d633fb496d4b91352430470c15cdc4f12b1bdde3cc1faaf57ce0e3bc8b",
+      "bytes": 676,
+      "destination": "raw/1125899/communication_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/communication_parallel_copy.log",
+      "sha256": "08266c28166aa38e25d68784f7669249ceeb327c21a827a91daf5366f5d2d0d1",
+      "bytes": 970,
+      "destination": "raw/1125899/communication_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/communication_pool_release.command",
+      "sha256": "960f5d6cf3e49d9f4a4dea45d4d62bedc9ee7c12b162fbeeb9d08ef1608a282f",
+      "bytes": 675,
+      "destination": "raw/1125899/communication_pool_release.command"
+    },
+    {
+      "source": "results/1125899/communication_pool_release.log",
+      "sha256": "08266c28166aa38e25d68784f7669249ceeb327c21a827a91daf5366f5d2d0d1",
+      "bytes": 970,
+      "destination": "raw/1125899/communication_pool_release.log"
+    },
+    {
+      "source": "results/1125899/communication_rendezvous.command",
+      "sha256": "c77fe58990a302a3ed62db7abcb6d80f2629693584b11b9252627b8a0714325e",
+      "bytes": 673,
+      "destination": "raw/1125899/communication_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/communication_rendezvous.log",
+      "sha256": "54a855c472830a4fc876a589aecb5a9eaa2932621bf82584df8ee5a36192cd7b",
+      "bytes": 1166,
+      "destination": "raw/1125899/communication_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/communication_rendezvous_diagnostic.command",
+      "sha256": "121699e8172f6810a0ee99c025115e3487790c33510ebe27497933ba1a7b7174",
+      "bytes": 684,
+      "destination": "raw/1125899/communication_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/communication_rendezvous_diagnostic.log",
+      "sha256": "54a855c472830a4fc876a589aecb5a9eaa2932621bf82584df8ee5a36192cd7b",
+      "bytes": 1166,
+      "destination": "raw/1125899/communication_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/comparison_hybrid.command",
+      "sha256": "da37dd4aa3515c3ef12ef4bb599cf68a890a886be21aa5033ea0dbcb8194ba1e",
+      "bytes": 289,
+      "destination": "raw/1125899/comparison_hybrid.command"
+    },
+    {
+      "source": "results/1125899/comparison_hybrid_diagnostic.command",
+      "sha256": "8824ea46dfa3feb1672143ceb87be812b0781cb9c04148292dec7bb7541c35ce",
+      "bytes": 300,
+      "destination": "raw/1125899/comparison_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/comparison_lean_pool.command",
+      "sha256": "b060d49c4caedb1242c347b65637245ffb91860e05da0b6cdb99f26d71e30580",
+      "bytes": 292,
+      "destination": "raw/1125899/comparison_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/comparison_parallel_copy.command",
+      "sha256": "9940bc9f6a43a09c2208d7742d3fb40e4dc598821f369cdf176a430eb90cd53d",
+      "bytes": 296,
+      "destination": "raw/1125899/comparison_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/comparison_pool_release.command",
+      "sha256": "29be96ed28ad2260c8e6223df7d3e4e103abb7953b624e862b65a2aef31bbb7d",
+      "bytes": 295,
+      "destination": "raw/1125899/comparison_pool_release.command"
+    },
+    {
+      "source": "results/1125899/comparison_pooled_current.command",
+      "sha256": "d66215d3cca0060b553c3ddc53b7da0aa51ae230369d1c5ad98515b4b221922c",
+      "bytes": 297,
+      "destination": "raw/1125899/comparison_pooled_current.command"
+    },
+    {
+      "source": "results/1125899/comparison_rendezvous.command",
+      "sha256": "b99cc499afe9d57885273d15fedb488cc7edbbb12cd04d676f8d59d66fc331f7",
+      "bytes": 293,
+      "destination": "raw/1125899/comparison_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/comparison_rendezvous_diagnostic.command",
+      "sha256": "3a7e644c05847a321c006d5ce15a7ceedd72c15e564dbd8172b6586d87e9a352",
+      "bytes": 304,
+      "destination": "raw/1125899/comparison_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_hybrid.command",
+      "sha256": "cfeb1fc0fbf9d52afc6ec94b1246f5fe6a4e89b1d6d444bede720dbc2c36370c",
+      "bytes": 1169,
+      "destination": "raw/1125899/compile_bridge_hybrid.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_hybrid.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_hybrid.log"
+    },
+    {
+      "source": "results/1125899/compile_bridge_hybrid_diagnostic.command",
+      "sha256": "9a2e61ae9dd1071e32fc3fd7e20c26af103d94f48bdbc68097957773a16ca465",
+      "bytes": 1202,
+      "destination": "raw/1125899/compile_bridge_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_hybrid_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/compile_bridge_lean_pool.command",
+      "sha256": "c909c0a1be26cb678b3ec01517d216e6ab77a5a90dd8a82ea594d5a7efa45b10",
+      "bytes": 1142,
+      "destination": "raw/1125899/compile_bridge_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_lean_pool.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_lean_pool.log"
+    },
+    {
+      "source": "results/1125899/compile_bridge_parallel_copy.command",
+      "sha256": "b73bb9363b947626ef91c9ef1867416e7ae687ba1a5b7141fce39ae5c0859491",
+      "bytes": 1190,
+      "destination": "raw/1125899/compile_bridge_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_parallel_copy.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/compile_bridge_pool_release.command",
+      "sha256": "b892a4438d0ec29e6e5506838da3142cbef58506c0f888fd7933d26994371695",
+      "bytes": 1187,
+      "destination": "raw/1125899/compile_bridge_pool_release.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_pool_release.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_pool_release.log"
+    },
+    {
+      "source": "results/1125899/compile_bridge_rendezvous.command",
+      "sha256": "cfbe33f1492c217e3b2c5330165dc1786f9866f1ada888ffefd34cc2d188d109",
+      "bytes": 1181,
+      "destination": "raw/1125899/compile_bridge_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_rendezvous.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/compile_bridge_rendezvous_diagnostic.command",
+      "sha256": "bac50b5f54046f56989aa8b7305c8eb1fed3882738410e00efc6e117558e680f",
+      "bytes": 1214,
+      "destination": "raw/1125899/compile_bridge_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_bridge_rendezvous_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_bridge_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_hybrid.command",
+      "sha256": "ce65f51756bae46c5a5bf73c2dc3b01e3b10bb6e601eac4307d57354b74dedba",
+      "bytes": 2766,
+      "destination": "raw/1125899/compile_comm_hybrid.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_hybrid.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_hybrid.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_hybrid_diagnostic.command",
+      "sha256": "080dd89fe0387524c787984780ed79909a4b7eae2e96106d1622a5825628d909",
+      "bytes": 2788,
+      "destination": "raw/1125899/compile_comm_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_hybrid_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_lean_pool.command",
+      "sha256": "64edd390c3991ef4772746d118a91391902a11ddeaa75fb3f78a9bcc1da5338c",
+      "bytes": 2291,
+      "destination": "raw/1125899/compile_comm_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_lean_pool.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_lean_pool.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_parallel_copy.command",
+      "sha256": "bccf1695adb15dd938c47c3579b12bee1b87ef858af818afc1be659794df6366",
+      "bytes": 2780,
+      "destination": "raw/1125899/compile_comm_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_parallel_copy.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_pool_release.command",
+      "sha256": "c227548afee1ad91fcec3e8f2d99bd6d215a5bdbe8158666be647924a0b8819a",
+      "bytes": 2778,
+      "destination": "raw/1125899/compile_comm_pool_release.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_pool_release.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_pool_release.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_rendezvous.command",
+      "sha256": "e557fe746b79561706d71c3ff86286407d0043637d3da4c6dd78d00a2513aa0a",
+      "bytes": 2796,
+      "destination": "raw/1125899/compile_comm_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_rendezvous.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/compile_comm_rendezvous_diagnostic.command",
+      "sha256": "50d03d9752e1ee91f2d2e266a20b93163c5cd19f610b58352620c9a7db923682",
+      "bytes": 2829,
+      "destination": "raw/1125899/compile_comm_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_comm_rendezvous_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_comm_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_hybrid.command",
+      "sha256": "9b35f3407e023b93db76261bf9c1d20f1870e98330a76b9a8755343f8207be32",
+      "bytes": 2778,
+      "destination": "raw/1125899/compile_matched_hybrid.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_hybrid.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_hybrid.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_hybrid_diagnostic.command",
+      "sha256": "2fb4f0afdedabdaaae78ff40881881161be39dd23625ee44c418b82971945ae3",
+      "bytes": 2813,
+      "destination": "raw/1125899/compile_matched_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_hybrid_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_lean_pool.command",
+      "sha256": "f43217f729b062747ee1e92410b0b055e767fb48867992342c9d37148c3fdcfa",
+      "bytes": 2303,
+      "destination": "raw/1125899/compile_matched_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_lean_pool.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_lean_pool.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_parallel_copy.command",
+      "sha256": "724694f6ef89e403cbf0b22c4a34cc68685ea12ca5fe369a24a58174958dd7c6",
+      "bytes": 2792,
+      "destination": "raw/1125899/compile_matched_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_parallel_copy.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_pool_release.command",
+      "sha256": "3a9d1a987c801366b25f27be431353e80bf5bc390ef1e515ea0a3d0649f4b433",
+      "bytes": 2790,
+      "destination": "raw/1125899/compile_matched_pool_release.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_pool_release.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_pool_release.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_rendezvous.command",
+      "sha256": "bb9c35998ba4d8cd46ae4ad31c7d01f4f212b485b2c790584e8cee2db2e54966",
+      "bytes": 2786,
+      "destination": "raw/1125899/compile_matched_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_rendezvous.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/compile_matched_rendezvous_diagnostic.command",
+      "sha256": "9eb7e9098fffd588e6aa40fed9a575b4cecf5106324296b75598c83c2cfd0e61",
+      "bytes": 2821,
+      "destination": "raw/1125899/compile_matched_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/compile_matched_rendezvous_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/compile_matched_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/fixed_inputs.sha256",
+      "sha256": "8f7371873a98be1251d8c48726ce1e029c58523cf801db33c335426137456c69",
+      "bytes": 1964,
+      "destination": "raw/1125899/fixed_inputs.sha256"
+    },
+    {
+      "source": "results/1125899/fixed_inputs_unchanged.command",
+      "sha256": "557f4702ab36cf3c1de414e6573c5bc27ec88e3becc8cccdd53ae3c785185548",
+      "bytes": 139,
+      "destination": "raw/1125899/fixed_inputs_unchanged.command"
+    },
+    {
+      "source": "results/1125899/fixed_inputs_unchanged.log",
+      "sha256": "ca6ab2e121bf3199393c4e4ff29f67c625aa1f2e0f3137b30d14e76eb79811f6",
+      "bytes": 1096,
+      "destination": "raw/1125899/fixed_inputs_unchanged.log"
+    },
+    {
+      "source": "results/1125899/hpx-flags.sh",
+      "sha256": "64cd6c741ada7443094d1c90279bd31d340e3f5578605ee165c1b7eba1f016c2",
+      "bytes": 4022,
+      "destination": "raw/1125899/hpx-flags.sh"
+    },
+    {
+      "source": "results/1125899/input_recheck.log",
+      "sha256": "fa268d8bc925ea5838b06c6f9f1d4ef373fccb23f64d42e01a66bda6487d7d6e",
+      "bytes": 1032,
+      "destination": "raw/1125899/input_recheck.log"
+    },
+    {
+      "source": "results/1125899/input_verification.log",
+      "sha256": "fa268d8bc925ea5838b06c6f9f1d4ef373fccb23f64d42e01a66bda6487d7d6e",
+      "bytes": 1032,
+      "destination": "raw/1125899/input_verification.log"
+    },
+    {
+      "source": "results/1125899/job.sbatch",
+      "sha256": "84df8f72893abe65cbc0a46fd7cda74214807e2cc09a546b7d19d2171c8e6c1d",
+      "bytes": 7082,
+      "destination": "raw/1125899/job.sbatch"
+    },
+    {
+      "source": "results/1125899/ldd_hybrid.command",
+      "sha256": "adde63e4ba56843ce9aaca190416a2a103411502a9ec169357b2e07a89f0ecfd",
+      "bytes": 121,
+      "destination": "raw/1125899/ldd_hybrid.command"
+    },
+    {
+      "source": "results/1125899/ldd_hybrid.log",
+      "sha256": "3b4c97ca2df578ccdde0ee59d2530b9667672727ad9a961797ca1812769441f2",
+      "bytes": 2761,
+      "destination": "raw/1125899/ldd_hybrid.log"
+    },
+    {
+      "source": "results/1125899/ldd_hybrid_diagnostic.command",
+      "sha256": "dc2b4e5c1fcee73584ccedb5a2a48b5958637d7665088db2e5c04bb46a4d49e9",
+      "bytes": 132,
+      "destination": "raw/1125899/ldd_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/ldd_hybrid_diagnostic.log",
+      "sha256": "5ce2b2eb840598c00ded959cd46fa3cd48884e031e23bc35d7cdf562faf39ecf",
+      "bytes": 2761,
+      "destination": "raw/1125899/ldd_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/ldd_parallel_copy.command",
+      "sha256": "94d53aaff520c0e8bf708719e5e013819d7d4bc64982cf52ba89228b60c2f67e",
+      "bytes": 128,
+      "destination": "raw/1125899/ldd_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/ldd_parallel_copy.log",
+      "sha256": "15e0ecf939b4b5568dfb0aba508bac175499596fc1d9b2d16ae2b74c3c660a6d",
+      "bytes": 2761,
+      "destination": "raw/1125899/ldd_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/ldd_pool_release.command",
+      "sha256": "7414c8e70a162f90320984e6316eae98a16bb7d05b452b118e5a168cff68fd7a",
+      "bytes": 127,
+      "destination": "raw/1125899/ldd_pool_release.command"
+    },
+    {
+      "source": "results/1125899/ldd_pool_release.log",
+      "sha256": "7dab939f05f42da9c3bbf69a9a220d8ca379e96f8acf9a2ca75d47cc533c1e70",
+      "bytes": 2761,
+      "destination": "raw/1125899/ldd_pool_release.log"
+    },
+    {
+      "source": "results/1125899/ldd_rendezvous.command",
+      "sha256": "2e4588dbfd932e6cebffb770ac1be5b69fb01115202b0c2011b65bbae819bf2e",
+      "bytes": 125,
+      "destination": "raw/1125899/ldd_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/ldd_rendezvous.log",
+      "sha256": "b1874e7ecd8275c7ea7a05187338c2b0b566761a11fe3d69bc05e94f9aecaa5f",
+      "bytes": 2761,
+      "destination": "raw/1125899/ldd_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/ldd_rendezvous_diagnostic.command",
+      "sha256": "652301668351db4659ae61fd3064e77f692c4389862b4cff48c4f3ae74ae09aa",
+      "bytes": 136,
+      "destination": "raw/1125899/ldd_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/ldd_rendezvous_diagnostic.log",
+      "sha256": "19fd8665b389344b36624672839ae5719b6b84651a019746b7919485c69716be",
+      "bytes": 2761,
+      "destination": "raw/1125899/ldd_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/lean_comm_dependencies.command",
+      "sha256": "92a1112123e480ce630f8d17c2b0f0907b38643fbdc292daf0169911286d9d36",
+      "bytes": 333,
+      "destination": "raw/1125899/lean_comm_dependencies.command"
+    },
+    {
+      "source": "results/1125899/lean_comm_dependencies.log",
+      "sha256": "e60c6690f401ffc644551fc347edd38e28599df348ab7c7b15d26a98cc3de5b8",
+      "bytes": 456,
+      "destination": "raw/1125899/lean_comm_dependencies.log"
+    },
+    {
+      "source": "results/1125899/lean_comm_ldd.command",
+      "sha256": "cfb55a449ea31b6aeef12b4cbad1f6576ae33ffe0abe920885c0617a8af4f89f",
+      "bytes": 135,
+      "destination": "raw/1125899/lean_comm_ldd.command"
+    },
+    {
+      "source": "results/1125899/lean_comm_ldd.log",
+      "sha256": "d77562045d01598664f9ee60ef246c2d8b159083ca8d82d5952370e0151d501f",
+      "bytes": 2514,
+      "destination": "raw/1125899/lean_comm_ldd.log"
+    },
+    {
+      "source": "results/1125899/lean_dependencies.command",
+      "sha256": "cd66a3a33185caad739acd34589545e2a10ecfddeb3f6fe2f41fc9f5e0c2de29",
+      "bytes": 328,
+      "destination": "raw/1125899/lean_dependencies.command"
+    },
+    {
+      "source": "results/1125899/lean_dependencies.log",
+      "sha256": "e60c6690f401ffc644551fc347edd38e28599df348ab7c7b15d26a98cc3de5b8",
+      "bytes": 456,
+      "destination": "raw/1125899/lean_dependencies.log"
+    },
+    {
+      "source": "results/1125899/lean_install_unchanged.command",
+      "sha256": "e5bdb0466eec0c7edcf999585eeb0753d4def5b0bc9afa4f3c93d147997920b7",
+      "bytes": 168,
+      "destination": "raw/1125899/lean_install_unchanged.command"
+    },
+    {
+      "source": "results/1125899/lean_install_unchanged.log",
+      "sha256": "03571311dffaeb8d365486e252dc74c4b1827aff5e3b739ca8985e7f756f0295",
+      "bytes": 364,
+      "destination": "raw/1125899/lean_install_unchanged.log"
+    },
+    {
+      "source": "results/1125899/lean_install_verified.command",
+      "sha256": "e5bdb0466eec0c7edcf999585eeb0753d4def5b0bc9afa4f3c93d147997920b7",
+      "bytes": 168,
+      "destination": "raw/1125899/lean_install_verified.command"
+    },
+    {
+      "source": "results/1125899/lean_install_verified.log",
+      "sha256": "03571311dffaeb8d365486e252dc74c4b1827aff5e3b739ca8985e7f756f0295",
+      "bytes": 364,
+      "destination": "raw/1125899/lean_install_verified.log"
+    },
+    {
+      "source": "results/1125899/lean_ldd.command",
+      "sha256": "87c0aef972a6013cc0d5b1825f6df5fabd4dae24c64aef3f9e5e0af778ae48df",
+      "bytes": 124,
+      "destination": "raw/1125899/lean_ldd.command"
+    },
+    {
+      "source": "results/1125899/lean_ldd.log",
+      "sha256": "8e1744fb23d7c1da5e0af57baac8a1c336cc91fd130c89904b686c0404216a48",
+      "bytes": 2514,
+      "destination": "raw/1125899/lean_ldd.log"
+    },
+    {
+      "source": "results/1125899/lean_metadata/hpx-flags.json",
+      "sha256": "c3e0c9f7c50d22e3490740392c98f7909c86498023428008c186279a5a606a97",
+      "bytes": 3225,
+      "destination": "raw/1125899/lean_metadata/hpx-flags.json"
+    },
+    {
+      "source": "results/1125899/lean_metadata/hpx-flags.sh",
+      "sha256": "0c04b123a78c9724d1a06752e139a36438d29a0a57094efab9c47460dac34124",
+      "bytes": 3226,
+      "destination": "raw/1125899/lean_metadata/hpx-flags.sh"
+    },
+    {
+      "source": "results/1125899/lean_metadata/source/CMakeLists.txt",
+      "sha256": "919d0087d7f3168c407b96d7287c6c1449a6497c85513cd2d203ed550c967182",
+      "bytes": 869,
+      "destination": "raw/1125899/lean_metadata/source/CMakeLists.txt"
+    },
+    {
+      "source": "results/1125899/lean_metadata.command",
+      "sha256": "be699e41a01513b5801ca44f5c7da44aff2c13ffe993008dc73ae1ae40cb17e6",
+      "bytes": 723,
+      "destination": "raw/1125899/lean_metadata.command"
+    },
+    {
+      "source": "results/1125899/lean_metadata.log",
+      "sha256": "e57d49a7e61403bac7bb6705995f3fd737b89397f121db1c72ae11dcef714a3a",
+      "bytes": 1050,
+      "destination": "raw/1125899/lean_metadata.log"
+    },
+    {
+      "source": "results/1125899/library_environments.txt",
+      "sha256": "dadd383294a6ffed6f769fb4abff34817bd55dc3669874c59eedf4074617bc74",
+      "bytes": 675,
+      "destination": "raw/1125899/library_environments.txt"
+    },
+    {
+      "source": "results/1125899/metadata.txt",
+      "sha256": "5825c9c0e297bdee8e4758f8eea2aa93f6324ed679830d04d86ab0c6fe8829b7",
+      "bytes": 1405,
+      "destination": "raw/1125899/metadata.txt"
+    },
+    {
+      "source": "results/1125899/node_inventory.command",
+      "sha256": "7bc94ac3829180ff7ec7c52f5bb6e3a92791743c84ebe4f060735e71abfb085e",
+      "bytes": 186,
+      "destination": "raw/1125899/node_inventory.command"
+    },
+    {
+      "source": "results/1125899/node_inventory.log",
+      "sha256": "a5732657ddb9c2f43888ce7a00987e570ed78012ddc62b2807d6c8f6c5d05cfc",
+      "bytes": 8325,
+      "destination": "raw/1125899/node_inventory.log"
+    },
+    {
+      "source": "results/1125899/nodes.txt",
+      "sha256": "b9b315dcee37ccf99398782a6d904687e4bf4e42ac1e72e509268e7ce1b0f609",
+      "bytes": 28,
+      "destination": "raw/1125899/nodes.txt"
+    },
+    {
+      "source": "results/1125899/replace_bridge_hybrid.command",
+      "sha256": "d7c8fb8e635a99436e130f2e8cf5594e77ad48c4b6697f2cb30db8aca88d8980",
+      "bytes": 226,
+      "destination": "raw/1125899/replace_bridge_hybrid.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_hybrid.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_hybrid.log"
+    },
+    {
+      "source": "results/1125899/replace_bridge_hybrid_diagnostic.command",
+      "sha256": "803b63bdff639863e13bd0ddc12a84336da19aa2bcadd10a590bf14bc6e92d4c",
+      "bytes": 248,
+      "destination": "raw/1125899/replace_bridge_hybrid_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_hybrid_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_hybrid_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/replace_bridge_lean_pool.command",
+      "sha256": "dbddaa06a859acdd2ce36a7f5bc6a1327b7e672571bc2a92b03f2a9004b79b84",
+      "bytes": 232,
+      "destination": "raw/1125899/replace_bridge_lean_pool.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_lean_pool.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_lean_pool.log"
+    },
+    {
+      "source": "results/1125899/replace_bridge_parallel_copy.command",
+      "sha256": "3ddc84cd29f6031ad9ca89dafa95e21f3467a65673c2ef8231293fed15457cf4",
+      "bytes": 240,
+      "destination": "raw/1125899/replace_bridge_parallel_copy.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_parallel_copy.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_parallel_copy.log"
+    },
+    {
+      "source": "results/1125899/replace_bridge_pool_release.command",
+      "sha256": "a86b6c071880f01d7183dd062eaf32ac0b2cb6f7f6cdeefacc09504e25f3072e",
+      "bytes": 238,
+      "destination": "raw/1125899/replace_bridge_pool_release.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_pool_release.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_pool_release.log"
+    },
+    {
+      "source": "results/1125899/replace_bridge_rendezvous.command",
+      "sha256": "86fa376a6e10c38992b732bc379950edf3e78b0bc602dbc9611b967279579c7c",
+      "bytes": 234,
+      "destination": "raw/1125899/replace_bridge_rendezvous.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_rendezvous.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_rendezvous.log"
+    },
+    {
+      "source": "results/1125899/replace_bridge_rendezvous_diagnostic.command",
+      "sha256": "52974453cad3fa66162090844f7d45e37f5bb2137a8c9d9aceeed5c54b3e2ae5",
+      "bytes": 256,
+      "destination": "raw/1125899/replace_bridge_rendezvous_diagnostic.command"
+    },
+    {
+      "source": "results/1125899/replace_bridge_rendezvous_diagnostic.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "destination": "raw/1125899/replace_bridge_rendezvous_diagnostic.log"
+    },
+    {
+      "source": "results/1125899/results.tsv",
+      "sha256": "e37fd945c6dccf627a15ebf0e30e8fce198e20a9fa3164637a277ff93b71429c",
+      "bytes": 2206,
+      "destination": "raw/1125899/results.tsv"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/1125395_FINAL_STATUS",
+      "sha256": "b2b80c6d1400b88a3f409d81a95ec98485e9bfdfd3d0debef90debd09d1067f0",
+      "bytes": 147,
+      "destination": "raw/1125899/reused_artifacts/1125395_FINAL_STATUS"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/1125605_FINAL_STATUS",
+      "sha256": "806ffbb0ae0df6dcc29e2fbb00971920b6a83e7651c9e8eadc0bd2c6e8a29e47",
+      "bytes": 189,
+      "destination": "raw/1125899/reused_artifacts/1125605_FINAL_STATUS"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/artifacts.sha256",
+      "sha256": "f57accf622e1e4f714946d397b8e111176151de06fb9403bac4b5c454d65c5e1",
+      "bytes": 609,
+      "destination": "raw/1125899/reused_artifacts/artifacts.sha256"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/baseline_inputs.sha256",
+      "sha256": "c55a1ec6d03567db00cc02133607fecf113c9e47ca3b8f36b5e495e0fe9bd8b7",
+      "bytes": 972,
+      "destination": "raw/1125899/reused_artifacts/baseline_inputs.sha256"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/lean_FINAL_STATUS",
+      "sha256": "671656c63b4575abc71b857e744e7fb2f5071cde24ab50b0acfb2d3b62cf2ca3",
+      "bytes": 310,
+      "destination": "raw/1125899/reused_artifacts/lean_FINAL_STATUS"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/lean_installed-artifacts.sha256",
+      "sha256": "cb930911c6bc588443c29a6cc0a95d35541943ef0e6e8ec81c940140d23e0885",
+      "bytes": 612,
+      "destination": "raw/1125899/reused_artifacts/lean_installed-artifacts.sha256"
+    },
+    {
+      "source": "results/1125899/reused_artifacts/mpi.binary.sha256",
+      "sha256": "b9e2aef1c7438f3ad1f2705be0e03ac46e468ddd8b1e4a6a137e4201970f82bd",
+      "bytes": 132,
+      "destination": "raw/1125899/reused_artifacts/mpi.binary.sha256"
+    },
+    {
+      "source": "results/1125899/runtime.txt",
+      "sha256": "7c85eb2990c25a81c562879ab8eef5001d7c80a10853fb796aaed64819d82df2",
+      "bytes": 661,
+      "destination": "raw/1125899/runtime.txt"
+    }
+  ],
+  "excluded_files": [
+    {
+      "source": "candidates-1125899.out",
+      "sha256": "a1b62bfff763a0876a4e8d1e697d16428c38ec1db74e8725b321535f172d6e48",
+      "bytes": 2454335,
+      "reason": "Identical to excluded job.log; repeats benchmark plans, derived comparisons and stage logs."
+    },
+    {
+      "source": "results/1125899/candidate_comparison.json",
+      "sha256": "3ef924daefcd33e55517fa29e4056e76494138f391650fbf2cb1e8a2adbb14a9",
+      "bytes": 1585445,
+      "reason": "Repeated complete plans and diagnostic row maps; independently recomputed compact SUMMARY.json replaces it, raw logs retained."
+    },
+    {
+      "source": "results/1125899/comparison_hybrid.log",
+      "sha256": "da764ee9198cfda71d0f52d63460932d2721fde28b0bd78c21e3e94f475df6bf",
+      "bytes": 188315,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_hybrid_diagnostic.log",
+      "sha256": "6074f99f87092fc039fbad4b1a7be244463c5aac9a195e99ffea22fcc5a5fd1c",
+      "bytes": 188314,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_lean_pool.log",
+      "sha256": "cdc481bf49e340e0f31dd4e8df42b9608f19d78a7fc0efde24630fca2e763a60",
+      "bytes": 188307,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_parallel_copy.log",
+      "sha256": "520bd08c52e4437b88ae80506238a27d8ced1f30431747e322e2b81c325e4477",
+      "bytes": 188314,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_pool_release.log",
+      "sha256": "a77f5674fe0e7bfc842b747683b969d65382ebbdaadf5841215b8e1604478405",
+      "bytes": 188315,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_pooled_current.log",
+      "sha256": "102f772cd540a23896a29455c8ddaf392ced3f5a666fd77e9624c5b94b12b4e9",
+      "bytes": 188315,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_rendezvous.log",
+      "sha256": "4ef1eee263c3692492bd73de81d815ebc55743d07c1742ba50db91b7f595b07e",
+      "bytes": 188313,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/comparison_rendezvous_diagnostic.log",
+      "sha256": "e3c6601960513395765dabf8510ac80262d5b826d9b2816ff157875ad62071d5",
+      "bytes": 188297,
+      "reason": "Derived JSON repeats full MPI/HPX plans; raw logs and recompute.py retain reproducibility."
+    },
+    {
+      "source": "results/1125899/drivers/diagnostic.patch",
+      "sha256": "330e8be991acb6743e3cc5c388532c89635054854e3827809922b1079bf48a97",
+      "bytes": 1500,
+      "reason": "Exact driver and diagnostic patch already published in experiments/candidates/drivers; identity verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/drivers/matched_3d.cpp",
+      "sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "bytes": 18075,
+      "reason": "Exact driver and diagnostic patch already published in experiments/candidates/drivers; identity verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/drivers/matched_3d_diagnostic.cpp",
+      "sha256": "0827f58970040f3d9045fb623b0252d0b70466239aead09cadae8f576b0e23f4",
+      "bytes": 18734,
+      "reason": "Exact driver and diagnostic patch already published in experiments/candidates/drivers; identity verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/drivers/receive-diagnostics.hpp",
+      "sha256": "c93565a515fccf6a3b0652c706d953769d5cfc6b74357a76d7514bb1c87a45ed",
+      "bytes": 1185,
+      "reason": "Exact driver and diagnostic patch already published in experiments/candidates/drivers; identity verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/job.log",
+      "sha256": "a1b62bfff763a0876a4e8d1e697d16428c38ec1db74e8725b321535f172d6e48",
+      "bytes": 2454335,
+      "reason": "Combined stdout duplicates retained raw stage logs, full plans and derived comparisons."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/.cmake/api/v1/query/codemodel-v2",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/.cmake/api/v1/reply/codemodel-v2-befef0486af57fa1f9bc.json",
+      "sha256": "4401917a669f819a0951e05b80a0b8b5eaceff7d4afbd8ba88fbd2f509835ccf",
+      "bytes": 1335,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/.cmake/api/v1/reply/directory-.-Release-f5ebdc15457944623624.json",
+      "sha256": "86e7a30b8b63ba3392582621985aeef407bddffc28967e4e9f1ebcf80cb8b8a0",
+      "bytes": 154,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/.cmake/api/v1/reply/index-2026-10-23T08-11-20-0742.json",
+      "sha256": "462bceba41115a19c900af6ef4fa62767008336bd15be4584cd2a794e0f0d95b",
+      "bytes": 744,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/.cmake/api/v1/reply/target-hpx_flag_application-Release-666def487b46b0c00afa.json",
+      "sha256": "e787d40b9376ecd3692a722b3a36ce5dbc67b0705f90ab4053cee67c3e99c952",
+      "bytes": 7778,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/.cmake/api/v1/reply/target-hpx_flag_component-Release-dacf4864d87f1429b622.json",
+      "sha256": "72ecd4fa273bbed17fe5d78a35f43992b2772ea0bdaff4bbe92a3ae85319ebcc",
+      "bytes": 7477,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeCache.txt",
+      "sha256": "897f29382ceeb9639be81ddcca6d6773b866714613d2b38bf23116ff9148bef5",
+      "bytes": 23925,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/3.26.5/CMakeCXXCompiler.cmake",
+      "sha256": "877c237d557fea4a4b0d1b1532a861b4af5468647ba2fcbb60e3e0fbc71aacba",
+      "bytes": 5877,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/3.26.5/CMakeDetermineCompilerABI_CXX.bin",
+      "sha256": "8e35b56a55fddea74476fb88458ea38be48be633094901538cd07a65d49f8425",
+      "bytes": 17880,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/3.26.5/CMakeSystem.cmake",
+      "sha256": "1617190618895e12cc91998ebb0b01a95a0c8d479effa5020ae0694782744a0a",
+      "bytes": 450,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/3.26.5/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+      "sha256": "6f94da5ac139bb54c7fa3635112c4e4b3a16ede555b3fbcc0cf275abc9639c98",
+      "bytes": 26276,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/3.26.5/CompilerIdCXX/a.out",
+      "sha256": "44a51bb4fd3759c5241eeb1be9885a80ad368b6c982a5c7f3026e2fa0d009aa0",
+      "bytes": 17984,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/CMakeConfigureLog.yaml",
+      "sha256": "10ae106390d7c38dff9cb0582b9fcf5c291abd09883264dc09502983e12860e5",
+      "bytes": 46239,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/CMakeDirectoryInformation.cmake",
+      "sha256": "ce4d9a0f14fa55f3a8b5ba6bfd538d956c9fb52779604e0be8937c9eb4055a9d",
+      "bytes": 733,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/FindMPI/test_mpi_CXX.bin",
+      "sha256": "47b3d85b2564df8790375c8f4b05d5df4fe48b21426eb60b980133c577a56ff4",
+      "bytes": 18032,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/Makefile.cmake",
+      "sha256": "f76ab72900b86cc66464656d1b019457632b2d8ba8c68dd4e27fc5559cfffe85",
+      "bytes": 11855,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/Makefile2",
+      "sha256": "0885cff39706de27aa0c6a956ebf181a9dce2bf8816af0628be8a8a93b70974d",
+      "bytes": 5654,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/TargetDirectories.txt",
+      "sha256": "87526a172c8351e4f160ddfe0bc256053db538414523ae8b108149cfe3a73735",
+      "bytes": 441,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/cmake.check_cache",
+      "sha256": "a26189e394421da57f45706a07713c5720acd200a41711b0c0c590c3c63371c4",
+      "bytes": 85,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/DependInfo.cmake",
+      "sha256": "e98fc94e054942415e158fe9555048c5276a0eb0065409390ede12426a1465cc",
+      "bytes": 680,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/build.make",
+      "sha256": "94232ecd7bc52556b26630ee383df7f834518d647adcd482f27b92f42eb54c9b",
+      "bytes": 6316,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/cmake_clean.cmake",
+      "sha256": "32c40a0c3c9922865b3301eb66ee622d009147c647f20721719170d2e374d537",
+      "bytes": 361,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/compiler_depend.make",
+      "sha256": "11625a02bd642f5dd3df8cdf0c065de5c1b605304e70a904ae33f9f187f3926d",
+      "bytes": 123,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/compiler_depend.ts",
+      "sha256": "d76d8e863021a24d9e166015a7e70ec5232e5d0bdcc058e9c80471eb76dc6f7e",
+      "bytes": 127,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/depend.make",
+      "sha256": "97c4e388a96403dbf87a3a56bf511328156f1f008e8c27cbc1eb53ff9df7a35e",
+      "bytes": 104,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/flags.make",
+      "sha256": "79e5f69dcf874d2d8f9f8895a224def02af7b519cbd21b19ee2f12f660d3c8ab",
+      "bytes": 888,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/link.txt",
+      "sha256": "f381528f3df55450aaea32e80161295825e58f59f4254b6135ddcc368f252c2b",
+      "bytes": 1191,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_application.dir/progress.make",
+      "sha256": "c06e644090b09d41eaddf59d10bcf03c6db6499eb51fa0d03e5128e5a165cc3c",
+      "bytes": 43,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/DependInfo.cmake",
+      "sha256": "a7c650761f6f667ccda012987ce63565489c456f083078b765f21accf9414c86",
+      "bytes": 670,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/build.make",
+      "sha256": "8eb338cd10244d6a74c5f14a8150bedf66fea7d523e669d23fd85a4440519416",
+      "bytes": 6148,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/cmake_clean.cmake",
+      "sha256": "9c77c72a56021516eb9352928dfd7292d283faff07e5a157928cc6c3f34219ba",
+      "bytes": 356,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/compiler_depend.make",
+      "sha256": "df0b4feb176cd49f4f0fb83afe89c2f42c3cbe7e2f7f1c2f18e0070ce768a733",
+      "bytes": 121,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/compiler_depend.ts",
+      "sha256": "df70c1b3fc9107fbdd188f7ad0d1d11ca3282ebe5676188123283c5e148baa79",
+      "bytes": 125,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/depend.make",
+      "sha256": "7d479547eb1ad3da60f14e7fcfff3a90c320f2cdff35a1fce8c9b8dcaca1cf0e",
+      "bytes": 102,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/flags.make",
+      "sha256": "d44a1fa15699b2e2677fbe47ffd7e592962b9d27c753698bce3538765b1bdb42",
+      "bytes": 823,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/link.txt",
+      "sha256": "308dc5e7a577bf5de5a9570842259c5ec1992c2ae8fa223eaefd39dada0c900b",
+      "bytes": 1126,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/hpx_flag_component.dir/progress.make",
+      "sha256": "2c0c69e4af70b4caed2b8e1bd9f161f3ee9eb525d5f041631eee6d0661e5a02f",
+      "bytes": 43,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/CMakeFiles/progress.marks",
+      "sha256": "7de1555df0c2700329e815b93b32c571c3ea54dc967b89e81ab73b9972b72d1d",
+      "bytes": 2,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/Makefile",
+      "sha256": "bf599680cdf249e1e50d6bffcd3694d4a763b4f8c347a96b3539ea6804bbd8d1",
+      "bytes": 7050,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/application.cpp",
+      "sha256": "deac66ccb79f6d31c0fa7d358de48e083c15c02ff50ec1ebd4b64314b9e6e196",
+      "bytes": 25,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/cmake_install.cmake",
+      "sha256": "e3257294fbad7a1e902b4068277db9e801ed2605fdcddf5e727f98c0992ceacd",
+      "bytes": 1734,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/lean_metadata/query/component.cpp",
+      "sha256": "b9c816a5b974c07bd48f87734abb0696d4382064424638856f1d15e4fdb0a17d",
+      "bytes": 25,
+      "reason": "Internal CMake metadata-query work directory; exported flags, metadata and commands retained."
+    },
+    {
+      "source": "results/1125899/objects/hybrid/source-hpx-comm.cpp",
+      "sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+      "bytes": 35391,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/objects/hybrid_diagnostic/source-hpx-comm.cpp",
+      "sha256": "bf48e1637c085e76eef0fe8e86cb757487ce763a4a688cdac7acfe7374007516",
+      "bytes": 39217,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/objects/lean_pool/source-hpx-comm.cpp",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "bytes": 28110,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/objects/parallel_copy/source-hpx-comm.cpp",
+      "sha256": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+      "bytes": 30271,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/objects/pool_release/source-hpx-comm.cpp",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "bytes": 28110,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/objects/rendezvous/source-hpx-comm.cpp",
+      "sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "bytes": 38100,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    },
+    {
+      "source": "results/1125899/objects/rendezvous_diagnostic/source-hpx-comm.cpp",
+      "sha256": "f0627393ad79a93e3e85f58d0d9ced6f8da3fea53f1d9e6aafa14a65bd698cef",
+      "bytes": 41926,
+      "reason": "Frozen source already published in experiments/candidates/prototypes; identities verified in SOURCE_VERIFICATION.json."
+    }
+  ]
+}

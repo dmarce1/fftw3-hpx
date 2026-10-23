@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_phase_one_ns.log
+@@ -2545,7 +2545,7 @@
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=readiness_phase_wall calls=6 bytes=0 seconds=0.040784145000000001 nanoseconds=40784145
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_finish_wall calls=6 bytes=0 seconds=0.73411461100000008 nanoseconds=734114611
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=0.0081568290000000009 nanoseconds=8156829
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=0.012235244000000001 nanoseconds=12235244
++PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=0.012235245 nanoseconds=12235245
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=message_load calls=6 bytes=6442450944 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=direct_message_load calls=4 bytes=4294967296 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=owned_message_load calls=2 bytes=2147483648 seconds=0 nanoseconds=0

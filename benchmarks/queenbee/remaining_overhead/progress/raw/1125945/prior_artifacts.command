@@ -1,0 +1,2 @@
+cd /work/dmarce1/fftw3_hpx_remaining_20261023
+verify_prior_artifacts 

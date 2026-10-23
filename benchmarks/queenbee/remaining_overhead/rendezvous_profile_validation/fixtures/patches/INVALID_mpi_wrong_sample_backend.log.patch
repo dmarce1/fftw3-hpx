@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_mpi.log
++++ fixture/INVALID_mpi_wrong_sample_backend.log
+@@ -2503,7 +2503,7 @@
+ PLAN_BACKWARD_END
+ CHECK backend=mpi stage=forward_spectrum relative_max_error=7.3248988013960868e-16 tolerance=1e-10
+ CHECK backend=mpi stage=initial_roundtrip relative_max_error=1.3986960342891404e-15 tolerance=1e-10
+-SAMPLE backend=mpi index=0 max_rank_seconds=3.359657254
++SAMPLE backend=wrong index=0 max_rank_seconds=3.359657254
+ SAMPLE backend=mpi index=1 max_rank_seconds=3.352696269
+ SAMPLE backend=mpi index=2 max_rank_seconds=3.3563287939999999
+ SAMPLE backend=mpi index=3 max_rank_seconds=3.3560028750000002

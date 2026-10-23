@@ -1,0 +1,12 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "scope": "Packaging verification only: no new build, FFT runtime or remote access.",
+  "byte_identical_copies": 75,
+  "verified_excluded_file_hashes": 61,
+  "restored_fixtures_identical_to_frozen_source": 31,
+  "rejected_fixtures": 30,
+  "readme_local_links": 15,
+  "all_files_utf8_text_without_nul": true,
+  "recomputed_summary": "Regenerated from the already measured raw files using the exact frozen analyzer; no new data produced."
+}

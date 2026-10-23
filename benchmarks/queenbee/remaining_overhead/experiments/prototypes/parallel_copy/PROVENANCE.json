@@ -1,0 +1,9 @@
+{
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "license": "GPL-2.0-or-later",
+  "base_source": "hpx/hpx-comm.cpp",
+  "base_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+  "candidate_sha256": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+  "status": "Local double correctness checks PASS; no remote validation or performance conclusion",
+  "change": "Only overload Message receiveBytes with bounded copy tasks; no collectives, channel protocol, FFT callbacks, transport settings or benchmark changes."
+}

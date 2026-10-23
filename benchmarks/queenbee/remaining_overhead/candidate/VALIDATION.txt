@@ -1,0 +1,10 @@
+PASS: original completed-job parsers reproduced all 8 MPI/HPX comparison JSON objects and original full candidate_comparison.json without changing originals.
+PASS: independent recompute.py validated all 9 raw logs, 27 numerical checks, all plans, 616 unique diagnostic rows, 7 communication gates, and 31 unchanged members in each of 7 archives.
+PASS: every rendezvous rank/sample had 6 direct hits and 0 final receive copies; hybrid aggregate 94/168 direct hits.
+PASS: published SUMMARY.json reproduced byte-for-byte from packaged raw logs.
+PASS: deliberately changed rendezvous rank/sample with 5 otherwise-consistent direct messages was rejected.
+PASS: Python 3.6 syntax check.
+PASS: all 158 raw files are byte-identical to the extraction; all 64 excluded-file hashes still match originals.
+PASS: no binary, archive, object or symlink is packaged.
+No new remote access, compilation or benchmark execution occurred.
+PASS: independent read-only review verified source/log hashes, medians, all27 numerical checks and documentation links; retained archive-member order is explicitly rechecked.

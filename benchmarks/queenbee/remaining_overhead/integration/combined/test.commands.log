@@ -1,0 +1,22 @@
++ build/qb_remaining/integration_validation/validate_combined.sh:40 /home/dmarce1/workspace/fftw3-hpx: export APEX_DISABLE=1
++ build/qb_remaining/integration_validation/validate_combined.sh:40 /home/dmarce1/workspace/fftw3-hpx: APEX_DISABLE=1
++ build/qb_remaining/integration_validation/validate_combined.sh:41 /home/dmarce1/workspace/fftw3-hpx: export HWLOC_COMPONENTS=-cuda,-nvml,-opencl
++ build/qb_remaining/integration_validation/validate_combined.sh:41 /home/dmarce1/workspace/fftw3-hpx: HWLOC_COMPONENTS=-cuda,-nvml,-opencl
++ build/qb_remaining/integration_validation/validate_combined.sh:42 /home/dmarce1/workspace/fftw3-hpx: cd /home/dmarce1/workspace/fftw3-hpx
++ build/qb_remaining/integration_validation/validate_combined.sh:43 /home/dmarce1/workspace/fftw3-hpx: '[' test = build ']'
++ build/qb_remaining/integration_validation/validate_combined.sh:63 /home/dmarce1/workspace/fftw3-hpx: grep -q '^exit_status=0$' /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/BUILD_STATUS
++ build/qb_remaining/integration_validation/validate_combined.sh:64 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/input.sha256
++ build/qb_remaining/integration_validation/validate_combined.sh:65 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/output.sha256
++ build/qb_remaining/integration_validation/validate_combined.sh:67 /home/dmarce1/workspace/fftw3-hpx: command=(timeout --kill-after=15s 180s sh "$repo/hpx/hpx-run.sh" "$(command -v hpxrun.py)" 3 2 "$out/combined_precision_smoke")
+++ build/qb_remaining/integration_validation/validate_combined.sh:67 /home/dmarce1/workspace/fftw3-hpx: command -v hpxrun.py
++ build/qb_remaining/integration_validation/validate_combined.sh:68 /home/dmarce1/workspace/fftw3-hpx: printf '%q ' timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/combined_precision_smoke
++ build/qb_remaining/integration_validation/validate_combined.sh:69 /home/dmarce1/workspace/fftw3-hpx: printf '\n'
++ build/qb_remaining/integration_validation/validate_combined.sh:70 /home/dmarce1/workspace/fftw3-hpx: timeout --kill-after=15s 180s sh /home/dmarce1/workspace/fftw3-hpx/hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/combined_precision_smoke
++ build/qb_remaining/integration_validation/validate_combined.sh:70 /home/dmarce1/workspace/fftw3-hpx: tee /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/runtime.log
++ build/qb_remaining/integration_validation/validate_combined.sh:71 /home/dmarce1/workspace/fftw3-hpx: grep -q '^combined double/single/long-double precision smoke PASS$' /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/runtime.log
++ build/qb_remaining/integration_validation/validate_combined.sh:72 /home/dmarce1/workspace/fftw3-hpx: sha256sum -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/integration_validation/combined/input.sha256
++ build/qb_remaining/integration_validation/validate_combined.sh:1 /home/dmarce1/workspace/fftw3-hpx: finish 0
++ build/qb_remaining/integration_validation/validate_combined.sh:31 /home/dmarce1/workspace/fftw3-hpx: local result=0
++ build/qb_remaining/integration_validation/validate_combined.sh:32 /home/dmarce1/workspace/fftw3-hpx: trap - EXIT
++ build/qb_remaining/integration_validation/validate_combined.sh:33 /home/dmarce1/workspace/fftw3-hpx: set +e
++ build/qb_remaining/integration_validation/validate_combined.sh:34 /home/dmarce1/workspace/fftw3-hpx: set +x

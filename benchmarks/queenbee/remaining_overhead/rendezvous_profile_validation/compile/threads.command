@@ -1,0 +1,1 @@
+gcc -O3 -DNDEBUG -DHAVE_CONFIG_H -Ibuild/double -I. -Ithreads -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/transform_check/threads/threads.c -o /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/compile_check/threads.o 

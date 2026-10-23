@@ -1,0 +1,97 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "diagnostic_only": true,
+  "production_bridge_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "diagnostic_bridge_sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13",
+  "unchanged_primary_driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "compile_checks": {
+    "bridge": "PASS",
+    "common": "PASS",
+    "mpi_interpose": "PASS",
+    "threads": "PASS",
+    "hpx_pairwise": "PASS",
+    "mpi_pairwise": "PASS",
+    "mpi_driver": "PASS",
+    "hpx_driver": "PASS"
+  },
+  "recorder_check": "PHASE_RECORDER_CHECK PASS inactive exact_coverage destructor_order exception_unwind",
+  "parser_check": [
+    "mpi PASS positive=1 negative=12",
+    "hpx PASS positive=1 negative=18",
+    "ANALYZER_SYNTHETIC_CHECK PASS plans_equal=1 measured_diagnostics=0"
+  ],
+  "python_compatibility": "Python 3.6 grammar accepted; runtime API audit excludes newer pathlib/subprocess APIs. Local execution used Python 3.14.",
+  "legacy_metric_ids_unchanged": 28,
+  "new_metrics_appended": 10,
+  "transformed_C_sources_byte_identical_to_previous_profiler": true,
+  "reversible_patch_and_deterministic_reproduction": "PASS",
+  "project_source_files_unchanged": [
+    "hpx/hpx-comm.cpp",
+    "benchmarks/matched_3d.cpp",
+    "threads/threads.c",
+    "hpx/transpose-pairwise.c",
+    "mpi/transpose-pairwise.c"
+  ],
+  "original_archives_unchanged": [
+    "hpx",
+    "mpi",
+    "threads"
+  ],
+  "local_runs": [
+    {
+      "directory": "local_runtime",
+      "extent": 64,
+      "ranks": 4,
+      "workers_each": 1,
+      "warmups": 2,
+      "samples_each_backend": 7,
+      "numerical_checks": 6,
+      "normalized_plans_equal": true,
+      "hpx_rank_samples": 28,
+      "phase_coverage_error_ns": [
+        0
+      ],
+      "message_load_counts": {
+        "message_load": 168,
+        "direct_message_load": 168,
+        "owned_message_load": 0,
+        "empty_message_load": 0,
+        "required_posted_message_load": 168
+      },
+      "final_receive_copy_bytes": 0,
+      "callback_calls_match_every_rank_sample": true
+    },
+    {
+      "directory": "local_threaded",
+      "extent": 64,
+      "ranks": 3,
+      "workers_each": 2,
+      "warmups": 2,
+      "samples_each_backend": 7,
+      "numerical_checks": 6,
+      "normalized_plans_equal": true,
+      "hpx_rank_samples": 21,
+      "phase_coverage_error_ns": [
+        0
+      ],
+      "message_load_counts": {
+        "message_load": 84,
+        "direct_message_load": 84,
+        "owned_message_load": 0,
+        "empty_message_load": 0,
+        "required_posted_message_load": 84
+      },
+      "final_receive_copy_bytes": 0,
+      "callback_calls_match_every_rank_sample": true
+    }
+  ],
+  "no_queenbee_access": true,
+  "limits": [
+    "Local tests establish instrumentation and numerical correctness, not QueenBee performance.",
+    "Local HPX tests use TCP on one machine and do not prove MPI zero-copy timing.",
+    "Initial merged launcher output was rejected for interleaving; subsequent rank files are preserved independently.",
+    "One initial sandbox MPI socket-denial attempt is retained; authorized local-socket retries passed."
+  ],
+  "independent_read_only_review": "PASS: second agent reviewed phase lifetime/exact coverage, rank-file failure handling, analyzer completeness and load conservation; no blocker."
+}

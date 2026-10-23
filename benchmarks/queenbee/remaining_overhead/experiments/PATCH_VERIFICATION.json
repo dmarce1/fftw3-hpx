@@ -1,0 +1,54 @@
+{
+  "license": "GPL-2.0-or-later",
+  "patches": [
+    {
+      "patch": "prototypes/parallel_copy/parallel_copy.patch",
+      "base": "prototypes/parallel_copy/base-hpx-comm.cpp",
+      "result": "prototypes/parallel_copy/hpx-comm.cpp",
+      "sha256": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+      "status": "PASS"
+    },
+    {
+      "patch": "prototypes/hybrid/hybrid.patch",
+      "base": "prototypes/hybrid/base-hpx-comm.cpp",
+      "result": "prototypes/hybrid/hpx-comm.cpp",
+      "sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+      "status": "PASS"
+    },
+    {
+      "patch": "prototypes/hybrid/direct-to-hybrid.patch",
+      "base": "prototypes/hybrid/direct-reference.cpp",
+      "result": "prototypes/hybrid/hpx-comm.cpp",
+      "sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+      "status": "PASS"
+    },
+    {
+      "patch": "prototypes/hybrid/diagnostic.patch",
+      "base": "prototypes/hybrid/hpx-comm.cpp",
+      "result": "prototypes/hybrid/hpx-comm-diagnostic.cpp",
+      "sha256": "bf48e1637c085e76eef0fe8e86cb757487ce763a4a688cdac7acfe7374007516",
+      "status": "PASS"
+    },
+    {
+      "patch": "prototypes/rendezvous/hpx-comm.cpp.patch",
+      "base": "prototypes/hybrid/hpx-comm.cpp",
+      "result": "prototypes/rendezvous/hpx-comm.cpp",
+      "sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "status": "PASS"
+    },
+    {
+      "patch": "prototypes/rendezvous/hpx-comm-diagnostic.cpp.patch",
+      "base": "prototypes/hybrid/hpx-comm-diagnostic.cpp",
+      "result": "prototypes/rendezvous/hpx-comm-diagnostic.cpp",
+      "sha256": "f0627393ad79a93e3e85f58d0d9ced6f8da3fea53f1d9e6aafa14a65bd698cef",
+      "status": "PASS"
+    },
+    {
+      "patch": "candidates/drivers/diagnostic.patch",
+      "base": "candidates/drivers/matched_3d.cpp",
+      "result": "candidates/drivers/matched_3d_diagnostic.cpp",
+      "sha256": "0827f58970040f3d9045fb623b0252d0b70466239aead09cadae8f576b0e23f4",
+      "status": "PASS"
+    }
+  ]
+}

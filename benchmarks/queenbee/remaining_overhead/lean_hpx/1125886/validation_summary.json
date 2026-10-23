@@ -1,0 +1,73 @@
+{
+  "added_defines": [],
+  "apex_dynamic_dependency": false,
+  "cache_options_checked": 170,
+  "compile_commands_checked": 377,
+  "compile_commands_raw_sha256": "dba00791f2dfb0052aed62b5ecd31d9df7c980b489b6f65e7c24b1d2109cce3d",
+  "compile_flags_all": [
+    "-O3",
+    "-DNDEBUG",
+    "-march=native"
+  ],
+  "compiler_error_lines": 0,
+  "compiler_warning_lines": 927,
+  "configuration_warning": "libxml-2.0 pkg-config metadata missing; explicit hwloc dependency resolved and build/ldd audits passed",
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "distinct_compiler_warning_lines": 6,
+  "effective_debug_defines_absent": [
+    "VERIFY_LOCKS",
+    "VERIFY_LOCKS_BACKTRACE",
+    "THREAD_BACKTRACE_ON_SUSPENSION",
+    "SPINLOCK_DEADLOCK_DETECTION",
+    "THREAD_DEBUG_INFO",
+    "STACKOVERFLOW_DETECTION",
+    "SANITIZERS",
+    "VALGRIND",
+    "ITTNOTIFY",
+    "ATTACH_DEBUGGER_ON_TEST_FAILURE",
+    "TESTS_DEBUG_LOG"
+  ],
+  "environment": {
+    "Boost": "1.83.0",
+    "CMake": "3.26.5",
+    "GCC": "13.2.0",
+    "MPI": "5.0.11",
+    "Python": "3.6.8"
+  },
+  "intentionally_disabled_features": [
+    "APEX",
+    "FETCH_APEX",
+    "PARCEL_PROFILING",
+    "LOGGING",
+    "IO_COUNTERS",
+    "THREAD_CUMULATIVE_COUNTS"
+  ],
+  "interpretation": "Build and configuration validation only; no performance conclusion.",
+  "job": "1125886",
+  "license": "GPL-2.0-or-later",
+  "missing_dynamic_dependencies": false,
+  "preserved_features": [
+    "DISTRIBUTED_RUNTIME",
+    "NETWORKING",
+    "PARCELPORT_MPI",
+    "PARCELPORT_MPI_MULTITHREADED",
+    "ASYNC_MPI",
+    "THREAD_GUARD_PAGE",
+    "THREAD_MANAGER_IDLE_BACKOFF",
+    "IO_POOL",
+    "TIMER_POOL"
+  ],
+  "removed_defines": [
+    "HPX_HAVE_APEX",
+    "HPX_HAVE_IO_COUNTERS",
+    "HPX_HAVE_LOGGING",
+    "HPX_HAVE_PARCEL_PROFILING",
+    "HPX_HAVE_THREAD_CUMULATIVE_COUNTS",
+    "HPX_HAVE_THREAD_DESCRIPTION",
+    "HPX_HAVE_THREAD_PARENT_REFERENCE"
+  ],
+  "source_commit": "c9b81b401fbe6ba4a0306feff71d18ef01c71b34",
+  "source_status_before_after": "clean and identical",
+  "status": "PASS",
+  "unchanged_original_artifacts": 5
+}

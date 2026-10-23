@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_mpi.log
++++ fixture/INVALID_mpi_interleaved.log
+@@ -2513,7 +2513,7 @@
+ CHECK backend=mpi stage=final_roundtrip relative_max_error=5.196128222638237e-15 tolerance=1e-10
+ RESULT backend=mpi extent=1024 ranks=4 threads=64 samples=7 min_seconds=3.2631420389999999 median_seconds=3.3560028750000002 mean_seconds=3.3376268202857142 max_seconds=3.3838175179999999 status=PASS
+ 
+-PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.3035470150000001 nanoseconds=1303547015
++PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.3035470150000001 nanoseconds=1303547015 PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=send_initiation_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=send_initiation_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=receive_wait_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0 nanoseconds=0

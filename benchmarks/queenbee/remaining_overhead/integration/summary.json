@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-10-23T08:39:36.947916+00:00",
+  "scope": "Existing autotools integration targets on tracked rendezvous bridge and expanded checks; no full numerical matrix rerun",
+  "source_hashes": {
+    "hpx-comm.cpp": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+    "hpx-comm-check.cpp": "058f61b04748abae744c38e3645ff4a0196963acc9093d0b56bf48b7a25c2160",
+    "hpx-message-check.cpp": "f473c896d12ae0481170175f82293d361e878999c7f199aef001d33085301cc8",
+    "hpx-message-check.hpp": "523396d75e77d6fcc3fb27c12fa447f6fd3efabd5a0744b2df6e8e42c9803ee2",
+    "hpx-comm.h": "ea97a1fee076d3adb501ff0080b191edd2b8147e96a337b14eb6cbe4eae06e11",
+    "fftw3-hpx.h": "350897e4daea9345cd8885e02cd92f447b7a4f8c277a7aad0033e5f5cf396c45",
+    "Makefile.am": "4e15bda54891099a292bedab3b9f382932492d029aea57c5f13ad3ceaa020d09",
+    "Makefile.in": "787b09784a7b98f911ee0b3f039fdbb6777f2a52e98f4af0e8eb210c4966285a",
+    "hpx-run.sh": "83ee2f827d3e6f9755f25e1c56fb6b7b972b75ecc4df3d8d52dc42c649620874",
+    "combined_precision_smoke.cpp": "ef13cdb1cd927d146bbd6520076a9b5c2875071b44135c2c215daeb027a2384b"
+  },
+  "precisions": {
+    "double": {
+      "build_status": 0,
+      "focused_status": 0,
+      "message_test_groups": 11,
+      "communication_launches": [
+        "1 locality x 2 workers",
+        "3 localities x 2 workers"
+      ],
+      "initialization_cycles_per_launch": 2,
+      "source_inputs_unchanged": true,
+      "protected_archives_unchanged": true
+    },
+    "single": {
+      "build_status": 0,
+      "focused_status": 0,
+      "message_test_groups": 11,
+      "communication_launches": [
+        "1 locality x 2 workers",
+        "3 localities x 2 workers"
+      ],
+      "initialization_cycles_per_launch": 2,
+      "source_inputs_unchanged": true,
+      "protected_archives_unchanged": true
+    },
+    "long_double": {
+      "build_status": 0,
+      "focused_status": 0,
+      "message_test_groups": 11,
+      "communication_launches": [
+        "1 locality x 2 workers",
+        "3 localities x 2 workers"
+      ],
+      "initialization_cycles_per_launch": 2,
+      "source_inputs_unchanged": true,
+      "protected_archives_unchanged": true
+    }
+  },
+  "combined_precision": {
+    "build_status": 0,
+    "test_status": 0,
+    "localities": 3,
+    "workers_per_locality": 2,
+    "uses_current_autotools_archives": true
+  },
+  "hpx_archive_member_count_each": 32,
+  "changed_hpx_archive_members_each": [
+    "hpx-comm.o"
+  ],
+  "protected_c_archives_unchanged": 45,
+  "source_style_issues": [],
+  "warning_or_failure_log_patterns": [],
+  "max_concurrent_compilers": 3,
+  "max_runtime_workers": 6,
+  "all_runtimes_serial": true,
+  "remote_access_attempts": 0,
+  "tracked_sources_modified_by_validation": false
+}

@@ -1,0 +1,10 @@
+--- base/SYNTHETIC_mpi.log
++++ fixture/INVALID_mpi_missing_metric.log
+@@ -2519,7 +2519,6 @@
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=send_completion_wait_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=receive_memcpy_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_hit calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_miss calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=heap_allocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0

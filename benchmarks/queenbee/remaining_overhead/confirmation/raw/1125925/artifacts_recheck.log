@@ -1,0 +1,5 @@
+bin/selected_lean: OK
+bin/selected_lean_comm_check: OK
+objects/selected_lean/hpx-comm.o: OK
+objects/selected_lean/libfftw3_hpx.a: OK
+objects/selected_lean/source-hpx-comm.cpp: OK

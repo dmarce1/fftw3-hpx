@@ -1,0 +1,347 @@
+{
+  "license": "GPL-2.0-or-later",
+  "synthetic_only": true,
+  "base_logs": [
+    "SYNTHETIC_mpi.log",
+    "SYNTHETIC_hpx.log"
+  ],
+  "fixtures": [
+    {
+      "source": "analyzer_check/INVALID_hpx_bad_workload.log",
+      "fixture": "INVALID_hpx_bad_workload.log",
+      "sha256": "dc4bc2fc421ddc82688cf83b15d2b708a6425ac37e9921d0966367df9dd7314c",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_bad_workload.log.patch",
+      "patch_sha256": "ea821df5bc786a238f596262c2815f6effecb08fcb3b0360e0d24986f8238830"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_duplicate_metric.log",
+      "fixture": "INVALID_hpx_duplicate_metric.log",
+      "sha256": "4bebb1068c6b0a6e8ed768da98587debff13f4f1705b5a00c2d6d4c348800090",
+      "bytes": 229812,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_duplicate_metric.log.patch",
+      "patch_sha256": "f6dc4a9bcdb5e40625d38582ebccb2854c7bf4bbaa88df91b6ba4c541b6a0d45"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_interleaved.log",
+      "fixture": "INVALID_hpx_interleaved.log",
+      "sha256": "8d0aa577881ac6e95af722fc4a623bc69b3627478dade36a4deea0673b3e50fa",
+      "bytes": 229816,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_interleaved.log.patch",
+      "patch_sha256": "34ff13c56fb86b12222034aae8c1a46ff550d1f9eac304f43dc8e880e08aeed2"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_invalid_runtime.log",
+      "fixture": "INVALID_hpx_invalid_runtime.log",
+      "sha256": "b169d5960204b3bcba372744fdb5ca510898a0806f58b2833d9a080cbd3a8965",
+      "bytes": 229710,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_invalid_runtime.log.patch",
+      "patch_sha256": "330ae50435734f7c88664e53381c8eba7b42f511037d62724ec3602a38ed8754"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_late_scope.log",
+      "fixture": "INVALID_hpx_late_scope.log",
+      "sha256": "cbfd6215be4789d80828f2cc240de8e77abb2062f7d79f1920beb7a99103f07c",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_late_scope.log.patch",
+      "patch_sha256": "0f3be63801a62d2ade7b825345a8e0a354a1168732c8607240244afcdb1769ab"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_load_partition.log",
+      "fixture": "INVALID_hpx_load_partition.log",
+      "sha256": "75bd2d64b833d72ddd94014761ed4fd02e19aa5fec9d8bad37288a9362d5a7a1",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_load_partition.log.patch",
+      "patch_sha256": "cb9cf18f6829a6947f2b34dbb0b121094a3a1cbb159d25dff4393eea28fc794e"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_missing_metric.log",
+      "fixture": "INVALID_hpx_missing_metric.log",
+      "sha256": "5b086cce8c309eca3d1cef490cb0056f50946b6d394a80cf60f0f72ec8abfe9e",
+      "bytes": 229571,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_missing_metric.log.patch",
+      "patch_sha256": "992ace4f949db95ba959271bf245beec707bd4b188496ac0bd780b411cc07755"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_negative_duration.log",
+      "fixture": "INVALID_hpx_negative_duration.log",
+      "sha256": "54601ab2866d0dc50fc59c4faf6c4e4b76c7e3b6697c5d0d58276a6c77ee3f81",
+      "bytes": 229680,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_negative_duration.log.patch",
+      "patch_sha256": "3bdc9cde5ce15597effd6064fc99fd0e615f6071a105f5750959327e96fb71d8"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_negative_residual.log",
+      "fixture": "INVALID_hpx_negative_residual.log",
+      "sha256": "ecc394e1e03667d37295c1fe0ea046a1eb0548326d10b69d3ab0b29c06e62529",
+      "bytes": 229672,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_negative_residual.log.patch",
+      "patch_sha256": "fe02c31ed3ae438e26da279268bce211a76f4bd25841f5f6189206c4e66aa325"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_nested_jobs.log",
+      "fixture": "INVALID_hpx_nested_jobs.log",
+      "sha256": "48f10cf42d444aeb245e02aa84e51046b7fa623ea2d4191756d3cb2af537a2d5",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_nested_jobs.log.patch",
+      "patch_sha256": "4e0b67b61a5dc0cffc6efd80716b595fee027e2c159ab8826bdab85d2791192b"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_no_exact_ns.log",
+      "fixture": "INVALID_hpx_no_exact_ns.log",
+      "sha256": "96e6c38867c47fe8d668aff550e9aca485975bafbdf88c7767b1b8b3cc952088",
+      "bytes": 209547,
+      "expected": "reject",
+      "storage": "raw",
+      "path": "fixtures/INVALID_hpx_no_exact_ns.log"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_pending_scope.log",
+      "fixture": "INVALID_hpx_pending_scope.log",
+      "sha256": "09716937b1dd60110a3ab092ea52a6a4ee75fd50342d3e02bed44bbd5cfc1984",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_pending_scope.log.patch",
+      "patch_sha256": "0c3b14003f8c3076505ba45fee032682a8b2eb3457fd77b29106cc8eb9077b2d"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_phase_calls.log",
+      "fixture": "INVALID_hpx_phase_calls.log",
+      "sha256": "29b3e4f3059b6408e2f993650f3af64e76df03d1725bd5372d1f164d330601c9",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_phase_calls.log.patch",
+      "patch_sha256": "8837bdf184e914cef3d4b7c646d45f3c83cd76d3a4e9574cec6af8902c95a2c1"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_phase_coverage.log",
+      "fixture": "INVALID_hpx_phase_coverage.log",
+      "sha256": "e661ff5e3fcdecb9a64345486f543990e42f01a8bc87de885c1f76c7cce6f349",
+      "bytes": 229653,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_phase_coverage.log.patch",
+      "patch_sha256": "751e7b051db696a378c093cfbb06a19e02934cda4bfac4e723d2c4eef2237ca6"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_phase_one_ns.log",
+      "fixture": "INVALID_hpx_phase_one_ns.log",
+      "sha256": "2dccac2a151e8c05df2d3c6137011f5dc59614eecb3ffd6161055dd0f55b39f6",
+      "bytes": 229670,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_phase_one_ns.log.patch",
+      "patch_sha256": "ac61ac458481d407b60a9b13ae4e07a3363f9f10d5119141dd36033d24d4ca51"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_required_target.log",
+      "fixture": "INVALID_hpx_required_target.log",
+      "sha256": "80a936cc0ae91dd8b90153f56bcb70c6462666e914dc67981e2a8b0375419d3c",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_required_target.log.patch",
+      "patch_sha256": "e9fbc0cbec916f72a36cc8b2648d36f8548e3e8ba5d63637c9b342cdce5116dd"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_separate_send.log",
+      "fixture": "INVALID_hpx_separate_send.log",
+      "sha256": "283d8cd771a847daa7000e6aa0289bec1395b29e9fb1da325c67abc1e72291f8",
+      "bytes": 229679,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_separate_send.log.patch",
+      "patch_sha256": "c12c5b0653b5ac129549238a68c7cf9ce95a28e19135dadfb3ad8f056662b6e9"
+    },
+    {
+      "source": "analyzer_check/INVALID_hpx_wrong_sample_backend.log",
+      "fixture": "INVALID_hpx_wrong_sample_backend.log",
+      "sha256": "8df4e1e462e48fb59d4f911fe0e4c46789f971ca4c652052f3ec04d40d3fe95d",
+      "bytes": 229681,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_hpx.log",
+      "path": "fixtures/patches/INVALID_hpx_wrong_sample_backend.log.patch",
+      "patch_sha256": "600613aca17ae13d90a36706256faf2b184e40b26488e79c71f16723f8e5f357"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_bad_workload.log",
+      "fixture": "INVALID_mpi_bad_workload.log",
+      "sha256": "b0e69759e1b5c122618ab8bdceda253adeea20bf6a30fb0b44a05f4922594119",
+      "bytes": 219496,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_bad_workload.log.patch",
+      "patch_sha256": "ef288d1a08a0a21020bec8c99937b4e7ad2275d90a7cffc0f5b04d0b019e5bf9"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_duplicate_metric.log",
+      "fixture": "INVALID_mpi_duplicate_metric.log",
+      "sha256": "5a027daff1fd0ae376e2f3efb5eaab20fe694dbcc14a98a09aabdd3b7967c4de",
+      "bytes": 219636,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_duplicate_metric.log.patch",
+      "patch_sha256": "80429230308038bb22f3d768e93f85d08a360cde2c54376a8bca4a42f75cdcdd"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_interleaved.log",
+      "fixture": "INVALID_mpi_interleaved.log",
+      "sha256": "c9f52007862d0b9c3da1a1543edbbf1778d9c3ac87a445b2cf047f941a321824",
+      "bytes": 219607,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_interleaved.log.patch",
+      "patch_sha256": "413bc8062baf2eac34534da9c64f2c731468146ddf54c4e63c731cf52d0e4f87"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_invalid_runtime.log",
+      "fixture": "INVALID_mpi_invalid_runtime.log",
+      "sha256": "b64d1a305afa9e01d762594fb7744d1a5827e8c5f4be83c9aa1c3263187918c8",
+      "bytes": 219527,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_invalid_runtime.log.patch",
+      "patch_sha256": "8d884844d7d845b1243d8fa118ad7e3e31ba037c5e9e263bda5794dbf1056cb3"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_late_scope.log",
+      "fixture": "INVALID_mpi_late_scope.log",
+      "sha256": "e8d63ac1f2ce1d6961bc2c92f5912f0d3c54c4eb924ec13af1c0c465124cae77",
+      "bytes": 219496,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_late_scope.log.patch",
+      "patch_sha256": "e6fc6e2d9a388ce9f5bd8c8cdbdc5d0ece09342c215064ee6a665226e92d8e14"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_missing_metric.log",
+      "fixture": "INVALID_mpi_missing_metric.log",
+      "sha256": "203f5d9c2090fbd3e0f30ff0988f3e1a645d7c030687d35218d78061bcb47e28",
+      "bytes": 219397,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_missing_metric.log.patch",
+      "patch_sha256": "c04cf0197b4945d7be24fbc39036a06342c2bfced81e8bf89ecde8c9fab4b2df"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_negative_duration.log",
+      "fixture": "INVALID_mpi_negative_duration.log",
+      "sha256": "0d314e1444ff49989887ca2bfc072b205f2eee5df9e3caf08d85aabf6cb7136f",
+      "bytes": 219497,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_negative_duration.log.patch",
+      "patch_sha256": "c1cfd2a8df1fb700afc584b08661320e329f001e9b8ac75bc22abfa79e261d63"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_negative_residual.log",
+      "fixture": "INVALID_mpi_negative_residual.log",
+      "sha256": "72b1ed0f429c2ff32cd420987ebec573f858786b3840b15dcf2928986e68623d",
+      "bytes": 219481,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_negative_residual.log.patch",
+      "patch_sha256": "6543db4de42935641fa499f1e1371eaa7a56c42837fd1b4732b89b98677f11ac"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_nested_jobs.log",
+      "fixture": "INVALID_mpi_nested_jobs.log",
+      "sha256": "37a73cbb009d342b8b9e63f5a26f0ef529a66741b2f872c240f1b68b82d96d0a",
+      "bytes": 219496,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_nested_jobs.log.patch",
+      "patch_sha256": "6edef1438dfab484d6b75d2b5d2e68eef9a015e0cf83e6d3671a01c3f5390e51"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_pending_scope.log",
+      "fixture": "INVALID_mpi_pending_scope.log",
+      "sha256": "4ea7a093213a1ff10cc78ae06abaa7e6e27fd331aa75bb571c120fcfbad42b51",
+      "bytes": 219496,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_pending_scope.log.patch",
+      "patch_sha256": "c13b10cdd467159b562b10f697dfc1fa8f7bb782ec774a6bb71362e720d173cc"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_separate_send.log",
+      "fixture": "INVALID_mpi_separate_send.log",
+      "sha256": "0fab1aea0b409367674ebe599a9fff4a2cbd61df5cd6fcdfb9fd096968ce7254",
+      "bytes": 219496,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_separate_send.log.patch",
+      "patch_sha256": "f826e1dbadd05cb0e41e122f7d7df174ef840abda835061b6624dc7ec19b4b13"
+    },
+    {
+      "source": "analyzer_check/INVALID_mpi_wrong_sample_backend.log",
+      "fixture": "INVALID_mpi_wrong_sample_backend.log",
+      "sha256": "1f4ceb2701e06f0764d1ac1b5b96f31fa6b8a49ebede9f19b672485b128232f5",
+      "bytes": 219498,
+      "expected": "reject",
+      "storage": "unified_patch",
+      "base": "fixtures/SYNTHETIC_mpi.log",
+      "path": "fixtures/patches/INVALID_mpi_wrong_sample_backend.log.patch",
+      "patch_sha256": "ed2aa4791ff9f8c5f78159ef223c1603aebe2f7c3ae9f07fc79c52f696a33138"
+    },
+    {
+      "source": "analyzer_check/SYNTHETIC_legacy_mpi.log",
+      "fixture": "SYNTHETIC_legacy_mpi.log",
+      "sha256": "11be630a80ae9e2cbf5f40d66e93f400a3c2db95817f64692ff3a82c6d3332c1",
+      "bytes": 174102,
+      "expected": "accept_only_with_legacy_mpi_baseline",
+      "storage": "raw",
+      "path": "fixtures/SYNTHETIC_legacy_mpi.log"
+    }
+  ]
+}

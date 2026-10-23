@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_interleaved.log
+@@ -2513,7 +2513,7 @@
+ CHECK backend=hpx stage=final_roundtrip relative_max_error=5.9257913899479424e-15 tolerance=1e-10
+ RESULT backend=hpx extent=1024 ranks=4 threads=64 samples=7 min_seconds=4.0328475890000002 median_seconds=4.2032160889999997 mean_seconds=4.1648462458571425 max_seconds=4.2306398889999999 status=PASS
+ 
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.631365803 nanoseconds=1631365803
++PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_wall calls=6 bytes=6442450944 seconds=1.631365803 nanoseconds=1631365803 PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.040784145000000001 nanoseconds=40784145
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_initiation_wall calls=6 bytes=0 seconds=0.040784145000000001 nanoseconds=40784145
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=receive_wait_wall calls=6 bytes=0 seconds=0.73411461100000008 nanoseconds=734114611
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=send_completion_wait_wall calls=6 bytes=0 seconds=0.040784145000000001 nanoseconds=40784145

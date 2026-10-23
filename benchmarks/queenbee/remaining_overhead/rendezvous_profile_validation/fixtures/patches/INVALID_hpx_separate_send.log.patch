@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_separate_send.log
+@@ -2534,7 +2534,7 @@
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_thread_cpu_observed calls=192 bytes=0 seconds=57.097803042000002 nanoseconds=57097803042
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=task_cpu_migration calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=nested_jobs calls=0 bytes=0 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_send_wall calls=0 bytes=0 seconds=0 nanoseconds=0
++PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_send_wall calls=1 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=separate_receive_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_chunks_wall calls=2 bytes=0 seconds=2.2431279770000003 nanoseconds=2243127977
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=pairwise_copy_wall calls=4 bytes=4294967296 seconds=0.40784145000000005 nanoseconds=407841450

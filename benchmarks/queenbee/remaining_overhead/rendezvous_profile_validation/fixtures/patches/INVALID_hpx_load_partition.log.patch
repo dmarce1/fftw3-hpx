@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_hpx.log
++++ fixture/INVALID_hpx_load_partition.log
+@@ -2547,7 +2547,7 @@
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=announce_completion_wait_wall calls=6 bytes=0 seconds=0.0081568290000000009 nanoseconds=8156829
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=exchange_rest_wall calls=12 bytes=0 seconds=0.012235244000000001 nanoseconds=12235244
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=message_load calls=6 bytes=6442450944 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=direct_message_load calls=4 bytes=4294967296 seconds=0 nanoseconds=0
++PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=direct_message_load calls=3 bytes=4294967296 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=owned_message_load calls=2 bytes=2147483648 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=empty_message_load calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=hpx rank=0 sample=0 metric=required_posted_message_load calls=4 bytes=4294967296 seconds=0 nanoseconds=0

@@ -1,0 +1,169 @@
+{
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "exact_compressed_text": {
+    "compile_commands.json": "compile_commands.json.gz"
+  },
+  "files": {
+    "FINAL_STATUS": {
+      "bytes": 310,
+      "published_raw": true,
+      "sha256": "671656c63b4575abc71b857e744e7fb2f5071cde24ab50b0acfb2d3b62cf2ca3"
+    },
+    "audit_configuration.command": {
+      "bytes": 226,
+      "published_raw": true,
+      "sha256": "488ec2aeaf23ed5d8a55ff86e4d54854defe8bb69536e5ddc3da232dfc905245"
+    },
+    "audit_configuration.log": {
+      "bytes": 60,
+      "published_raw": true,
+      "sha256": "2d950decbb452621ac3fab43f780aa4354dd89654e0221f24cc8024088118b33"
+    },
+    "audit_install.command": {
+      "bytes": 296,
+      "published_raw": true,
+      "sha256": "bd3d8fba0e592a9730c67a3839ba861b37ddc78fd557a3f8ac6264f1f1ce4b4a"
+    },
+    "audit_install.log": {
+      "bytes": 59,
+      "published_raw": true,
+      "sha256": "546104300126a87298f3147ada715cec7b192d7e4a5845fcf6cd45c0e1d19a5f"
+    },
+    "build.command": {
+      "bytes": 87,
+      "published_raw": true,
+      "sha256": "cd0344fd55a45a1bffd48a99b9948ec707b5ead52218a5548b85741cbaa51123"
+    },
+    "build.log": {
+      "bytes": 900181,
+      "published_raw": false,
+      "sha256": "25a7f0feaf9ee253c031f051bcd7fc3cdbc3656c4509e5639ebc2ccc90dcdfde"
+    },
+    "build.sbatch": {
+      "bytes": 6631,
+      "published_raw": true,
+      "sha256": "68e15077f08c3d31052f85574b87b5dcf10c6c67b986443371359ae8ecee4ae7"
+    },
+    "compile_commands.json": {
+      "bytes": 7410576,
+      "published_raw": false,
+      "sha256": "dba00791f2dfb0052aed62b5ecd31d9df7c980b489b6f65e7c24b1d2109cce3d"
+    },
+    "configuration.json": {
+      "bytes": 14927,
+      "published_raw": true,
+      "sha256": "8f730dad2a9c9a42259ca320b1a996ba8b01db91d737637352872cb0da17e088"
+    },
+    "configure.command": {
+      "bytes": 279,
+      "published_raw": true,
+      "sha256": "a415c9aeb2e2c018313a90cdf45e2f3c44c923bf2f13c756d0fc36c29ba1e10c"
+    },
+    "configure.log": {
+      "bytes": 17918,
+      "published_raw": true,
+      "sha256": "1aadc4a2d97aab3b6da690935d002300eece829b859a6d6b57b7e954298e0722"
+    },
+    "dynamic_dependencies.command": {
+      "bytes": 162,
+      "published_raw": true,
+      "sha256": "c66985653e537176af018d0244167285055a4eedea17c9d735e1f455748e2268"
+    },
+    "dynamic_dependencies.log": {
+      "bytes": 4836,
+      "published_raw": true,
+      "sha256": "ce5f7b96f194a7ea52d6b3ef929650f1d27847f58749efce381ab427991d9b6a"
+    },
+    "initial-cache.cmake": {
+      "bytes": 16334,
+      "published_raw": true,
+      "sha256": "d7331417e08111d922e0cc26badf190c176a42ac916ee285ed591022e56cab7e"
+    },
+    "install.command": {
+      "bytes": 75,
+      "published_raw": true,
+      "sha256": "c8ead3664946f2f935cc52184870fe14c025e6157d3957f7e8c26153bfb25d3a"
+    },
+    "install.log": {
+      "bytes": 516731,
+      "published_raw": false,
+      "sha256": "5f627d9679d7800d5525ed38322bf1e032393b7654c7e626d4b30ad68361ffe0"
+    },
+    "installed-artifacts.sha256": {
+      "bytes": 612,
+      "published_raw": true,
+      "sha256": "cb930911c6bc588443c29a6cc0a95d35541943ef0e6e8ec81c940140d23e0885"
+    },
+    "job.log": {
+      "bytes": 1440542,
+      "published_raw": false,
+      "sha256": "cbd8f08f0123e94374726f4addf2904cad301b74d08b4fd1b2d00a6c338565b8"
+    },
+    "lean-CMakeCache.txt": {
+      "bytes": 72691,
+      "published_raw": true,
+      "sha256": "025da0a91b85aa5ad67696959f6dc25627dbe96336a73e4f45b5696e1d3eb194"
+    },
+    "lean-config_strings.hpp": {
+      "bytes": 3029,
+      "published_raw": true,
+      "sha256": "dd4a189c97d1a07cf202c13e8048083c8f137bd315dabc87f630fcff24eabfce"
+    },
+    "lean-defines.hpp": {
+      "bytes": 5016,
+      "published_raw": true,
+      "sha256": "8d1b77fbc10968a601827a7a1490959d5d500a5ce5b4f2547409a29a5cabf6ca"
+    },
+    "metadata.txt": {
+      "bytes": 852,
+      "published_raw": true,
+      "sha256": "61724b229c943d63210c74a3e9f1b16a719f280438cfedd251805c8bcd9c25b1"
+    },
+    "original-CMakeCache.txt": {
+      "bytes": 93060,
+      "published_raw": true,
+      "sha256": "016c9c20358cddd2bc271db235a259057aa4253087d71231b376e48ad6b52b03"
+    },
+    "original-inputs.sha256": {
+      "bytes": 961,
+      "published_raw": true,
+      "sha256": "5a18584d29d2c3e22e12eadddcc3932d8149d7e46c01bee8458fa9365c9571c4"
+    },
+    "prepare.command": {
+      "bytes": 227,
+      "published_raw": true,
+      "sha256": "79221bd0465ae031ca48584d2e8ae80340d3d8072ed5d5710cdf3a9cd2b46a6b"
+    },
+    "prepare.log": {
+      "bytes": 66,
+      "published_raw": true,
+      "sha256": "b55375646e3470274b61b69c6965da9c21fd41296d1990f9fa0875df194a6caf"
+    },
+    "prepare.py": {
+      "bytes": 8529,
+      "published_raw": true,
+      "sha256": "65289b9827c6ab55be0b97693280fc85236730577bbdfc2595858419b66c67d0"
+    },
+    "source-after.status": {
+      "bytes": 0,
+      "published_raw": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source-before.status": {
+      "bytes": 0,
+      "published_raw": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "verify_original.command": {
+      "bytes": 105,
+      "published_raw": true,
+      "sha256": "51f8d27d7471d88c7c43d035ccd2c0314b574696a1527ac755c370620baa75ce"
+    },
+    "verify_original.log": {
+      "bytes": 651,
+      "published_raw": true,
+      "sha256": "1e9c74fa8101c9fecdc17670f6fd1dad9aab2c2bffb79298420f56ac119ab7d6"
+    }
+  },
+  "license": "GPL-2.0-or-later"
+}

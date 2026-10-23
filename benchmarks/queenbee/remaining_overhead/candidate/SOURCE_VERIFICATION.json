@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "license": "GPL-2.0-or-later",
+  "sources": [
+    {
+      "label": "hybrid",
+      "sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+      "remote_record": "objects/hybrid/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/hybrid/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "hybrid_diagnostic",
+      "sha256": "bf48e1637c085e76eef0fe8e86cb757487ce763a4a688cdac7acfe7374007516",
+      "remote_record": "objects/hybrid_diagnostic/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/hybrid_diagnostic/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "lean_pool",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "remote_record": "objects/lean_pool/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/pool_release/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "parallel_copy",
+      "sha256": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+      "remote_record": "objects/parallel_copy/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/parallel_copy/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "pool_release",
+      "sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+      "remote_record": "objects/pool_release/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/pool_release/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "rendezvous",
+      "sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "remote_record": "objects/rendezvous/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/rendezvous/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "rendezvous_diagnostic",
+      "sha256": "f0627393ad79a93e3e85f58d0d9ced6f8da3fea53f1d9e6aafa14a65bd698cef",
+      "remote_record": "objects/rendezvous_diagnostic/source-hpx-comm.cpp",
+      "published_source": "../experiments/candidates/prototypes/rendezvous_diagnostic/hpx-comm.cpp",
+      "matches_artifacts_manifest": true
+    },
+    {
+      "label": "driver/diagnostic.patch",
+      "sha256": "330e8be991acb6743e3cc5c388532c89635054854e3827809922b1079bf48a97",
+      "published_source": "../experiments/candidates/drivers/diagnostic.patch"
+    },
+    {
+      "label": "driver/matched_3d.cpp",
+      "sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "published_source": "../experiments/candidates/drivers/matched_3d.cpp"
+    },
+    {
+      "label": "driver/matched_3d_diagnostic.cpp",
+      "sha256": "0827f58970040f3d9045fb623b0252d0b70466239aead09cadae8f576b0e23f4",
+      "published_source": "../experiments/candidates/drivers/matched_3d_diagnostic.cpp"
+    },
+    {
+      "label": "driver/receive-diagnostics.hpp",
+      "sha256": "c93565a515fccf6a3b0652c706d953769d5cfc6b74357a76d7514bb1c87a45ed",
+      "published_source": "../experiments/candidates/drivers/receive-diagnostics.hpp"
+    }
+  ],
+  "job_and_common_match_frozen_bundle": true,
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "binary_archive_limit": "Binary/archive manifests are retained cluster records, not claims of local rehashing of omitted files.",
+  "all_recomputed_cases_equal_original_full_summary": true
+}

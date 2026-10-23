@@ -1,0 +1,1 @@
+timeout --kill-after=15s 360s sh hpx/hpx-run.sh /home/dmarce1/local/hpx/Release/bin/hpxrun.py 3 2 /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous/validation/matched_3d --size=128 --threads=2 --warmups=2 --samples=7 

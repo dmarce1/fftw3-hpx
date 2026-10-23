@@ -1,0 +1,3 @@
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/libfftw3f_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-bench: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/validation/matrix/single/hpx-comm-check: OK

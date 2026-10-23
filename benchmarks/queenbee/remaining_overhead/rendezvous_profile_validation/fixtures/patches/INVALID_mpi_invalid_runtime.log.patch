@@ -1,0 +1,7 @@
+--- base/SYNTHETIC_mpi.log
++++ fixture/INVALID_mpi_invalid_runtime.log
+@@ -1,3 +1,4 @@
++REMAINING_PROFILE_INVALID test
+ SYNTHETIC PARSER FIXTURE: NOT MEASURED DIAGNOSTIC DATA
+ CONFIG backend=mpi extent=1024 ranks=4 threads=64 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=17179869184 max_local_allocation_bytes=4294967296
+ PLAN_SECONDS backend=mpi value=0.030129803

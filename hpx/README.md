@@ -24,8 +24,8 @@ mkdir -p build/double
 cd build/double
 ../../configure --enable-hpx --enable-threads
 make -j8
-make -C hpx check
-make -C hpx bigcheck
+make -C hpx check CXXFLAGS='-O3 -UNDEBUG'
+make -C hpx bigcheck CXXFLAGS='-O3 -UNDEBUG'
 ```
 
 For the other precisions, configure separate build directories with
@@ -34,6 +34,12 @@ and rejects quad precision. The usual `--enable-shared` and
 `--with-combined-threads` options remain available. A default configure without
 HPX builds stock FFTW. Link C++ applications with the appropriate HPX library,
 FFTW thread and serial libraries, and the flags from `hpx_application`.
+
+These commands build the assertion-enabled checks as well as the library.
+The measured Release bridge uses `-O3 -march=native -DNDEBUG`; its archived
+cluster scripts build that library separately from check executables compiled
+with `-UNDEBUG`. Do not pass a final `-DNDEBUG` to an `all` target that also
+builds the checks, because they deliberately reject disabled assertions.
 
 `make -C hpx check` runs the upstream random verification matrix at 1, 2, 3
 and 4 localities with one HPX worker each, then 3 localities with two workers
@@ -69,9 +75,9 @@ optimized link that accidentally eliminates the version check.
 
 TCP is permitted only between localities on the **same server**. Never use
 TCP between servers. The test wrapper uses `hpxrun.py -r none`, clears node
-settings, and launches all processes locally with TCP and the MPI parcelport
-disabled. The local check targets therefore remain local even on a cluster
-login or compute host.
+settings, and launches all processes on that server using TCP. It disables
+the MPI parcelport. The local check targets therefore remain local even on a
+cluster login or compute host.
 
 A separate, explicitly authorized multi-server cluster run must use HPX's
 MPI parcelport with TCP disabled. It needs an MPI-enabled HPX installation
@@ -90,7 +96,8 @@ use this startup profile with the allocated MPI launcher:
 --hpx:ini=hpx.parcel.mpi.background_threads=1 \
 --hpx:ini=hpx.max_background_threads=1 \
 --hpx:ini=hpx.parcel.mpi.multithreaded=1 \
---hpx:ini=hpx.max_idle_backoff_time=1000
+--hpx:ini=hpx.parcel.mpi.sendimm=0 \
+--hpx:ini=hpx.max_idle_backoff_time=10
 ```
 
 These options must be applied when starting HPX, before `fftw_hpx_init()`.
@@ -99,9 +106,16 @@ The forced `!=0` TCP entry also works when that parcelport is compiled out.
 Keep MPI multithreading enabled. The tested Open MPI transport environment was
 `OMPI_MCA_pml=ucx`, `OMPI_MCA_btl=self,sm`, and `UCX_TLS=rc,sm,self`, with
 one unbound process per node and `numactl --interleave=all`. Use the
-[executed job and evidence](../benchmarks/queenbee/optimization/README.md)
+[executed jobs and evidence](../benchmarks/queenbee/remaining_overhead/README.md)
 for the complete machine-specific launch. This profile was measured for that
-workload; other workloads may prefer different progress settings.
+workload; other workloads may prefer different progress settings. The 10 ms
+cap improved the final cohort's wall-time medians but used more process CPU
+in its diagnostic run; the report retains that tradeoff and both 1000 ms
+controls. The
+[compile-time audit](../benchmarks/queenbee/remaining_overhead/compile_audit.md)
+records the Release build, MPI parcelport options, and disabled debug facilities,
+including lock verification. Local workstation dependencies differ from that
+QueenBee installation.
 
 ## Application contract
 
@@ -132,35 +146,59 @@ Communicator duplication creates a new handle sharing the existing group;
 it does not create an HPX communicator. Splits gather colors and keys, order
 members by key then parent rank, and cache the resulting groups until cleanup.
 Each collective uses the group's next explicit generation. Point-to-point
-messages combine the original tag with a per-peer send/receive sequence and
-use `hpx::serialization::serialize_buffer` with a receive allocator. A remote send references
-caller storage until its destination action completes; a self-send owns a
-copy so the caller can immediately reuse its source. The channel returns the
-buffer through shared ownership, avoiding a deep copy of the received block.
-Collective operations retain their owned byte-vector payloads.
+messages combine the original tag with a per-peer send/receive sequence. A
+precision-specific message serializes its match key and byte count before an
+HPX `make_array` payload. Remote sends borrow caller storage until the send
+future completes; self-sends own a copy so callers can reuse their source.
+Collectives retain their owned byte-vector payloads. See
+[MPI_MAPPING.md](MPI_MAPPING.md) for the replaced MPI calls and their HPX
+counterparts.
 
-The receive allocator caches at most one idle block per precision, reusing it
-only for an exact byte-count match. It retains the larger block when multiple
-sizes return. A block becomes reusable only after its last message owner
-releases it; allocation never waits for a live message. This avoids repeatedly
-allocating the large pairwise-transpose payload without changing the FFTW
-schedule. The retained memory is at most the largest returned message per
-precision (1 GiB per locality in the matched 1024³ run), in addition to live
-messages. Cleanup frees idle storage and disables that pool epoch; late owners
-and old serialized epochs cannot refill a new initialization's pool.
+For a remote `sendrecv` with disjoint source and destination ranges, the bridge
+registers the exact FFTW destination and announces its readiness to the receive
+source. It waits for readiness from the send destination before sending the
+large payload. The deserializer then supplies the registered address directly
+to HPX's receive path. Its lookup never waits, checks the byte count, and claims
+the destination only once. Registration remains live until receipt completes.
+FFTW still allocates and frees its own arrays: the bridge neither replaces its
+allocator nor takes ownership of the borrowed memory. When both peers use this
+direct path, it removes the final payload copy without changing FFTW's
+transpose algorithm or its staging copies.
+Direct MPI reception requires HPX's array/chunk and zero-copy optimizations to
+remain enabled. The 1 GiB benchmark messages exceed the 8192-byte threshold.
+Other settings remain correct but may copy inside deserialization; see the
+[parcelport source audit](../benchmarks/queenbee/remaining_overhead/parcelport_path.md).
 
-Pairwise exchange starts its send before awaiting its receive, waits for
-send completion, and then copies the incoming payload into FFTW's destination.
-This ordering also supports overlapping source and destination buffers. The
-final receive copy remains; this is not direct reception into the FFTW array.
-The communication check covers source reuse after send, empty messages,
-self-sends, and exact/partial buffer overlap across repeated initialization.
-`make -C hpx check` also runs the standalone `hpx-message-check` first. It uses
-real HPX serialization archives to check last-owner recycling, exact-size reuse,
-retention of the largest idle block, and cleanup with live or delayed owners.
-The check targets force assertions on and reject a later `-DNDEBUG` instead of
-silently dropping assertions; if setting `CXXFLAGS` explicitly, put `-UNDEBUG`
-last when building these checks.
+Every receive announces readiness, including standalone receives, self-messages,
+empty messages and overlapping exchanges. Eager fallback sends consume their
+matching readiness notification without waiting for it. This supports the
+matched mixed-mode exchanges exercised by the communication checks. As with
+portable MPI, arbitrary schedules must not rely on eager buffering to resolve
+circular dependencies. A peer that promises a posted destination must supply
+it; a missing or mismatched target is
+an error rather than a silent fallback. Group calls retain the sequential-use
+contract described above.
+
+Early standalone arrivals and self/overlapping exchanges use owned receive
+storage. A fallback exchange waits for outgoing send completion before copying
+the received bytes into the destination, preserving overlapping source data.
+Its allocator caches at most one idle block per precision, reuses only an exact
+byte-count match, and retains the larger block when multiple sizes return.
+Only the last message owner can return a block; allocation never waits for a
+live owner. Cleanup frees idle storage and disables that pool epoch, so old
+owners cannot refill a new initialization's pool. The pool's retained memory
+is bounded by the largest returned message, in addition to live messages.
+HPX's per-tag channel metadata, for both data and readiness, is retained until
+group cleanup and grows with the number of messages.
+
+The communication check covers source reuse, empty messages, self-sends,
+exact/partial overlap, mixed standalone/direct exchanges, distinct send and
+receive peers, splits and repeated initialization. `make -C hpx check` also
+runs the standalone `hpx-message-check` first. Its eleven groups use real HPX
+serialization archives to check destination matching and lifetime, owned
+fallbacks, last-owner recycling, exact-size reuse, largest-block retention and
+cleanup with live or delayed owners. Checks force assertions on and reject a
+later `-DNDEBUG`; when setting `CXXFLAGS`, put `-UNDEBUG` last for these targets.
 
 The threaded-loop callback starts all but the final job with `hpx::async` on a
 large-stack executor, runs the final job inline, and waits with `hpx::wait_all`.
@@ -170,8 +208,9 @@ large-stack dispatch executes FFTW work.
 
 ## Installed-HPX adaptations
 
-* Collective and channel communicators use `/collective` and `/channel`
-  suffixes. HPX 1.11 registers both in the same AGAS basename namespace, so
+* Collective, data and readiness communicators use `/collective`, `/channel`
+  and `/readiness` suffixes. HPX 1.11 registers them in the same AGAS basename
+  namespace, so
   using an identical name would collide. Each initialization also has a
   monotonic `/eN` lifetime suffix. Without it a faster locality can look up the
   preceding world before the root finishes unregistering that old name during

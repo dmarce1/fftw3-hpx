@@ -516,7 +516,7 @@ top_srcdir = @top_srcdir@
 
 # fftw3-hpx.h includes the installed public header "fftw3.h".
 AM_CPPFLAGS = -I $(top_srcdir) -I $(top_srcdir)/api
-EXTRA_DIST = testsched.c hpx-run.sh README.md VALIDATION.md .clang-format
+EXTRA_DIST = testsched.c hpx-run.sh README.md VALIDATION.md MPI_MAPPING.md .clang-format
 @HPX_TRUE@lib_LTLIBRARIES = libfftw3@PREC_SUFFIX@_hpx.la
 @HPX_TRUE@include_HEADERS = fftw3-hpx.h
 @HPX_TRUE@AM_CXXFLAGS = $(HPX_CFLAGS)

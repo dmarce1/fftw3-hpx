@@ -1,0 +1,82 @@
+START parallel_copy/single compile_bridge 2026-10-23T08:10:05Z
+PASS parallel_copy/single compile_bridge 2026-10-23T08:10:45Z
+START parallel_copy/single replace_bridge 2026-10-23T08:10:45Z
+PASS parallel_copy/single replace_bridge 2026-10-23T08:10:46Z
+{
+  "changed": [
+    "hpx-comm.o"
+  ],
+  "member_count": 32,
+  "before": {
+    "any-true.o": "7b8519cefded204f2d3a9d1400ec9da112f4060125e217b665b50599e6dd04c2",
+    "api.o": "e2a19a1f0bb6b2645e8c368c64419bb0d0aa1168548672f657d50ad462933be5",
+    "block.o": "67f4283e036a98283ca507567ef63fcf249ad5e81458eba22a14a8d6d10948fd",
+    "choose-radix.o": "9f015e2e8c63b1eb5b3709fe8963ebc2e14c66b19e4fafc9b18fb80ed070ef59",
+    "conf.o": "069dd5e1fd58326a0a48b37f6d1171c3df9ca91b0fd0068f3daeb4855acfb00b",
+    "dtensor.o": "e287e509949549cd8e0b7fc1fd5b00c3b91f9bf2c9955b9d3dcc7a387f7615b0",
+    "rearrange.o": "325edcb11de0d9b658510ca77c6e1c783eb233c780b24c9f349b6b75bee7ffbb",
+    "wisdom-api.o": "adc442a121fb13a2f779da6845f1f2e0eb2a4e2e8a98cf2307c131f95c6da1a8",
+    "hpx-comm.o": "019de2926606cb4c4a0718b94036610372fd6e4679f77fe62ba45788466e26be",
+    "transpose-alltoall.o": "0d1bf9935099fccd69c1c4193cd5f8f4534884403b06a129b970d54d57cbf8c9",
+    "transpose-pairwise.o": "7ea9c406dc771f43c06d28a9c4c39c4489ccd95491d79198b09261d64396eff2",
+    "transpose-recurse.o": "5073c7a23c01302aa81aeff31af24afa907168a6aefca738cf0bf30eb18a4750",
+    "transpose-problem.o": "fcae4689625addbd0c3c2da11c49633d93b2c7eb9d156b676bed8fa56d4e587c",
+    "transpose-solve.o": "7247ac26e0750aa8386c2799bf8ac8230c88adfd2d91f40a750e31669f3b4d33",
+    "dft-serial.o": "0292c5990deb89ad8dcd1a9abfcbbef226619a4519d9eb275f04f843b32de342",
+    "dft-rank-geq2.o": "484086e844e6af891cce8cd23827654224a6429b310fbca7578f401da915c331",
+    "dft-rank-geq2-transposed.o": "3646b0bc3a59345b7482e59e3f2815b34a5792863916c98dea84a8e781d17c04",
+    "dft-rank1.o": "759faf97919934f57808f9769382e2e20982323fabfdce4df42e1a3a26c03383",
+    "dft-rank1-bigvec.o": "576c9e134a2ec0e12441537b2d4d1142a16d37250056a3bd5900ab079db8bdc1",
+    "dft-problem.o": "cfe201b0e7b3e2e22ec73430cedf5f239426f62d72260acc05c43c3343b5c266",
+    "dft-solve.o": "7e29bfc85e6bf6e075ffc19de8a59c279e7a800e9e366a165049a2f976500f24",
+    "rdft-serial.o": "672a5a76a3ea012b5fe55ad1dac2ea4e27786153b3aafb86906b34a3181b4381",
+    "rdft-rank-geq2.o": "f21c3df7c1528ddf5689a26e3a66626373a43b1cb03ed1eb76b1c81b4e8c8c0c",
+    "rdft-rank-geq2-transposed.o": "821303b12559d9e3ac89fc68af02dc917ca34c0c680effaedf2e1d0afdf7b93f",
+    "rdft-rank1-bigvec.o": "3c766c352ef63244ece105c522afd291fb8dd17fee8550b7e12a79c502ca1681",
+    "rdft-problem.o": "849f2da1ff0c9c2f1e24dc3ae3b93b900c2c1bc49dcb9e8eca78bb5a9ded901b",
+    "rdft-solve.o": "8d10b04dcbfaf219fa19313a7092dc9aefe5d000d06059d24de0e5c1138fcff5",
+    "rdft2-serial.o": "69d163e36d613153a197c29c8cb0151cd8e23fa37c3811f438efa230610a45f9",
+    "rdft2-rank-geq2.o": "65b993781cfeb25b8c9d2cf3d03ab33f829ca95385d5a8ecc3d8038393cb90d6",
+    "rdft2-rank-geq2-transposed.o": "5613ef4ffee7ec0d20c90030dec614ce897fb6851094106507ad0ea0eae55c19",
+    "rdft2-problem.o": "f718917af495e0db685093e052dc11e2481e572720867670b1b9561ebac048fa",
+    "rdft2-solve.o": "d58a2e79423b1a423a75c555fee4ba740dab99324bcf853643b82628a20265de"
+  },
+  "after": {
+    "any-true.o": "7b8519cefded204f2d3a9d1400ec9da112f4060125e217b665b50599e6dd04c2",
+    "api.o": "e2a19a1f0bb6b2645e8c368c64419bb0d0aa1168548672f657d50ad462933be5",
+    "block.o": "67f4283e036a98283ca507567ef63fcf249ad5e81458eba22a14a8d6d10948fd",
+    "choose-radix.o": "9f015e2e8c63b1eb5b3709fe8963ebc2e14c66b19e4fafc9b18fb80ed070ef59",
+    "conf.o": "069dd5e1fd58326a0a48b37f6d1171c3df9ca91b0fd0068f3daeb4855acfb00b",
+    "dtensor.o": "e287e509949549cd8e0b7fc1fd5b00c3b91f9bf2c9955b9d3dcc7a387f7615b0",
+    "rearrange.o": "325edcb11de0d9b658510ca77c6e1c783eb233c780b24c9f349b6b75bee7ffbb",
+    "wisdom-api.o": "adc442a121fb13a2f779da6845f1f2e0eb2a4e2e8a98cf2307c131f95c6da1a8",
+    "hpx-comm.o": "8b8d5902aca4767093bd53b881664ab17bf3a56fb09bb3502634242b15fbbb02",
+    "transpose-alltoall.o": "0d1bf9935099fccd69c1c4193cd5f8f4534884403b06a129b970d54d57cbf8c9",
+    "transpose-pairwise.o": "7ea9c406dc771f43c06d28a9c4c39c4489ccd95491d79198b09261d64396eff2",
+    "transpose-recurse.o": "5073c7a23c01302aa81aeff31af24afa907168a6aefca738cf0bf30eb18a4750",
+    "transpose-problem.o": "fcae4689625addbd0c3c2da11c49633d93b2c7eb9d156b676bed8fa56d4e587c",
+    "transpose-solve.o": "7247ac26e0750aa8386c2799bf8ac8230c88adfd2d91f40a750e31669f3b4d33",
+    "dft-serial.o": "0292c5990deb89ad8dcd1a9abfcbbef226619a4519d9eb275f04f843b32de342",
+    "dft-rank-geq2.o": "484086e844e6af891cce8cd23827654224a6429b310fbca7578f401da915c331",
+    "dft-rank-geq2-transposed.o": "3646b0bc3a59345b7482e59e3f2815b34a5792863916c98dea84a8e781d17c04",
+    "dft-rank1.o": "759faf97919934f57808f9769382e2e20982323fabfdce4df42e1a3a26c03383",
+    "dft-rank1-bigvec.o": "576c9e134a2ec0e12441537b2d4d1142a16d37250056a3bd5900ab079db8bdc1",
+    "dft-problem.o": "cfe201b0e7b3e2e22ec73430cedf5f239426f62d72260acc05c43c3343b5c266",
+    "dft-solve.o": "7e29bfc85e6bf6e075ffc19de8a59c279e7a800e9e366a165049a2f976500f24",
+    "rdft-serial.o": "672a5a76a3ea012b5fe55ad1dac2ea4e27786153b3aafb86906b34a3181b4381",
+    "rdft-rank-geq2.o": "f21c3df7c1528ddf5689a26e3a66626373a43b1cb03ed1eb76b1c81b4e8c8c0c",
+    "rdft-rank-geq2-transposed.o": "821303b12559d9e3ac89fc68af02dc917ca34c0c680effaedf2e1d0afdf7b93f",
+    "rdft-rank1-bigvec.o": "3c766c352ef63244ece105c522afd291fb8dd17fee8550b7e12a79c502ca1681",
+    "rdft-problem.o": "849f2da1ff0c9c2f1e24dc3ae3b93b900c2c1bc49dcb9e8eca78bb5a9ded901b",
+    "rdft-solve.o": "8d10b04dcbfaf219fa19313a7092dc9aefe5d000d06059d24de0e5c1138fcff5",
+    "rdft2-serial.o": "69d163e36d613153a197c29c8cb0151cd8e23fa37c3811f438efa230610a45f9",
+    "rdft2-rank-geq2.o": "65b993781cfeb25b8c9d2cf3d03ab33f829ca95385d5a8ecc3d8038393cb90d6",
+    "rdft2-rank-geq2-transposed.o": "5613ef4ffee7ec0d20c90030dec614ce897fb6851094106507ad0ea0eae55c19",
+    "rdft2-problem.o": "f718917af495e0db685093e052dc11e2481e572720867670b1b9561ebac048fa",
+    "rdft2-solve.o": "d58a2e79423b1a423a75c555fee4ba740dab99324bcf853643b82628a20265de"
+  }
+}
+START parallel_copy/single link_bench 2026-10-23T08:10:46Z
+PASS parallel_copy/single link_bench 2026-10-23T08:10:46Z
+START parallel_copy/single compile_comm_check 2026-10-23T08:10:46Z
+PASS parallel_copy/single compile_comm_check 2026-10-23T08:10:50Z

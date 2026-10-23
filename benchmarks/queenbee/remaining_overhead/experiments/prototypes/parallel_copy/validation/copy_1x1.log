@@ -1,0 +1,9 @@
+COPY_PASS bytes=33554449 owned=0 jobs=1
+COPY_PASS bytes=0 owned=0 jobs=1
+COPY_PASS bytes=1 owned=0 jobs=1
+COPY_PASS bytes=33554431 owned=0 jobs=1
+COPY_PASS bytes=33554432 owned=0 jobs=1
+COPY_PASS bytes=33554449 owned=0 jobs=1
+COPY_PASS bytes=67108867 owned=0 jobs=1
+COPY_PASS bytes=33554449 owned=1 jobs=1
+PARALLEL_COPY_CHECK_PASS

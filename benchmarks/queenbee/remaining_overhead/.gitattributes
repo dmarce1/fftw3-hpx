@@ -1,0 +1,17 @@
+# Copyright (c) 2026 Dominic C. Marcello
+# SPDX-License-Identifier: GPL-2.0-or-later
+# Preserve exact evidence, including FFTW printed-plan whitespace.
+*.log -whitespace linguist-generated=true
+*.command -whitespace linguist-generated=true
+*.patch -whitespace linguist-generated=true
+*.txt -whitespace linguist-generated=true
+*.out -whitespace linguist-generated=true
+*.err -whitespace linguist-generated=true
+*.svg -whitespace linguist-generated=true
+# Frozen source/configuration snapshots retain upstream and generated whitespace.
+integration/archive_snapshot.py -whitespace
+integration/validated_inputs/** -whitespace linguist-generated=true
+lean_hpx/1125886/lean-config_strings.hpp -whitespace linguist-generated=true
+lean_hpx/original_config/** -whitespace linguist-generated=true
+rendezvous_profile_validation/source_inputs/** -whitespace linguist-generated=true
+* -text

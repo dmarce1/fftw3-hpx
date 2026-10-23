@@ -1,0 +1,7 @@
+case	role	executable	workers	backoff_cap_ms	sendimm
+mpi_start	primary	/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi	64	n/a	n/a
+lean_baseline1000	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean	64	1000	0
+lean_backoff10	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean	64	10	0
+lean_baseline1000repeat	primary	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean	64	1000	0
+mpi_end	primary	/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi	64	n/a	n/a
+hpx_profile10	diagnostic	/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125966/bin/hpx_profile	64	10	0

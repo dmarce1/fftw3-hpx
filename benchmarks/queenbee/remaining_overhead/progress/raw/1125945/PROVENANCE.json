@@ -1,0 +1,38 @@
+{
+  "license": "GPL-2.0-or-later",
+  "required_prior_job": "1125925",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "candidate": "rendezvous",
+  "bridge_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "parameter": "FFTW_SENDIMM",
+  "allowed_values": [
+    "0",
+    "1"
+  ],
+  "default": null,
+  "root_selected_sendimm": "0",
+  "idle_loop_count": {
+    "value": 200000,
+    "source": "HPX default; deliberately no override"
+  },
+  "changed_parameter": "hpx.max_idle_backoff_time:1000,1,1000",
+  "run_order": [
+    "mpi_start",
+    "pool_release",
+    "lean_baseline1000",
+    "lean_backoff1",
+    "lean_baseline1000repeat",
+    "mpi_end"
+  ],
+  "communication_gates": [
+    "lean_baseline1000",
+    "lean_backoff1"
+  ],
+  "executables": {
+    "mpi": "/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi",
+    "pool_release": "/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release",
+    "lean": "/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean",
+    "communication": "/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check"
+  },
+  "scope": "Prepared only; no builds, submissions, benchmark execution or remote access."
+}

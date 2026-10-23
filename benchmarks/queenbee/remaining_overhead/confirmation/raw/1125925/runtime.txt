@@ -1,0 +1,5 @@
+launcher=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none 
+hpx_options=--hpx:ignore-batch-env --hpx:localities=4 --hpx:threads=64 --hpx:bind=none --hpx:ini=hpx.parcel.mpi.enable\!=1 --hpx:ini=hpx.parcel.mpi.priority=1000 --hpx:ini=hpx.parcel.tcp.enable\!=0 --hpx:ini=hpx.parcel.bootstrap\!=mpi --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:ini=hpx.max_idle_backoff_time=1000 
+benchmark_options=--size=1024 --threads=64 --warmups=2 --samples=7 
+placement=numactl --interleave=all, one rank/node, no binding
+sendimm_case_extra=--hpx:ini=hpx.parcel.mpi.sendimm=1

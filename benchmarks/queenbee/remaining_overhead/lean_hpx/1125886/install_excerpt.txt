@@ -1,0 +1,16 @@
+# Exact opening/final lines; full-file digest in original_evidence.json.
+-- Install configuration: "Release"
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/include
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/include/asio.hpp
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/include/asio
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/include/asio/posix
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/include/asio/posix/stream_descriptor.hpp
+[middle omitted]
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXInternalTargets.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXInternalTargets-release.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXTargets.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXTargets-release.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXConfig.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXMacros.cmake
+-- Installing: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/cmake/HPX/HPXConfigVersion.cmake

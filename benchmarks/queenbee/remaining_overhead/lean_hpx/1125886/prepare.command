@@ -1,0 +1,1 @@
+python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/prepare.py prepare /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/original-CMakeCache.txt /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/results/1125886 

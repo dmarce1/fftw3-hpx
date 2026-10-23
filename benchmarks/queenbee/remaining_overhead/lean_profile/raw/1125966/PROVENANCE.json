@@ -1,0 +1,45 @@
+{
+  "license": "GPL-2.0-or-later",
+  "scope": "Prepared-only allocated-compute build and diagnostic job; no staging/submission/remote access by preparer",
+  "required_prior_job": "1125925",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "clean_rendezvous_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "expected_instrumented_bridge_sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13",
+  "primary_driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "profile_tool_sha256": {
+    "instrument.py": "3fb55549d969f4967fa96122d797f8b90de396e6b858adeb2f6db3b68f1e0fd8",
+    "remaining_profile.h": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3",
+    "remaining_profile.cpp": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b",
+    "remaining_mpi_profile.cpp": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb",
+    "analyze.py": "bc22dc65767029aaeef2a6e1dce1f8e3c9ca8a6a5c65317672cfad97afdfebd0"
+  },
+  "run_order": [
+    "mpi",
+    "lean_control",
+    "mpi_profile",
+    "hpx_profile",
+    "mpi_thread_multiple"
+  ],
+  "roles": {
+    "mpi": "primary unchanged MPI",
+    "lean_control": "primary unchanged lean rendezvous",
+    "mpi_profile": "diagnostic newly rebuilt MPI",
+    "hpx_profile": "diagnostic newly rebuilt lean rendezvous",
+    "mpi_thread_multiple": "auxiliary unchanged MPI binary, process-specific OMPI_MPI_THREAD_LEVEL=3"
+  },
+  "runtime": {
+    "localities": 4,
+    "threads": 64,
+    "extent": 1024,
+    "warmups": 2,
+    "samples": 7,
+    "mpi_background": 1,
+    "global_background": 1,
+    "multithreaded": 1,
+    "idle_backoff_ms": 1000,
+    "sendimm": 0,
+    "tcp_enabled": false
+  },
+  "profile_abi": "All38metrics use new matching header/helper; no old diagnostic objects or executables reused",
+  "mpi_thread_environment": "Inherited value is recorded and preserved for normal MPI and MPI diagnostics; only forced probe and fifth auxiliary process override it to3"
+}

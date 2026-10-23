@@ -1,0 +1,75 @@
+{
+  "hpx-comm.cpp": {
+    "braced_for_count": 11,
+    "braced_for_lines": [
+      690,
+      804,
+      821,
+      826,
+      958,
+      964,
+      987,
+      995,
+      1177,
+      1201,
+      1228
+    ],
+    "include_order": "standard / HPX / project blocks verified",
+    "trailing_const": "no leading-const type declarations found; reviewed declarations",
+    "unqualified_size_t": true,
+    "GPL_2_or_later_notice": true,
+    "issues": []
+  },
+  "hpx-comm-check.cpp": {
+    "braced_for_count": 29,
+    "braced_for_lines": [
+      52,
+      79,
+      87,
+      126,
+      152,
+      157,
+      163,
+      170,
+      178,
+      184,
+      189,
+      192,
+      199,
+      204,
+      219,
+      221,
+      233,
+      260,
+      266,
+      292,
+      296,
+      307,
+      309,
+      319,
+      321,
+      354,
+      372,
+      377,
+      389
+    ],
+    "include_order": "standard / HPX / project blocks verified",
+    "trailing_const": "no leading-const type declarations found; reviewed declarations",
+    "unqualified_size_t": true,
+    "GPL_2_or_later_notice": true,
+    "issues": []
+  },
+  "hpx-message-check.cpp": {
+    "braced_for_count": 3,
+    "braced_for_lines": [
+      138,
+      175,
+      195
+    ],
+    "include_order": "standard / HPX / project blocks verified",
+    "trailing_const": "no leading-const type declarations found; reviewed declarations",
+    "unqualified_size_t": true,
+    "GPL_2_or_later_notice": true,
+    "issues": []
+  }
+}

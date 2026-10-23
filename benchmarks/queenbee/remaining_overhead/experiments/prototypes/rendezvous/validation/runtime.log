@@ -1,0 +1,357 @@
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+comm_1x2 PASS
+communication check, cycle 0: shared duplicate generations
+communication check, cycle 0: cached splits with reversed keys
+communication check, cycle 0: repeated channel tags and empty messages
+communication check, cycle 0: message ownership and overlapping buffers
+communication check, cycle 0: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 0: variable all-to-all byte counts
+communication check, cycle 0: thread callback and nested large stacks
+communication check, cycle 0: cleanup
+communication check, cycle 1: shared duplicate generations
+communication check, cycle 1: cached splits with reversed keys
+communication check, cycle 1: repeated channel tags and empty messages
+communication check, cycle 1: message ownership and overlapping buffers
+communication check, cycle 1: rendezvous mixed standalone, overlap and directional empty messages
+communication check, cycle 1: variable all-to-all byte counts
+communication check, cycle 1: thread callback and nested large stacks
+communication check, cycle 1: cleanup
+communication check PASS
+communication check PASS
+communication check PASS
+comm_3x2 PASS
+CONFIG backend=hpx extent=128 ranks=3 threads=2 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=33554432 max_local_allocation_bytes=11272192
+PLAN_SECONDS backend=hpx value=0.032640069000000001
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x22/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2")))))
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2")))))))
+    (dft-vrank>=1-x21/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2")))))
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2"))))))))
+  (hpx-dft-rank1-bigvec/contig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-cut-43x16384-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x22)
+          (rdft-rank0-iter-ci/2-x21))
+        (rdft-transpose-gcd-43x16383-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/381-x43-x43)
+            (rdft-rank0-ip-sq/381-x43-x43))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x22-x381)
+            (rdft-rank0-tiledbuf/2-x21-x381))))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-5462x43-x2
+          (rdft-transpose-gcd-5461x43-x2
+            (rdft-rank0-tiledbuf/2-x127-x43)
+            (rdft-rank0-ip-sq/254-x43-x43))
+          (rdft-rank0-iter-ci/2-x43))
+        (rdft-transpose-cut-5462x43-x2
+          (rdft-transpose-gcd-5461x43-x2
+            (rdft-rank0-tiledbuf/2-x127-x43)
+            (rdft-rank0-ip-sq/254-x43-x43))
+          (rdft-rank0-iter-ci/2-x43)))
+      (rdft-transpose-cut-5462x42-x2
+        (rdft-transpose-gcd-5460x42-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x65-x42)
+            (rdft-rank0-tiledbuf/2-x65-x42))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/130-x42-x42)
+            (rdft-rank0-ip-sq/130-x42-x42)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x42)
+          (rdft-rank0-iter-ci/2-x42)))
+      (rdft-transpose-cut-128x5462-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x64)
+          (rdft-rank0-iter-ci/2-x63))
+        (rdft-transpose-gcd-127x5461-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/43-x127-x127)
+            (rdft-rank0-ip-sq/43-x127-x127))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x64-x43)
+            (rdft-rank0-tiledbuf/2-x63-x43)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x2731)
+          (rdft-rank0-iter-ci/2-x2731)))) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-vrank>=1-x2731/1
+        (dft-ct-dit/8
+          (dftw-direct-8/6 "t2_8")
+          (dft-ct-dif/8
+            (dftw-directsq-8/14-x8 "q1_8")
+            (dft-vrank>=1-x8/1
+              (dft-direct-2-x8 "n1_2")))))
+      (dft-vrank>=1-x2731/1
+        (dft-ct-dit/8
+          (dftw-direct-8/6 "t2_8")
+          (dft-ct-dif/8
+            (dftw-directsq-8/14-x8 "q1_8")
+            (dft-vrank>=1-x8/1
+              (dft-direct-2-x8 "n1_2")))))) 
+    (hpx-transpose-pairwise
+      (rdft-transpose-cut-5462x128-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x2731)
+          (rdft-rank0-iter-ci/2-x2730))
+        (rdft-transpose-gcd-5461x127-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x22-x127)
+            (rdft-rank0-tiledbuf/2-x21-x127))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/43-x127-x127)
+            (rdft-rank0-ip-sq/43-x127-x127)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x64)
+          (rdft-rank0-iter-ci/2-x64)))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-43x5462-x2
+          (rdft-rank0-iter-ci/2-x43)
+          (rdft-transpose-gcd-43x5461-x2
+            (rdft-rank0-ip-sq/254-x43-x43)
+            (rdft-rank0-tiledbuf/2-x43-x127)))
+        (rdft-transpose-cut-43x5462-x2
+          (rdft-rank0-iter-ci/2-x43)
+          (rdft-transpose-gcd-43x5461-x2
+            (rdft-rank0-ip-sq/254-x43-x43)
+            (rdft-rank0-tiledbuf/2-x43-x127))))
+      (rdft-transpose-cut-43x5460-x2
+        (rdft-transpose-gcd-42x5460-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/130-x42-x42)
+            (rdft-rank0-ip-sq/130-x42-x42))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x21-x130)
+            (rdft-rank0-tiledbuf/2-x21-x130)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x2730)
+          (rdft-rank0-iter-ci/2-x2730)))
+      (rdft-transpose-cut-16384x43-x2
+        (rdft-transpose-gcd-16383x43-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x191-x43)
+            (rdft-rank0-tiledbuf/2-x190-x43))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/381-x43-x43)
+            (rdft-rank0-ip-sq/381-x43-x43)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x22)
+          (rdft-rank0-iter-ci/2-x21))))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x22/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2")))))
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2")))))))
+    (dft-vrank>=1-x21/1
+      (dft-rank>=2/1
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2")))))
+        (dft-vrank>=1-x128/1
+          (dft-ct-dit/8
+            (dftw-direct-8/6 "t2_8")
+            (dft-ct-dif/8
+              (dftw-directsq-8/14-x8 "q1_8")
+              (dft-vrank>=1-x8/1
+                (dft-direct-2-x8 "n1_2"))))))))
+  (hpx-dft-rank1-bigvec/contig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-cut-43x16384-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x22)
+          (rdft-rank0-iter-ci/2-x21))
+        (rdft-transpose-gcd-43x16383-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/381-x43-x43)
+            (rdft-rank0-ip-sq/381-x43-x43))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x22-x381)
+            (rdft-rank0-tiledbuf/2-x21-x381))))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-5462x43-x2
+          (rdft-transpose-gcd-5461x43-x2
+            (rdft-rank0-tiledbuf/2-x127-x43)
+            (rdft-rank0-ip-sq/254-x43-x43))
+          (rdft-rank0-iter-ci/2-x43))
+        (rdft-transpose-cut-5462x43-x2
+          (rdft-transpose-gcd-5461x43-x2
+            (rdft-rank0-tiledbuf/2-x127-x43)
+            (rdft-rank0-ip-sq/254-x43-x43))
+          (rdft-rank0-iter-ci/2-x43)))
+      (rdft-transpose-cut-5462x42-x2
+        (rdft-transpose-gcd-5460x42-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x65-x42)
+            (rdft-rank0-tiledbuf/2-x65-x42))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/130-x42-x42)
+            (rdft-rank0-ip-sq/130-x42-x42)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x42)
+          (rdft-rank0-iter-ci/2-x42)))
+      (rdft-transpose-cut-128x5462-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x64)
+          (rdft-rank0-iter-ci/2-x63))
+        (rdft-transpose-gcd-127x5461-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/43-x127-x127)
+            (rdft-rank0-ip-sq/43-x127-x127))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x64-x43)
+            (rdft-rank0-tiledbuf/2-x63-x43)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x2731)
+          (rdft-rank0-iter-ci/2-x2731)))) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-vrank>=1-x2731/1
+        (dft-ct-dit/8
+          (dftw-direct-8/6 "t2_8")
+          (dft-ct-dif/8
+            (dftw-directsq-8/14-x8 "q1_8")
+            (dft-vrank>=1-x8/1
+              (dft-direct-2-x8 "n1_2")))))
+      (dft-vrank>=1-x2731/1
+        (dft-ct-dit/8
+          (dftw-direct-8/6 "t2_8")
+          (dft-ct-dif/8
+            (dftw-directsq-8/14-x8 "q1_8")
+            (dft-vrank>=1-x8/1
+              (dft-direct-2-x8 "n1_2")))))) 
+    (hpx-transpose-pairwise
+      (rdft-transpose-cut-5462x128-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x2731)
+          (rdft-rank0-iter-ci/2-x2730))
+        (rdft-transpose-gcd-5461x127-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x22-x127)
+            (rdft-rank0-tiledbuf/2-x21-x127))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/43-x127-x127)
+            (rdft-rank0-ip-sq/43-x127-x127)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x64)
+          (rdft-rank0-iter-ci/2-x64)))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-43x5462-x2
+          (rdft-rank0-iter-ci/2-x43)
+          (rdft-transpose-gcd-43x5461-x2
+            (rdft-rank0-ip-sq/254-x43-x43)
+            (rdft-rank0-tiledbuf/2-x43-x127)))
+        (rdft-transpose-cut-43x5462-x2
+          (rdft-rank0-iter-ci/2-x43)
+          (rdft-transpose-gcd-43x5461-x2
+            (rdft-rank0-ip-sq/254-x43-x43)
+            (rdft-rank0-tiledbuf/2-x43-x127))))
+      (rdft-transpose-cut-43x5460-x2
+        (rdft-transpose-gcd-42x5460-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/130-x42-x42)
+            (rdft-rank0-ip-sq/130-x42-x42))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x21-x130)
+            (rdft-rank0-tiledbuf/2-x21-x130)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x2730)
+          (rdft-rank0-iter-ci/2-x2730)))
+      (rdft-transpose-cut-16384x43-x2
+        (rdft-transpose-gcd-16383x43-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x191-x43)
+            (rdft-rank0-tiledbuf/2-x190-x43))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/381-x43-x43)
+            (rdft-rank0-ip-sq/381-x43-x43)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-iter-ci/2-x22)
+          (rdft-rank0-iter-ci/2-x21))))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=7.8412210161797415e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=1.0067345572490029e-15 tolerance=1e-10
+SAMPLE backend=hpx index=0 max_rank_seconds=0.066682399000000003
+SAMPLE backend=hpx index=1 max_rank_seconds=0.062470021000000001
+SAMPLE backend=hpx index=2 max_rank_seconds=0.065287314999999999
+SAMPLE backend=hpx index=3 max_rank_seconds=0.066887354999999996
+SAMPLE backend=hpx index=4 max_rank_seconds=0.064261670000000007
+SAMPLE backend=hpx index=5 max_rank_seconds=0.064182126000000006
+SAMPLE backend=hpx index=6 max_rank_seconds=0.065086532000000002
+CHECK backend=hpx stage=final_roundtrip relative_max_error=4.882997064224517e-15 tolerance=1e-10
+RESULT backend=hpx extent=128 ranks=3 threads=2 samples=7 min_seconds=0.062470021000000001 median_seconds=0.065086532000000002 mean_seconds=0.064979631142857139 max_seconds=0.066887354999999996 status=PASS
+matched_3x2 PASS
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+inputs_unchanged PASS

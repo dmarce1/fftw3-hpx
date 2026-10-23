@@ -1,0 +1,143 @@
+srun: lua: Submitted job 1125882
+3: qbd135
+2: qbd134
+3: Linux qbd135 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+2: Linux qbd134 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+1: qbd032
+0: qbd031
+1: Linux qbd032 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+0: Linux qbd031 4.18.0-553.34.1.el8_10.x86_64 #1 SMP Mon Dec 16 04:25:43 EST 2024 x86_64 x86_64 x86_64 GNU/Linux
+3: Architecture:        x86_64
+3: CPU op-mode(s):      32-bit, 64-bit
+3: Byte Order:          Little Endian
+3: CPU(s):              64
+3: On-line CPU(s) list: 0-63
+3: Thread(s) per core:  1
+3: Core(s) per socket:  32
+3: Socket(s):           2
+3: NUMA node(s):        4
+3: Vendor ID:           GenuineIntel
+3: CPU family:          6
+3: Model:               106
+3: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+3: Stepping:            6
+3: CPU MHz:             3314.870
+3: CPU max MHz:         3400.0000
+3: CPU min MHz:         800.0000
+3: BogoMIPS:            5200.00
+3: L1d cache:           48K
+3: L1i cache:           32K
+3: L2 cache:            1280K
+3: L3 cache:            49152K
+3: NUMA node0 CPU(s):   0-15
+3: NUMA node1 CPU(s):   16-31
+3: NUMA node2 CPU(s):   32-47
+3: NUMA node3 CPU(s):   48-63
+3: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+2: Architecture:        x86_64
+2: CPU op-mode(s):      32-bit, 64-bit
+2: Byte Order:          Little Endian
+2: CPU(s):              64
+2: On-line CPU(s) list: 0-63
+2: Thread(s) per core:  1
+2: Core(s) per socket:  32
+2: Socket(s):           2
+2: NUMA node(s):        2
+2: Vendor ID:           GenuineIntel
+2: CPU family:          6
+2: Model:               106
+2: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+2: Stepping:            6
+2: CPU MHz:             3322.505
+2: CPU max MHz:         3400.0000
+2: CPU min MHz:         800.0000
+2: BogoMIPS:            5200.00
+2: L1d cache:           48K
+2: L1i cache:           32K
+2: L2 cache:            1280K
+2: L3 cache:            49152K
+2: NUMA node0 CPU(s):   0-31
+2: NUMA node1 CPU(s):   32-63
+2: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+2: policy: default
+2: preferred node: current
+2: physcpubind: 0 
+2: cpubind: 0 
+2: nodebind: 0 
+2: membind: 0 1 
+2: preferred: 
+3: policy: default
+3: preferred node: current
+3: physcpubind: 0 
+3: cpubind: 0 
+3: nodebind: 0 
+3: membind: 0 1 2 3 
+3: preferred: 
+1: Architecture:        x86_64
+1: CPU op-mode(s):      32-bit, 64-bit
+1: Byte Order:          Little Endian
+1: CPU(s):              64
+1: On-line CPU(s) list: 0-63
+1: Thread(s) per core:  1
+1: Core(s) per socket:  32
+1: Socket(s):           2
+1: NUMA node(s):        4
+1: Vendor ID:           GenuineIntel
+1: CPU family:          6
+1: Model:               106
+1: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+1: Stepping:            6
+1: CPU MHz:             3316.129
+1: CPU max MHz:         3400.0000
+1: CPU min MHz:         800.0000
+1: BogoMIPS:            5200.00
+1: L1d cache:           48K
+1: L1i cache:           32K
+1: L2 cache:            1280K
+1: L3 cache:            49152K
+1: NUMA node0 CPU(s):   0-15
+1: NUMA node1 CPU(s):   16-31
+1: NUMA node2 CPU(s):   32-47
+1: NUMA node3 CPU(s):   48-63
+1: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+1: policy: default
+1: preferred node: current
+1: physcpubind: 0 
+1: cpubind: 0 
+1: nodebind: 0 
+1: membind: 0 1 2 3 
+1: preferred: 
+0: Architecture:        x86_64
+0: CPU op-mode(s):      32-bit, 64-bit
+0: Byte Order:          Little Endian
+0: CPU(s):              64
+0: On-line CPU(s) list: 0-63
+0: Thread(s) per core:  1
+0: Core(s) per socket:  32
+0: Socket(s):           2
+0: NUMA node(s):        4
+0: Vendor ID:           GenuineIntel
+0: CPU family:          6
+0: Model:               106
+0: Model name:          Intel(R) Xeon(R) Platinum 8358 CPU @ 2.60GHz
+0: Stepping:            6
+0: CPU MHz:             2337.569
+0: CPU max MHz:         3400.0000
+0: CPU min MHz:         800.0000
+0: BogoMIPS:            5200.00
+0: L1d cache:           48K
+0: L1i cache:           32K
+0: L2 cache:            1280K
+0: L3 cache:            49152K
+0: NUMA node0 CPU(s):   0-15
+0: NUMA node1 CPU(s):   16-31
+0: NUMA node2 CPU(s):   32-47
+0: NUMA node3 CPU(s):   48-63
+0: Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb intel_pt avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local split_lock_detect wbnoinvd dtherm ida arat pln pts avx512vbmi umip pku ospke avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg tme avx512_vpopcntdq la57 rdpid fsrm md_clear pconfig flush_l1d arch_capabilities
+0: policy: default
+0: preferred node: current
+0: physcpubind: 0 
+0: cpubind: 0 
+0: nodebind: 0 
+0: membind: 0 1 2 3 
+0: preferred: 

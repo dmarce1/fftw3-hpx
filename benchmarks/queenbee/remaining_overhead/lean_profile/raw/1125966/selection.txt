@@ -1,0 +1,6 @@
+candidate=rendezvous
+sendimm=0
+source=/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp
+source_sha256=cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c
+prior_job=1125925
+idle_loop_count=200000 (default; no override)

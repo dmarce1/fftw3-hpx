@@ -1,0 +1,51 @@
+CONFIG backend=hpx extent=64 ranks=4 threads=1 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=4194304 max_local_allocation_bytes=1048576
+PLAN_SECONDS backend=hpx value=0.092319700000000005
+PLAN_FORWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-vrank>=1-x16/1
+    (dft-rank>=2/1
+      (dft-direct-64-x64 "n1_64")
+      (dft-direct-64-x64 "n1_64")))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-nop)
+      (rdft-nop)
+      (null)) 
+    (dft-direct-64-x1024 "n1_64") 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(hpx-dft-rank-geq2
+  (dft-vrank>=1-x16/1
+    (dft-rank>=2/1
+      (dft-direct-64-x64 "n1_64")
+      (dft-direct-64-x64 "n1_64")))
+  (hpx-dft-rank1-bigvec/discontig 
+    (hpx-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-nop)
+      (rdft-nop)
+      (null)) 
+    (dft-direct-64-x1024 "n1_64") 
+    (hpx-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=hpx stage=forward_spectrum relative_max_error=8.3603466663598732e-16 tolerance=1e-10
+CHECK backend=hpx stage=initial_roundtrip relative_max_error=7.2564261507230937e-16 tolerance=1e-10
+SAMPLE backend=hpx index=0 max_rank_seconds=0.004660043
+SAMPLE backend=hpx index=1 max_rank_seconds=0.0069325649999999999
+SAMPLE backend=hpx index=2 max_rank_seconds=0.0057477789999999997
+SAMPLE backend=hpx index=3 max_rank_seconds=0.0061584609999999996
+SAMPLE backend=hpx index=4 max_rank_seconds=0.0066731739999999996
+SAMPLE backend=hpx index=5 max_rank_seconds=0.0079749710000000008
+SAMPLE backend=hpx index=6 max_rank_seconds=0.00586639
+CHECK backend=hpx stage=final_roundtrip relative_max_error=1.9794899360963732e-15 tolerance=1e-10
+RESULT backend=hpx extent=64 ranks=4 threads=1 samples=7 min_seconds=0.004660043 median_seconds=0.0061584609999999996 mean_seconds=0.0062876261428571429 max_seconds=0.0079749710000000008 status=PASS

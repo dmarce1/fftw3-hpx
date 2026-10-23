@@ -1,0 +1,199 @@
+[sagan][[47593,1],2][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[47593,1],0][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[47593,1],1][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[47593,1],2][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[47593,1],1][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[47593,1],0][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+CONFIG backend=mpi extent=64 ranks=3 threads=2 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=4194304 max_local_allocation_bytes=1441792
+PLAN_SECONDS backend=mpi value=0.0020055110000000002
+PLAN_FORWARD_BEGIN
+(mpi-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x11/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64")))
+    (dft-vrank>=1-x11/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64"))))
+  (mpi-dft-rank1-bigvec/contig 
+    (mpi-transpose-pairwise
+      (rdft-transpose-cut-22x4096-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x11-x4)
+          (rdft-rank0-tiledbuf/2-x11-x4))
+        (rdft-transpose-gcd-22x4092-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/186-x22-x22)
+            (rdft-rank0-ip-sq/186-x22-x22))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x11-x186)
+            (rdft-rank0-tiledbuf/2-x11-x186))))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-1366x22-x2
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22)
+          (rdft-rank0-tiledbuf/2-x1344-x22))
+        (rdft-transpose-cut-1366x22-x2
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22)
+          (rdft-rank0-tiledbuf/2-x1344-x22)))
+      (rdft-transpose-cut-1366x20-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-ip-sq-tiledbuf/1-x20-x20)
+          (rdft-rank0-ip-sq-tiledbuf/1-x20-x20))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x673-x20)
+          (rdft-rank0-tiledbuf/2-x673-x20)))
+      (rdft-transpose-cut-64x1366-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x32-x22)
+          (rdft-rank0-tiledbuf/2-x32-x22))
+        (rdft-transpose-gcd-64x1344-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/21-x64-x64)
+            (rdft-rank0-ip-sq/21-x64-x64))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x32-x21)
+            (rdft-rank0-tiledbuf/2-x32-x21))))) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-direct-64-x683 "n1_64")
+      (dft-direct-64-x683 "n1_64")) 
+    (mpi-transpose-pairwise
+      (rdft-transpose-cut-1366x64-x2
+        (rdft-transpose-gcd-1344x64-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x11-x64)
+            (rdft-rank0-tiledbuf/2-x10-x64))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/21-x64-x64)
+            (rdft-rank0-ip-sq/21-x64-x64)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x11-x64)
+          (rdft-rank0-tiledbuf/2-x11-x64)))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-22x1366-x2
+          (rdft-rank0-tiledbuf/2-x22-x1344)
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22))
+        (rdft-transpose-cut-22x1366-x2
+          (rdft-rank0-tiledbuf/2-x22-x1344)
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22)))
+      (rdft-transpose-cut-22x1364-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x11-x1342)
+          (rdft-rank0-tiledbuf/2-x11-x1342))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-ip-sq-tiledbuf/1-x22-x22)
+          (rdft-rank0-ip-sq-tiledbuf/1-x22-x22)))
+      (rdft-transpose-cut-4096x22-x2
+        (rdft-transpose-gcd-4092x22-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x93-x22)
+            (rdft-rank0-tiledbuf/2-x93-x22))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/186-x22-x22)
+            (rdft-rank0-ip-sq/186-x22-x22)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x2-x22)
+          (rdft-rank0-tiledbuf/2-x2-x22))))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(mpi-dft-rank-geq2
+  (dft-thr-vrank>=1-x2/1
+    (dft-vrank>=1-x11/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64")))
+    (dft-vrank>=1-x11/1
+      (dft-rank>=2/1
+        (dft-direct-64-x64 "n1_64")
+        (dft-direct-64-x64 "n1_64"))))
+  (mpi-dft-rank1-bigvec/contig 
+    (mpi-transpose-pairwise
+      (rdft-transpose-cut-22x4096-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x11-x4)
+          (rdft-rank0-tiledbuf/2-x11-x4))
+        (rdft-transpose-gcd-22x4092-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/186-x22-x22)
+            (rdft-rank0-ip-sq/186-x22-x22))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x11-x186)
+            (rdft-rank0-tiledbuf/2-x11-x186))))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-1366x22-x2
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22)
+          (rdft-rank0-tiledbuf/2-x1344-x22))
+        (rdft-transpose-cut-1366x22-x2
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22)
+          (rdft-rank0-tiledbuf/2-x1344-x22)))
+      (rdft-transpose-cut-1366x20-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-ip-sq-tiledbuf/1-x20-x20)
+          (rdft-rank0-ip-sq-tiledbuf/1-x20-x20))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x673-x20)
+          (rdft-rank0-tiledbuf/2-x673-x20)))
+      (rdft-transpose-cut-64x1366-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x32-x22)
+          (rdft-rank0-tiledbuf/2-x32-x22))
+        (rdft-transpose-gcd-64x1344-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/21-x64-x64)
+            (rdft-rank0-ip-sq/21-x64-x64))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x32-x21)
+            (rdft-rank0-tiledbuf/2-x32-x21))))) 
+    (dft-thr-vrank>=1-x2/1
+      (dft-direct-64-x683 "n1_64")
+      (dft-direct-64-x683 "n1_64")) 
+    (mpi-transpose-pairwise
+      (rdft-transpose-cut-1366x64-x2
+        (rdft-transpose-gcd-1344x64-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x11-x64)
+            (rdft-rank0-tiledbuf/2-x10-x64))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/21-x64-x64)
+            (rdft-rank0-ip-sq/21-x64-x64)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x11-x64)
+          (rdft-rank0-tiledbuf/2-x11-x64)))
+      (rdft-thr-vrank>=1-x2/1
+        (rdft-transpose-cut-22x1366-x2
+          (rdft-rank0-tiledbuf/2-x22-x1344)
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22))
+        (rdft-transpose-cut-22x1366-x2
+          (rdft-rank0-tiledbuf/2-x22-x1344)
+          (rdft-rank0-ip-sq-tiledbuf/2-x22-x22)))
+      (rdft-transpose-cut-22x1364-x2
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x11-x1342)
+          (rdft-rank0-tiledbuf/2-x11-x1342))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-ip-sq-tiledbuf/1-x22-x22)
+          (rdft-rank0-ip-sq-tiledbuf/1-x22-x22)))
+      (rdft-transpose-cut-4096x22-x2
+        (rdft-transpose-gcd-4092x22-x2
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-tiledbuf/2-x93-x22)
+            (rdft-rank0-tiledbuf/2-x93-x22))
+          (rdft-thr-vrank>=1-x2/1
+            (rdft-rank0-ip-sq/186-x22-x22)
+            (rdft-rank0-ip-sq/186-x22-x22)))
+        (rdft-thr-vrank>=1-x2/1
+          (rdft-rank0-tiledbuf/2-x2-x22)
+          (rdft-rank0-tiledbuf/2-x2-x22))))))
+PLAN_BACKWARD_END
+CHECK backend=mpi stage=forward_spectrum relative_max_error=8.3603466663598732e-16 tolerance=1e-10
+CHECK backend=mpi stage=initial_roundtrip relative_max_error=7.2564261507230937e-16 tolerance=1e-10
+SAMPLE backend=mpi index=0 max_rank_seconds=0.0061893629999999998
+SAMPLE backend=mpi index=1 max_rank_seconds=0.0070389880000000004
+SAMPLE backend=mpi index=2 max_rank_seconds=0.0094027299999999998
+SAMPLE backend=mpi index=3 max_rank_seconds=0.0071854889999999998
+SAMPLE backend=mpi index=4 max_rank_seconds=0.0078459719999999997
+SAMPLE backend=mpi index=5 max_rank_seconds=0.0065898850000000002
+SAMPLE backend=mpi index=6 max_rank_seconds=0.0056330199999999999
+CHECK backend=mpi stage=final_roundtrip relative_max_error=1.9794899360963732e-15 tolerance=1e-10
+RESULT backend=mpi extent=64 ranks=3 threads=2 samples=7 min_seconds=0.0056330199999999999 median_seconds=0.0070389880000000004 mean_seconds=0.0071264924285714282 max_seconds=0.0094027299999999998 status=PASS

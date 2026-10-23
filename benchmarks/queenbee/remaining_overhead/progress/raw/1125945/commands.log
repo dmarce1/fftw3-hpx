@@ -1,0 +1,585 @@
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:63 /work/dmarce1/fftw3_hpx_remaining_20261023: case "${FFTW_SENDIMM:-}" in
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:67 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_bridge=/work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:68 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_driver=/work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:69 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_mpi_exe=/work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:70 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_pool_exe=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:71 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_lean_exe=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:72 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_comm_exe=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:91 /work/dmarce1/fftw3_hpx_remaining_20261023: module purge
+++ /usr/local/packages/Modules/default/init/bash:46 /work/dmarce1/fftw3_hpx_remaining_20261023: local _mlredir=0
+++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' -n '' ']'
+++ /usr/local/packages/Modules/default/init/bash:54 /work/dmarce1/fftw3_hpx_remaining_20261023: case " $@ " in
+++ /usr/local/packages/Modules/default/init/bash:58 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 0 -eq 0 ']'
+++ /usr/local/packages/Modules/default/init/bash:59 /work/dmarce1/fftw3_hpx_remaining_20261023: _module_raw purge
++++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: /usr/bin/tclsh /usr/local/packages/Modules/5.3.1/libexec/modulecmd.tcl bash purge
+++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: eval 'unset OCL_ICD_FILENAMES;
+unset CPATH;
+unset LD_LIBRARY_PATH;
+unset CMPLR_ROOT;
+unset I_MPI_ROOT;
+unset LIBRARY_PATH;
+MANPATH=/usr/local/packages/Modules/5.3.1/share/man; export MANPATH;
+unset CMAKE_PREFIX_PATH;
+unset _LMFILES_;
+unset LOADEDMODULES;
+unset __MODULES_LMTAG;
+unset PKG_CONFIG_PATH;
+unset __MODULES_LMPREREQ;
+unset MKLROOT;
+unset __MODULES_LMALTNAME;
+unset __MODULES_LMCONFLICT;
+unset NLSPATH;
+unset CLASSPATH;
+unset FI_PROVIDER_PATH;
+PATH=/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin; export PATH;
+unset I_MPI_PMI_LIBRARY;
+test 0;'
++++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: unset OCL_ICD_FILENAMES
++++ /usr/local/packages/Modules/default/init/bash:42 /work/dmarce1/fftw3_hpx_remaining_20261023: unset CPATH
++++ /usr/local/packages/Modules/default/init/bash:43 /work/dmarce1/fftw3_hpx_remaining_20261023: unset LD_LIBRARY_PATH
++++ /usr/local/packages/Modules/default/init/bash:44 /work/dmarce1/fftw3_hpx_remaining_20261023: unset CMPLR_ROOT
++++ /usr/local/packages/Modules/default/init/bash:45 /work/dmarce1/fftw3_hpx_remaining_20261023: unset I_MPI_ROOT
++++ /usr/local/packages/Modules/default/init/bash:46 /work/dmarce1/fftw3_hpx_remaining_20261023: unset LIBRARY_PATH
++++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: MANPATH=/usr/local/packages/Modules/5.3.1/share/man
++++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: export MANPATH
++++ /usr/local/packages/Modules/default/init/bash:48 /work/dmarce1/fftw3_hpx_remaining_20261023: unset CMAKE_PREFIX_PATH
++++ /usr/local/packages/Modules/default/init/bash:49 /work/dmarce1/fftw3_hpx_remaining_20261023: unset _LMFILES_
++++ /usr/local/packages/Modules/default/init/bash:50 /work/dmarce1/fftw3_hpx_remaining_20261023: unset LOADEDMODULES
++++ /usr/local/packages/Modules/default/init/bash:51 /work/dmarce1/fftw3_hpx_remaining_20261023: unset __MODULES_LMTAG
++++ /usr/local/packages/Modules/default/init/bash:52 /work/dmarce1/fftw3_hpx_remaining_20261023: unset PKG_CONFIG_PATH
++++ /usr/local/packages/Modules/default/init/bash:53 /work/dmarce1/fftw3_hpx_remaining_20261023: unset __MODULES_LMPREREQ
++++ /usr/local/packages/Modules/default/init/bash:54 /work/dmarce1/fftw3_hpx_remaining_20261023: unset MKLROOT
++++ /usr/local/packages/Modules/default/init/bash:55 /work/dmarce1/fftw3_hpx_remaining_20261023: unset __MODULES_LMALTNAME
++++ /usr/local/packages/Modules/default/init/bash:56 /work/dmarce1/fftw3_hpx_remaining_20261023: unset __MODULES_LMCONFLICT
++++ /usr/local/packages/Modules/default/init/bash:57 /work/dmarce1/fftw3_hpx_remaining_20261023: unset NLSPATH
++++ /usr/local/packages/Modules/default/init/bash:58 /work/dmarce1/fftw3_hpx_remaining_20261023: unset CLASSPATH
++++ /usr/local/packages/Modules/default/init/bash:59 /work/dmarce1/fftw3_hpx_remaining_20261023: unset FI_PROVIDER_PATH
++++ /usr/local/packages/Modules/default/init/bash:60 /work/dmarce1/fftw3_hpx_remaining_20261023: PATH=/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
++++ /usr/local/packages/Modules/default/init/bash:60 /work/dmarce1/fftw3_hpx_remaining_20261023: export PATH
++++ /usr/local/packages/Modules/default/init/bash:61 /work/dmarce1/fftw3_hpx_remaining_20261023: unset I_MPI_PMI_LIBRARY
++++ /usr/local/packages/Modules/default/init/bash:62 /work/dmarce1/fftw3_hpx_remaining_20261023: test 0
+++ /usr/local/packages/Modules/default/init/bash:42 /work/dmarce1/fftw3_hpx_remaining_20261023: _mlstatus=0
+++ /usr/local/packages/Modules/default/init/bash:43 /work/dmarce1/fftw3_hpx_remaining_20261023: return 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:92 /work/dmarce1/fftw3_hpx_remaining_20261023: module load gcc/13.2.0
+++ /usr/local/packages/Modules/default/init/bash:46 /work/dmarce1/fftw3_hpx_remaining_20261023: local _mlredir=0
+++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' -n '' ']'
+++ /usr/local/packages/Modules/default/init/bash:54 /work/dmarce1/fftw3_hpx_remaining_20261023: case " $@ " in
+++ /usr/local/packages/Modules/default/init/bash:58 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 0 -eq 0 ']'
+++ /usr/local/packages/Modules/default/init/bash:59 /work/dmarce1/fftw3_hpx_remaining_20261023: _module_raw load gcc/13.2.0
++++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: /usr/bin/tclsh /usr/local/packages/Modules/5.3.1/libexec/modulecmd.tcl bash load gcc/13.2.0
+++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: eval 'MANPATH=/usr/local/packages/compilers/gcc/13.2.0/share/man:/usr/local/packages/Modules/5.3.1/share/man:; export MANPATH;
+CMAKE_PREFIX_PATH=/usr/local/packages/compilers/gcc/13.2.0/.; export CMAKE_PREFIX_PATH;
+LOADEDMODULES=gcc/13.2.0; export LOADEDMODULES;
+_LMFILES_=/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/gcc/13.2.0; export _LMFILES_;
+CXX=/usr/local/packages/compilers/gcc/13.2.0/bin/g++; export CXX;
+FC=/usr/local/packages/compilers/gcc/13.2.0/bin/gfortran; export FC;
+__MODULES_SHARE_MANPATH=:1; export __MODULES_SHARE_MANPATH;
+__MODULES_LMCONFLICT=gcc/13.2.0\&gcc; export __MODULES_LMCONFLICT;
+__MODULES_LMALTNAME=gcc/13.2.0\&as\|gcc/default\&as\|gcc/latest; export __MODULES_LMALTNAME;
+F77=/usr/local/packages/compilers/gcc/13.2.0/bin/gfortran; export F77;
+PATH=/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin; export PATH;
+CC=/usr/local/packages/compilers/gcc/13.2.0/bin/gcc; export CC;
+test 0;'
++++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: MANPATH=/usr/local/packages/compilers/gcc/13.2.0/share/man:/usr/local/packages/Modules/5.3.1/share/man:
++++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: export MANPATH
++++ /usr/local/packages/Modules/default/init/bash:42 /work/dmarce1/fftw3_hpx_remaining_20261023: CMAKE_PREFIX_PATH=/usr/local/packages/compilers/gcc/13.2.0/.
++++ /usr/local/packages/Modules/default/init/bash:42 /work/dmarce1/fftw3_hpx_remaining_20261023: export CMAKE_PREFIX_PATH
++++ /usr/local/packages/Modules/default/init/bash:43 /work/dmarce1/fftw3_hpx_remaining_20261023: LOADEDMODULES=gcc/13.2.0
++++ /usr/local/packages/Modules/default/init/bash:43 /work/dmarce1/fftw3_hpx_remaining_20261023: export LOADEDMODULES
++++ /usr/local/packages/Modules/default/init/bash:44 /work/dmarce1/fftw3_hpx_remaining_20261023: _LMFILES_=/usr/local/packages/Modules/default/modulefiles/linux-rhel8-icelake/gcc/13.2.0
++++ /usr/local/packages/Modules/default/init/bash:44 /work/dmarce1/fftw3_hpx_remaining_20261023: export _LMFILES_
++++ /usr/local/packages/Modules/default/init/bash:45 /work/dmarce1/fftw3_hpx_remaining_20261023: CXX=/usr/local/packages/compilers/gcc/13.2.0/bin/g++
++++ /usr/local/packages/Modules/default/init/bash:45 /work/dmarce1/fftw3_hpx_remaining_20261023: export CXX
++++ /usr/local/packages/Modules/default/init/bash:46 /work/dmarce1/fftw3_hpx_remaining_20261023: FC=/usr/local/packages/compilers/gcc/13.2.0/bin/gfortran
++++ /usr/local/packages/Modules/default/init/bash:46 /work/dmarce1/fftw3_hpx_remaining_20261023: export FC
++++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: __MODULES_SHARE_MANPATH=:1
++++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: export __MODULES_SHARE_MANPATH
++++ /usr/local/packages/Modules/default/init/bash:48 /work/dmarce1/fftw3_hpx_remaining_20261023: __MODULES_LMCONFLICT='gcc/13.2.0&gcc'
++++ /usr/local/packages/Modules/default/init/bash:48 /work/dmarce1/fftw3_hpx_remaining_20261023: export __MODULES_LMCONFLICT
++++ /usr/local/packages/Modules/default/init/bash:49 /work/dmarce1/fftw3_hpx_remaining_20261023: __MODULES_LMALTNAME='gcc/13.2.0&as|gcc/default&as|gcc/latest'
++++ /usr/local/packages/Modules/default/init/bash:49 /work/dmarce1/fftw3_hpx_remaining_20261023: export __MODULES_LMALTNAME
++++ /usr/local/packages/Modules/default/init/bash:50 /work/dmarce1/fftw3_hpx_remaining_20261023: F77=/usr/local/packages/compilers/gcc/13.2.0/bin/gfortran
++++ /usr/local/packages/Modules/default/init/bash:50 /work/dmarce1/fftw3_hpx_remaining_20261023: export F77
++++ /usr/local/packages/Modules/default/init/bash:51 /work/dmarce1/fftw3_hpx_remaining_20261023: PATH=/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
++++ /usr/local/packages/Modules/default/init/bash:51 /work/dmarce1/fftw3_hpx_remaining_20261023: export PATH
++++ /usr/local/packages/Modules/default/init/bash:52 /work/dmarce1/fftw3_hpx_remaining_20261023: CC=/usr/local/packages/compilers/gcc/13.2.0/bin/gcc
++++ /usr/local/packages/Modules/default/init/bash:52 /work/dmarce1/fftw3_hpx_remaining_20261023: export CC
++++ /usr/local/packages/Modules/default/init/bash:53 /work/dmarce1/fftw3_hpx_remaining_20261023: test 0
+++ /usr/local/packages/Modules/default/init/bash:42 /work/dmarce1/fftw3_hpx_remaining_20261023: _mlstatus=0
+++ /usr/local/packages/Modules/default/init/bash:43 /work/dmarce1/fftw3_hpx_remaining_20261023: return 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:93 /work/dmarce1/fftw3_hpx_remaining_20261023: export PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin:/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:93 /work/dmarce1/fftw3_hpx_remaining_20261023: PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin:/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:94 /work/dmarce1/fftw3_hpx_remaining_20261023: export LD_LIBRARY_PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:94 /work/dmarce1/fftw3_hpx_remaining_20261023: LD_LIBRARY_PATH=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:95 /work/dmarce1/fftw3_hpx_remaining_20261023: export APEX_DISABLE=1 HWLOC_COMPONENTS=-cuda,-nvml,-opencl
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:95 /work/dmarce1/fftw3_hpx_remaining_20261023: APEX_DISABLE=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:95 /work/dmarce1/fftw3_hpx_remaining_20261023: HWLOC_COMPONENTS=-cuda,-nvml,-opencl
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:96 /work/dmarce1/fftw3_hpx_remaining_20261023: export OMPI_MCA_accelerator=null OMPI_MCA_pml=ucx OMPI_MCA_btl=self,sm UCX_TLS=rc,sm,self
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:96 /work/dmarce1/fftw3_hpx_remaining_20261023: OMPI_MCA_accelerator=null
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:96 /work/dmarce1/fftw3_hpx_remaining_20261023: OMPI_MCA_pml=ucx
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:96 /work/dmarce1/fftw3_hpx_remaining_20261023: OMPI_MCA_btl=self,sm
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:96 /work/dmarce1/fftw3_hpx_remaining_20261023: UCX_TLS=rc,sm,self
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:97 /work/dmarce1/fftw3_hpx_remaining_20261023: unset HPXRUN_NODES HPXRUN_ARGS HPXRUN_EXPECTED
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:98 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_launcher=("$qb_mpi/bin/mpiexec" -n 4 --map-by ppr:1:node --bind-to none)
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:103 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_hpx_options=(--hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1)
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:104 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_options=(--size=1024 --threads=64 --warmups=2 --samples=7)
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:105 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:106 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /var/spool/slurm/d/job1125945/slurm_script /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/job.sbatch
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:107 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/common.sh
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:108 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/progress/PROVENANCE.json /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/PROVENANCE.json
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:109 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'candidate=rendezvous\nsendimm=%s\nsource=%s\nsource_sha256=cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c\nprior_job=1125925\nidle_loop_count=200000 (default; no override)\n' 0 /work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:110 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'Accounting is to be captured once by the login-session owner after completion; no Slurm polling is performed by this job.\n'
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf launcher=
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\nhpx_options='
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\nbenchmark_options='
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' --size=1024 --threads=64 --warmups=2 --samples=7
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:111 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\nplacement=numactl --interleave=all, one rank/node, no binding\nidle_loop_count=200000 (default; no override)\n'
++ /var/spool/slurm/d/job1125945/slurm_script:35 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=prior_validation
++ /var/spool/slurm/d/job1125945/slurm_script:36 /work/dmarce1/fftw3_hpx_remaining_20261023: grep -q '^status	PASS$' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/FINAL_STATUS
++ /var/spool/slurm/d/job1125945/slurm_script:37 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log prior_artifacts verify_prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' prior_artifacts 2026-10-23T09:02:29Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' verify_prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: verify_prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/prior_artifacts.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:120 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:120 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925: sha256sum -c artifacts.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:121 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:122 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/reused_binaries.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:123 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:123 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899: sha256sum -c artifacts.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:124 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:125 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/reused_artifacts/lean_installed-artifacts.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c candidates/SHA256SUMS
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c confirmation/SHA256SUMS
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c progress/SHA256SUMS
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' prior_artifacts 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' prior_artifacts 2026-10-23T09:02:29Z
++ /var/spool/slurm/d/job1125945/slurm_script:38 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log prior_all_checks python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/verify_prior.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925 /work/dmarce1/fftw3_hpx_remaining_20261023/confirmation /work/dmarce1/fftw3_hpx_remaining_20261023/source
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=prior_all_checks
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=prior_all_checks
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' prior_all_checks 2026-10-23T09:02:29Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/verify_prior.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925 /work/dmarce1/fftw3_hpx_remaining_20261023/confirmation /work/dmarce1/fftw3_hpx_remaining_20261023/source
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/prior_all_checks.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/verify_prior.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925 /work/dmarce1/fftw3_hpx_remaining_20261023/confirmation /work/dmarce1/fftw3_hpx_remaining_20261023/source
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' prior_all_checks 1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' prior_all_checks 2026-10-23T09:02:30Z
++ /var/spool/slurm/d/job1125945/slurm_script:39 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c -
++ /var/spool/slurm/d/job1125945/slurm_script:39 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s  %s\n' cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c /work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp
++ /var/spool/slurm/d/job1125945/slurm_script:40 /work/dmarce1/fftw3_hpx_remaining_20261023: cmp /work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/objects/selected_lean/source-hpx-comm.cpp
++ /var/spool/slurm/d/job1125945/slurm_script:41 /work/dmarce1/fftw3_hpx_remaining_20261023: cmp /work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/matched_3d.cpp
++ /var/spool/slurm/d/job1125945/slurm_script:42 /work/dmarce1/fftw3_hpx_remaining_20261023: cmp /work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp /work/dmarce1/fftw3_hpx_remaining_20261023/candidates/drivers/matched_3d.cpp
++ /var/spool/slurm/d/job1125945/slurm_script:43 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/objects/selected_lean/libfftw3_hpx.a /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/objects/pool_release/libfftw3_hpx.a /work/dmarce1/fftw3_hpx_benchmark_20261022/build/threads/.libs/libfftw3_threads.a /work/dmarce1/fftw3_hpx_benchmark_20261022/build/.libs/libfftw3.a /work/dmarce1/fftw3_hpx_benchmark_20261022/build/mpi/.libs/libfftw3_mpi.a /work/dmarce1/fftw3_hpx_remaining_20261023/candidates/prototypes/rendezvous/hpx-comm.cpp /work/dmarce1/fftw3_hpx_remaining_20261023/source/benchmarks/matched_3d.cpp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/hpx-comm-check.cpp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/lean_hpx-flags.sh /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/original_hpx-flags.sh /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/FINAL_STATUS /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/results.tsv /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/confirmation_comparison.json /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/archive_members.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/artifacts.sha256 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/fixed_inputs.sha256 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/reused_binaries.sha256 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/benchmark_mpi.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/benchmark_pool_release.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/benchmark_selected_lean.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/benchmark_selected_lean_sendimm.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/benchmark_selected_original.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/comparison_pool_release.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/comparison_selected_lean.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/comparison_selected_lean_sendimm.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/comparison_selected_original.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/communication_selected_lean.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/communication_selected_lean_sendimm.log /work/dmarce1/fftw3_hpx_remaining_20261023/SOURCE_COMMIT /work/dmarce1/fftw3_hpx_remaining_20261023/candidates/SHA256SUMS /work/dmarce1/fftw3_hpx_remaining_20261023/confirmation/SHA256SUMS /work/dmarce1/fftw3_hpx_remaining_20261023/progress/SHA256SUMS
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/FINAL_STATUS /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_FINAL_STATUS
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/artifacts.sha256 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_artifacts.sha256
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/fixed_inputs.sha256 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_fixed_inputs.sha256
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/reused_binaries.sha256 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_reused_binaries.sha256
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/archive_members.log /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_archive_members.log
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/selection.txt /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_selection.txt
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/lean_hpx-flags.sh /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_lean_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:53 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FINAL_STATUS artifacts.sha256 fixed_inputs.sha256 reused_binaries.sha256 archive_members.log selection.txt lean_hpx-flags.sh original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:54 /work/dmarce1/fftw3_hpx_remaining_20261023: cp /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/original_hpx-flags.sh /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_artifacts/1125925_original_hpx-flags.sh
++ /var/spool/slurm/d/job1125945/slurm_script:57 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u
++ /var/spool/slurm/d/job1125945/slurm_script:57 /work/dmarce1/fftw3_hpx_remaining_20261023: hostname
++ /var/spool/slurm/d/job1125945/slurm_script:57 /work/dmarce1/fftw3_hpx_remaining_20261023: module -t list
++ /usr/local/packages/Modules/default/init/bash:46 /work/dmarce1/fftw3_hpx_remaining_20261023: local _mlredir=0
++ /usr/local/packages/Modules/default/init/bash:47 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' -n '' ']'
++ /usr/local/packages/Modules/default/init/bash:54 /work/dmarce1/fftw3_hpx_remaining_20261023: case " $@ " in
++ /usr/local/packages/Modules/default/init/bash:58 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 0 -eq 0 ']'
++ /usr/local/packages/Modules/default/init/bash:59 /work/dmarce1/fftw3_hpx_remaining_20261023: _module_raw -t list
+++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: /usr/bin/tclsh /usr/local/packages/Modules/5.3.1/libexec/modulecmd.tcl bash -t list
++ /usr/local/packages/Modules/default/init/bash:41 /work/dmarce1/fftw3_hpx_remaining_20261023: eval ''
++ /usr/local/packages/Modules/default/init/bash:42 /work/dmarce1/fftw3_hpx_remaining_20261023: _mlstatus=0
++ /usr/local/packages/Modules/default/init/bash:43 /work/dmarce1/fftw3_hpx_remaining_20261023: return 0
++ /var/spool/slurm/d/job1125945/slurm_script:57 /work/dmarce1/fftw3_hpx_remaining_20261023: gcc --version
++ /var/spool/slurm/d/job1125945/slurm_script:57 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec --version
++ /var/spool/slurm/d/job1125945/slurm_script:58 /work/dmarce1/fftw3_hpx_remaining_20261023: printf source_commit=
++ /var/spool/slurm/d/job1125945/slurm_script:58 /work/dmarce1/fftw3_hpx_remaining_20261023: cat /work/dmarce1/fftw3_hpx_remaining_20261023/SOURCE_COMMIT
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' FFTW_SENDIMM 0
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' PATH /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/bin:/usr/local/packages/compilers/gcc/13.2.0/bin:/home/dmarce1/.local/bin:/home/dmarce1/bin:/usr/local/packages/Modules/5.3.1/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/local/bin:/opt/dell/srvadmin/bin
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' LD_LIBRARY_PATH /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' HWLOC_COMPONENTS -cuda,-nvml,-opencl
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' APEX_DISABLE 1
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' OMPI_MCA_accelerator null
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' OMPI_MCA_pml ucx
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' OMPI_MCA_btl self,sm
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' UCX_TLS rc,sm,self
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' SLURM_JOB_ID 1125945
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: for name in FFTW_SENDIMM PATH LD_LIBRARY_PATH HWLOC_COMPONENTS APEX_DISABLE OMPI_MCA_accelerator OMPI_MCA_pml OMPI_MCA_btl UCX_TLS SLURM_JOB_ID SLURM_JOB_NODELIST
++ /var/spool/slurm/d/job1125945/slurm_script:59 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s=%s\n' SLURM_JOB_NODELIST 'qbd[007-009,460]'
++ /var/spool/slurm/d/job1125945/slurm_script:61 /work/dmarce1/fftw3_hpx_remaining_20261023: scontrol show hostnames 'qbd[007-009,460]'
++ /var/spool/slurm/d/job1125945/slurm_script:62 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log node_inventory srun --mpi=none --nodes=4 --ntasks=4 --ntasks-per-node=1 --cpus-per-task=1 --label sh -c 'hostname; uname -a; lscpu; numactl --show'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=node_inventory
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=node_inventory
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' node_inventory 2026-10-23T09:02:30Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' srun --mpi=none --nodes=4 --ntasks=4 --ntasks-per-node=1 --cpus-per-task=1 --label sh -c 'hostname; uname -a; lscpu; numactl --show'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: srun --mpi=none --nodes=4 --ntasks=4 --ntasks-per-node=1 --cpus-per-task=1 --label sh -c 'hostname; uname -a; lscpu; numactl --show'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/node_inventory.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' node_inventory 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' node_inventory 2026-10-23T09:02:30Z
++ /var/spool/slurm/d/job1125945/slurm_script:63 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_original_ld=/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib:
++ /var/spool/slurm/d/job1125945/slurm_script:64 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_lean_ld=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib
++ /var/spool/slurm/d/job1125945/slurm_script:65 /work/dmarce1/fftw3_hpx_remaining_20261023: IFS=:
++ /var/spool/slurm/d/job1125945/slurm_script:65 /work/dmarce1/fftw3_hpx_remaining_20261023: read -r -a qb_ld_entries
++ /var/spool/slurm/d/job1125945/slurm_script:66 /work/dmarce1/fftw3_hpx_remaining_20261023: for entry in "${qb_ld_entries[@]}"
++ /var/spool/slurm/d/job1125945/slurm_script:67 /work/dmarce1/fftw3_hpx_remaining_20261023: case "$entry" in
++ /var/spool/slurm/d/job1125945/slurm_script:68 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_lean_ld=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib
++ /var/spool/slurm/d/job1125945/slurm_script:66 /work/dmarce1/fftw3_hpx_remaining_20261023: for entry in "${qb_ld_entries[@]}"
++ /var/spool/slurm/d/job1125945/slurm_script:67 /work/dmarce1/fftw3_hpx_remaining_20261023: case "$entry" in
++ /var/spool/slurm/d/job1125945/slurm_script:68 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_lean_ld=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64
++ /var/spool/slurm/d/job1125945/slurm_script:66 /work/dmarce1/fftw3_hpx_remaining_20261023: for entry in "${qb_ld_entries[@]}"
++ /var/spool/slurm/d/job1125945/slurm_script:67 /work/dmarce1/fftw3_hpx_remaining_20261023: case "$entry" in
++ /var/spool/slurm/d/job1125945/slurm_script:66 /work/dmarce1/fftw3_hpx_remaining_20261023: for entry in "${qb_ld_entries[@]}"
++ /var/spool/slurm/d/job1125945/slurm_script:67 /work/dmarce1/fftw3_hpx_remaining_20261023: case "$entry" in
++ /var/spool/slurm/d/job1125945/slurm_script:71 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'original_LD_LIBRARY_PATH=%s\nlean_LD_LIBRARY_PATH=%s\n' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64
++ /var/spool/slurm/d/job1125945/slurm_script:73 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'case\texecutable\tHPX_install\tworkers\tmax_idle_backoff_time\tsendimm\tidle_loop_count\n'
++ /var/spool/slurm/d/job1125945/slurm_script:74 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'mpi_start\t%s\tnone\t64\tn/a\tn/a\tn/a\n' /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi
++ /var/spool/slurm/d/job1125945/slurm_script:75 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'pool_release\t%s\toriginal\t64\t1000\tdefault0\tdefault200000\n' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release
++ /var/spool/slurm/d/job1125945/slurm_script:76 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'lean_baseline1000\t%s\tlean\t64\t1000\t%s\tdefault200000\n' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean 0
++ /var/spool/slurm/d/job1125945/slurm_script:77 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'lean_backoff1\t%s\tlean\t64\t1\t%s\tdefault200000\n' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean 0
++ /var/spool/slurm/d/job1125945/slurm_script:78 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'lean_baseline1000repeat\t%s\tlean\t64\t1000\t%s\tdefault200000\n' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean 0
++ /var/spool/slurm/d/job1125945/slurm_script:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'mpi_end\t%s\tnone\t64\tn/a\tn/a\tn/a\n' /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi
++ /var/spool/slurm/d/job1125945/slurm_script:81 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=lean_dependencies_and_communication
++ /var/spool/slurm/d/job1125945/slurm_script:83 /work/dmarce1/fftw3_hpx_remaining_20261023: export LD_LIBRARY_PATH=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64
++ /var/spool/slurm/d/job1125945/slurm_script:83 /work/dmarce1/fftw3_hpx_remaining_20261023: LD_LIBRARY_PATH=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64
++ /var/spool/slurm/d/job1125945/slurm_script:84 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log lean_ldd ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_ldd
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=lean_ldd
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' lean_ldd 2026-10-23T09:02:30Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_ldd.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' lean_ldd 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' lean_ldd 2026-10-23T09:02:30Z
++ /var/spool/slurm/d/job1125945/slurm_script:85 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log lean_comm_ldd ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_comm_ldd
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=lean_comm_ldd
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' lean_comm_ldd 2026-10-23T09:02:30Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_comm_ldd.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' lean_comm_ldd 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' lean_comm_ldd 2026-10-23T09:02:30Z
++ /var/spool/slurm/d/job1125945/slurm_script:86 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log lean_dependencies python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_lean_ldd.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_ldd.log /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_dependencies
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=lean_dependencies
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' lean_dependencies 2026-10-23T09:02:30Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_lean_ldd.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_ldd.log /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_lean_ldd.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_ldd.log /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_dependencies.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' lean_dependencies 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' lean_dependencies 2026-10-23T09:02:30Z
++ /var/spool/slurm/d/job1125945/slurm_script:87 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log lean_comm_dependencies python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_lean_ldd.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_comm_ldd.log /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_comm_dependencies
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=lean_comm_dependencies
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' lean_comm_dependencies 2026-10-23T09:02:30Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_lean_ldd.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_comm_ldd.log /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_lean_ldd.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_comm_ldd.log /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/lean_comm_dependencies.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' lean_comm_dependencies 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' lean_comm_dependencies 2026-10-23T09:02:30Z
++ /var/spool/slurm/d/job1125945/slurm_script:88 /work/dmarce1/fftw3_hpx_remaining_20261023: for cap in 1000 1
++ /var/spool/slurm/d/job1125945/slurm_script:89 /work/dmarce1/fftw3_hpx_remaining_20261023: label=lean_baseline1000
++ /var/spool/slurm/d/job1125945/slurm_script:90 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 1000 = 1 ']'
++ /var/spool/slurm/d/job1125945/slurm_script:91 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log communication_lean_baseline1000 /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=2 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=communication_lean_baseline1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=communication_lean_baseline1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' communication_lean_baseline1000 2026-10-23T09:02:30Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=2 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/communication_lean_baseline1000.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=2 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' communication_lean_baseline1000 1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' communication_lean_baseline1000 2026-10-23T09:02:31Z
+++ /var/spool/slurm/d/job1125945/slurm_script:94 /work/dmarce1/fftw3_hpx_remaining_20261023: grep -c '^communication check PASS$' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/communication_lean_baseline1000.log
++ /var/spool/slurm/d/job1125945/slurm_script:94 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 4 -eq 4 ']'
++ /var/spool/slurm/d/job1125945/slurm_script:88 /work/dmarce1/fftw3_hpx_remaining_20261023: for cap in 1000 1
++ /var/spool/slurm/d/job1125945/slurm_script:89 /work/dmarce1/fftw3_hpx_remaining_20261023: label=lean_baseline1000
++ /var/spool/slurm/d/job1125945/slurm_script:90 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 1 = 1 ']'
++ /var/spool/slurm/d/job1125945/slurm_script:90 /work/dmarce1/fftw3_hpx_remaining_20261023: label=lean_backoff1
++ /var/spool/slurm/d/job1125945/slurm_script:91 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log communication_lean_backoff1 /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=2 --hpx:ini=hpx.max_idle_backoff_time=1 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=communication_lean_backoff1
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=communication_lean_backoff1
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=2
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' communication_lean_backoff1 2026-10-23T09:02:31Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=2 --hpx:ini=hpx.max_idle_backoff_time=1 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=2 --hpx:ini=hpx.max_idle_backoff_time=1 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/communication_lean_backoff1.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' communication_lean_backoff1 1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' communication_lean_backoff1 2026-10-23T09:02:32Z
+++ /var/spool/slurm/d/job1125945/slurm_script:94 /work/dmarce1/fftw3_hpx_remaining_20261023: grep -c '^communication check PASS$' /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/communication_lean_backoff1.log
++ /var/spool/slurm/d/job1125945/slurm_script:94 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' 4 -eq 4 ']'
++ /var/spool/slurm/d/job1125945/slurm_script:97 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib: = /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib: ']'
++ /var/spool/slurm/d/job1125945/slurm_script:98 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean_comm_check
++ /var/spool/slurm/d/job1125945/slurm_script:99 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log ldd_pool_release ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=ldd_pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=ldd_pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=3
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' ldd_pool_release 2026-10-23T09:02:32Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: ldd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/ldd_pool_release.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' ldd_pool_release 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' ldd_pool_release 2026-10-23T09:02:32Z
++ /var/spool/slurm/d/job1125945/slurm_script:100 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log benchmark_mpi_start /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=benchmark_mpi_start
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=benchmark_mpi_start
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=3
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' benchmark_mpi_start 2026-10-23T09:02:32Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/benchmark_mpi_start.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' benchmark_mpi_start 111
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' benchmark_mpi_start 2026-10-23T09:04:23Z
++ /var/spool/slurm/d/job1125945/slurm_script:101 /work/dmarce1/fftw3_hpx_remaining_20261023: run_hpx pool_release /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release 1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:114 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=pool_release executable=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release cap=1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:115 /work/dmarce1/fftw3_hpx_remaining_20261023: shift 3
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:116 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log benchmark_pool_release /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=benchmark_pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=benchmark_pool_release
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=114
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' benchmark_pool_release 2026-10-23T09:04:23Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/benchmark_pool_release.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/bin/pool_release --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' benchmark_pool_release 174
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' benchmark_pool_release 2026-10-23T09:07:17Z
++ /var/spool/slurm/d/job1125945/slurm_script:102 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=lean_three_case_sequence
++ /var/spool/slurm/d/job1125945/slurm_script:104 /work/dmarce1/fftw3_hpx_remaining_20261023: export LD_LIBRARY_PATH=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64
++ /var/spool/slurm/d/job1125945/slurm_script:104 /work/dmarce1/fftw3_hpx_remaining_20261023: LD_LIBRARY_PATH=/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64:/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64
++ /var/spool/slurm/d/job1125945/slurm_script:105 /work/dmarce1/fftw3_hpx_remaining_20261023: run_hpx lean_baseline1000 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean 1000 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:114 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_baseline1000 executable=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean cap=1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:115 /work/dmarce1/fftw3_hpx_remaining_20261023: shift 3
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:116 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log benchmark_lean_baseline1000 /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=benchmark_lean_baseline1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=benchmark_lean_baseline1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=288
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' benchmark_lean_baseline1000 2026-10-23T09:07:17Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/benchmark_lean_baseline1000.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' benchmark_lean_baseline1000 117
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' benchmark_lean_baseline1000 2026-10-23T09:09:14Z
++ /var/spool/slurm/d/job1125945/slurm_script:106 /work/dmarce1/fftw3_hpx_remaining_20261023: run_hpx lean_backoff1 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean 1 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:114 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_backoff1 executable=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean cap=1
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:115 /work/dmarce1/fftw3_hpx_remaining_20261023: shift 3
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:116 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log benchmark_lean_backoff1 /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=benchmark_lean_backoff1
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=benchmark_lean_backoff1
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=405
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' benchmark_lean_backoff1 2026-10-23T09:09:14Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/benchmark_lean_backoff1.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' benchmark_lean_backoff1 116
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' benchmark_lean_backoff1 2026-10-23T09:11:10Z
++ /var/spool/slurm/d/job1125945/slurm_script:107 /work/dmarce1/fftw3_hpx_remaining_20261023: run_hpx lean_baseline1000repeat /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean 1000 --hpx:ini=hpx.parcel.mpi.sendimm=0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:114 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=lean_baseline1000repeat executable=/work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean cap=1000
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:115 /work/dmarce1/fftw3_hpx_remaining_20261023: shift 3
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:116 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log benchmark_lean_baseline1000repeat /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=benchmark_lean_baseline1000repeat
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=benchmark_lean_baseline1000repeat
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=521
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' benchmark_lean_baseline1000repeat 2026-10-23T09:11:10Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/benchmark_lean_baseline1000repeat.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/bin/selected_lean --hpx:ignore-batch-env --hpx:localities=4 --hpx:bind=none '--hpx:ini=hpx.parcel.mpi.enable!=1' --hpx:ini=hpx.parcel.mpi.priority=1000 '--hpx:ini=hpx.parcel.tcp.enable!=0' '--hpx:ini=hpx.parcel.bootstrap!=mpi' --hpx:ini=hpx.parcel.mpi.background_threads=1 --hpx:ini=hpx.max_background_threads=1 --hpx:ini=hpx.parcel.mpi.multithreaded=1 --hpx:threads=64 --hpx:ini=hpx.max_idle_backoff_time=1000 --hpx:ini=hpx.parcel.mpi.sendimm=0 --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' benchmark_lean_baseline1000repeat 133
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' benchmark_lean_baseline1000repeat 2026-10-23T09:13:23Z
++ /var/spool/slurm/d/job1125945/slurm_script:109 /work/dmarce1/fftw3_hpx_remaining_20261023: '[' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib: = /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib:/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64:/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib: ']'
++ /var/spool/slurm/d/job1125945/slurm_script:110 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log benchmark_mpi_end /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=benchmark_mpi_end
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=benchmark_mpi_end
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=654
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' benchmark_mpi_end 2026-10-23T09:13:23Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: /work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_optimize_20261022/results/1125395/bin/mpi --size=1024 --threads=64 --warmups=2 --samples=7
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/benchmark_mpi_end.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' benchmark_mpi_end 111
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' benchmark_mpi_end 2026-10-23T09:15:14Z
++ /var/spool/slurm/d/job1125945/slurm_script:111 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log progress_checks python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_results.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945 /work/dmarce1/fftw3_hpx_remaining_20261023/source 0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=progress_checks
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=progress_checks
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=765
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' progress_checks 2026-10-23T09:15:14Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_results.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945 /work/dmarce1/fftw3_hpx_remaining_20261023/source 0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: python3 -I /work/dmarce1/fftw3_hpx_remaining_20261023/progress/check_results.py /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945 /work/dmarce1/fftw3_hpx_remaining_20261023/source 0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/progress_checks.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' progress_checks 1
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' progress_checks 2026-10-23T09:15:15Z
++ /var/spool/slurm/d/job1125945/slurm_script:112 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log fixed_inputs_unchanged sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=fixed_inputs_unchanged
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=fixed_inputs_unchanged
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=766
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' fixed_inputs_unchanged 2026-10-23T09:15:15Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/fixed_inputs_unchanged.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' fixed_inputs_unchanged 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' fixed_inputs_unchanged 2026-10-23T09:15:15Z
++ /var/spool/slurm/d/job1125945/slurm_script:113 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log reused_binaries_unchanged sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_binaries.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=reused_binaries_unchanged
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=reused_binaries_unchanged
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=766
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' reused_binaries_unchanged 2026-10-23T09:15:15Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_binaries.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_binaries.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/reused_binaries_unchanged.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' reused_binaries_unchanged 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' reused_binaries_unchanged 2026-10-23T09:15:15Z
++ /var/spool/slurm/d/job1125945/slurm_script:114 /work/dmarce1/fftw3_hpx_remaining_20261023: run_log prior_artifacts_unchanged verify_prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:75 /work/dmarce1/fftw3_hpx_remaining_20261023: local label=prior_artifacts_unchanged
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:76 /work/dmarce1/fftw3_hpx_remaining_20261023: shift
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:77 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=prior_artifacts_unchanged
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:78 /work/dmarce1/fftw3_hpx_remaining_20261023: local started=766
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:79 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'START %s %s\n' prior_artifacts_unchanged 2026-10-23T09:15:15Z
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'cd %q\n' /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%q ' verify_prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:80 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '\n'
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: verify_prior_artifacts
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:81 /work/dmarce1/fftw3_hpx_remaining_20261023: stdbuf -oL -eL tee /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125945/prior_artifacts_unchanged.log
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:120 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:120 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925: sha256sum -c artifacts.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:121 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:122 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125925/reused_binaries.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:123 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:123 /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899: sha256sum -c artifacts.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:124 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/fixed_inputs.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:125 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c /work/dmarce1/fftw3_hpx_remaining_20261023/results/1125899/reused_artifacts/lean_installed-artifacts.sha256
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: cd /work/dmarce1/fftw3_hpx_remaining_20261023
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c candidates/SHA256SUMS
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c confirmation/SHA256SUMS
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:126 /work/dmarce1/fftw3_hpx_remaining_20261023: sha256sum -c progress/SHA256SUMS
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:82 /work/dmarce1/fftw3_hpx_remaining_20261023: printf '%s\tPASS\t%s\n' prior_artifacts_unchanged 0
+++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: date -u +%FT%TZ
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:83 /work/dmarce1/fftw3_hpx_remaining_20261023: printf 'PASS %s %s\n' prior_artifacts_unchanged 2026-10-23T09:15:15Z
++ /var/spool/slurm/d/job1125945/slurm_script:115 /work/dmarce1/fftw3_hpx_remaining_20261023: qb_stage=complete
++ /var/spool/slurm/d/job1125945/slurm_script:1 /work/dmarce1/fftw3_hpx_remaining_20261023: finish 0
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:48 /work/dmarce1/fftw3_hpx_remaining_20261023: local result=0 outcome=FAIL
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:49 /work/dmarce1/fftw3_hpx_remaining_20261023: trap - EXIT
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:50 /work/dmarce1/fftw3_hpx_remaining_20261023: set +e
++ /work/dmarce1/fftw3_hpx_remaining_20261023/progress/common.sh:51 /work/dmarce1/fftw3_hpx_remaining_20261023: set +x

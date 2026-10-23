@@ -1,0 +1,31 @@
+{
+  "license": "GPL-2.0-or-later",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "base_source": "hpx/hpx-comm.cpp",
+  "base_sha256": "57945a07f87200293e8967c7dd5aed81b869f5e1b257692f297dbac99f62634c",
+  "direct_reference_sha256": "477f1243b68a303e370d97913279f9b312ed66c8a54811392083b9b6faec1590",
+  "hybrid_sha256": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+  "diagnostic_sha256": "bf48e1637c085e76eef0fe8e86cb757487ce763a4a688cdac7acfe7374007516",
+  "patch_checks": [
+    {
+      "patch": "hybrid.patch",
+      "base": "base-hpx-comm.cpp",
+      "result": "hpx-comm.cpp",
+      "reconstruction": "PASS"
+    },
+    {
+      "patch": "direct-to-hybrid.patch",
+      "base": "direct-reference.cpp",
+      "result": "hpx-comm.cpp",
+      "reconstruction": "PASS"
+    },
+    {
+      "patch": "diagnostic.patch",
+      "base": "hpx-comm.cpp",
+      "result": "hpx-comm-diagnostic.cpp",
+      "reconstruction": "PASS"
+    }
+  ],
+  "scope": "Isolated source experiment; no tracked source edits; no remote access or benchmark performance claim",
+  "diagnostic_wire_compatible_with_clean": true
+}

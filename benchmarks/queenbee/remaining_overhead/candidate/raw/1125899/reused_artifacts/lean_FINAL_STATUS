@@ -1,0 +1,9 @@
+status	PASS
+exit_status	0
+job_id	1125886
+stage	complete
+started_utc	2026-10-23T07:52:34Z
+finished_utc	2026-10-23T07:58:09Z
+source_commit	c9b81b401fbe6ba4a0306feff71d18ef01c71b34
+build	/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/build
+install	/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install

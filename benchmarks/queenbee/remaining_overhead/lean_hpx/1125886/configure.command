@@ -1,0 +1,1 @@
+cmake -S /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src -B /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/build -G Unix\ Makefiles -C /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/results/1125886/initial-cache.cmake 

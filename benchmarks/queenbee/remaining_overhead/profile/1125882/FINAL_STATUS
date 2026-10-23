@@ -1,0 +1,6 @@
+status	FAIL
+exit_status	1
+job_id	1125882
+stage	instrument
+started_utc	2026-10-23T07:40:11Z
+finished_utc	2026-10-23T07:40:27Z

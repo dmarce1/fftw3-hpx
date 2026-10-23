@@ -1,0 +1,32 @@
+{
+  "license": "GPL-2.0-or-later",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "required_prior_job": "1125899",
+  "candidate_parameter": "FFTW_CANDIDATE",
+  "candidate_default": null,
+  "candidate_sha256": {
+    "parallel_copy": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+    "hybrid": "5a2446f92d48d69d25f16f2b19202e7e03159aab57397c415c3e31f8592ae0cd",
+    "rendezvous": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c"
+  },
+  "primary_driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "reused_bins": {
+    "mpi": "optimize/results/1125395/bin/mpi",
+    "pool_release": "remaining/results/1125899/bin/pool_release",
+    "selected_original": "remaining/results/1125899/bin/<FFTW_CANDIDATE>"
+  },
+  "run_order": [
+    "mpi",
+    "pool_release",
+    "selected_original",
+    "selected_lean",
+    "selected_lean_sendimm"
+  ],
+  "scope": "Prepared only; no build, benchmark, remote access, submission or source integration.",
+  "selected_by_root": "rendezvous",
+  "sendimm_case_extra": "--hpx:ini=hpx.parcel.mpi.sendimm=1",
+  "communication_gates": [
+    "selected_lean",
+    "selected_lean_sendimm"
+  ]
+}

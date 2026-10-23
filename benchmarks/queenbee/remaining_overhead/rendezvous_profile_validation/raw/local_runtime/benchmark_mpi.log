@@ -1,0 +1,63 @@
+[sagan][[10222,1],0][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],0][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],1][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],2][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],0][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],3][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],2][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],1][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],2][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],1][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],3][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+[sagan][[10222,1],3][../../../../../../opal/mca/btl/tcp/btl_tcp_proc.c:266:mca_btl_tcp_proc_create_interface_graph] Unable to find reachable pairing between local and remote interfaces
+CONFIG backend=mpi extent=64 ranks=4 threads=1 precision=double inplace=1 layout=normal planner=FFTW_ESTIMATE warmups=2 samples=7 global_data_bytes=4194304 max_local_allocation_bytes=1048576
+PLAN_SECONDS backend=mpi value=0.0014462380000000001
+PLAN_FORWARD_BEGIN
+(mpi-dft-rank-geq2
+  (dft-vrank>=1-x16/1
+    (dft-rank>=2/1
+      (dft-direct-64-x64 "n1_64")
+      (dft-direct-64-x64 "n1_64")))
+  (mpi-dft-rank1-bigvec/discontig 
+    (mpi-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-nop)
+      (rdft-nop)
+      (null)) 
+    (dft-direct-64-x1024 "n1_64") 
+    (mpi-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_FORWARD_END
+PLAN_BACKWARD_BEGIN
+(mpi-dft-rank-geq2
+  (dft-vrank>=1-x16/1
+    (dft-rank>=2/1
+      (dft-direct-64-x64 "n1_64")
+      (dft-direct-64-x64 "n1_64")))
+  (mpi-dft-rank1-bigvec/discontig 
+    (mpi-transpose-pairwise
+      (rdft-transpose-toms513-16x4-x2048)
+      (rdft-nop)
+      (rdft-nop)
+      (null)) 
+    (dft-direct-64-x1024 "n1_64") 
+    (mpi-transpose-pairwise
+      (null)
+      (rdft-transpose-toms513-4x16-x2048)
+      (null)
+      (null))))
+PLAN_BACKWARD_END
+CHECK backend=mpi stage=forward_spectrum relative_max_error=8.3603466663598732e-16 tolerance=1e-10
+CHECK backend=mpi stage=initial_roundtrip relative_max_error=7.2564261507230937e-16 tolerance=1e-10
+SAMPLE backend=mpi index=0 max_rank_seconds=0.0015684480000000001
+SAMPLE backend=mpi index=1 max_rank_seconds=0.001576088
+SAMPLE backend=mpi index=2 max_rank_seconds=0.001501308
+SAMPLE backend=mpi index=3 max_rank_seconds=0.0014615870000000001
+SAMPLE backend=mpi index=4 max_rank_seconds=0.0015543480000000001
+SAMPLE backend=mpi index=5 max_rank_seconds=0.0014575370000000001
+SAMPLE backend=mpi index=6 max_rank_seconds=0.001448817
+CHECK backend=mpi stage=final_roundtrip relative_max_error=1.9794899360963732e-15 tolerance=1e-10
+RESULT backend=mpi extent=64 ranks=4 threads=1 samples=7 min_seconds=0.001448817 median_seconds=0.001501308 mean_seconds=0.0015097332857142859 max_seconds=0.001576088 status=PASS

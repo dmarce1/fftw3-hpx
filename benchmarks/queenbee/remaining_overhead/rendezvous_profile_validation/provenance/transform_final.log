@@ -1,0 +1,38 @@
+{
+  "diagnostic_only": true,
+  "source": "/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/reproduction_check",
+  "threads": true,
+  "pairwise": true,
+  "files": {
+    "hpx/hpx-comm.cpp": {
+      "before_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "after_sha256": "2ea7e60fb8fec7383f8a86b898e4364d82fa1190038be9cba633321484383e13"
+    },
+    "benchmarks/matched_3d.cpp": {
+      "before_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "after_sha256": "a679e0b3584ae14816d1e677b653ca9889cb644e9643cd7a024c045a2f9c6da0"
+    },
+    "threads/threads.c": {
+      "before_sha256": "e47e83fce6c6ec01b1b073429ed844b0c1768402eab8d00df18262f5748f3bd3",
+      "after_sha256": "d020df071438e33ca472f917e56fcdcd2cacebddde71bdfe3ead961e9f9c3fa6"
+    },
+    "hpx/transpose-pairwise.c": {
+      "before_sha256": "250cf3f915690e5c8e914d8395625d09c9cbd8626f6528ec3350465cf8664fdc",
+      "after_sha256": "e45a7538b43c6d71711abac63d33e67cfcf458168d83e26cc92062aad53881a9"
+    },
+    "mpi/transpose-pairwise.c": {
+      "before_sha256": "173df10a57fdad3c3392a59c96e33e852e91b0281033be87cffdd169daa695cb",
+      "after_sha256": "5d86828ab734fbdbb7a9a18ba7d88682d4f3ce1af8d2902ef77f4772f58e69e8"
+    },
+    "benchmarks/remaining_profile.h": {
+      "generated_sha256": "245ebfbd9ab43a989c5698266077d1b1bc030895c750e53c488f53d335c656f3"
+    },
+    "benchmarks/remaining_profile.cpp": {
+      "generated_sha256": "aa7bac902ae11534a22c146076a5cad799fa42a1aa9beba34d01d934f9eadf1b"
+    },
+    "benchmarks/remaining_mpi_profile.cpp": {
+      "generated_sha256": "41ec1fb21c76dfd4a8ff726997ce41f884ad08d91aa74da38f4f47cc00ba62cb"
+    }
+  },
+  "patch_sha256": "3f4020e50b5312081395fb5d9d05eaf81d5f53bad903415068a854983638b282"
+}

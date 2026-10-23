@@ -1,0 +1,372 @@
+loading initial cache file /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/results/1125886/initial-cache.cmake
+-- The CXX compiler identification is GNU 13.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/local/packages/compilers/gcc/13.2.0/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using C++20
+-- CMake version: 3.26.5, generator: Unix Makefiles
+-- HPX version: 1.11.0
+-- Building modules as OBJECT libraries
+-- WARNING: Job pooling is only available with Ninja generators.
+-- Nice threadlevel is disabled.
+-- Stack traces are enabled.
+-- Compiling with the native toolset
+-- Performing Test HPX_WITH_CXX11_ATOMIC_INIT_FLAG - Success
+-- Performing Test HPX_WITH_CXX11_ATOMIC - Success
+-- Performing Test HPX_WITH_CXX11_ATOMIC_128BIT - Failed
+-- Performing Test HPX_WITH_CXX11_ATOMIC_128BIT - Failed
+-- Performing Test HPX_WITH_CXX11_STD_QUICK_EXIT - Success
+-- Performing Test HPX_WITH_CXX11_SHARED_PTR_LWG3018 - Success
+-- Performing Test HPX_WITH_C11_ALIGNED_ALLOC - Success
+-- Performing Test HPX_WITH_CXX14_DELETE_OPERATOR_WITH_SIZE - Success
+-- Performing Test HPX_WITH_CXX17_STD_ALIGNED_ALLOC - Success
+-- Performing Test HPX_WITH_CXX17_STD_EXECUTION_POLICES - Success
+-- Performing Test HPX_WITH_CXX17_FILESYSTEM - Success
+-- Performing Test HPX_WITH_CXX17_HARDWARE_DESTRUCTIVE_INTERFERENCE_SIZE - Success
+-- Performing Test HPX_WITH_CXX17_ALIGNED_NEW - Success
+-- Performing Test HPX_WITH_CXX17_SHARED_PTR_ARRAY - Success
+-- Performing Test HPX_WITH_CXX17_STD_TRANSFORM_SCAN_ALGORITHMS - Success
+-- Performing Test HPX_WITH_CXX17_STD_SCAN_ALGORITHMS - Success
+-- Performing Test HPX_WITH_CXX17_COPY_ELISION - Success
+-- Performing Test HPX_WITH_CXX17_OPTIONAL_COPY_ELISION - Success
+-- Performing Test HPX_WITH_CXX20_COROUTINES - Success
+-- Performing Test HPX_WITH_CXX20_EXPERIMENTAL_SIMD - Success
+-- Performing Test HPX_WITH_CXX20_LAMBDA_CAPTURE - Success
+-- Performing Test HPX_WITH_CXX20_SOURCE_LOCATION - Failed
+-- Performing Test HPX_WITH_CXX20_PERFECT_PACK_CAPTURE - Success
+-- Performing Test HPX_WITH_CXX20_NO_UNIQUE_ADDRESS_ATTRIBUTE - Success
+-- Performing Test HPX_WITH_CXX20_PAREN_INITIALIZATION_OF_AGGREGATES - Success
+-- Performing Test HPX_WITH_CXX20_STD_DISABLE_SIZED_SENTINEL_FOR - Success
+-- Performing Test HPX_WITH_CXX20_STD_ENDIAN - Success
+-- Performing Test HPX_WITH_CXX20_STD_EXECUTION_POLICES - Success
+-- Performing Test HPX_WITH_CXX20_STD_RANGES_ITER_SWAP - Success
+-- Performing Test HPX_WITH_CXX20_TRIVIAL_VIRTUAL_DESTRUCTOR - Success
+-- Performing Test HPX_WITH_CXX20_STD_CONSTRUCT_AT - Success
+-- Performing Test HPX_WITH_CXX20_STD_DEFAULT_SENTINEL - Success
+-- Performing Test HPX_WITH_CXX20_STD_BIT_CAST - Success
+-- Performing Test HPX_WITH_CXX20_STD_IDENTITY - Success
+-- Performing Test HPX_WITH_CXX20_CONSTEXPR_DESTRUCTOR - Success
+-- Performing Test HPX_WITH_CXX26_EXPERIMENTAL_SCOPE - Failed
+-- Performing Test HPX_WITH_CXX_LAMBDA_CAPTURE_DECLTYPE - Success
+-- Performing Test HPX_WITH_BUILTIN_FORWARD_MOVE - Failed
+-- Performing Test HPX_WITH_BUILTIN_FRAME_ADDRESS - Success
+-- Performing Test HPX_WITH_MM_PREFETCH - Success
+-- Performing Test HPX_WITH_PTHREAD_SETNAME_NP - Failed
+-- Performing Test HPX_WITH_STABLE_INPLACE_MERGE - Success
+-- Performing Test HPX_WITH_UNISTD_H - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WALL
+-- Performing Test HPX_WITH_CXX_FLAG_WALL - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_STRICT_ALIASING
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_STRICT_ALIASING - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_SIGN_PROMO
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_SIGN_PROMO - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_ATTRIBUTES
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_ATTRIBUTES - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_CAST_ALIGN
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_CAST_ALIGN - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_USE_AFTER_FREE
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_USE_AFTER_FREE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_INTERFERENCE_SIZE
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_INTERFERENCE_SIZE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WEXTRA
+-- Performing Test HPX_WITH_CXX_FLAG_WEXTRA - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WPEDANTIC
+-- Performing Test HPX_WITH_CXX_FLAG_WPEDANTIC - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_SELF_MOVE
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_SELF_MOVE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_NOEXCEPT_TYPE
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_NOEXCEPT_TYPE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WFORMAT_2
+-- Performing Test HPX_WITH_CXX_FLAG_WFORMAT_2 - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_FORMAT_NONLITERAL
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_FORMAT_NONLITERAL - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WINIT_SELF
+-- Performing Test HPX_WITH_CXX_FLAG_WINIT_SELF - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WDOUBLE_PROMOTION
+-- Performing Test HPX_WITH_CXX_FLAG_WDOUBLE_PROMOTION - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WCAST_QUAL
+-- Performing Test HPX_WITH_CXX_FLAG_WCAST_QUAL - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WCAST_ALIGN
+-- Performing Test HPX_WITH_CXX_FLAG_WCAST_ALIGN - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_TRAMPOLINES
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_TRAMPOLINES - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_PARENTHESES
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_PARENTHESES - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_REORDER
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_REORDER - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_RETURN_TYPE
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_RETURN_TYPE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_SEQUENCE_POINT
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_SEQUENCE_POINT - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_UNINITIALIZED
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_UNINITIALIZED - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_FORMAT
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_FORMAT - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_MISSING_BRACES
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_MISSING_BRACES - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_SIGN_COMPARE
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_SIGN_COMPARE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_FDIAGNOSTICS_SHOW_OPTION
+-- Performing Test HPX_WITH_CXX_FLAG_FDIAGNOSTICS_SHOW_OPTION - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_VLA
+-- Performing Test HPX_WITH_CXX_FLAG_WERROR_VLA - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_UNUSED_BUT_SET_PARAMETER
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_UNUSED_BUT_SET_PARAMETER - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_UNUSED_BUT_SET_VARIABLE
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_UNUSED_BUT_SET_VARIABLE - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_UNUSED_LOCAL_TYPEDEFS
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_UNUSED_LOCAL_TYPEDEFS - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_MAYBE_UNINITIALIZED
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_MAYBE_UNINITIALIZED - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_SYNC_NAND
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_SYNC_NAND - Success
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_DELETE_NON_VIRTUAL_DTOR
+-- Performing Test HPX_WITH_CXX_FLAG_WNO_DELETE_NON_VIRTUAL_DTOR - Success
+-- Performing Test WITH_LINKER_FLAG_WL__Z_DEFS
+-- Performing Test WITH_LINKER_FLAG_WL__Z_DEFS - Success
+-- Performing Test HPX_WITH_CXX_FLAG_FVISIBILITY_HIDDEN
+-- Performing Test HPX_WITH_CXX_FLAG_FVISIBILITY_HIDDEN - Success
+-- Performing Test WITH_LINKER_FLAG_FVISIBILITY_HIDDEN
+-- Performing Test WITH_LINKER_FLAG_FVISIBILITY_HIDDEN - Success
+-- Performing Test HPX_WITH_RDTSC - Success
+-- Performing Test HPX_WITH_RDTSCP - Success
+-- Architecture detected: x86_64
+-- Cacheline size detected: 64
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE  
+-- Performing Test HPX_WITH_CXX_FLAG_PTHREAD
+-- Performing Test HPX_WITH_CXX_FLAG_PTHREAD - Success
+-- Performing Test WITH_LINKER_FLAG_PTHREAD
+-- Performing Test WITH_LINKER_FLAG_PTHREAD - Success
+-- HPX_WITH_FETCH_ASIO=ON, Asio will be used through CMake's FetchContent and installed alongside HPX (FETCHCONTENT_SOURCE_DIR_ASIO=/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/build/_deps/asio-src)
+-- Found Jemalloc: /work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/jemalloc/install/lib/libjemalloc.so  
+-- Using jemalloc allocator.
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'hwloc', not found
+-- Found Hwloc: /usr/local/packages/hwloc/2.9.1/7ka44tz/lib/libhwloc.so  
+-- MPI version:  3.1
+-- Found Git: /usr/bin/git (found version "2.43.0") 
+-- GIT commit is c9b81b401fbe6ba4a0306feff71d18ef01c71b34.
+-- 
+-- Configuring modules:
+-- 
+--   Configuring libhpx_core modules:
+-- 
+--     Module configuration (allocator_support):
+--     HPX_ALLOCATOR_SUPPORT_WITH_CACHING=ON
+-- 
+--     Module configuration (command_line_handling_local):
+--     HPX_COMMAND_LINE_HANDLING_LOCAL_WITH_JSON_CONFIGURATION_FILES=OFF
+-- 
+--     Module configuration (coroutines):
+--     HPX_COROUTINES_WITH_SWAP_CONTEXT_EMULATION=OFF
+--     HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD=OFF
+-- 
+--     Module configuration (datastructures):
+--     HPX_DATASTRUCTURES_WITH_ADAPT_STD_TUPLE=ON
+--     HPX_DATASTRUCTURES_WITH_ADAPT_STD_VARIANT=OFF
+-- 
+--     Module configuration (logging):
+--     HPX_LOGGING_WITH_SEPARATE_DESTINATIONS=ON
+-- 
+--     Module configuration (serialization):
+--     HPX_SERIALIZATION_WITH_ALLOW_CONST_TUPLE_MEMBERS=OFF
+--     HPX_SERIALIZATION_WITH_ALLOW_RAW_POINTER_SERIALIZATION=OFF
+--     HPX_SERIALIZATION_WITH_ALL_TYPES_ARE_BITWISE_SERIALIZABLE=OFF
+--     HPX_SERIALIZATION_WITH_BOOST_TYPES=OFF
+--     HPX_SERIALIZATION_WITH_SUPPORTS_ENDIANESS=OFF
+-- 
+--     Module configuration (topology):
+--     HPX_TOPOLOGY_WITH_ADDITIONAL_HWLOC_TESTING=OFF
+-- 
+--   Configuring libhpx modules:
+-- Configuring components:
+--   component_storage
+--   containers
+--   iostreams
+--   parcel_plugins
+--   performance_counters
+--   process
+-- Found PythonInterp: /usr/bin/python3.12 (found version "3.12.12") 
+-- 
+-- Configuration summary:
+--
+--     value not found for HPX_FILESYSTEM_WITH_BOOST_FILESYSTEM_COMPATIBILITY
+--     value not found for HPX_ITERATOR_SUPPORT_WITH_BOOST_ITERATOR_TRAVERSAL_TAG_COMPATIBILITY
+--     HPX_WITH_AGAS_DUMP_REFCNT_ENTRIES=OFF
+--     HPX_WITH_APEX=OFF
+--     HPX_WITH_ASIO_TAG=asio-1-21-0
+--     HPX_WITH_ASYNC_MPI=ON
+--     HPX_WITH_ATTACH_DEBUGGER_ON_TEST_FAILURE=OFF
+--     HPX_WITH_AUTOMATIC_SERIALIZATION_REGISTRATION=ON
+--     HPX_WITH_BUILD_BINARY_PACKAGE=OFF
+--     HPX_WITH_CHECK_MODULE_DEPENDENCIES=OFF
+--     HPX_WITH_COMPILER_WARNINGS=ON
+--     HPX_WITH_COMPILER_WARNINGS_AS_ERRORS=OFF
+--     HPX_WITH_COMPILE_ONLY_TESTS=ON
+--     HPX_WITH_COMPRESSION_BZIP2=OFF
+--     HPX_WITH_COMPRESSION_SNAPPY=OFF
+--     HPX_WITH_COMPRESSION_ZLIB=OFF
+--     HPX_WITH_COROUTINE_COUNTERS=OFF
+--     HPX_WITH_CUDA=OFF
+--     HPX_WITH_CXX_STANDARD=20
+--     HPX_WITH_DATAPAR_BACKEND=NONE
+--     HPX_WITH_DEPRECATION_WARNINGS=ON
+--     HPX_WITH_DISABLED_SIGNAL_EXCEPTION_HANDLERS=OFF
+--     HPX_WITH_DISTRIBUTED_RUNTIME=ON
+--     HPX_WITH_DOCUMENTATION=OFF
+--     HPX_WITH_DYNAMIC_HPX_MAIN=ON
+--     HPX_WITH_EXAMPLES=OFF
+--     HPX_WITH_EXAMPLES_HDF5=OFF
+--     HPX_WITH_EXAMPLES_OPENMP=OFF
+--     HPX_WITH_EXAMPLES_QT4=OFF
+--     HPX_WITH_EXAMPLES_QTHREADS=OFF
+--     HPX_WITH_EXAMPLES_TBB=OFF
+--     HPX_WITH_EXECUTABLE_PREFIX=
+--     HPX_WITH_FAIL_COMPILE_TESTS=ON
+--     HPX_WITH_FAULT_TOLERANCE=OFF
+--     HPX_WITH_FETCH_APEX=OFF
+--     HPX_WITH_FETCH_ASIO=ON
+--     HPX_WITH_FETCH_BOOST=OFF
+--     HPX_WITH_FETCH_GASNET=OFF
+--     HPX_WITH_FETCH_HWLOC=OFF
+--     HPX_WITH_FETCH_LCI=OFF
+--     HPX_WITH_FETCH_STDEXEC=ON
+--     HPX_WITH_FULL_RPATH=ON
+--     HPX_WITH_GCC_VERSION_CHECK=ON
+--     HPX_WITH_GENERIC_CONTEXT_COROUTINES=OFF
+--     HPX_WITH_HIDDEN_VISIBILITY=ON
+--     HPX_WITH_HIP=OFF
+--     HPX_WITH_HIPSYCL=OFF
+--     HPX_WITH_IGNORE_COMPILER_COMPATIBILITY=ON
+--     HPX_WITH_IO_COUNTERS=OFF
+--     HPX_WITH_IO_POOL=ON
+--     HPX_WITH_ITTNOTIFY=OFF
+--     HPX_WITH_JEMALLOC_PREFIX=<none>
+--     HPX_WITH_LCI_TAG=v1.7.9
+--     HPX_WITH_LOGGING=OFF
+--     HPX_WITH_MALLOC=jemalloc
+--     HPX_WITH_MAX_CPU_COUNT=
+--     HPX_WITH_MAX_NUMA_DOMAIN_COUNT=8
+--     HPX_WITH_MODULES_AS_STATIC_LIBRARIES=OFF
+--     HPX_WITH_NANOBENCH=OFF
+--     HPX_WITH_NETWORKING=ON
+--     HPX_WITH_NICE_THREADLEVEL=OFF
+--     HPX_WITH_PAPI=OFF
+--     HPX_WITH_PARALLEL_LINK_JOBS=2
+--     HPX_WITH_PARALLEL_TESTS_BIND_NONE=OFF
+--     HPX_WITH_PARCELPORT_ACTION_COUNTERS=OFF
+--     HPX_WITH_PARCELPORT_COUNTERS=OFF
+--     HPX_WITH_PARCELPORT_GASNET=OFF
+--     HPX_WITH_PARCELPORT_LCI=OFF
+--     HPX_WITH_PARCELPORT_LCI_LOG=OFF
+--     HPX_WITH_PARCELPORT_LCI_PCOUNTER=OFF
+--     HPX_WITH_PARCELPORT_LIBFABRIC=OFF
+--     HPX_WITH_PARCELPORT_MPI=ON
+--     HPX_WITH_PARCELPORT_MPI_ENV=MV2_COMM_WORLD_RANK PMI_RANK OMPI_COMM_WORLD_SIZE ALPS_APP_PE PMIX_RANK PALS_NODEID
+--     HPX_WITH_PARCELPORT_MPI_MULTITHREADED=ON
+--     HPX_WITH_PARCELPORT_TCP=OFF
+--     HPX_WITH_PARCEL_COALESCING=ON
+--     HPX_WITH_PARCEL_PROFILING=OFF
+--     HPX_WITH_PKGCONFIG=OFF
+--     HPX_WITH_PRECOMPILED_HEADERS=OFF
+--     HPX_WITH_RPM=OFF
+--     HPX_WITH_RUN_MAIN_EVERYWHERE=OFF
+--     HPX_WITH_SANITIZERS=OFF
+--     HPX_WITH_SCHEDULER_LOCAL_STORAGE=OFF
+--     HPX_WITH_SPINLOCK_DEADLOCK_DETECTION=OFF
+--     HPX_WITH_SPINLOCK_POOL_NUM=128
+--     HPX_WITH_STACKOVERFLOW_DETECTION=OFF
+--     HPX_WITH_STACKTRACES=ON
+--     HPX_WITH_STACKTRACES_DEMANGLE_SYMBOLS=ON
+--     HPX_WITH_STACKTRACES_STATIC_SYMBOLS=OFF
+--     HPX_WITH_STATIC_LINKING=OFF
+--     HPX_WITH_STDEXEC=OFF
+--     HPX_WITH_STDEXEC_TAG=main
+--     HPX_WITH_SUPPORT_NO_UNIQUE_ADDRESS_ATTRIBUTE=ON
+--     HPX_WITH_SYCL=OFF
+--     HPX_WITH_SYCL_FLAGS=
+--     HPX_WITH_TESTS=OFF
+--     HPX_WITH_TESTS_BENCHMARKS=OFF
+--     HPX_WITH_TESTS_COMMAND_LINE=
+--     HPX_WITH_TESTS_DEBUG_LOG=OFF
+--     HPX_WITH_TESTS_DEBUG_LOG_DESTINATION=cout
+--     HPX_WITH_TESTS_EXAMPLES=OFF
+--     HPX_WITH_TESTS_EXTERNAL_BUILD=OFF
+--     HPX_WITH_TESTS_HEADERS=OFF
+--     HPX_WITH_TESTS_MAX_THREADS_PER_LOCALITY=0
+--     HPX_WITH_TESTS_REGRESSIONS=OFF
+--     HPX_WITH_TESTS_UNIT=OFF
+--     HPX_WITH_THREAD_BACKTRACE_DEPTH=20
+--     HPX_WITH_THREAD_BACKTRACE_ON_SUSPENSION=OFF
+--     HPX_WITH_THREAD_CREATION_AND_CLEANUP_RATES=OFF
+--     HPX_WITH_THREAD_CUMULATIVE_COUNTS=OFF
+--     HPX_WITH_THREAD_DEBUG_INFO=OFF
+--     HPX_WITH_THREAD_DESCRIPTION_FULL=OFF
+--     HPX_WITH_THREAD_GUARD_PAGE=ON
+--     HPX_WITH_THREAD_IDLE_RATES=OFF
+--     HPX_WITH_THREAD_LOCAL_STORAGE=OFF
+--     HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF=ON
+--     HPX_WITH_THREAD_QUEUE_WAITTIME=OFF
+--     HPX_WITH_THREAD_STACK_MMAP=OFF
+--     HPX_WITH_THREAD_STEALING_COUNTS=OFF
+--     HPX_WITH_THREAD_TARGET_ADDRESS=OFF
+--     HPX_WITH_TIMER_POOL=ON
+--     HPX_WITH_TOOLS=OFF
+--     HPX_WITH_TUPLE_RVALUE_SWAP=ON
+--     HPX_WITH_UNITY_BUILD=OFF
+--     HPX_WITH_VALGRIND=OFF
+--     HPX_WITH_VERIFY_LOCKS=OFF
+--     HPX_WITH_VERIFY_LOCKS_BACKTRACE=OFF
+--     HPX_WITH_VIM_YCM=OFF
+--     HPX_WITH_WORK_REQUESTING_SCHEDULERS=ON
+--     HPX_WITH_ZERO_COPY_SERIALIZATION_THRESHOLD=8192
+
+HPX will be installed to /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install
+
+-- Configuring done (29.4s)
+-- Generating done (2.5s)
+-- Build files have been written to: /work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/build

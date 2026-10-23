@@ -1,0 +1,14 @@
+/home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/parallel_copy/hpx-comm.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/.libs/libfftw3_hpx.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/config.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm.h: OK
+/home/dmarce1/workspace/fftw3-hpx/hpx/hpx-comm-check.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/tests/check.pl: OK
+/home/dmarce1/workspace/fftw3-hpx/benchmarks/matched_3d.cpp: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/.libs/libfftw3.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/threads/.libs/libfftw3_threads.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/libbench2/libbench2.a: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/hpx_bench-hpx-bench.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/hpx_bench-hpx-bench-main.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/hpx_bench-fftw-bench.o: OK
+/home/dmarce1/workspace/fftw3-hpx/build/double/hpx/hpx_bench-hook.o: OK

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/work/dmarce1/fftw3_hpx_remaining_20261023/inputs/profile/instrument.py", line 222, in <module>
+    if __name__=='__main__': main()
+  File "/work/dmarce1/fftw3_hpx_remaining_20261023/inputs/profile/instrument.py", line 203, in main
+    if path.is_symlink() or path.resolve().is_relative_to(source) is False or path.stat().st_nlink!=1:
+AttributeError: 'PosixPath' object has no attribute 'is_relative_to'

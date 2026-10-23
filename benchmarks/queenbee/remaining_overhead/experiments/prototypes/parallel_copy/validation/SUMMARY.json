@@ -1,0 +1,49 @@
+{
+  "copyright": "Copyright (c) 2026 Dominic C. Marcello",
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "candidate_sha256": "55b88660b9ca905049b197c7d9437864985877cc497152413c40c3204f1e12a9",
+  "build_flags": "-O3 -DNDEBUG; communication checker separately -UNDEBUG",
+  "local_core_limit": 4,
+  "copy_checks": {
+    "1x1": "PASS; all copies serial",
+    "1x4": "PASS; four parallel jobs at 32 MiB and above",
+    "cases_per_run": 8,
+    "guards_each_side": 37,
+    "includes": "zero, one byte, below/at/above threshold, odd remainder, owned source overwrite, outside-runtime serial fallback"
+  },
+  "communication_checks": [
+    "1 locality x2 workers",
+    "2 localities x2 workers"
+  ],
+  "matched_check": {
+    "extent": 256,
+    "ranks": 2,
+    "workers_per_rank": 2,
+    "warmups": 1,
+    "samples": 3,
+    "checks": [
+      {
+        "backend": "hpx",
+        "stage": "forward_spectrum",
+        "relative_max_error": "7.5395217858013326e-16",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "hpx",
+        "stage": "initial_roundtrip",
+        "relative_max_error": "1.3056059912435614e-15",
+        "tolerance": "1e-10"
+      },
+      {
+        "backend": "hpx",
+        "stage": "final_roundtrip",
+        "relative_max_error": "4.2992488704309729e-15",
+        "tolerance": "1e-10"
+      }
+    ],
+    "transport": "local TCP"
+  },
+  "provenance": "Original inputs verified before/after; archive changes only hpx-comm.o",
+  "limits": "Double precision only; no performance conclusion and no cross-node MPI parcelport validation yet."
+}

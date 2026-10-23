@@ -1,0 +1,55 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "rendezvous_source_sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+  "primary_driver_sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+  "source_location": "../integration/validated_inputs/hpx/hpx-comm.cpp",
+  "job_common_provenance_match_frozen_inputs": true,
+  "frozen_input_manifest_entries": 8,
+  "prior_receipts": [
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_FINAL_STATUS",
+      "matches_prior_published": "confirmation/raw/1125925/FINAL_STATUS",
+      "sha256": "ba3d19d898e2901199e607d73da80ff94dae8204e9b4def374021ab04130248f"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_archive_members.log",
+      "matches_prior_published": "confirmation/raw/1125925/archive_members.log",
+      "sha256": "feffaafdf6f02743e7378baa08d48b5f2207139f5f69765900d48294d17fabc9"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_artifacts.sha256",
+      "matches_prior_published": "confirmation/raw/1125925/artifacts.sha256",
+      "sha256": "9b6efd371a20cadad8227d35bb33e3919b0b38285cc203864cba268ed01a5814"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_fixed_inputs.sha256",
+      "matches_prior_published": "confirmation/raw/1125925/fixed_inputs.sha256",
+      "sha256": "8dfd768a083fc518c80d9eeea6052def872c9ceb265b489bf7e64f03bbde4848"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_lean_hpx-flags.sh",
+      "matches_prior_published": "confirmation/raw/1125925/lean_hpx-flags.sh",
+      "sha256": "0c04b123a78c9724d1a06752e139a36438d29a0a57094efab9c47460dac34124"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_original_hpx-flags.sh",
+      "matches_prior_published": "confirmation/raw/1125925/original_hpx-flags.sh",
+      "sha256": "64cd6c741ada7443094d1c90279bd31d340e3f5578605ee165c1b7eba1f016c2"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_reused_binaries.sha256",
+      "matches_prior_published": "confirmation/raw/1125925/reused_binaries.sha256",
+      "sha256": "a2bcbb592500f95fd8ddff69ddd42f2ef3f574c4d908768ab2a1466b0cf915c8"
+    },
+    {
+      "published": "raw/1125945/reused_artifacts/1125925_selection.txt",
+      "matches_prior_published": "confirmation/raw/1125925/selection.txt",
+      "sha256": "ae62437404a06d0a9c33d1af29d6bb232c4ef2a9e2699a040bd1693fe81c7bf4"
+    }
+  ],
+  "current_lean_binary_recorded_sha256": "42c8821d64faaf27411e1714fe05ed37d4feb4aa21fe79d4db6ec1b742f66496",
+  "no_build_stages": true,
+  "binary_provenance_limit": "Omitted binaries/archives cannot be locally rehashed; exact cluster receipts are preserved."
+}

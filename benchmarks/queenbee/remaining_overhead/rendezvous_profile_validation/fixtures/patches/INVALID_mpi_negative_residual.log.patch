@@ -1,0 +1,11 @@
+--- base/SYNTHETIC_mpi.log
++++ fixture/INVALID_mpi_negative_residual.log
+@@ -2525,7 +2525,7 @@
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_deallocate_wall calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_keep calls=0 bytes=0 seconds=0 nanoseconds=0
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=pool_delete calls=0 bytes=0 seconds=0 nanoseconds=0
+-PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=0.97766026100000003 nanoseconds=977660261
++PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=run_jobs_wall calls=3 bytes=0 seconds=1000 nanoseconds=977660261
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=enqueue_wall calls=3 bytes=0 seconds=0.065177351000000008 nanoseconds=65177351
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=inline_work_wall calls=3 bytes=0 seconds=0.39106410400000002 nanoseconds=391064104
+ PROFILE_DETAIL backend=mpi rank=0 sample=0 metric=join_wall calls=3 bytes=0 seconds=0.45624145500000002 nanoseconds=456241455

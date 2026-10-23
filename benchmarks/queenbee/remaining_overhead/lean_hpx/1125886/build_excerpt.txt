@@ -1,0 +1,26 @@
+# Derived exact line excerpts from build.log; full-file digest in original_evidence.json.
+## Opening lines
+[  0%] Building CXX object libs/core/config_registry/CMakeFiles/hpx_config_registry.dir/src/config_entries.cpp.o
+[  1%] Building CXX object libs/core/config_registry/CMakeFiles/hpx_config_registry.dir/src/config_registry.cpp.o
+[  1%] Built target hpx_config_registry
+[  2%] Building CXX object libs/core/preprocessor/CMakeFiles/hpx_preprocessor.dir/__/__/src/empty.cpp.o
+[  2%] Built target hpx_preprocessor
+[  2%] Building CXX object libs/core/config/CMakeFiles/hpx_config.dir/src/version.cpp.o
+## Distinct warning lines
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp:206:39: warning: unused parameter 'stack' [-Wunused-parameter]
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp:206:58: warning: unused parameter 'size' [-Wunused-parameter]
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp:208:35: warning: unused parameter 'stack' [-Wunused-parameter]
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp:208:54: warning: unused parameter 'size' [-Wunused-parameter]
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp:213:53: warning: unused parameter 'size' [-Wunused-parameter]
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/logging/include/hpx/modules/logging.hpp:276:71: warning: statement has no effect [-Wunused-value]
+## Final lines
+  208 |     inline bool reset_stack(void* stack, std::size_t size)
+      |                                          ~~~~~~~~~~~~^~~~
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp: In function 'void hpx::threads::coroutines::detail::posix::free_stack(void*, std::size_t)':
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/src/libs/core/coroutines/include/hpx/coroutines/detail/posix_utility.hpp:213:53: warning: unused parameter 'size' [-Wunused-parameter]
+  213 |     inline void free_stack(void* stack, std::size_t size)
+      |                                         ~~~~~~~~~~~~^~~~
+[ 99%] Linking CXX shared library ../../lib/libhpx_component_storage.so
+[ 99%] Built target component_storage_component
+[100%] Linking CXX shared library ../../../lib/libhpx_partitioned_vector.so
+[100%] Built target partitioned_vector_component

@@ -1,0 +1,1 @@
+gcc -O3 -DNDEBUG -DHAVE_CONFIG_H -Ibuild/double -I. -Iapi -Ihpx -c /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/transform_check/hpx/transpose-pairwise.c -o /home/dmarce1/workspace/fftw3-hpx/build/qb_remaining/rendezvous_profile/compile_check/hpx-transpose-pairwise.o 

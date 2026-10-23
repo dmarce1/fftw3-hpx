@@ -1,0 +1,84 @@
+{
+  "license": "GPL-2.0-or-later",
+  "status": "PASS",
+  "source_commit": "4cd4e9b9961bf50295df9eb0b905e0bf45a13659",
+  "selected_sources": {
+    "objects/selected_lean/source-hpx-comm.cpp": {
+      "sha256": "cf160a561ec182410f343aa47e04458b8adc4b847a56545e8bd284ef8e43905c",
+      "current_repository_source": "hpx/hpx-comm.cpp",
+      "byte_identical": true
+    },
+    "hpx-comm-check.cpp": {
+      "sha256": "058f61b04748abae744c38e3645ff4a0196963acc9093d0b56bf48b7a25c2160",
+      "current_repository_source": "hpx/hpx-comm-check.cpp",
+      "byte_identical": true
+    },
+    "matched_3d.cpp": {
+      "sha256": "9327f8e3e9bb4a78509e7e12f11c093125dd67cdc0ab6b56fbdb8728fc7c4d41",
+      "current_repository_source": "benchmarks/matched_3d.cpp",
+      "byte_identical": true
+    }
+  },
+  "frozen_input_file_count": 9,
+  "frozen_inputs": [
+    {
+      "path": "confirmation/PREPARATION_CHECKS.txt",
+      "sha256": "ccc29ee33b4a4834bade61784fd1e2b32989e3d1ecb3ccf7b1d763c9b64587e0"
+    },
+    {
+      "path": "confirmation/PROVENANCE.json",
+      "sha256": "09de2c05ad338b7c8abaa0983e3667a2c44098bf94755bd1d4d7e7f60b207d83"
+    },
+    {
+      "path": "confirmation/README.md",
+      "sha256": "8a292b07d0d4b74fbe2c94a451be515b3f113c9cc5545e9ea36ebb44bbc186e3"
+    },
+    {
+      "path": "confirmation/check_lean_ldd.py",
+      "sha256": "dc31da2ca9077ca2b7aff2cdbda2808bf7baf63752ff74a87abc6af06ef5fee9"
+    },
+    {
+      "path": "confirmation/check_members.py",
+      "sha256": "9650bf563074a597ce55c7889fd6ea498984b2c478f59bf1b4dccfbd86b1d864"
+    },
+    {
+      "path": "confirmation/check_results.py",
+      "sha256": "6aecf42e629bc17fb693c8c61b94a3a83e3d1524b25378c8e4f7854b17ad3d5e"
+    },
+    {
+      "path": "confirmation/common.sh",
+      "sha256": "7e448ff02d444810606678a1e47387e22f4e0364d8575538f30210f6e9afd08d"
+    },
+    {
+      "path": "confirmation/job.sbatch",
+      "sha256": "1f4d51a7e85ad3187476c85aab3cbe335d990b12571f0634538a93f9a7e94c86"
+    },
+    {
+      "path": "confirmation/verify_prior.py",
+      "sha256": "643ff5a319e73becd9a584f7cfbd8d1574c130ca74df6c67afa391da33bb7c32"
+    }
+  ],
+  "executed_job_common_provenance_match_frozen_bundle": true,
+  "copied_prior_receipts": {
+    "1125899_FINAL_STATUS": {
+      "sha256": "be08038bec01c357ecf52374e63d185c267a5ddb08c64e9c91d36d5693d28f24",
+      "matches_prior_file": "build/qb_remaining/candidate_evidence/results/1125899/FINAL_STATUS"
+    },
+    "1125899_candidate_comparison.json": {
+      "sha256": "3ef924daefcd33e55517fa29e4056e76494138f391650fbf2cb1e8a2adbb14a9",
+      "matches_prior_file": "build/qb_remaining/candidate_evidence/results/1125899/candidate_comparison.json"
+    },
+    "1125899_artifacts.sha256": {
+      "sha256": "a978cabc4202e49029c2207144d240f97dd58a2dca942265556b7d064dd00897",
+      "matches_prior_file": "build/qb_remaining/candidate_evidence/results/1125899/artifacts.sha256"
+    },
+    "1125899_fixed_inputs.sha256": {
+      "sha256": "8f7371873a98be1251d8c48726ce1e029c58523cf801db33c335426137456c69",
+      "matches_prior_file": "build/qb_remaining/candidate_evidence/results/1125899/fixed_inputs.sha256"
+    }
+  },
+  "same_lean_executable_sendimm_only": true,
+  "all_four_recomputed_comparisons_match_recorded_JSON": true,
+  "checks": "Current source matches are byte checks; remote binary/archive preservation is verified from the executed receipts and manifests.",
+  "independent_review": "A second agent independently checked reuse hashes, ordered archive membership, loader paths, preservation counts and clean job status."
+}

@@ -1,0 +1,570 @@
+--- a/hpx/hpx-comm.cpp
++++ b/hpx/hpx-comm.cpp
+@@ -1,3 +1,4 @@
++/* FFTW_REMAINING_DIAGNOSTIC_PROFILE: temporary snapshot only. */
+ /*
+  * Copyright (c) 2026 Dominic C. Marcello
+  *
+@@ -57,6 +58,7 @@
+ 
+ #include "config.h"
+ #include "hpx-comm.h"
++#include "../benchmarks/remaining_profile.h"
+ 
+ // Isolated rendezvous experiment: publish destinations before readiness,
+ // then initiate eligible remote payloads only after matching peer readiness.
+@@ -86,6 +88,7 @@
+ 
+     char * allocate(size_t const bytes)
+     {
++        FrpScope const profile(FRP_POOL_ALLOCATE, bytes);
+         if (bytes != 0)
+         {
+             std::lock_guard<std::mutex> const lock(mutex);
+@@ -94,25 +97,31 @@
+                 char * const result = cached;
+                 cached = nullptr;
+                 cachedBytes = 0;
++                frp_event(FRP_POOL_HIT, bytes);
+                 return result;
+             }
+         }
+         // A miss never waits for an outstanding Message to release a block.
++        frp_event(FRP_POOL_MISS, bytes);
++        FrpScope const heap(FRP_HEAP_ALLOCATE, bytes);
+         return new char[bytes];
+     }
+ 
+     void deallocate(char * data, size_t const bytes) noexcept
+     {
++        FrpScope const profile(FRP_POOL_DEALLOCATE, bytes);
+         if (bytes != 0)
+         {
+             std::lock_guard<std::mutex> const lock(mutex);
+             if (active && (cached == nullptr || bytes > cachedBytes))
+             {
++                frp_event(FRP_POOL_KEEP, bytes);
+                 std::swap(data, cached);
+                 cachedBytes = bytes;
+             }
+         }
+         // Potentially expensive heap release never holds the pool mutex.
++        if (data != nullptr) { frp_event(FRP_POOL_DELETE, bytes); }
+         delete[] data;
+     }
+ 
+@@ -196,7 +205,10 @@
+ 
+     char * allocate(size_t const bytes)
+     {
+-        return pool ? pool->allocate(bytes) : new char[bytes];
++        if (pool) { return pool->allocate(bytes); }
++        frp_event(FRP_POOL_MISS, bytes);
++        FrpScope const heap(FRP_HEAP_ALLOCATE, bytes);
++        return new char[bytes];
+     }
+ 
+     void deallocate(char * const data, size_t const bytes) noexcept
+@@ -450,6 +462,9 @@
+         data_ = nullptr;
+         archive >> std::get<0>(key_) >> std::get<1>(key_) >> std::get<2>(key_)
+                 >> bytes_ >> requirePosted_ >> allocator_;
++        frp_event(FRP_MESSAGE_LOAD, bytes_);
++        if (bytes_ == 0) { frp_event(FRP_EMPTY_LOAD, 0); }
++        if (requirePosted_) { frp_event(FRP_REQUIRED_POSTED_LOAD, bytes_); }
+         if (bytes_ != 0)
+         {
+             // This can execute on the parcel progress path. Look up once and
+@@ -461,10 +476,12 @@
+             }
+             if (target_)
+             {
++                frp_event(FRP_DIRECT_LOAD, bytes_);
+                 data_ = target_->data;
+             }
+             else
+             {
++                frp_event(FRP_OWNED_LOAD, bytes_);
+                 allocateOwned();
+             }
+             // HPX 1.11's MPI receiver fills this address before it runs the
+@@ -632,7 +649,8 @@
+         }
+         if (data != payload.data())
+         {
+-            std::memcpy(data, payload.data(), bytes);
++            FrpScope const profile(FRP_RECEIVE_COPY, bytes);
++        std::memcpy(data, payload.data(), bytes);
+         }
+     }
+ }
+@@ -683,17 +701,36 @@
+ void runJobs(void * (*work)(char *), char * const jobData,
+              size_t const elementSize, int const jobCount)
+ {
++    FrpScope const profile(FRP_RUN_JOBS);
++    FrpJobs const jobs;
++
+     hpx::execution::parallel_executor const executor(
+         hpx::threads::thread_stacksize::large);
+     std::vector<hpx::future<void>> futures;
+     futures.reserve(static_cast<size_t>(jobCount - 1));
++    {
++    FrpScope const enqueue(FRP_ENQUEUE);
+     for (int job = 0; job < jobCount - 1; ++job)
+     {
+         char * const data = jobData + static_cast<size_t>(job) * elementSize;
+-        futures.push_back(hpx::async(executor, [work, data] { work(data); }));
+-    }
+-    work(jobData + static_cast<size_t>(jobCount - 1) * elementSize);
+-    hpx::wait_all(futures);
++        FrpToken const queued = frp_begin(FRP_QUEUE_DELAY, 0);
++        futures.push_back(hpx::async(executor, [work, data, queued]
++        {
++            frp_end(queued);
++            FrpTask const task;
++            work(data);
++        }));
++    }
++    }
++    {
++        FrpScope const inlineWork(FRP_INLINE_WORK);
++        FrpTask const task;
++        work(jobData + static_cast<size_t>(jobCount - 1) * elementSize);
++    }
++    {
++        FrpScope const wait(FRP_JOIN);
++        hpx::wait_all(futures);
++    }
+ }
+ } // namespace
+ 
+@@ -1012,6 +1049,8 @@
+                                        fftw_hpx_comm const comm)
+ try
+ {
++    FrpScope const profile(FRP_SEPARATE_SEND);
++
+     Group & group = groupOf(comm);
+     size_t const sequenceTag = messageTag(group, destination, tag, true);
+     // get installs a local continuation and returns an HPX future. Destroying
+@@ -1039,6 +1078,8 @@
+                                        fftw_hpx_comm const comm)
+ try
+ {
++    FrpScope const profile(FRP_SEPARATE_RECV);
++
+     Group & group = groupOf(comm);
+     size_t const bytes = byteCount(count, elementSize);
+     size_t const sequenceTag = messageTag(group, source, tag, false);
+@@ -1070,6 +1111,9 @@
+     int const receiveTag, fftw_hpx_comm const comm)
+ try
+ {
++    FrpPhases profile(FRP_EXCHANGE, FRP_EXCHANGE_REST,
++                      byteCount(sendCount, sendSize));
++
+     Group & group = groupOf(comm);
+     size_t const sendBytes = byteCount(sendCount, sendSize);
+     size_t const receivedBytes = byteCount(receiveCount, receiveSize);
+@@ -1080,6 +1124,7 @@
+     // Publish before advertising readiness, and initiate that advertisement
+     // before any wait. All-receive announcements break dependency cycles for
+     // rings and mixed sendrecv/standalone/overlapping-buffer calls.
++    profile.next(FRP_POST_ANNOUNCE);
+     transport::Registration const posted(
+         transport::Key{group.basename, source, receiveSequenceTag}, receiveData,
+         receivedBytes, direct);
+@@ -1090,6 +1135,7 @@
+     auto ready = collectives::get<transport::Readiness>(
+         group.readiness, collectives::that_site_arg(destination),
+         collectives::tag_arg(sendSequenceTag));
++    profile.next(FRP_READY_WAIT);
+     bool requirePosted = false;
+     if (direct)
+     {
+@@ -1102,20 +1148,26 @@
+     }
+     // Self and overlap cases keep eager owned reception and finish the source
+     // send before copying. Their readiness future is consumed without waiting.
++    profile.next(FRP_SEND_INIT);
+     auto sent = collectives::set(
+         group.channel, collectives::that_site_arg(destination),
+         messageBytes(group, destination, sendData, sendBytes, sendSequenceTag,
+                      requirePosted),
+         collectives::tag_arg(sendSequenceTag));
++    profile.next(FRP_RECV_WAIT);
+     auto const incoming = collectives::get<Message>(
+         group.channel, collectives::that_site_arg(source),
+         collectives::tag_arg(receiveSequenceTag))
+                               .get();
+     // Aliased calls never publish a target, so their incoming payload is owned
+     // separately. Finish the referenced send before copying it into the caller.
++    profile.next(FRP_SEND_WAIT);
+     sent.get();
++    profile.next(FRP_RECEIVE_FINISH);
+     receiveBytes(receiveData, receivedBytes, incoming);
++    profile.next(FRP_ANNOUNCE_WAIT);
+     announced.get();
++    profile.next(FRP_EXCHANGE_REST);
+ }
+ catch (...)
+ {
+--- a/benchmarks/matched_3d.cpp
++++ b/benchmarks/matched_3d.cpp
+@@ -1,3 +1,4 @@
++/* FFTW_REMAINING_DIAGNOSTIC_PROFILE: temporary snapshot only. */
+ /*
+  * Copyright (c) 2026 Dominic C. Marcello
+  *
+@@ -50,6 +51,8 @@
+ #include "fftw3-mpi.h"
+ #endif
+ 
++#include "remaining_profile.h"
++
+ namespace
+ {
+ using Clock = std::chrono::steady_clock;
+@@ -435,11 +438,15 @@
+     samples.reserve(static_cast<size_t>(options.samples));
+     for (int sample = 0; sample < options.samples; ++sample)
+     {
++        frp_reset();
+         backend.barrier();
++        frp_sample_begin();
+         auto const begin = Clock::now();
+         fftw_execute(forward);
+         double const localElapsed = std::chrono::duration<double>(Clock::now() - begin).count();
++        frp_sample_end(localElapsed);
+         double const elapsed = backend.maximum(localElapsed);
++        frp_report(Backend::name, backend.rank, sample);
+         samples.push_back(elapsed);
+         if (backend.rank == 0)
+         {
+--- a/threads/threads.c
++++ b/threads/threads.c
+@@ -1,3 +1,4 @@
++/* FFTW_REMAINING_DIAGNOSTIC_PROFILE: temporary snapshot only. */
+ /*
+  * Copyright (c) 2003, 2007-14 Matteo Frigo
+  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+@@ -24,6 +25,7 @@
+ 
+ #include "threads/threads.h"
+ #include "api/api.h"
++#include "../benchmarks/remaining_profile.h"
+ 
+ #if defined(USING_POSIX_THREADS)
+ 
+@@ -277,6 +279,7 @@
+ struct work {
+      spawn_function proc;
+      spawn_data d;
++     FrpToken queued;
+      struct worker *q; /* the worker responsible for performing this work */
+ };
+ 
+@@ -306,7 +309,12 @@
+ 	  if (!w->proc) break;
+ 
+ 	  /* do the work */
+-          w->proc(&w->d);
++          {
++               FrpToken const task = frp_task_begin();
++               frp_end(w->queued);
++               w->proc(&w->d);
++               frp_task_end(task);
++          }
+ 
+ 	  /* signal that work is done */
+ 	  os_sem_up(&ego->done);
+@@ -430,7 +438,9 @@
+           STACK_FREE(sdata);
+      }
+      else {
++          FrpToken const jobs = frp_begin(FRP_RUN_JOBS, 0);
+           struct work *r;
++          frp_jobs_enter();
+           STACK_MALLOC(struct work *, r, sizeof(struct work) * nthr);
+ 
+           /* distribute work: */
+@@ -447,24 +457,39 @@
+ 
+                if (i == nthr - 1) {
+                     /* do the work ourselves */
+-                    proc(d);
++                    {
++                         FrpToken const inline_work = frp_begin(FRP_INLINE_WORK, 0);
++                         FrpToken const task = frp_task_begin();
++                         proc(d);
++                         frp_task_end(task);
++                         frp_end(inline_work);
++                    }
+                } else {
+                     /* assign a worker to W */
++                    FrpToken const enqueue = frp_begin(FRP_ENQUEUE, 0);
+                     w->q = dequeue();
+ 
+                     /* tell worker w->q to do it */
+                     w->q->w = w; /* Dirac could have written this */
++                    w->queued = frp_begin(FRP_QUEUE_DELAY, 0);
+                     os_sem_up(&w->q->ready);
++                    frp_end(enqueue);
+                }
+           }
+ 
++          {
++          FrpToken const join = frp_begin(FRP_JOIN, 0);
+           for (i = 0; i < nthr - 1; ++i) {
+                struct work *w = &r[i];
+                os_sem_down(&w->q->done);
+                enqueue(w->q);
+           }
+ 
++          frp_end(join);
++          }
+           STACK_FREE(r);
++          frp_jobs_leave();
++          frp_end(jobs);
+      }
+ }
+ 
+--- a/hpx/transpose-pairwise.c
++++ b/hpx/transpose-pairwise.c
+@@ -1,3 +1,4 @@
++/* FFTW_REMAINING_DIAGNOSTIC_PROFILE: temporary snapshot only. */
+ /*
+  * Copyright (c) 2003, 2007-14 Matteo Frigo
+  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+@@ -27,6 +28,7 @@
+    processes squared). */
+ 
+ #include "hpx-transpose.h"
++#include "../benchmarks/remaining_profile.h"
+ #include <string.h>
+ 
+ typedef struct {
+@@ -52,6 +54,8 @@
+ 			     fftw_hpx_comm comm,
+ 			     R *I, R *O)
+ {
++     FrpToken const chunks = frp_begin(FRP_PAIRWISE_CHUNKS, 0);
++
+      if (sched) {
+ 	  int i;
+ 
+@@ -59,17 +63,19 @@
+ 	  /* TODO: explore non-synchronous send/recv? */
+ 
+ 	  if (I == O) {
+-	       R *buf = (R*) MALLOC(sizeof(R) * sbs[0], BUFFERS);
++	       FrpToken const allocation = frp_begin(FRP_PAIRWISE_ALLOCATE, sizeof(R) * sbs[0]);
++               R *buf = (R*) MALLOC(sizeof(R) * sbs[0], BUFFERS);
++               frp_end(allocation);
+ 	       
+ 	       for (i = 0; i < n_pes; ++i) {
+ 		    int pe = sched[i];
+ 		    if (my_pe == pe) {
+ 			 if (rbo[pe] != sbo[pe])
+-			      memmove(O + rbo[pe], O + sbo[pe],
++			      frp_memmove(O + rbo[pe], O + sbo[pe],
+ 				      sbs[pe] * sizeof(R));
+ 		    }
+ 		    else {
+-			 memcpy(buf, O + sbo[pe], sbs[pe] * sizeof(R));
++			 frp_memcpy(buf, O + sbo[pe], sbs[pe] * sizeof(R));
+ 			 XM(sendrecv)(buf, (int) (sbs[pe]), sizeof(R),
+ 				      pe, (my_pe * n_pes + pe) & 0x7fff,
+ 				      O + rbo[pe], (int) (rbs[pe]),
+@@ -79,13 +85,17 @@
+ 		    }
+ 	       }
+ 
+-	       X(ifree)(buf);
++	       {
++               FrpToken const release = frp_begin(FRP_PAIRWISE_FREE, 0);
++               X(ifree)(buf);
++               frp_end(release);
++               }
+ 	  }
+ 	  else { /* I != O */
+ 	       for (i = 0; i < n_pes; ++i) {
+ 		    int pe = sched[i];
+ 		    if (my_pe == pe)
+-			 memcpy(O + rbo[pe], I + sbo[pe], sbs[pe] * sizeof(R));
++			 frp_memcpy(O + rbo[pe], I + sbo[pe], sbs[pe] * sizeof(R));
+ 		    else
+ 			 XM(sendrecv)(I + sbo[pe], (int) (sbs[pe]),
+ 				      sizeof(R),
+@@ -97,6 +107,8 @@
+ 	       }
+ 	  }
+      }
++
++     frp_end(chunks);
+ }
+ 
+ static void apply(const plan *ego_, R *I, R *O)
+@@ -107,7 +119,11 @@
+      /* transpose locally to get contiguous chunks */
+      cld1 = (plan_rdft *) ego->cld1;
+      if (cld1) {
+-	  cld1->apply(ego->cld1, I, O);
++	  {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld1->apply(ego->cld1, I, O);
++          frp_end(child);
++          }
+ 	  
+ 	  if (ego->preserve_input) I = O;
+ 
+@@ -138,14 +154,26 @@
+ 	this may take two transposes if the block sizes are unequal
+ 	(3 subplans, two of which operate on disjoint data) */
+      cld2 = (plan_rdft *) ego->cld2;
+-     cld2->apply(ego->cld2, I, O);
++     {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld2->apply(ego->cld2, I, O);
++          frp_end(child);
++          }
+      cld2rest = (plan_rdft *) ego->cld2rest;
+      if (cld2rest) {
+-	  cld2rest->apply(ego->cld2rest,
++	  {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld2rest->apply(ego->cld2rest,
+ 			  I + ego->rest_Ioff, O + ego->rest_Ooff);
++          frp_end(child);
++          }
+ 	  cld3 = (plan_rdft *) ego->cld3;
+ 	  if (cld3)
+-	       cld3->apply(ego->cld3, O, O);
++	       {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld3->apply(ego->cld3, O, O);
++          frp_end(child);
++          }
+ 	  /* else TRANSPOSED_OUT is true and user wants O transposed */
+      }
+ }
+--- a/mpi/transpose-pairwise.c
++++ b/mpi/transpose-pairwise.c
+@@ -1,3 +1,4 @@
++/* FFTW_REMAINING_DIAGNOSTIC_PROFILE: temporary snapshot only. */
+ /*
+  * Copyright (c) 2003, 2007-14 Matteo Frigo
+  * Copyright (c) 2003, 2007-14 Massachusetts Institute of Technology
+@@ -26,6 +27,7 @@
+    processes squared). */
+ 
+ #include "mpi-transpose.h"
++#include "../benchmarks/remaining_profile.h"
+ #include <string.h>
+ 
+ typedef struct {
+@@ -51,6 +53,8 @@
+ 			     MPI_Comm comm,
+ 			     R *I, R *O)
+ {
++     FrpToken const chunks = frp_begin(FRP_PAIRWISE_CHUNKS, 0);
++
+      if (sched) {
+ 	  int i;
+ 	  MPI_Status status;
+@@ -58,17 +62,19 @@
+ 	  /* TODO: explore non-synchronous send/recv? */
+ 
+ 	  if (I == O) {
+-	       R *buf = (R*) MALLOC(sizeof(R) * sbs[0], BUFFERS);
++	       FrpToken const allocation = frp_begin(FRP_PAIRWISE_ALLOCATE, sizeof(R) * sbs[0]);
++               R *buf = (R*) MALLOC(sizeof(R) * sbs[0], BUFFERS);
++               frp_end(allocation);
+ 	       
+ 	       for (i = 0; i < n_pes; ++i) {
+ 		    int pe = sched[i];
+ 		    if (my_pe == pe) {
+ 			 if (rbo[pe] != sbo[pe])
+-			      memmove(O + rbo[pe], O + sbo[pe],
++			      frp_memmove(O + rbo[pe], O + sbo[pe],
+ 				      sbs[pe] * sizeof(R));
+ 		    }
+ 		    else {
+-			 memcpy(buf, O + sbo[pe], sbs[pe] * sizeof(R));
++			 frp_memcpy(buf, O + sbo[pe], sbs[pe] * sizeof(R));
+ 			 MPI_Sendrecv(buf, (int) (sbs[pe]), FFTW_MPI_TYPE,
+ 				      pe, (my_pe * n_pes + pe) & 0x7fff,
+ 				      O + rbo[pe], (int) (rbs[pe]),
+@@ -78,13 +84,17 @@
+ 		    }
+ 	       }
+ 
+-	       X(ifree)(buf);
++	       {
++               FrpToken const release = frp_begin(FRP_PAIRWISE_FREE, 0);
++               X(ifree)(buf);
++               frp_end(release);
++               }
+ 	  }
+ 	  else { /* I != O */
+ 	       for (i = 0; i < n_pes; ++i) {
+ 		    int pe = sched[i];
+ 		    if (my_pe == pe)
+-			 memcpy(O + rbo[pe], I + sbo[pe], sbs[pe] * sizeof(R));
++			 frp_memcpy(O + rbo[pe], I + sbo[pe], sbs[pe] * sizeof(R));
+ 		    else
+ 			 MPI_Sendrecv(I + sbo[pe], (int) (sbs[pe]),
+ 				      FFTW_MPI_TYPE,
+@@ -96,6 +106,8 @@
+ 	       }
+ 	  }
+      }
++
++     frp_end(chunks);
+ }
+ 
+ static void apply(const plan *ego_, R *I, R *O)
+@@ -106,7 +118,11 @@
+      /* transpose locally to get contiguous chunks */
+      cld1 = (plan_rdft *) ego->cld1;
+      if (cld1) {
+-	  cld1->apply(ego->cld1, I, O);
++	  {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld1->apply(ego->cld1, I, O);
++          frp_end(child);
++          }
+ 	  
+ 	  if (ego->preserve_input) I = O;
+ 
+@@ -137,14 +153,26 @@
+ 	this may take two transposes if the block sizes are unequal
+ 	(3 subplans, two of which operate on disjoint data) */
+      cld2 = (plan_rdft *) ego->cld2;
+-     cld2->apply(ego->cld2, I, O);
++     {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld2->apply(ego->cld2, I, O);
++          frp_end(child);
++          }
+      cld2rest = (plan_rdft *) ego->cld2rest;
+      if (cld2rest) {
+-	  cld2rest->apply(ego->cld2rest,
++	  {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld2rest->apply(ego->cld2rest,
+ 			  I + ego->rest_Ioff, O + ego->rest_Ooff);
++          frp_end(child);
++          }
+ 	  cld3 = (plan_rdft *) ego->cld3;
+ 	  if (cld3)
+-	       cld3->apply(ego->cld3, O, O);
++	       {
++          FrpToken const child = frp_begin(FRP_LOCAL_TRANSPOSE, 0);
++          cld3->apply(ego->cld3, O, O);
++          frp_end(child);
++          }
+ 	  /* else TRANSPOSED_OUT is true and user wants O transposed */
+      }
+ }

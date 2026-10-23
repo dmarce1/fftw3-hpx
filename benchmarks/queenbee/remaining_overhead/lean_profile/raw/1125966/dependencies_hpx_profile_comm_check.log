@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "hpx_libraries": [
+    "/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/libhpx.so.1",
+    "/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install/lib64/libhpx_core.so"
+  ],
+  "mpi_libraries": [
+    "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib/libmpi.so.40",
+    "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/lib/libopen-pal.so.80"
+  ],
+  "apex_present": false
+}

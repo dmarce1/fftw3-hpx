@@ -1,0 +1,740 @@
+{
+  "intentional_changes": {
+    "CMAKE_C_FLAGS_RELEASE": {
+      "after": "-O3 -DNDEBUG",
+      "before": null
+    },
+    "CMAKE_EXPORT_COMPILE_COMMANDS": {
+      "after": "ON",
+      "before": ""
+    },
+    "CMAKE_INSTALL_PREFIX": {
+      "after": "/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install",
+      "before": "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install"
+    },
+    "FETCHCONTENT_BASE_DIR": {
+      "after": "/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/build/_deps",
+      "before": "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/build/_deps"
+    },
+    "FETCHCONTENT_FULLY_DISCONNECTED": {
+      "after": "ON",
+      "before": "OFF"
+    },
+    "FETCHCONTENT_SOURCE_DIR_ASIO": {
+      "after": "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/build/_deps/asio-src",
+      "before": ""
+    },
+    "FETCHCONTENT_UPDATES_DISCONNECTED": {
+      "after": "ON",
+      "before": "OFF"
+    },
+    "HPX_WITH_APEX": {
+      "after": "OFF",
+      "before": "ON"
+    },
+    "HPX_WITH_FETCH_APEX": {
+      "after": "OFF",
+      "before": "ON"
+    },
+    "HPX_WITH_IO_COUNTERS": {
+      "after": "OFF",
+      "before": "ON"
+    },
+    "HPX_WITH_LOGGING": {
+      "after": "OFF",
+      "before": "ON"
+    },
+    "HPX_WITH_PARCEL_PROFILING": {
+      "after": "OFF",
+      "before": "ON"
+    },
+    "HPX_WITH_THREAD_CUMULATIVE_COUNTS": {
+      "after": "OFF",
+      "before": "ON"
+    }
+  },
+  "original_cache_sha256": "016c9c20358cddd2bc271db235a259057aa4253087d71231b376e48ad6b52b03",
+  "seed": {
+    "Boost_DIR": [
+      "PATH",
+      "/usr/local/packages/boost/1.83.0/dbicuu5/lib/cmake/Boost-1.83.0"
+    ],
+    "CMAKE_BUILD_TYPE": [
+      "STRING",
+      "Release"
+    ],
+    "CMAKE_CXX_COMPILER": [
+      "STRING",
+      "/usr/local/packages/compilers/gcc/13.2.0/bin/g++"
+    ],
+    "CMAKE_CXX_FLAGS": [
+      "STRING",
+      "-march=native"
+    ],
+    "CMAKE_CXX_FLAGS_RELEASE": [
+      "STRING",
+      "-O3 -DNDEBUG"
+    ],
+    "CMAKE_C_COMPILER": [
+      "STRING",
+      "/usr/local/packages/compilers/gcc/13.2.0/bin/gcc"
+    ],
+    "CMAKE_C_FLAGS": [
+      "STRING",
+      "-march=native"
+    ],
+    "CMAKE_C_FLAGS_RELEASE": [
+      "STRING",
+      "-O3 -DNDEBUG"
+    ],
+    "CMAKE_EXPORT_COMPILE_COMMANDS": [
+      "BOOL",
+      "ON"
+    ],
+    "CMAKE_INSTALL_LIBDIR": [
+      "PATH",
+      "lib64"
+    ],
+    "CMAKE_INSTALL_PREFIX": [
+      "PATH",
+      "/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/install"
+    ],
+    "CMAKE_PREFIX_PATH": [
+      "STRING",
+      "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/jemalloc/install;/work/dmarce1/OctotigerII/packages/relwithdebinfo-hpxdebug/silo/install;/work/dmarce1/OctotigerII/packages/relwithdebinfo-hpxdebug/hdf5/install;/usr/local/packages/hwloc/2.9.1/7ka44tz;/usr/local/packages/boost/1.83.0/dbicuu5"
+    ],
+    "FETCHCONTENT_BASE_DIR": [
+      "PATH",
+      "/work/dmarce1/fftw3_hpx_remaining_20261023/lean_hpx/build/_deps"
+    ],
+    "FETCHCONTENT_FULLY_DISCONNECTED": [
+      "BOOL",
+      "ON"
+    ],
+    "FETCHCONTENT_SOURCE_DIR_ASIO": [
+      "PATH",
+      "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/build/_deps/asio-src"
+    ],
+    "FETCHCONTENT_UPDATES_DISCONNECTED": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_ALLOCATOR_SUPPORT_WITH_CACHING": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_COMMAND_LINE_HANDLING_LOCAL_WITH_JSON_CONFIGURATION_FILES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_COROUTINES_WITH_SWAP_CONTEXT_EMULATION": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_COROUTINES_WITH_THREAD_SCHEDULE_HINT_RUNS_AS_CHILD": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_DATASTRUCTURES_WITH_ADAPT_STD_TUPLE": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_DATASTRUCTURES_WITH_ADAPT_STD_VARIANT": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_FILESYSTEM_WITH_BOOST_FILESYSTEM_COMPATIBILITY": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_ITERATOR_SUPPORT_WITH_BOOST_ITERATOR_TRAVERSAL_TAG_COMPATIBILITY": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_LOGGING_WITH_SEPARATE_DESTINATIONS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_PLATFORM": [
+      "STRING",
+      "native"
+    ],
+    "HPX_SERIALIZATION_WITH_ALLOW_CONST_TUPLE_MEMBERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_SERIALIZATION_WITH_ALLOW_RAW_POINTER_SERIALIZATION": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_SERIALIZATION_WITH_ALL_TYPES_ARE_BITWISE_SERIALIZABLE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_SERIALIZATION_WITH_BOOST_TYPES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_SERIALIZATION_WITH_SUPPORTS_ENDIANESS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_TOPOLOGY_WITH_ADDITIONAL_HWLOC_TESTING": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_AGAS_DUMP_REFCNT_ENTRIES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_APEX": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_APEX_NO_UPDATE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_APEX_REPOSITORY": [
+      "STRING",
+      "https://github.com/STEllAR-GROUP/apex.git"
+    ],
+    "HPX_WITH_APEX_TAG": [
+      "STRING",
+      "hpx_v1.11.0"
+    ],
+    "HPX_WITH_ASIO_TAG": [
+      "STRING",
+      "asio-1-21-0"
+    ],
+    "HPX_WITH_ASYNC_MPI": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_ATTACH_DEBUGGER_ON_TEST_FAILURE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_AUTOMATIC_SERIALIZATION_REGISTRATION": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_BUILD_BINARY_PACKAGE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_CHECK_MODULE_DEPENDENCIES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_COMPILER_WARNINGS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_COMPILER_WARNINGS_AS_ERRORS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_COMPILE_ONLY_TESTS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_COMPRESSION_BZIP2": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_COMPRESSION_SNAPPY": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_COMPRESSION_ZLIB": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_COROUTINE_COUNTERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_CUDA": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_CXX_STANDARD": [
+      "STRING",
+      "20"
+    ],
+    "HPX_WITH_DATAPAR_BACKEND": [
+      "STRING",
+      "NONE"
+    ],
+    "HPX_WITH_DEPRECATION_WARNINGS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_DISABLED_SIGNAL_EXCEPTION_HANDLERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_DISTRIBUTED_RUNTIME": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_DOCUMENTATION": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_DYNAMIC_HPX_MAIN": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_EXAMPLES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_EXAMPLES_HDF5": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_EXAMPLES_OPENMP": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_EXAMPLES_QT4": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_EXAMPLES_QTHREADS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_EXAMPLES_TBB": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_EXECUTABLE_PREFIX": [
+      "STRING",
+      ""
+    ],
+    "HPX_WITH_FAIL_COMPILE_TESTS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_FAULT_TOLERANCE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_FETCH_APEX": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_FETCH_ASIO": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_FETCH_BOOST": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_FETCH_GASNET": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_FETCH_HWLOC": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_FETCH_LCI": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_FETCH_STDEXEC": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_FULL_RPATH": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_GCC_VERSION_CHECK": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_GENERIC_CONTEXT_COROUTINES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_HIDDEN_VISIBILITY": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_HIP": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_HIPSYCL": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_IGNORE_COMPILER_COMPATIBILITY": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_IO_COUNTERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_IO_POOL": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_ITTNOTIFY": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_JEMALLOC_PREFIX": [
+      "STRING",
+      "<none>"
+    ],
+    "HPX_WITH_LCI_TAG": [
+      "STRING",
+      "v1.7.9"
+    ],
+    "HPX_WITH_LOGGING": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_MALLOC": [
+      "STRING",
+      "jemalloc"
+    ],
+    "HPX_WITH_MAX_CPU_COUNT": [
+      "STRING",
+      ""
+    ],
+    "HPX_WITH_MAX_NUMA_DOMAIN_COUNT": [
+      "STRING",
+      "8"
+    ],
+    "HPX_WITH_MODULES_AS_STATIC_LIBRARIES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_NANOBENCH": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_NETWORKING": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_NICE_THREADLEVEL": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PAPI": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARALLEL_LINK_JOBS": [
+      "STRING",
+      "2"
+    ],
+    "HPX_WITH_PARALLEL_TESTS_BIND_NONE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_ACTION_COUNTERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_COUNTERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_GASNET": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_LCI": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_LCI_LOG": [
+      "STRING",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_LCI_PCOUNTER": [
+      "STRING",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_LIBFABRIC": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCELPORT_MPI": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_PARCELPORT_MPI_ENV": [
+      "STRING",
+      "MV2_COMM_WORLD_RANK;PMI_RANK;OMPI_COMM_WORLD_SIZE;ALPS_APP_PE;PMIX_RANK;PALS_NODEID"
+    ],
+    "HPX_WITH_PARCELPORT_MPI_MULTITHREADED": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_PARCELPORT_TCP": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PARCEL_COALESCING": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_PARCEL_PROFILING": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PKGCONFIG": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_POWER_COUNTER": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_PRECOMPILED_HEADERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_RPM": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_RUN_MAIN_EVERYWHERE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_SANITIZERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_SCHEDULER_LOCAL_STORAGE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_SPINLOCK_DEADLOCK_DETECTION": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_SPINLOCK_POOL_NUM": [
+      "STRING",
+      "128"
+    ],
+    "HPX_WITH_STACKOVERFLOW_DETECTION": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_STACKTRACES": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_STACKTRACES_DEMANGLE_SYMBOLS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_STACKTRACES_STATIC_SYMBOLS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_STATIC_LINKING": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_STDEXEC": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_STDEXEC_TAG": [
+      "STRING",
+      "main"
+    ],
+    "HPX_WITH_SUPPORT_NO_UNIQUE_ADDRESS_ATTRIBUTE": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_SYCL": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_SYCL_FLAGS": [
+      "STRING",
+      ""
+    ],
+    "HPX_WITH_TESTS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_BENCHMARKS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_COMMAND_LINE": [
+      "STRING",
+      ""
+    ],
+    "HPX_WITH_TESTS_DEBUG_LOG": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_DEBUG_LOG_DESTINATION": [
+      "STRING",
+      "cout"
+    ],
+    "HPX_WITH_TESTS_EXAMPLES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_EXTERNAL_BUILD": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_HEADERS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_MAX_THREADS_PER_LOCALITY": [
+      "STRING",
+      "0"
+    ],
+    "HPX_WITH_TESTS_REGRESSIONS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TESTS_UNIT": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_BACKTRACE_DEPTH": [
+      "STRING",
+      "20"
+    ],
+    "HPX_WITH_THREAD_BACKTRACE_ON_SUSPENSION": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_CREATION_AND_CLEANUP_RATES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_CUMULATIVE_COUNTS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_DEBUG_INFO": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_DESCRIPTION_FULL": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_GUARD_PAGE": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_THREAD_IDLE_RATES": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_LOCAL_STORAGE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_MANAGER_IDLE_BACKOFF": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_THREAD_QUEUE_WAITTIME": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_STACK_MMAP": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_STEALING_COUNTS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_THREAD_TARGET_ADDRESS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TIMER_POOL": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_TOOLS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_TUPLE_RVALUE_SWAP": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_UNITY_BUILD": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_VALGRIND": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_VERIFY_LOCKS": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_VERIFY_LOCKS_BACKTRACE": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_VIM_YCM": [
+      "BOOL",
+      "OFF"
+    ],
+    "HPX_WITH_WORK_REQUESTING_SCHEDULERS": [
+      "BOOL",
+      "ON"
+    ],
+    "HPX_WITH_ZERO_COPY_SERIALIZATION_THRESHOLD": [
+      "STRING",
+      "8192"
+    ],
+    "Hwloc_INCLUDE_DIR": [
+      "PATH",
+      "/usr/local/packages/hwloc/2.9.1/7ka44tz/include"
+    ],
+    "Hwloc_LIBRARY": [
+      "FILEPATH",
+      "/usr/local/packages/hwloc/2.9.1/7ka44tz/lib/libhwloc.so"
+    ],
+    "Jemalloc_INCLUDE_DIR": [
+      "PATH",
+      "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/jemalloc/install/include"
+    ],
+    "Jemalloc_LIBRARY": [
+      "FILEPATH",
+      "/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/jemalloc/install/lib/libjemalloc.so"
+    ],
+    "MPI_CXX_COMPILER": [
+      "FILEPATH",
+      "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpicxx"
+    ],
+    "MPI_HOME": [
+      "STRING",
+      "/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install"
+    ]
+  },
+  "source_commit": "c9b81b401fbe6ba4a0306feff71d18ef01c71b34"
+}

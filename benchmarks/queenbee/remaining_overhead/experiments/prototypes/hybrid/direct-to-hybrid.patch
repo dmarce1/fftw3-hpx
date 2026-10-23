@@ -1,0 +1,282 @@
+--- a/hpx/hpx-comm.cpp
++++ b/hpx/hpx-comm.cpp
+@@ -58,10 +58,200 @@
+ #include "config.h"
+ #include "hpx-comm.h"
+ 
++// Isolated hybrid experiment: direct destinations with epoch-scoped pooled
++// ownership for early-message fallbacks and self copies.
++#if defined(FFTW_SINGLE)
++namespace fftwf_hpx_pool_transport
++#elif defined(FFTW_LDOUBLE)
++namespace fftwl_hpx_pool_transport
++#else
++namespace fftw_hpx_pool_transport
++#endif
++{
++// Experimental receive allocation cache. Each precision owns a separate pool
++// and retains at most one idle block, no larger than its largest returned block.
++// Blocks still owned by a Message are never available for reuse.
++struct ReceivePool
++{
++    size_t const epoch;
++
++    explicit ReceivePool(size_t const value) : epoch(value)
++    {
++    }
++
++    ~ReceivePool()
++    {
++        delete[] cached;
++    }
++
++    char * allocate(size_t const bytes)
++    {
++        if (bytes != 0)
++        {
++            std::lock_guard<std::mutex> const lock(mutex);
++            if (active && cached != nullptr && cachedBytes == bytes)
++            {
++                char * const result = cached;
++                cached = nullptr;
++                cachedBytes = 0;
++                return result;
++            }
++        }
++        // A miss never waits for an outstanding Message to release a block.
++        return new char[bytes];
++    }
++
++    void deallocate(char * data, size_t const bytes) noexcept
++    {
++        if (bytes != 0)
++        {
++            std::lock_guard<std::mutex> const lock(mutex);
++            if (active && (cached == nullptr || bytes > cachedBytes))
++            {
++                std::swap(data, cached);
++                cachedBytes = bytes;
++            }
++        }
++        // Potentially expensive heap release never holds the pool mutex.
++        delete[] data;
++    }
++
++    void disable() noexcept
++    {
++        char * discarded = nullptr;
++        {
++            std::lock_guard<std::mutex> const lock(mutex);
++            active = false;
++            std::swap(discarded, cached);
++            cachedBytes = 0;
++        }
++        delete[] discarded;
++    }
++
++private:
++    std::mutex mutex;
++    char * cached = nullptr;
++    size_t cachedBytes = 0;
++    bool active = true;
++};
++
++struct ReceivePoolRegistry
++{
++    std::mutex mutex;
++    std::shared_ptr<ReceivePool> current;
++};
++
++ReceivePoolRegistry & receivePoolRegistry()
++{
++    static ReceivePoolRegistry registry;
++    return registry;
++}
++
++std::shared_ptr<ReceivePool> currentReceivePool()
++{
++    auto & registry = receivePoolRegistry();
++    std::lock_guard<std::mutex> const lock(registry.mutex);
++    return registry.current;
++}
++
++std::shared_ptr<ReceivePool> receivePoolForEpoch(size_t const epoch)
++{
++    auto pool = currentReceivePool();
++    return pool && pool->epoch == epoch ? pool : nullptr;
++}
++
++void startReceivePool(size_t const epoch)
++{
++    auto pool = std::make_shared<ReceivePool>(epoch);
++    auto & registry = receivePoolRegistry();
++    std::lock_guard<std::mutex> const lock(registry.mutex);
++    assert(!registry.current);
++    registry.current = std::move(pool);
++}
++
++void stopReceivePool()
++{
++    std::shared_ptr<ReceivePool> previous;
++    {
++        auto & registry = receivePoolRegistry();
++        std::lock_guard<std::mutex> const lock(registry.mutex);
++        previous = std::move(registry.current);
++    }
++    if (previous)
++    {
++        // Outstanding allocators retain this disabled epoch. Their late
++        // deallocations go to the heap instead of refilling any cache.
++        previous->disable();
++    }
++}
++
++class ReceiveAllocator
++{
++public:
++    using value_type = char;
++
++    ReceiveAllocator() : pool(currentReceivePool()), epoch(pool ? pool->epoch : 0)
++    {
++    }
++
++    char * allocate(size_t const bytes)
++    {
++        return pool ? pool->allocate(bytes) : new char[bytes];
++    }
++
++    void deallocate(char * const data, size_t const bytes) noexcept
++    {
++        if (pool)
++        {
++            pool->deallocate(data, bytes);
++        }
++        else
++        {
++            delete[] data;
++        }
++    }
++
++    bool operator==(ReceiveAllocator const & other) const noexcept
++    {
++        return pool == other.pool;
++    }
++
++    bool operator!=(ReceiveAllocator const & other) const noexcept
++    {
++        return !(*this == other);
++    }
++
++private:
++    friend class hpx::serialization::access;
++
++    template <typename Archive>
++    void save(Archive & archive, unsigned int const) const
++    {
++        // Never send a pointer or an allocator's process-local shared state.
++        archive << epoch;
++    }
++
++    template <typename Archive>
++    void load(Archive & archive, unsigned int const)
++    {
++        archive >> epoch;
++        // A delayed old-epoch parcel must not repopulate a newer pool.
++        pool = receivePoolForEpoch(epoch);
++    }
++
++    HPX_SERIALIZATION_SPLIT_MEMBER()
++
++    std::shared_ptr<ReceivePool> pool;
++    size_t epoch;
++};
++
++} // namespace: unique transport types for each precision
++
+ // Precision-specific external type names keep HPX action registrations distinct
+ // when a program links several precision libraries into the same process.
+ namespace FFTW_HPX_COMM_FN(transport)
+ {
++namespace pool_transport = FFTW_HPX_COMM_FN(pool_transport);
+ using Key = std::tuple<std::string, int, size_t>;
+ 
+ struct Target
+@@ -165,6 +355,7 @@
+     Key key_;
+     size_t bytes_ = 0;
+     char * data_ = nullptr;
++    pool_transport::ReceiveAllocator allocator_;
+     std::shared_ptr<char[]> owned_;
+     std::shared_ptr<Target> target_;
+ 
+@@ -185,8 +376,7 @@
+         }
+         if (copy)
+         {
+-            owned_.reset(new char[bytes]);
+-            data_ = owned_.get();
++            allocateOwned();
+             std::memcpy(data_, data, bytes);
+         }
+         else
+@@ -213,11 +403,24 @@
+ private:
+     friend class hpx::serialization::access;
+ 
++    void allocateOwned()
++    {
++        // Every shared Message copy retains this deleter's allocator/epoch.
++        // Only the last owner can return the payload to its original pool.
++        owned_ = std::shared_ptr<char[]>(
++            allocator_.allocate(bytes_),
++            [allocator = allocator_, bytes = bytes_](char * const data) mutable noexcept
++            {
++                allocator.deallocate(data, bytes);
++            });
++        data_ = owned_.get();
++    }
++
+     template <typename Archive>
+     void save(Archive & archive, unsigned int) const
+     {
+         archive << std::get<0>(key_) << std::get<1>(key_) << std::get<2>(key_)
+-                << bytes_;
++                << bytes_ << allocator_;
+         if (bytes_ != 0)
+         {
+             archive << hpx::serialization::make_array(data(), bytes_);
+@@ -231,7 +434,7 @@
+         target_.reset();
+         data_ = nullptr;
+         archive >> std::get<0>(key_) >> std::get<1>(key_) >> std::get<2>(key_)
+-                >> bytes_;
++                >> bytes_ >> allocator_;
+         if (bytes_ != 0)
+         {
+             // This can execute on the parcel progress path. Look up once and
+@@ -243,8 +446,7 @@
+             }
+             else
+             {
+-                owned_.reset(new char[bytes_]);
+-                data_ = owned_.get();
++                allocateOwned();
+             }
+             // HPX 1.11's MPI receiver fills this address before it runs the
+             // channel set action. Without zero-copy reception, load copies
+@@ -486,6 +688,7 @@
+         assert(worldEpoch < std::numeric_limits<size_t>::max());
+         std::string const basename = std::string(precisionPrefix) + "/world/e" +
+             std::to_string(++worldEpoch);
++        transport::pool_transport::startReceivePool(worldEpoch);
+         world = std::make_unique<fftw_hpx_comm_s>();
+         world->group = std::make_shared<Group>(basename, rank, std::move(members));
+     }
+@@ -499,6 +702,7 @@
+ try
+ {
+     transport::ensureNoReceives();
++    transport::pool_transport::stopReceivePool();
+     splitGroups.clear();
+     world.reset();
+ }
