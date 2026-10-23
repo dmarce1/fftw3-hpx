@@ -44,7 +44,9 @@ libbench2 $(CHICKEN_EGG) tests mpi hpx $(DOCDIR) tools m4
 EXTRA_DIST=COPYRIGHT bootstrap.sh CONVENTIONS fftw.pc.in	\
 CMakeLists.txt cmake.config.h.in FFTW3Config.cmake.in		\
 FFTW3ConfigVersion.cmake.in README-perfcnt.md \
-benchmarks/matched_3d.cpp benchmarks/README.md
+benchmarks/matched_3d.cpp benchmarks/README.md \
+benchmarks/hpx_cmake_flags.py benchmarks/summarize.py \
+benchmarks/queenbee/job.sbatch
 
 SIMD_LIBS = simd-support/libsimd_support.la
 

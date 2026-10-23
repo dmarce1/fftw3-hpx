@@ -51,6 +51,25 @@ work runs on a large-stack HPX thread and its independent statistics
 communicator does not consume FFTW communicator generations. `--threads`
 must equal the HPX worker count.
 
+`summarize.py MPI_LOG HPX_LOG` checks complete successful outputs, matching
+problem parameters, and the reported statistics before emitting a JSON
+comparison. It also compares the printed plans after replacing the transport
+prefix. The reported ratio is HPX median time divided by MPI median time;
+values above one mean HPX took longer.
+
+For an installed HPX with pkg-config metadata disabled,
+`hpx_cmake_flags.py HPX_PREFIX OUTPUT_DIR` evaluates its exported CMake
+dependency targets and writes `OUTPUT_DIR/hpx-flags.sh`. Source that file to
+set the four HPX compiler/linker variables before running FFTW's autotools
+configure. Additional CMake `-D` arguments can select the matching compiler
+and MPI installation. CMake is used only to inspect dependency metadata;
+FFTW is still built with autotools. The application target uses explicit
+`hpx::init` and does not wrap `main`.
+
+`queenbee/job.sbatch` records the four-node QueenBee job configuration. Its
+paths identify the installation and source bundle used for that experiment;
+they must be adjusted before using the script on another installation.
+
 ## Build from one configured FFTW tree
 
 Set `PKG_CONFIG_PATH` to the chosen HPX installation before configuring and
