@@ -1,0 +1,3 @@
+# Preserve unedited benchmark output and command records.
+*.log -whitespace
+*.command -whitespace

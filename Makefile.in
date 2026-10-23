@@ -502,7 +502,29 @@ CMakeLists.txt cmake.config.h.in FFTW3Config.cmake.in		\
 FFTW3ConfigVersion.cmake.in README-perfcnt.md \
 benchmarks/matched_3d.cpp benchmarks/README.md \
 benchmarks/hpx_cmake_flags.py benchmarks/summarize.py \
-benchmarks/queenbee/job.sbatch
+benchmarks/queenbee/job.sbatch \
+benchmarks/queenbee/README.md \
+benchmarks/queenbee/1125135/.gitattributes \
+benchmarks/queenbee/1125135/FINAL_STATUS \
+benchmarks/queenbee/1125135/SHA256SUMS \
+benchmarks/queenbee/1125135/SOURCE_COMMIT \
+benchmarks/queenbee/1125135/accounting.txt \
+benchmarks/queenbee/1125135/benchmark_hpx.command \
+benchmarks/queenbee/1125135/benchmark_hpx.log \
+benchmarks/queenbee/1125135/benchmark_mpi.command \
+benchmarks/queenbee/1125135/benchmark_mpi.log \
+benchmarks/queenbee/1125135/binary_sha256.txt \
+benchmarks/queenbee/1125135/build.command \
+benchmarks/queenbee/1125135/comparison.json \
+benchmarks/queenbee/1125135/compile_hpx.command \
+benchmarks/queenbee/1125135/compile_mpi.command \
+benchmarks/queenbee/1125135/configure.command \
+benchmarks/queenbee/1125135/hpx-flags.json \
+benchmarks/queenbee/1125135/input_sha256.txt \
+benchmarks/queenbee/1125135/installed_hpx_config.txt \
+benchmarks/queenbee/1125135/metadata.txt \
+benchmarks/queenbee/1125135/node_inventory.log \
+benchmarks/queenbee/1125135/nodes.txt
 
 SIMD_LIBS = simd-support/libsimd_support.la
 @HAVE_SSE2_TRUE@SSE2_LIBS = dft/simd/sse2/libdft_sse2_codelets.la	\

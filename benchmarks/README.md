@@ -70,6 +70,9 @@ FFTW is still built with autotools. The application target uses explicit
 paths identify the installation and source bundle used for that experiment;
 they must be adjusted before using the script on another installation.
 
+The [completed QueenBee comparison](queenbee/README.md) records the 1024³
+result, full plans, correctness checks, and seven timing samples per backend.
+
 ## Build from one configured FFTW tree
 
 Set `PKG_CONFIG_PATH` to the chosen HPX installation before configuring and

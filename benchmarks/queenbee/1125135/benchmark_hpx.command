@@ -1,0 +1,2 @@
+cd /work/dmarce1/fftw3_hpx_benchmark_20261022/build
+/work/dmarce1/OctotigerII/packages/openmpi-5.0.11-gcc13.2/install/bin/mpiexec -n 4 --map-by ppr:1:node --bind-to none /usr/bin/numactl --interleave=all /work/dmarce1/fftw3_hpx_benchmark_20261022/build/matched_3d_hpx --hpx:ignore-batch-env --hpx:localities=4 --hpx:threads=64 --hpx:bind=none --hpx:ini=hpx.parcel.mpi.enable=1 --hpx:ini=hpx.parcel.mpi.priority=1000 --hpx:ini=hpx.parcel.tcp.enable=0 --hpx:ini=hpx.parcel.bootstrap=mpi --size=1024 --threads=64 --warmups=2 --samples=7 

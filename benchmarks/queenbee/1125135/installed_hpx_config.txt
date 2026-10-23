@@ -1,0 +1,13 @@
+Installed HPX configuration queried through the existing connection after job completion.
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/defines.hpp:119:#define HPX_HAVE_PARCELPORT_MPI
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/defines.hpp:120:#define HPX_HAVE_PARCELPORT_MPI_ENV "MV2_COMM_WORLD_RANK,PMI_RANK,OMPI_COMM_WORLD_SIZE,ALPS_APP_PE,PMIX_RANK,PALS_NODEID"
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/defines.hpp:121:#define HPX_HAVE_PARCELPORT_MPI_MULTITHREADED
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/config_strings.hpp:40:            "HPX_WITH_PARCELPORT_MPI=ON",
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/config_strings.hpp:41:            "HPX_WITH_PARCELPORT_MPI_MULTITHREADED=ON",
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/config_strings.hpp:42:            "HPX_WITH_PARCELPORT_TCP=OFF",
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/include/hpx/config/config_strings.hpp:63:            "HPX_WITH_THREAD_STACK_MMAP=OFF",
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake:225:set(HPX_WITH_PARCELPORT_MPI ON)
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake:226:set(HPX_WITH_PARCELPORT_MPI_ENV MV2_COMM_WORLD_RANK;PMI_RANK;OMPI_COMM_WORLD_SIZE;ALPS_APP_PE;PMIX_RANK;PALS_NODEID)
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake:227:set(HPX_WITH_PARCELPORT_MPI_MULTITHREADED ON)
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake:228:set(HPX_WITH_PARCELPORT_TCP OFF)
+/work/dmarce1/OctotigerII/experiments/isolated-solvers-2026-09-30/source/packages/release/hpx/install/lib64/cmake/HPX/HPXCacheVariables.cmake:284:set(HPX_WITH_THREAD_STACK_MMAP OFF)

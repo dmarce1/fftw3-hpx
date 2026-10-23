@@ -8,6 +8,8 @@ large-stack threads. Configure with --enable-hpx --enable-threads and the HPX
 pkg-config path; double, single and long-double precision are supported.
 See hpx/README.md for the SPMD application contract and build/test commands,
 and hpx/VALIDATION.md for source provenance, exact checks and local results.
+The matched 1024-cubed QueenBee comparison and raw timing evidence are in
+benchmarks/queenbee/README.md (MPI 3.325 s; HPX 13.417 s median).
 
 This repository starts from the official release tarball, including its
 already-generated codelets:
